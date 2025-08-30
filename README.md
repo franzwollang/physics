@@ -95,20 +95,20 @@ These are not proofs but **hunches and narrative outlines** of how solutions to 
 
 The following drafts turn these hunches into more concrete frameworks, addressing key aspects:
 
-### Spacetime from First Principles
+### Spacetime from First Principles: Free-Energy Foundations on the Infinite-Clique Graph
 
 - **Single substance** → Concrete: An infinite clique of real‑valued nodes with a volume‑normalized free‑energy functional avoids dualism while generating rich emergent structure.
 - **3D as fixed point** → Concrete: Spectral dimension emerges as a statistical fixed point at d\*=3 from minimizing an information‑theoretic cost functional, not assumed a priori.
 - **Bell's theorems and locality** → Concrete: Entanglement as phase‑link hysteresis breaks locality in a higher‑dimensional sense (phase bundle) while preserving relativistic causality and no‑signalling, allowing realism + determinism.
 - **Evolutionary Picture of Physics** → Concrete: The extremization principle over graph links produces vacuum self‑organization and emergent locality, and measurable correlations with predictable lifetimes.
 
-### Relativity from the Soliton–Noise Framework
+### A Sea of Noise: Relativity from a Thermodynamic Force in Scale-Space
 
 - **Particles as solitons** → Concrete: Matter emerges as localized amplitude excitations of a single complex field; radiation as massless phase waves. Internal structure without losing universal kinematics.
 - **Gravitational potential recast** → Concrete: Scale‑space thermodynamics makes solitons shrink in higher noise regions, creating an attractive force toward \(\nabla\tau\). This replaces global pairwise bookkeeping with a local free‑energy density: define an effective potential Φ\*eff(x) ∝ E_eq(τ(x)), so F = −∇Φ_eff(x).
 - **Conformal framework** → Concrete: Local units co‑scale with the field's equilibrium parameters, making dimensionless physics approximately invariant under observational window changes.
 
-### Scale‑Downshifting as a Unified Origin
+### Scale-Downshifting as a Unified Origin for Dark Matter and Dark Energy
 
 - **Fractal universe** → Concrete: A static, scale‑free vacuum spectrum \(S(k)\) accessed through a sliding observational window reconciles an eternal background with local Big Bang phenomenology. Dark matter and dark energy emerge as spatial vs temporal responses to the same noise field, avoiding Occam's razor violations.
 
