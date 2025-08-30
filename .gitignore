@@ -1,0 +1,25 @@
+# Ignore everything by default
+*
+
+# But keep this .gitignore file
+!.gitignore
+
+# Allow directory structure so nested whitelists can work
+!*/
+
+# Whitelist
+!README.md
+
+!/papers/Infinite-Clique Graph/one-pager.md
+!/papers/Infinite-Clique Graph/paper.tex
+!/papers/Infinite-Clique Graph/paper.pdf
+!/papers/Infinite-Clique Graph/SI.tex
+!/papers/Infinite-Clique Graph/SI.tex
+
+!/papers/Gravity/one-pager.md
+!/papers/Gravity/paper.tex
+!/papers/Gravity/paper.pdf
+!/papers/Gravity/SI.tex
+!/papers/Gravity/SI.tex
+
+

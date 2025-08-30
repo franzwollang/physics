@@ -1,0 +1,415 @@
+% !TeX program = pdflatex
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xr-hyper}
+\externaldocument{SI}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\usepackage{fancyhdr}
+
+% Footer marking the draft status
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\small Draft — version posted to Zenodo on 2025-08-29}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\title{A Sea of Noise: Relativity from a Thermodynamic Force in Scale-Space \, (\textit{Draft})}
+\author{Franz Wollang\\ \small Independent Researcher}
+\date{\small Dated: 2025-08-29}
+
+\begin{document}
+\maketitle
+
+% Prominent draft disclaimer box
+\begin{center}
+\setlength{\fboxsep}{8pt}%
+\fbox{\parbox{0.92\textwidth}{\centering\bfseries DRAFT — NOT FOR CITATION\\[4pt]
+This is a preliminary working version posted for discussion and feedback. Content may change significantly before formal submission.}}
+\end{center}
+\vspace{1em}
+
+\begin{abstract}
+We present a self-contained derivation of relativistic physics from a pre-geometric, single-field foundation. In this framework, matter and radiation emerge as localized amplitude--phase and phase-only excitations (solitons) of a complex order parameter. The universal dynamics of the phase sector induce a single, constant-speed light cone and an effective metric for all matter, establishing a basis for local Lorentz invariance and the equivalence principle. We then show that the attractive force between solitons has a thermodynamic origin: it arises from a scale-space free energy that compels localized excitations to move toward regions of higher background noise. In the weak-field, non-relativistic limit, the superposition of these interactions recovers the Newtonian $1/r$ potential, allowing a calibration of $G$. With the metric and force law established, the principles of covariance and conservation select the Einstein field equations as the unique low-energy description of the metric's dynamics. Finally, we show that while Lorentzian kinematics already make $c_s$ an unattainable speed limit, forced (non-geodesic) motion induces an additional dissipative drag. This self-force, sourced by an Unruh-like effective thermal bath, vanishes on geodesics and further suppresses any approach to the universal signal speed under sustained proper acceleration. This provides a unified picture of relativistic kinematics and dynamics as emergent phenomena, with technical derivations collected in appendices.
+\end{abstract}
+
+\section{Introduction and Scope}
+Relativistic physics is usually \emph{assumed}: one postulates a Lorentzian spacetime and universal gravitational coupling, then builds dynamics on top. This paper takes the opposite route. We show that the familiar structures—light cone, effective metric, Newtonian window, and (ultimately) Einstein dynamics—\emph{emerge} from a single-field, continuum description with minimal ingredients.
+
+Two guiding principles structure what follows:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Universal phase cone (kinematics).} Outside localized cores, the phase sector of the field carries a single characteristic speed $c_s$ and a Lorentzian principal symbol. This fixes local Lorentz kinematics and underwrites metric universality.
+  \item \textbf{Conformal covariance in local units (interpretation).} Predictions are stated in local units set by stabilized solitons (rulers/clocks). Under admissible changes of the observational window (SI Section~\ref{si:window}), these units co-scale. Dimensionful couplings drift, but dimensionless laws and ratios remain approximately invariant; bound systems decouple from homogeneous drifts at leading order.
+\end{itemize}
+
+The framework is economical. A single complex order parameter, $\Psi=w\,e^{i\phi}$, supports two generic excitations: \emph{massive} solitons (amplitude+phase) and \emph{massless} radiation (phase-only). The dynamics of the massless phase sector define a universal light cone with a single characteristic speed, $c_s$. In the geometric--optics limit on slowly varying backgrounds, all excitations follow null geodesics of an effective metric $g_{\mu\nu}(x)$ induced by this phase structure, which is the origin of the weak equivalence principle.
+
+The background is not passive. Matter \emph{sources} a stochastic, scalar-like "noise" field whose local intensity we capture by a proxy $\tau(x)$ (with $\tau^2\propto\rho_N$); we write $\chi(\rho_N)$ for the \emph{coordinate} refractive index of the phase sector, so coordinate speeds vary as $c_s/\chi(\rho_N)$ while locally measured light speed remains $c_s$ by co-scaling of rulers and clocks. Localized solitons raise $\tau$ through their cores and surrounding phase gradients; relaxation through the universal phase channel spreads this into a smooth profile with range set by the amplitude screening length $\ell=\sqrt{\alpha_{\rm grad}/(2\beta_{\rm pot})}$. In weak, static configurations, profiles superpose approximately linearly to give a background $\tau_{\rm bg}(x)$ that we later calibrate to the Newtonian potential via $\tau_{\rm bg}^2\propto\Phi$. A simple scale–space free energy then drives solitons down $\nabla\tau$, furnishing an attractive force consistent with the Newtonian window and metric universality.
+
+\paragraph{Relation to microfoundations.} This continuum account is self\,contained and can be read on its own, but it is designed to be consistent with the Infinite-Clique Graph (ICG) foundations paper (Wollang, 2025). Reading this paper is recommended for clarity and provenance of assumptions, though not strictly necessary for the results presented here. If doubts or questions arise about the underlying assumptions, mechanisms, or scaling limits, they should be investigated in the foundations paper first before inferring large gaps in the present continuum narrative.
+
+\paragraph{Roadmap.} We first classify matter and radiation from the free energy and derive the universal light cone and metric (Sections 2–4). We then establish the Newtonian window and the scale–space force (Sections 5–7), motivate an effective metric action from phase fluctuations (Section 8), and show how stress–energy, conservation, and the Newtonian limit single out the Einstein equations (Section 9). Finally, we discuss kinematics—massless propagation at $c_s$ and the \emph{non\,geodesic} drag that further suppresses approaches to $c_s$—and outline observational consequences (Sections 10–11).
+
+This account is deliberately continuum\,first. The sliding\,window formalism that underlies the conformal interpretation appears in SI Section~\ref{si:window}; we reference it where needed but keep the main line uncluttered.
+
+\section{The Continuum Framework: Matter, Radiation, and Local Units}
+We begin from a single continuum ingredient: a coarse-grained free-energy functional for a complex order parameter $\Psi = w\,e^{i\phi}$. From this minimal law, we first derive the two generic classes of excitation—massive solitons and massless radiation. We then establish the interpretive principle of local units, which is essential for reconciling the framework's predictions with observation.
+
+\paragraph{Matter and radiation from the free energy.}
+A central requirement for any unified account is to explain the observed dichotomy between massive, localized matter and massless radiation. In this framework, both emerge as distinct solutions of a single functional. This functional is not postulated, but is a coarse-grained representation of the underlying microdynamics developed in the foundations paper (ICG, Secs.~S1–S3). A minimal form consistent with gauge and rotational symmetries is
+\begin{equation}
+  \mathcal F[w,\phi] = \underbrace{\alpha_{\rm grad}\,|\nabla w|^2}_{\text{Amplitude stiffness}} + \underbrace{\frac{\kappa}{2}\,w^2\,|\nabla\phi|^2}_{\text{Phase stiffness}} + \underbrace{V(w)}_{\text{Potential}},\qquad V(w) = -\beta_{\rm pot}\,w^2 + \gamma\,w^4.
+\end{equation}
+The potential's Mexican-hat form drives spontaneous symmetry breaking, yielding a massive amplitude mode ($w$) that localizes into solitons and a massless Goldstone phase mode ($\phi$) that propagates universally. (A compact derivation is given in Appendix~\ref{app:free_energy_solutions}). This emergent dichotomy underpins the causal structure and dynamics that follow.
+
+\paragraph{The principle of local units.}
+Having established the two excitation types, we must define the units in which they are measured. All predictions are stated in \emph{local units} set by the rulers and clocks of stabilized solitons. Under admissible changes of the observational window (SI Section~\ref{si:window}), these units co-scale, so dimensionful parameters vary while \emph{dimensionless} ratios and laws remain approximately invariant. This principle of conformal covariance is essential for interpreting the physics.
+
+\section{Universal Kinematics: Light Cone, Metric, and Equivalence Principle}
+Given the decomposition $\Psi=w\,e^{i\phi}$ and the presence of a massless angular sector at $w\approx w_*$, the phase dynamics govern signal propagation and the causal structure. The quadratic phase action fixes both the characteristic speed and the Lorentzian principal symbol.
+
+\subsection{Hyperbolic action and $c_s$}
+Starting from $S_\phi = (\kappa w_*^2/2)\int \eta^{\mu\nu} \partial_\mu\phi\,\partial_\nu\phi\,d^4x$, the principal symbol is hyperbolic with characteristic speed $c_s = \sqrt{\kappa}\,w_*$. Linear perturbations satisfy $\partial_t^2\phi - c_s^2\,\nabla^2\phi = 0$ in local inertial charts.
+
+Applying the Euler--Lagrange equations to $S_\phi$ yields the wave equation
+\begin{equation}
+  \partial_t^2\phi - c_s^2\,\nabla^2\phi = 0,\qquad c_s^2 = \kappa w_*^2.
+\end{equation}
+For plane waves $\phi \propto e^{i(\mathbf k\cdot \mathbf x - \omega t)}$ one obtains the dispersion relation
+\begin{equation}
+  \omega^2 = c_s^2\,|\mathbf k|^2,\label{eq:dispersion}
+\end{equation}
+which fixes the light-cone structure in the phase sector.
+
+\subsection{Local Lorentz invariance}
+Co-variation of $\kappa$ and $w_*$ renders $c_s$ locally invariant in soliton units. The invariance group preserving the principal symbol is the Lorentz group, fixing local kinematics without a preferred frame.
+See Appendix~\ref{app:disccont} for the discrete-to-continuum mapping and the Laplace--Beltrami identification of the induced metric operator.
+
+\subsection{Effective Metric and the Weak Equivalence Principle}
+In the eikonal limit ($\phi = S/\hbar$ with rapidly varying phase), the Hamilton--Jacobi/eikonal equation reads
+\begin{equation}
+  g^{\mu\nu}\,\partial_\mu S\,\partial_\nu S = 0.
+\end{equation}
+Rays therefore follow null geodesics of an effective metric $g_{\mu\nu}$ induced by the phase kernel (Laplace--Beltrami mapping on near-regular subgraphs; Appendix~\ref{app:disccont}). Because the phase channel is composition-independent, all excitations couple to the same metric and hence follow the same geodesics. This is precisely the weak equivalence principle in this framework. Coordinate (``God's-eye'') speeds may vary through $\chi(\rho_N)$, while local measurements remain tied to $c_s$ by co-scaling of rulers and clocks (SI Section~\ref{si:window}), reconciling index gradients with local Lorentz invariance.
+
+\section{Two Roles of the Phase Field: Metric Geometry and Dynamic Forces}
+Having established that the phase sector's dynamics define the universal kinematic stage—the metric—we now show how the same field also generates dynamic forces. The distinction lies in how the phase structure is coarse-grained.
+
+
+\paragraph{Kinematic geometry (universal metric).}
+Small and incoherent phase fluctuations establish the universal light cone and the effective metric. This geometric structure is universal and composition‑independent, fixing the causal arena in which all excitations propagate.
+
+\paragraph{Dynamic forces (gravity and U(1)).}
+Large‑scale phase organisation sources forces within that arena. Gravity appears as a thermodynamic response: solitons adapt conformally to the \emph{background} noise intensity $\tau(x)$ and move down its gradients, $\nabla\tau$ (Section~\ref{sec:scalespace}).
+\begin{equation*}
+  \mathbf F \;=\; -\nabla E_{\rm eq}(x) \;\propto\; -\nabla\Phi(x)
+\end{equation*}
+By contrast, U(1) gauge behaviour arises from \emph{coherent}, topological organisation of the same phase field into codimension‑1 kink sheets. A brief justification: (i) a $2\pi$ phase jump across a sheet defines a conserved topological winding; sheet endpoints coincide with amplitude cores, yielding quantized sources/sinks; (ii) counting net sheet crossings through a closed surface gives a Gauss law, forcing $|\mathbf E|\propto 1/r^2$ and a $1/r$ potential for isolated sources; (iii) Lorentz covariance of the phase action assembles the coarse fields into $F_{\mu\nu}$ with wave speed $c_s$, reproducing Maxwell structure in local units.
+\begin{equation*}
+  \oint_{\partial V} \mathbf E\cdot d\mathbf S \;\propto\; N_{\rm sheet}(\partial V),\qquad |\mathbf E|\propto \frac{1}{r^2}
+\end{equation*}
+Here the phase field acts as an information‑bearing carrier rather than a bath.
+
+Thus no additional substrates are required: gravity and gauge forces are two complementary faces of the same phase sector—background (incoherent) versus organized (coherent/topological). Both respect the universal cone $c_s$ and the conformal local-units viewpoint used throughout.
+
+\noindent No separate long-range mediator beyond the phase sector is introduced; the U(1) behaviour arises as a coherent/topological organisation of the same phase field. A full constitutive mapping (fields and constants) is deferred to future work; only the structural ingredients required here are used.
+
+
+\section{Scale--Space Free Energy and the Thermodynamic Force}\label{sec:scalespace}
+We now derive the attractive force that underlies gravity in this framework. It arises as a thermodynamic response of localized solitons to spatial variations in the background noise, governed by a minimal scale--space free energy.
+
+\paragraph{Intuition (why higher noise shrinks solitons).} A soliton's size results from a balance between a repulsive, zero--point/gradient pressure (scaling as $\sigma^{-2}$) and an effective cohesion that is set by short--range pair couplings and is geometrically boundary--dominated (scaling as $\sigma^{-1}$; Appendix~\ref{app:scalespace}). A higher local noise level $\tau(x)$ acts as an annealing agent: stochastic forcing helps the internal degrees of freedom explore and settle into tighter, lower--energy configurations, effectively strengthening the cohesion term. Operationally, this makes the cohesive piece depend on $\tau(x)$ and drives $\sigma^*$ to \,shrink as $\tau$ rises, lowering the soliton's equilibrium energy.
+
+\paragraph{Toy scenario (energy bookkeeping along $\nabla\tau$).} Consider a soliton moving into a region of larger background noise $\tau(x)$ (no gravitational field is assumed \emph{a priori}). As it drifts down $\nabla\tau$, its center--of--mass kinetic energy grows. In this framework, that energy cannot appear from nowhere: the reduced scale--space energy $E_{\rm eq}(x)$ \emph{decreases} with $\tau$ (see below), so the gain in kinetic energy is supplied by a redistribution from internal free energy to motion. Microscopically, the soliton contracts ($\sigma^*\downarrow$), its peak amplitude increases to conserve norm, and the strengthened phase stiffness supports faster group transport in external coordinates, while the local light speed $c_s$ in soliton units remains unchanged. Thus conservative motion along $-\nabla E_{\rm eq}\propto +\nabla\tau$ naturally converts internal energy into directed kinetic energy, providing the physical content behind the attraction without postulating a prior gravitational field.
+
+We employ a minimal effective coarse-grained functional consistent with local gradient penalties and nonlocal (pairwise) cohesion under volume normalisation. Its constants absorb profile/shape factors and the resulting force law is robust to these details.
+
+The state of a soliton is specified by its position $x$ and its internal scale $\sigma$. By inserting a localized ansatz into the full free energy and integrating (details in Appendix~\ref{app:scalespace}), one arrives at a coarse-grained energy that balances incompressibility and cohesion. The reduced form allowing a general monotone cohesion response $f(\tau)$ is
+\begin{equation}
+  E_{\rm coh}(\sigma,x) \;=\; A_{\gamma}\,\sigma^{-2} \; -\; \widetilde A_{\eta}\, f\!\big(\tau(x)\big)\,\sigma^{-1},\qquad A_{\gamma},\widetilde A_{\eta}>0,
+\end{equation}
+where $\tau(x)$ is the local noise proxy (variance/``temperature''). Under an adiabatic separation (internal $\sigma$ relaxes fast compared to center-of-mass motion), minimizing over $\sigma$ gives the equilibrium size and relaxed energy
+\begin{align}
+  \sigma^*(x) &= \frac{2 A_{\gamma}}{\widetilde A_{\eta}\, f(\tau(x))},\\
+  E_{\rm eq}(x) &= -\frac{\widetilde A_{\eta}^{\,2}}{4 A_{\gamma}}\, f(\tau(x))^2.
+\end{align}
+The resulting force on a relaxed soliton is
+\begin{equation}
+  \mathbf F \;=\; -\nabla E_{\rm eq}(x) \;=\; +\frac{\widetilde A_{\eta}^{\,2}}{2 A_{\gamma}}\, f(\tau)\, f'(\tau)\,\nabla\tau(x),
+\end{equation}
+which is attractive (points toward increasing $\tau$) for any increasing $f$ with $f'(\tau)>0$. With the convention $\tau^2=\tau_0^2-\alpha\,(\Phi-\Phi_{\rm ref})$ in the weak-field window (see below), this yields $\mathbf F \propto -\nabla\Phi$.
+
+\noindent This provides a clean, elegant justification of why the noise field induces a \emph{negative} (attractive) potential: higher $\tau$ lowers $E_{\rm eq}$, fixing the sign. The sign outcome is a lynchpin for the framework's conformal aspect (local unit co-scaling) and for the emergent gravitational dynamics.
+
+\paragraph{Physical identification of $\tau^2$ and $\Phi$.} In the weak-field, long-wavelength regime the framework contains a single long--range scalar channel sourced by matter. Thermodynamically, its local intensity is the noise measure $\rho_N$ (proxied by $\tau^2$); geometrically, its potential is the Newtonian $\Phi$. Since both are the same coarse field viewed through complementary lenses (thermodynamic vs geometric), we identify $\tau^2 \propto \Phi$ up to units and a reference offset. This elevates the $\tau$--$\Phi$ link from a mere calibration to a physical identification in the low--energy window.
+
+\noindent \textit{Conformal note.} In local units, the scale--space functional and the force law above are \emph{conformally covariant}: an overall co-scaling of rulers and clocks induced by the sliding window leaves the form of Eqs.~(\ref{sec:scalespace}) invariant; only dimensionless ratios and gradients (e.g., $\nabla\tau/\tau$) carry physical content. SI Section~\ref{si:window} collects the window formalism and cosmological drift.
+
+\noindent \textbf{Robustness.} For a generic balance $E(\sigma,x)=A\,\sigma^{-p}-B\,\tau(x)\,\sigma^{-q}$ with $A,B>0$ and $p>q>0$, one finds $\sigma^*(x)\propto [A/(B\,\tau(x))]^{1/(p-q)}$ (shrink with increasing $\tau$), $E_{\rm eq}(x)\propto -\tau(x)^{p/(p-q)}$ (strictly decreasing), and $\mathbf F=-\nabla E_{\rm eq}\propto +\tau^{p/(p-q)-1}\,\nabla\tau$ (points along $\nabla\tau$). For $p=q$ there is no finite minimum; for $p<q$ the stationary point is a \emph{maximum} and $E$ is unbounded below as $\sigma\to 0$ (collapse). Negative exponents ($p\le0$ or $q\le0$) render the functional unbounded below (collapse or runaway). Thus $p>q>0$ is the unique stable regime.
+
+
+\section{Newtonian Limit and Calibration of $G$}
+The macroscopic $1/r^2$ law emerges from the microscopic picture in a structured way. Linearising the amplitude sector about $w_*$ gives a screened (Yukawa) response with screening length $\ell=\sqrt{\alpha_{\rm grad}/(2\beta_{\rm pot})}$, so an isolated soliton's $\tau$--field decays as $e^{-r/\ell}/r$. For a composite body of characteristic size $R_{\rm cl}$ formed by many solitons, the superposed field creates an effective long-range potential in the Coulombic window
+\begin{equation}
+  R_{\rm cl}\ll r\ll \ell,
+\end{equation}
+within which standard Fourier estimates reduce the superposition to an approximate $1/r$ far field, hence $|\nabla\Phi|\propto 1/r^2$ after the identification below. In this same window, the general thermodynamic force
+\begin{equation}
+  \mathbf F\;\propto\; f(\tau)\,f'(\tau)\,\nabla\tau\,,
+\end{equation}
+becomes an inverse--square law once we use $\tau^2=\tau_0^2-\alpha\,(\Phi-\Phi_{\rm ref})$ (Section~\ref{sec:scalespace}), yielding $\mathbf F\propto -\nabla\Phi$ with a $1/r^2$ far field. This allows an \emph{operational} definition of the gravitational constant by matching the macroscopic force to the Newtonian form in local units,
+\begin{equation}
+  F\;=\; G\, M_{\rm eff}\, m_{\rm eff}/r^2,
+\end{equation}
+after fixing the overall normalisation from many-source superposition. With the convention above, choosing $\Phi_{\rm ref}=\Phi(\infty)$ makes the inhomogeneous piece $\delta\tau^2=\tau^2-\tau_0^2$ vanish at spatial infinity.
+
+\section{The Gravitational Action and Its Origin}\label{sec:metric-action}
+Before deriving metric field equations, we justify the form of the gravitational action used at low energy. We do not derive it from first principles of the present text; instead, we invoke a standard effective-field-theory result as a consistency check. The phase sector furnishes a universal light cone and hence a natural background metric for the field $\phi$. Integrating out Gaussian phase fluctuations on a slowly varying metric yields the standard local effective action
+\begin{equation}
+  \Gamma[g] \;=\; \int \!\sqrt{|g|}\,\Big[ C_0\,\Lambda_{\rm eff}^4 \;+\; C_1\,\Lambda_{\rm eff}^2\,R \;+\; C_2\,\ln(\Lambda_{\rm eff}^2/\mu^2)\,\mathcal R^2 \;+\; \cdots \Big] d^4x,
+\end{equation}
+with $\mathcal R^2$ denoting curvature--squared invariants and $\Lambda_{\rm eff}^2\propto \kappa w_*^2\,\Lambda_{\rm UV}^2$. Identifying the Einstein--Hilbert term fixes
+\begin{equation}
+  \frac{1}{16\pi G} \;=\; C_1\,\Lambda_{\rm eff}^2,\qquad M_{\rm P}^2=(8\pi G)^{-1},
+\end{equation}
+while higher--curvature terms are suppressed by the coarse--grain window. In a volume--fixed (unimodular) implementation, the spacetime--constant piece does not source curvature and the observed cosmological term appears as an integration constant. These are standard results of heat--kernel/Seeley--DeWitt expansions for minimally coupled scalars; see, e.g., standard QFT in curved spacetime references. We use them here only to motivate the low--energy $R$ term and the calibration of $G$; details are omitted for brevity.
+For clarity: this is a standard effective field theory result—quantum fluctuations of a minimally coupled scalar induce an Einstein–Hilbert term at one loop. We invoke it here as a consistency check that the framework's emergent ingredients yield the correct low–energy metric dynamics, not as a derivation of the EH term from the microscopic free energy. A sketch of a micro-to-macro derivation is provided in SI Section~\ref{si:induced-gravity}, up to the point where numerical simulation of the microscopic spectrum is required to fix coefficients.
+For interpretation in this framework, the homogeneous offset is operationally tied to the sliding observational window (SI Section~\ref{si:window}), which sets $\Lambda_{\rm eff}$ by the windowed background rather than as an independent constant.
+
+\section{Metric Dynamics from Stress--Energy and Conservation}
+With the effective metric identified and the force law calibrated, we now derive the field equations that govern the metric itself. The argument proceeds in three steps: (i) construct the stress--energy tensor for the phase and amplitude sectors and show covariant conservation, (ii) identify the unique low-energy metric dynamics compatible with diffeomorphism invariance and the Newtonian limit, and (iii) check the linearised and weak-field limits.
+
+\subsection{Stress--energy and conservation}
+Let the matter Lagrangian density be $\mathcal L=\mathcal L_\phi+\mathcal L_w$ with
+\begin{align}
+  \mathcal L_\phi &= \frac{\kappa w_*^2}{2}\,g^{\mu\nu}\,\partial_\mu\phi\,\partial_\nu\phi,\\
+  \mathcal L_w &= \alpha_{\rm grad}\,g^{\mu\nu}\,\partial_\mu w\,\partial_\nu w - V(w),\qquad V(w)=-\beta_{\rm pot}w^2+\gamma w^4.
+\end{align}
+Variation with respect to the metric yields the Hilbert stress--energy tensor
+\begin{equation}
+  T^{\mu\nu} = 2\,\frac{\partial \mathcal L}{\partial g_{\mu\nu}} - g^{\mu\nu}\,\mathcal L 
+  = T^{\mu\nu}_{\phi}+T^{\mu\nu}_{w},
+\end{equation}
+with
+\begin{align}
+  T^{\mu\nu}_{\phi} &= \kappa w_*^2\left(\partial^{\mu}\phi\,\partial^{\nu}\phi - \tfrac12 g^{\mu\nu}\,\partial_\alpha\phi\,\partial^{\alpha}\phi\right),\\
+  T^{\mu\nu}_{w} &= 2\alpha_{\rm grad}\,\partial^{\mu}w\,\partial^{\nu}w - g^{\mu\nu}\left(\alpha_{\rm grad}\,\partial_\alpha w\,\partial^{\alpha}w - V(w)\right).
+\end{align}
+On solutions of the Euler--Lagrange equations for $\phi$ and $w$, diffeomorphism invariance of the matter action implies covariant conservation
+\begin{equation}
+  \nabla_\mu T^{\mu\nu} = 0,
+\end{equation}
+where $\nabla$ is the Levi--Civita connection of $g_{\mu\nu}$. (Explicit derivations are given in Appendix~\ref{app:tmn}.)
+\noindent \emph{Framework link:} $T^{\mu\nu}$ is constructed from the same free-energy density that defines the phase and amplitude sectors. In particular, $c_s^2=\kappa w_*^2$ ties the kinematic cone and the matter sources to a single field content.
+
+\subsection{Metric field equations: uniqueness and form}
+At low energy, the metric dynamics must be diffeomorphism invariant, second order in derivatives, and reduce to Newtonian gravity in the appropriate limit. In four spacetime dimensions, \emph{Lovelock's theorem} implies that the unique such field equations are obtained from the Einstein--Hilbert action (or, in the unimodular implementation discussed in Sec.~\ref{sec:metric-action}, from the traceless equations with an integration constant):
+\begin{equation}
+  S_g = \frac{1}{16\pi G}\int (R - 2\Lambda_{\rm int})\,\sqrt{|g|}\,d^4x.
+\end{equation}
+Variation with respect to $g^{\mu\nu}$ yields the Einstein equations
+\begin{equation}
+  G^{\mu\nu} + \Lambda_{\rm int}\,g^{\mu\nu} = 8\pi G\,T^{\mu\nu},\label{eq:einstein}
+\end{equation}
+In the volume\,fixed (unimodular) formulation, $\Lambda_{\rm int}$ arises as an integration constant; operationally we match it to the homogeneous background defined by the sliding observational window (SI Section~\ref{si:window}; in cosmology, the effective vacuum energy is the windowed integral $\rho_{N,\rm eff}=\int_{k_{\min}}^{k_{\max}} S(k)\,dk$), yielding an effective $\Lambda_{\rm eff}$ in that setting.
+The Bianchi identity $\nabla_\mu G^{\mu\nu}=0$ ensures consistency with $\nabla_\mu T^{\mu\nu}=0$. The constant $G$ is fixed operationally by matching the weak-field, slow-motion limit to the Newtonian force, as described below.
+\noindent \emph{Framework link:} The inputs that single out Eq.~\eqref{eq:einstein} here are (i) the phase-induced, composition-independent metric from the universal light cone (Section 3), (ii) the Newtonian window derived from the thermodynamic scale--space force (Section~\ref{sec:scalespace}) and screened superposition, and (iii) the operational calibration $\tau^2\propto \Phi$ and far-field matching that fix $G$.
+
+\subsection{Linearised and weak-field limits}
+Linearising Eq.~\eqref{eq:einstein} about a background (local inertial frame) $g_{\mu\nu}=\eta_{\mu\nu}+h_{\mu\nu}$ and choosing a harmonic gauge yields wave equations for the perturbations. In local units, metric perturbations propagate at the signal speed $c_s$, consistent with the universal light cone established by the phase sector. In the static, weak-field limit one recovers the standard metric form
+\begin{equation}
+  ds^2 = -\left(1+\frac{2\Phi}{c_s^2}\right) c_s^2 dt^2 + \left(1-\frac{2\Phi}{c_s^2}\right)(dx^2+dy^2+dz^2),\label{eq:weakmetric}
+\end{equation}
+and the Poisson equation
+\begin{equation}
+  \nabla^2 \Phi = 4\pi G\,\rho,
+\end{equation}
+thereby calibrating $G$ in local units and reproducing the Newtonian window derived earlier. Here $c_s^2 = \kappa w_*^2$ is the phase-sector signal speed and $\Phi$ is the same potential fixed thermodynamically via $\tau$ (Section~\ref{sec:scalespace}) and by screened superposition in the Newtonian limit. Since the weak-field metric in Eq.~\eqref{eq:weakmetric} matches the standard isotropic form, the leading Parametrized Post-Newtonian parameters are $\gamma=\beta=1$. Standard observables—light deflection, Shapiro delay, and perihelion advance—then follow directly with the replacement $c\to c_s$ (see standard GR texts).
+
+\section{Relativistic Kinematics and Non-Geodesic Drag}\label{sec:kinematics}
+\subsection{Massless sector: phase-only excitations}
+By construction, the phase sector defines the light cone with speed $c_s = \sqrt{\kappa}\,w_*$. Phase-only (massless) excitations propagate on null geodesics of the emergent metric at speed $c_s$, independent of frequency.
+
+\subsection{Massive sector: Lorentzian speed limit and non-geodesic drag}
+By Lorentzian kinematics alone, massive excitations obey $v<c_s$ with $\gamma_v=(1-v^2/c_s^2)^{-1/2}$; the light cone set by the phase sector makes $c_s$ an unattainable speed limit irrespective of forces or dissipation.
+
+\paragraph{Acceleration-dependent drag (non-geodesic only).} Amplitude (massive) solitons couple to the background via their finite core and, under non-geodesic (forced) motion, experience an acceleration-dependent radiative drag that vanishes on geodesics. A covariant derivation (SI Section~\ref{si:drag}) yields the dissipated power
+\begin{equation}
+  P_{\rm rad}(v,a_s) \;=\; C_{\rm drag}\; \gamma_v^{4}\; a_s^{2},\qquad \gamma_v := \frac{1}{\sqrt{1-v^2/c_s^2}},\label{eq:prad}
+\end{equation}
+with $C_{\rm drag}$ an overall coefficient (carrying the required units in local\,unit conventions). In all cases, Lorentzian kinematics already enforce $v<c_s$; the drag acts only for non-geodesic motion and further suppresses approaches to $c_s$ under sustained proper acceleration. Massless modes ($m=0$) decouple from this mechanism and remain exactly at $c_s$.
+
+\paragraph{Empirical bounds (order of magnitude).} Defining the drag as in Eq.~\eqref{eq:prad}, storage--ring energy budgets (electrons at LEP/KEKB/PEP\,II; protons at the LHC), where synchrotron power $P_{\rm syn}$ is predicted and measured to $\lesssim 10^{-3}$ precision (LEP Design Report; KEKB/PEP\,II performance summaries; LHC design/operation reports), imply $P_{\rm drag}/P_{\rm syn}\lesssim 10^{-3}$ for representative $(\gamma,a)$, yielding a dimensionless bound \,$\overline C_{\rm drag}:=C_{\rm drag}/C_{\rm Lienard}\,\lesssim 10^{-3}$\, when normalised to the Liénard prefactor $C_{\rm Lienard}$. Numerically, taking typical LEP2 parameters (electron energy $\sim\!100\,\mathrm{GeV}$, bending radius $\sim\!3\,\mathrm{km}$) gives the same ${\cal O}(10^{-3})$ constraint. The Unruh scale is tiny at laboratory accelerations, $T_U\simeq 4\times10^{-21}\,\mathrm K\,(a/\mathrm{m\,s^{-2}})$, so even at $a\sim10^{13}\,\mathrm{m\,s^{-2}}$ one has $T_U\ll\mathrm{mK}$, consistent with a very small effective drag. For astrophysical accelerations ($a\ll1\,\mathrm{m\,s^{-2}}$) the $a^{2}$ scaling renders the effect negligible.
+
+\subsection{Coordinate versus local speed}
+Refractive effects render $c_s/\chi(\rho_N)$ a coordinate (``God's-eye'') speed in inhomogeneous backgrounds, while local rulers and clocks co-scale so the locally measured light speed remains $c_s$ (SI Section~\ref{si:window} and Geometric Optics).
+
+\noindent Detailed covariant derivation (fixing the $\gamma_v^{4}$ exponent from gradient coupling and establishing the $a_s\propto\gamma_v^{-1}$ ultra-relativistic suppression) is given in SI Section~\ref{si:drag}.
+
+\section{Observational Signatures and Testable Predictions}
+We note briefly that standard GR phenomenology is recovered at leading order (PPN $\gamma=\beta=1$, light deflection/Shapiro/perihelion, $c_g\approx c_s$). The focus here is on \emph{novel} signals unique to the present framework.
+
+\paragraph{Thermodynamic co-scaling is not exact.} Co-scaling of local units is thermodynamic rather than exact. Window edges drift slowly, so dimensionful quantities acquire tiny, short-term deviations around their coarse-grain fixed ratios. Prediction: next-generation clock comparisons (optical lattice/ion clocks) should see \emph{minute, window-correlated} departures in dimensionful ratios while dimensionless combinations remain stable. The signal should track controlled changes in the analysis window (bandwidth, averaging time) and environmental noise, rather than source composition.
+
+\paragraph{Acceleration-induced drag with ultra-relativistic suppression.} The non-geodesic drag law $P_{\rm rad}\propto m v \gamma_v^4 a_s^2$ predicts ultra-relativistic suppression $a_s(v)\propto\gamma_v^{-1}$ under sustained proper acceleration. We parameterise the residual as a fraction of synchrotron losses and bound it empirically at $\lesssim 10^{-3}$ in modern storage rings; the framework fixes the exponent $p=4$ from gradient coupling (SI Section~\ref{si:drag}).
+
+\paragraph{History/drive dependence via window shifts (weak memory).} Proper acceleration shifts the comoving UV edge of the observation window. This produces a \emph{weak, history-dependent} prefactor in the drag, testable by driving a controlled acceleration waveform (square vs chirped ramps) at fixed peak $a_s$ and looking for small, reproducible changes of the dissipated power after transients.
+
+\paragraph{Transient anisotropy under mechanical acceleration.} For finite-size solitons, mechanical acceleration excites slightly anisotropic internal responses (longitudinal vs transverse) before relaxation, entering as $\mathcal O(a\,\sigma/c_s^2)$ corrections to the drag prefactor. Prediction: a small, phase-locked modulation of the loss rate with the direction of $\hat a$ relative to preparation, absent for purely gravitational (index-gradient) acceleration.
+
+\paragraph{Cosmological window drift: near-$w=-1$ with slow time dependence.} The homogeneous offset $\Lambda_{\rm eff}$ tracks the sliding window, yielding $w\approx -1$ with small, slowly varying departures suppressed by the large bandwidth $\ln(k_{\max}/k_{\min})$. Prediction: low-redshift, high-precision probes may find \emph{tiny}, smooth time dependence in the effective equation of state, correlated with causal/response scales rather than new light fields.
+
+\paragraph{Analogue platforms for index dynamics.} Engineered “solitonic crystal” media with tunable noise backgrounds should exhibit index-gradient ray bending and window-dependent dispersion consistent with the phase-kernel metric, enabling table-top tests of conformal co-variation and drag-like dissipation under driven acceleration.
+
+\section{Conclusion}
+We presented a minimal, self-contained path from the soliton--noise framework to relativistic phenomenology. Starting from a single complex field, we derived a universal light cone with speed $c_s$, a thermodynamic origin for an attractive potential, a robust Newtonian window that calibrates $G$, and the weak equivalence principle. Together with stress--energy, conservation, and the Newtonian limit, these ingredients single out Einstein dynamics at low energy.
+
+Future work focuses on three directions: (i) applying the sliding-window formalism to cosmology, including the operational interpretation of the effective homogeneous term $\Lambda_{\rm eff}$; (ii) confronting predictions for galactic dynamics and high-energy particle losses with large-scale observational and laboratory data; and (iii) micro-to-macro simulations of the phase/amplitude sectors to fix the induced-action coefficients ($C_0, C_1, C_2$) and validate the curvature expansion outlined in SI Section~\ref{si:induced-gravity}. Appendices collect technical derivations and justifications supporting the main line of argument.
+
+
+\section{Compact Notation and Uniform Conventions}
+\subsection*{Notation (compact)}
+\noindent\begin{tabular}{ll}
+  $\kappa,\,w_*,\,c_s$ & phase stiffness, equilibrium amplitude, signal speed $c_s=\sqrt{\kappa}\,w_*$ \\
+  $\chi(\rho_N),\,\tau(x)$ & refractive index vs noise density; local noise/temperature proxy \\
+  $\Phi,\,\ell$ & Newtonian potential (weak\,field); screening length $\ell=\sqrt{\alpha_{\rm grad}/(2\beta_{\rm pot})}$ \\
+  $\alpha_{\rm grad},\,\beta_{\rm pot}$ & amplitude\,sector gradient and potential coefficients \\
+  Coulombic window & $R_{\rm cl}\ll r\ll \ell$ (composite source size $R_{\rm cl}$; distance $r$) \\
+  Units & symbols/operators in local units unless stated otherwise \\
+\end{tabular}
+
+\paragraph{\boldmath $\Phi$–$\tau$ mapping (uniform notation).} We fix a single convention consistent with the SI Poisson result: write
+\begin{equation}
+  \tau^2(x) \;=\; \tau_0^2 \; -\; \alpha\,\big[\,\Phi(x) - \Phi_{\rm ref}\,\big],\qquad \alpha>0,
+\end{equation}
+and denote the inhomogeneous piece by $\delta\tau^2(x):=\tau^2(x)-\tau_0^2 = -\alpha\,[\Phi(x)-\Phi_{\rm ref}]$. When referring to the spatially varying background below, $\tau_{\rm bg}^2$ means this inhomogeneous component $\delta\tau^2$. In homogeneous/cosmological contexts one may take $\tau_0^2\propto \rho_N$. The effective scale that enters accelerated frames combines background and Unruh contributions as
+\begin{equation}
+  \tau_{\rm eff}^2(x,a) \;=\; \tau_{\rm bg}^2(x) \; +\; \lambda_U\,T_U(a)^2,\qquad T_U(a)=\frac{\hbar a}{2\pi c_s k_B}.
+\end{equation}
+Unless stated otherwise, $\tau$ denotes $\tau_{\rm bg}$; we write $\tau_{\rm eff}$ when the Unruh term is included explicitly.
+
+\section*{References Prep}
+\noindent Wollang, F.-J. (2025). Spacetime from First Principles: Free-Energy Foundations on the Infinite-Clique Graph (Draft). Zenodo. DOI: \href{https://doi.org/10.5281/zenodo.15843980}{10.5281/zenodo.15843980}.
+
+\medskip
+\noindent Unruh, W. G. (1976). Notes on black-hole evaporation. Phys. Rev. D 14, 870.
+
+\noindent Birrell, N. D., \& Davies, P. C. W. (1982). Quantum Fields in Curved Space. Cambridge University Press.
+
+\noindent Goldberger, W. D., \& Rothstein, I. Z. (2006). An effective field theory of gravity for extended objects. Phys. Rev. D 73, 104029. (See also follow-ups on worldline EFT and scalar radiation.)
+
+\noindent Porto, R. A. (2016). The effective field theorist’s approach to gravitational dynamics. Phys. Rept. 633, 1–104. (Worldline EFT overview.)
+
+\noindent LEP Design Report, Vol. I: The LEP Injector Chain (and Vol. II: LEP). CERN Yellow Reports.
+
+\noindent KEKB B-Factory Design Report. KEK Report 95-7; PEP-II Conceptual Design Report, SLAC-418.
+
+\noindent LHC Design Report. CERN-2004-003; plus operation summaries for synchrotron power accounting.
+
+\medskip
+% Geometric interpretations and entropic gravity comparison moved to Supplementary Information Sections S4-S5
+
+\appendix
+
+% Appendix consolidated by reference to foundations; no detailed repetition here.
+
+\section{Free Energy Solutions and the Matter/Radiation Dichotomy}\label{app:free_energy_solutions}
+The potential $V(w) = -\beta_{\rm pot}\,w^2 + \gamma\,w^4$ has a Mexican-hat form with a vacuum expectation value at $w_* = \sqrt{\beta_{\rm pot}/(2\gamma)}\neq 0$. The Euler-Lagrange equations for the free energy functional are
+\begin{align}
+  -\alpha_{\rm grad}\,\nabla^2 w + V'(w) + \frac{\kappa}{2}\,|\nabla\phi|^2\,w &= 0,\\
+  \nabla\cdot (\kappa\,w^2\,\nabla\phi) &= 0.
+\end{align}
+Two generic solution families follow from the interplay between the terms:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Massive solitons (amplitude excitations):} Solutions with nontrivial $w(\mathbf r)$ that are localized and approach $w_*$ at large $r$. The potential $V(w)$ and the amplitude stiffness term $|\nabla w|^2$ create a massive amplitude sector with screening length $\ell=\sqrt{\alpha_{\rm grad}/(2\beta_{\rm pot})}$, supporting finite-width lumps with Yukawa tails.
+  \item \textbf{Massless radiation (phase excitations):} On scales $\gg \ell$, setting $w\approx w_*$ in the phase stiffness term yields the functional $\mathcal F_\phi= (\kappa w_*^2/2)|\nabla\phi|^2$. This describes the massless Goldstone sector of the spontaneously broken $U(1)$, supporting pure phase waves.
+\end{itemize}
+Thus the fundamental distinction between matter and radiation is not a postulate but a direct consequence of spontaneous symmetry breaking: the radial degree of freedom ($w$) is massive and localizes, while the angular degree of freedom ($\phi$) is massless and propagates universally.
+
+\section{Continuum Mapping (Methods)}\label{app:disccont}
+We briefly summarise the assumptions that justify using continuum operators and metrics without reproducing the discrete derivations. Under the hypotheses of (i) near-regular subgraphs with slowly varying weights, (ii) dense sampling of regions of interest, and (iii) volume-normalised pair couplings, quadratic pair energies converge to local quadratic forms. In particular, amplitude and phase quadratic forms limit to $\int |\nabla w|^2 d^Dx$ and $(\kappa w_*^2/2)\int g^{\mu\nu}\partial_\mu\phi\partial_\nu\phi\sqrt{|g|}d^Dx$, respectively, identifying the Laplace--Beltrami operator of an induced metric. Full proofs and spectral conditions are given in the Infinite--Clique Foundations paper; here we use only the resulting continuum forms.
+
+\section{Stress--Energy Derivations}\label{app:tmn}
+For Lagrangian density $\mathcal L=\mathcal L_\phi+\mathcal L_w$ with
+\begin{align}
+  \mathcal L_\phi &= \frac{\kappa w_*^2}{2}\,g^{\mu\nu}\,\partial_\mu\phi\,\partial_\nu\phi,\\
+  \mathcal L_w &= \alpha_{\rm grad}\,g^{\mu\nu}\,\partial_\mu w\,\partial_\nu w - V(w),\qquad V(w)=-\beta_{\rm pot}w^2+\gamma w^4,
+\end{align}
+the Hilbert stress--energy tensor is
+\begin{equation}
+  T^{\mu\nu} = 2\,\frac{\partial \mathcal L}{\partial g_{\mu\nu}} - g^{\mu\nu}\,\mathcal L.
+\end{equation}
+Explicitly,
+\begin{align}
+  T^{\mu\nu}_{\phi} &= \kappa w_*^2\left(\partial^{\mu}\phi\,\partial^{\nu}\phi - \tfrac12 g^{\mu\nu}\,\partial_\alpha\phi\,\partial^{\alpha}\phi\right),\\
+  T^{\mu\nu}_{w} &= 2\alpha_{\rm grad}\,\partial^{\mu}w\,\partial^{\nu}w - g^{\mu\nu}\left(\alpha_{\rm grad}\,\partial_\alpha w\,\partial^{\alpha}w - V(w)\right).
+\end{align}
+On solutions of the Euler--Lagrange equations, $\nabla_\mu T^{\mu\nu}=0$ with respect to the Levi--Civita connection of $g_{\mu\nu}$.
+
+% Observation Windows and Local Units content moved to Supplementary Information Section S1
+
+\section{Scale--Space Force}
+\label{app:scalespace}
+This appendix derives the scale--space interaction used in the main text and states clearly its domain of validity. The core ingredients are: (i) amplitude stiffness (a gapped bulk amplitude mode), (ii) short-range cohesion, and (iii) volume normalisation of pair couplings. Together, these produce a boundary-dominated (``shell'') interaction with an $\sigma^{-1}$ scaling, and—more generally—an attractive force toward increasing noise irrespective of the precise power of $\tau$.
+
+\subsection*{Setup and baseline scalings}
+Let a localized lump be represented by a profile $w_\sigma(\mathbf r)$ of size $\sigma$. For definiteness in $D$ dimensions choose a Gaussian with fixed norm $M=\int w_\sigma^2\,d^D x$ (so $w_0\propto \sigma^{-D/2}$):
+\begin{equation}
+  w_\sigma(\mathbf r) = w_0\,\exp\!\left(-\frac{r^2}{2\sigma^2}\right),\qquad r=|\mathbf r|.
+\end{equation}
+Then the standard estimates give
+\begin{align}
+  \int |\nabla w_\sigma|^2 d^D x &\propto \sigma^{-2} \quad \text{(gradient/repulsion)},\\
+  \int w_\sigma^4 d^D x &\propto \sigma^{-D} \quad \text{(local quartic; not used for cohesion here)}.
+\end{align}
+The $\sigma^{-2}$ term supplies the repulsive size penalty $A_\gamma\,\sigma^{-2}$ in the coarse-grained energy.
+
+\subsection*{Boundary-dominated cohesion (shell picture)}
+The microscopic cohesion is assumed pairwise and short-ranged, with kernel $K(|\mathbf r-\mathbf r'|)$ of range $\ell$, and volume-normalised strength $\propto 1/V_\sigma$ with $V_\sigma\propto\sigma^D$. The amplitude potential $V(w)=-\beta_{\rm pot}w^2+\gamma w^4$ clamps the bulk near $w_*$; fluctuations of $w$ are gapped ($m_\xi^2=2\beta_{\rm pot}$) with screening length $\ell=\sqrt{\alpha_{\rm grad}/m_\xi^2}$. Thus only a boundary layer of thickness $\sim\ell$ can respond appreciably to the environment.
+
+Modelling the environment intensity by a local proxy $\propto \tau(x)$ near the surface, the pair energy between the lump and the environment is
+\begin{equation}
+  E_{\rm pair} \,\simeq\, \frac{\eta_0}{2}\,\frac{1}{V_\sigma}\! \int_{\Delta} d^D r \int_{\text{env}} d^D r'\; w^2(\mathbf r)\,w^2(\mathbf r')\,K(|\mathbf r-\mathbf r'|).
+\end{equation}
+Because $K$ is short-ranged and the bulk is stiff, the $\mathbf r'$-integral samples only an $\mathcal O(\ell^D)$ neighbourhood just outside the surface while the $\mathbf r$-integral is confined to the boundary layer. Writing ${\rm Area}(\sigma)\propto\sigma^{D-1}$ and $C_K:=\int K\,d^D r'$, one obtains the geometric scaling
+\begin{equation}
+  E_{\rm pair} \,\propto\, \frac{1}{V_\sigma}\, w_*^2\,\tau(x)\,C_K\,\ell^D\, {\rm Area}(\sigma) \,\propto\, \tau(x)\,\sigma^{-1},
+\end{equation}
+with prefactors and shape factors absorbed into $A_\eta$. This is the origin of the $\sigma^{-1}$ cohesion law in the reduced functional. A purely local quartic $\int w^4$ instead scales as $\sigma^{-D}$ and does not represent the nonlocal link energetics.
+
+\subsection*{Generalised cohesion response and force}
+To avoid over-commitment to a specific $\tau$ power, write the coarse-grained energy as
+\begin{equation}
+  E_{\rm coh}(\sigma,x) \,=\, A_{\gamma}\,\sigma^{-2} \; -\; \widetilde A_{\eta}\, f\!\big(\tau(x)\big)\,\sigma^{-1},\qquad f'(\tau)>0.
+\end{equation}
+Minimisation over $\sigma$ yields
+\begin{equation}
+  \sigma^*(x) \,=\, \frac{2A_{\gamma}}{\widetilde A_{\eta}\, f(\tau)}\,,\qquad
+  E_{\rm eq}(x) \,=\, -\frac{\widetilde A_{\eta}^{\,2}}{4A_{\gamma}}\, f(\tau)^2,
+\end{equation}
+and the resulting force is
+\begin{equation}
+  \mathbf F \,=\, -\nabla E_{\rm eq}(x) \,=\, +\frac{\widetilde A_{\eta}^{\,2}}{2A_{\gamma}}\, f(\tau)\, f'(\tau)\, \nabla\tau(x),
+\end{equation}
+which is \emph{attractive} (points toward increasing $\tau$) for any monotone increasing $f$. The specific exponent of $\tau$ modifies only the prefactor $f(\tau)f'(\tau)$, not the sign or direction of the force. Since $\tau$ increases with the local superposition of soliton clumps, the magnitude of $\mathbf F$ tracks their distribution. With $\tau^2\propto \Phi$ in the weak-field window, one recovers the Newtonian deflection/concentration picture ($\mathbf F\propto -\nabla\Phi$ and a $1/r^2$ far field from screened sources).
+
+\paragraph{General exponents.} More generally, for $E(\sigma,x)=A\sigma^{-p}-B\,\tau(x)\,\sigma^{-q}$ with $p>q>0$ one finds $\sigma^*(x)\propto [A/(B\,\tau(x))]^{1/(p-q)}$, $E_{\rm eq}(x)\propto -\tau(x)^{p/(p-q)}$, and $\mathbf F\propto +\tau^{p/(p-q)-1}\,\nabla\tau$. The cases $p=q$ (no finite minimum), $p<q$ (runaway), or negative exponents are excluded by coercivity and stability.
+
+\subsection*{Mean-field clamping in heterogeneous/fractal backgrounds}
+In heterogeneous (fractal-like) environments the bulk is not exactly uniform. We interpret \emph{clamping in local units} as a mean-field statement: choose a window scale $\Lambda$ with $\ell\ll\Lambda\ll\sigma$, define $w_*^2(x;\Lambda):=\langle w^2\rangle_{\Lambda}$, and write $w^2= w_*^2+\delta w^2$ with $\langle\delta w^2\rangle_{\Lambda}=0$. The shell reduction remains valid provided (i) the amplitude mode is gapped ($m_\xi^2>0$), (ii) $\ell\ll\sigma$, and (iii) $\mathrm{Var}_{\Lambda}(w^2)/w_*^4\ll1$. Fractal anisotropies then renormalise the constants ($A_\eta$, $c$, $C_K$) and a slowly varying $\tau(x)$ without changing the $\sigma^{-1}$ scaling. When these conditions fail (gap closing; ultra-small $\sigma\sim\ell$; long-range $K$), one should evaluate the full nonlocal integral rather than the shell approximation.
+
+% Drag Scaling and Justification content moved to Supplementary Information Section S2
+
+
+
+% Induced Gravitational Action from Microdynamics content moved to Supplementary Information Section S3
+
+\end{document}
+
+

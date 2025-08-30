@@ -1,0 +1,382 @@
+% !TeX program = pdflatex
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{physics}
+\usepackage{hyperref}
+\usepackage{xr-hyper}
+\externaldocument{paper}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{authblk}
+\usepackage{fancyhdr}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
+
+\title{Supplementary Information\\Spacetime from First Principles: Free\mbox{\,-}Energy Foundations on the Infinite\mbox{\,-}Clique Graph}
+\author[ ]{Franz Wollang}
+\affil[ ]{\small Independent Researcher}
+\date{\small Dated: 2025-08-20}
+
+% Number sections as S1, S2, ...
+\renewcommand{\thesection}{S\arabic{section}}
+\renewcommand{\thesubsection}{S\arabic{section}.\arabic{subsection}}
+
+\begin{document}
+\maketitle
+
+% Footer marking the draft status
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\small Supplementary Information — Draft}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Prominent draft disclaimer box
+\begin{center}
+\setlength{\fboxsep}{8pt}%
+\fbox{\parbox{0.92\textwidth}{\centering\bfseries DRAFT — NOT FOR CITATION\\[4pt]
+This Supplementary Information accompanies the manuscript ``Spacetime from First Principles: Free\,Energy Foundations on the Infinite\,Clique Graph'' and collects technical derivations and interpretive material referenced in the main text.}}
+\end{center}
+\vspace{1em}
+
+\tableofcontents
+\vspace{1em}
+\vspace{1em}
+
+
+\section{Discrete\,\textrightarrow\,Continuum Convergence of the Laplacian}\label{si:disc-cont-conv}
+We justify the continuum limit $L \Rightarrow -\nabla\!\cdot(c_s^2\nabla)$ in two complementary ways: (i) a local Taylor expansion under isotropy, and (ii) quadratic\,form (Dirichlet energy) convergence.
+
+\paragraph{Assumptions (compact).}
+\begin{itemize}[leftmargin=*]
+  \item Near\,regular vacuum: degree and weights vary slowly; local neighborhood approximately isotropic.
+  \item Smooth embedding: nodes lie near a smooth manifold patch with coordinates $x_i$; fields $f_i\equiv f(x_i)$ are restrictions of a $C^2$ function.
+  \item Volume\,normalised couplings $w_{ij}=J'_0/V_K$; bounded, finite neighborhood radius relative to curvature scales.
+\end{itemize}
+
+\subsection*{(i) Taylor expansion under local isotropy}
+Consider the graph Laplacian action $(L f)_i = \sum_j w_{ij}(f_i-f_j)$. Expand $f(x_j)$ about $x_i$:
+\begin{equation}
+  f(x_j) = f(x_i) + (x_j-x_i)^\mu\partial_\mu f(x_i) + \tfrac12 (x_j-x_i)^\mu (x_j-x_i)^\nu \partial_\mu\partial_\nu f(x_i) + O(|x_j-x_i|^3).
+\end{equation}
+The constant term cancels; the linear term vanishes by local isotropy,
+\begin{equation}
+  \sum_j w_{ij} (x_j-x_i)^\mu \;=\; 0.
+\end{equation}
+Thus
+\begin{equation}
+  (L f)_i \;=\; -\tfrac12 \sum_j w_{ij} (x_j-x_i)^\mu (x_j-x_i)^\nu \partial_\mu\partial_\nu f(x_i) + O(R^3\,\|\nabla^3 f\|),
+\end{equation}
+with $R$ the neighborhood radius. Define the local second\,moment tensor
+\begin{equation}
+  M^{\mu\nu}(x_i) := \sum_j w_{ij} (x_j-x_i)^\mu (x_j-x_i)^\nu.
+\end{equation}
+Near isotropy implies $M^{\mu\nu}(x_i) \approx C(x_i)\,\delta^{\mu\nu}$, whence
+\begin{equation}
+  (L f)_i \;\approx\; -\tfrac12 C(x_i)\, \delta^{\mu\nu}\, \partial_\mu\partial_\nu f(x_i) \;=\; -\tfrac12 C(x_i)\, \nabla^2 f(x_i).
+\end{equation}
+Identifying $c_s^2(x_i) \propto C(x_i)$ yields the continuum generator $-\nabla\!\cdot(c_s^2\nabla)$ up to a conventional factor (absorbed into $J'_0$ and units).
+
+\subsection*{(ii) Quadratic form (Dirichlet energy) convergence}
+The discrete Dirichlet form is
+\begin{equation}
+  E_{\rm disc}[f] \,=\, \tfrac12 \sum_{i,j} w_{ij}\, \big(f_i-f_j\big)^2.
+\end{equation}
+Write $f_j-f_i \approx (x_j-x_i)^\mu \partial_\mu f(x_i)$ to leading order and pass to a Riemann sum over neighbors within radius $R$ under near\,regular sampling. Then
+\begin{equation}
+  E_{\rm disc}[f] \;\to\; \tfrac12 \int d^D x\; \Big( \sum_j w_{ij} (x_j-x_i)^\mu (x_j-x_i)^\nu \Big) \partial_\mu f\, \partial_\nu f \;=\; \int d^D x\; c_s^2(x)\, |\nabla f|^2,
+\end{equation}
+with $c_s^2(x) \propto \tfrac12\,\mathrm{tr}\,M^{\mu\nu}(x)$. Hence the graph Dirichlet energy converges to the continuum Dirichlet energy, establishing $L\Rightarrow -\nabla\!\cdot(c_s^2\nabla)$ in the weak (form) sense.
+
+\paragraph{Remarks.} (1) Anisotropy appears as an effective metric $g^{\mu\nu}\propto M^{\mu\nu}$, yielding a Laplace\,Beltrami operator. (2) Boundary conditions and higher\,order corrections scale with $R$ and vanish in the dense, near\,regular limit. (3) A spectral validation (low\,lying eigenvalue matching) provides an empirical cross\,check in simulations.
+
+\section{Fluctuation Spectrum: Gapped Amplitude and Massless Phase}\label{si:gapped-massless}
+We derive the low-energy fluctuation spectrum around the homogeneous vacuum and show that (i) amplitude fluctuations are \emph{gapped} with mass $m_\xi>0$ set by the local Mexican-hat potential, and (ii) the phase fluctuation is a \emph{massless} Goldstone mode with linear dispersion $\omega_\phi^2=c_s^2 k^2$.
+
+\paragraph{Assumptions (compact).}
+\begin{itemize}[leftmargin=*]
+  \item Homogeneous vacuum patch with near-regular connectivity; volume-normalised couplings.
+  \item Local on-site potential for the coarse amplitude $w$: $V(w)=-\beta_{\rm pot} w^2 + \gamma w^4$ with $\beta_{\rm pot},\gamma>0$ (stability).
+  \item Phase sector quadratic governed by the Laplacian: $\tfrac{\kappa w_*^2}{2}|\nabla\phi|^2$ in the continuum; $c_s^2=\kappa w_*^2$.
+  \item Narrowband/SVEA regime for separating amplitude and phase around a nonzero vacuum $w_*$. 
+\end{itemize}
+
+\subsection*{Vacuum and parameter definitions}
+The on-site potential $V(w)=-\beta_{\rm pot} w^2 + \gamma w^4$ is minimised at
+\begin{equation}
+  w_*^2 = \frac{\beta_{\rm pot}}{2\gamma}, \qquad V''(w_*) = 2\beta_{\rm pot} \equiv m_\xi^2 > 0.
+\end{equation}
+Clamping to the homogeneous vacuum ($w\approx w_*$) and writing $\Psi = (w_*+\delta w)\,e^{i\phi}$, the coarse-grained leading-gradient energy is
+\begin{equation}
+  \mathcal L \;=\; \tfrac{1}{2}\,\alpha_{\rm grad} (\nabla\,\delta w)^2 \; -\; \tfrac{1}{2}\, m_\xi^2 (\delta w)^2 \; +\; \tfrac{\kappa w_*^2}{2}\, (\partial_t\phi)^2 \; -\; \tfrac{\kappa w_*^2 c_s^2}{2}\, (\nabla\phi)^2 \; +\; \cdots,
+\end{equation}
+where dots denote higher-order and amplitude–phase mixing terms suppressed in the SVEA.
+
+\subsection*{Quadratic expansion and equations of motion}
+To quadratic order and neglecting mixing, the Euler–Lagrange equations are
+\begin{align}
+  &\text{Amplitude:} && \alpha_{\rm grad}\,\nabla^2\,\delta w \; -\; m_\xi^2\,\delta w \;=\; 0, \\
+  &\text{Phase:} && \partial_t^2\phi \; -\; c_s^2\,\nabla^2\phi \;=\; 0.
+\end{align}
+Fourier decomposing $\delta w,\phi \propto e^{i(\mathbf k\cdot\mathbf x - \omega t)}$ yields the dispersion relations
+\begin{equation}
+  \omega_w^2(\mathbf k) \;=\; m_\xi^2 \; +\; \alpha_{\rm grad}\, |\mathbf k|^2, \qquad \omega_\phi^2(\mathbf k) \;=\; c_s^2\, |\mathbf k|^2.
+\end{equation}
+Thus $\omega_w(\mathbf k\to 0)=m_\xi>0$ (\emph{gapped}), whereas $\omega_\phi(\mathbf k\to 0)=0$ (\emph{massless}).
+
+\subsection*{Goldstone protection of the phase mode}
+The phase field inherits a shift symmetry $\phi\to\phi+\text{const}$ from global $U(1)$ invariance of the coarse free energy. This forbids a non-derivative $\phi^2$ term in the quadratic Lagrangian and protects the masslessness of $\phi$ at leading order. Allowed couplings at lowest order are derivative (e.g., $\partial_\mu\phi\,J^\mu$), which do not generate a static mass term in the homogeneous vacuum.
+
+\subsection*{Robustness and mixing}
+Amplitude–phase mixing terms (e.g., $\delta w\, (\partial\phi)^2$) are suppressed near the homogeneous vacuum and in the narrowband/SVEA regime. They renormalise coefficients but do not close the phase gap or remove the amplitude gap. Breaking the $U(1)$ explicitly would introduce a small $\phi$ mass; in the present framework this is forbidden at leading order by symmetry and vacuum relaxation.
+
+\paragraph{Outcome.} The low-energy spectrum on near-regular vacuum patches consists of (i) a massive amplitude mode with Yukawa screening length $\ell=\sqrt{\alpha_{\rm grad}/m_\xi^2}$ and (ii) a massless phase mode with wave speed $c_s=\sqrt{\kappa}\,w_*$. This is the gapped/massless split assumed and used by the Gravity paper.
+
+\section{Vacuum Marginalisation (full derivation)}\label{si:vac-marg}
+We derive the coarse functional $F_{\rm vac}[J]$ by integrating out the fast phase field on a fixed connectivity background. Let $L(J)$ be the graph Laplacian of $J$ on a connected graph. Fix the zero mode by the gauge $\sum_k \phi_k=0$ (equivalently, use the pseudo-determinant $\det{}'\!L$). Consider
+\begin{equation}
+  F[J,\phi] \,=\, \frac{\kappa}{2}\,\phi^T L(J)\,\phi \; -\; T\, S[J] \; +\; \mathcal B[J],\qquad S[J]=\sum_k\sum_j \Big(\tfrac{J_{kj}}{Z_k}\Big)\ln\Big(\tfrac{J_{kj}}{Z_k}\Big),
+\end{equation}
+with $Z_k=\sum_j J_{kj}$ and a convex bias $\mathcal B[J]$ that penalises increases of the intrinsic/spectral dimension. The partition function of the fast sector is Gaussian,
+\begin{equation}
+  Z[J] \,=\, \int \!\mathcal D\phi\; e^{-F[J,\phi]/T_{\rm eff}} \;\propto\; \big[\det{}' L(J)\big]^{-1/2},
+\end{equation}
+so the effective functional for slow links is, up to an additive constant,
+\begin{equation}
+  \Gamma[J] \,=\, -T_{\rm eff}\ln Z[J] \,=\, \frac{T_{\rm eff}}{2}\,\ln\det{}' L(J) \; -\; T\,S[J] \; +\; \mathcal B[J].
+\end{equation}
+Using the heat-kernel identity $\ln\det{}' L = -\int_{\varepsilon}^{\infty} \!\frac{dt}{t}\,[K(t)-1]$ with $K(t):=\Tr(e^{-tL})$, and defining the intrinsic dimension in the diffusive window by $\langle d_{\rm int}\rangle:=-2\,d\ln K/d\ln t$, we choose the convex surrogate $\mathcal B[J]=\beta\, (\langle d_{\rm int}\rangle[J]-d^\star)^2$. Dropping constants gives
+\begin{equation}
+  F_{\rm vac}[J] \,=\, \frac{T_{\rm eff}}{2}\,\ln\det{}' L(J) \; -\; T\,S[J] \; +\; \beta\,(\langle d_{\rm int}\rangle[J]-d^\star)^2,
+\end{equation}
+subject to the per-node budget constraints $\sum_j J_{kj}=Z_k$ and nonnegativity $J_{kj}\ge 0$. Stationarity w.r.t. a single link yields
+\begin{equation}
+  0 \,=\, \frac{T_{\rm eff}}{2}\,\Tr\big[ L(J)^{-1}\,\partial L/\partial J_{kj}\big] \; -\; \frac{\partial H}{\partial J_{kj}} \; +\; 2\beta\,(\langle d_{\rm int}\rangle-d^\star)\,\frac{\partial\langle d_{\rm int}\rangle}{\partial J_{kj}} \; +\; \lambda_k,
+\end{equation}
+with $\partial L/\partial J_{kj} = E_{kk}+E_{jj}-E_{kj}-E_{jk}$ and $\partial H/\partial J_{kj}=(1/Z_k)\,(1+\ln(J_{kj}/Z_k))$. This makes the link update/equilibrium conditions fully explicit.
+
+\section{Discrete vs. Continuum Scaling}\label{si:scaling}
+
+\subsection{The Scaling Dichotomy}
+
+The emergent stiffness $\gamma$ scales differently in discrete and continuum models:
+
+\textbf{Note.} Throughout the main text we adopt the volume-normalised discrete-to-continuum mapping where the effective on-site stiffness scales extensively, $\gamma \propto V_K$. The quadratic continuum scaling below refers to the unnormalised double-integral counting and is included for contrast.
+
+\textbf{Discrete Model}: $\gamma \propto V_K$ (linear in grain node count)
+
+\textbf{Continuum Model}: $\gamma \propto V_K^2$ (quadratic in geometric volume)
+
+\subsection{Mathematical Origin}
+
+This difference arises from how interactions are counted:
+\begin{itemize}
+\item \textbf{Discrete}: Sum over $V_K^2/2$ pairs of grain nodes, each with strength $\eta_0/V_K$
+\item \textbf{Continuum}: Double integral $\iint \eta_\rho |\Psi(x)|^2|\Psi(y)|^2 dV_x dV_y$
+\end{itemize}
+
+The scaling difference is mathematically necessary when moving from discrete sums to continuous integrals.
+
+\subsection{Practical Application}
+
+\begin{itemize}
+\item \textbf{Use linear scaling} ($\gamma \propto V_K$) for graph simulations and computational work
+\item \textbf{Use quadratic scaling} ($\gamma \propto V_K^2$) for analytical calculations and continuum field theory
+\end{itemize}
+
+\section{Graph Laplacian and Gradient Energy}\label{si:laplacian}
+
+\subsection{Quadratic Form Representation}
+
+The discrete gradient energy can be written as:
+\begin{equation}
+E_{\text{gradient}} = \frac{1}{2} A^T L A
+\end{equation}
+where $L$ is the graph Laplacian matrix and $A$ is the field vector.
+
+\subsection{Spectral Properties}
+
+For a linear gradient $A(x) = p\cdot x$, the energy becomes:
+\begin{equation}
+E_{\text{gradient}} = \frac{1}{2} p^T M p
+\end{equation}
+where $M = \int x x^T dV$ is the moment tensor of the grain.
+
+\subsection{Isotropic Case}
+
+For a spherical grain: $M \propto V_K R_K^2 I$, giving $E_{\text{gradient}} \propto V_K R_K^2 |p|^2$ and thus $M_p \propto V_K R_K^2$.
+
+\section{Renormalization and Stability}\label{si:renorm}
+
+\subsection{Volume Normalization as Renormalization}
+
+The volume normalization $J_{ij} = \eta_0/V_K$ is a form of mean-field renormalization that:
+\begin{itemize}
+\item Prevents divergences in the continuum limit
+\item Ensures extensive scaling of emergent parameters
+\item Maintains finite energy densities
+\end{itemize}
+
+\subsection{Self-Organization Principle}
+
+The model contains built-in stability: high-energy gradient configurations across long-range links are suppressed by their own weakness ($J \propto |\Psi_i|^2|\Psi_j|^2$), leading to emergent local smoothness.
+
+\subsection{Numerical Considerations}
+
+Simulations should:
+\begin{itemize}
+\item Use volume-normalized couplings
+\item Monitor energy density for stability
+\item Implement appropriate cutoffs for very long-range interactions
+\end{itemize}
+
+\section{Dimensional Fixed\,Point (Lambert\,W derivation)}\label{si:dim-fp}
+
+\subsection{Notation and scope}
+
+Throughout this appendix, $d$ denotes the effective intrinsic/spectral dimension obtained from the heat\,kernel definition in a chosen diffusive window for a locally homogeneous vacuum patch. It is real\,valued in general. The symbol $d^\star$ denotes the stationary (target) value that minimises the reduced cost functional $F(d)$; in the vacuum this acts as a fixed point toward which coarse\,grained dynamics drive $d$.
+
+\subsection{Spectral dimension from the heat kernel}
+
+For a weighted graph with Laplacian $L(J)$, the heat kernel is $K(t) = \text{Tr}[e^{-t L(J)}]$. In a diffusive window of times $t$, the spectral dimension is defined by
+\begin{equation}
+\langle d_{\text{int}} \rangle(t) := - 2 \cdot \frac{d \ln K(t)}{d \ln t}
+\end{equation}
+
+This is a derived observable of the propagation kernel; no integer constraint is imposed. In practice, we work in a window where $\langle d_{\text{int}} \rangle(t)$ is approximately flat in $t$.
+
+\subsection{Information\,theoretic cost and dimensional stiffness}
+
+Two ingredients determine the vacuum's preferred intrinsic dimension:
+
+1. A storage/description cost that decreases with dimension because screening shortens effective range and sparsifies long links. A simple model is
+\begin{equation}
+L(d) = b_V + b_E \cdot e^{- \alpha d}
+\end{equation}
+with $b_V, b_E, \alpha > 0$. Here $b_E e^{-\alpha d}$ is the \emph{coarse-grained information cost} of active links at dimension $d$—the effective description length induced by integrating out microscopic fluctuations (cf. the $-T S[J]$ term in Axiom~2). Long links and high degree raise spectral dimension via the Laplacian spectrum (Sec.~\ref{si:laplacian}), increasing this cost.
+
+2. A dimensional stiffness that penalises departures from the vacuum's compressive preference, captured by a convex quadratic $\beta d^2$ at leading order (coarse\,grained surrogate of the bias used in Section 6.1).
+
+We therefore minimise the reduced cost (dropping constants):
+\begin{equation}
+F(d) = b_E e^{- \alpha d} + \beta d^2
+\end{equation}
+
+\subsection{Fixed\,point and Lambert\,W}
+
+Stationarity gives
+\begin{align}
+\frac{\partial F}{\partial d} &= - \alpha b_E e^{- \alpha d} + 2 \beta d = 0\\
+&\Rightarrow 2 \beta d = \alpha b_E e^{- \alpha d}\\
+&\Rightarrow (\alpha d) e^{\alpha d} = \frac{\alpha^2 b_E}{2 \beta}
+\end{align}
+
+Hence the target intrinsic dimension is
+\begin{equation}
+d^\star = \frac{1}{\alpha} \cdot W\left( \frac{\alpha^2 b_E}{2 \beta} \right)
+\end{equation}
+where $W$ is the Lambert\,W function. For plausible parameter ranges, this lands near a small integer ($\approx 3$), explaining the preference for low\,integer coordination in the vacuum.
+
+\subsection{Remarks}
+
+\begin{itemize}
+\item Using spectral dimension makes the criterion basis\,independent and sensitive to both degree and long\,link patterns.
+\item The quadratic stiffness is the leading convex surrogate; higher\,order corrections can be absorbed into renormalised $(\alpha, b_E, \beta)$ without changing the Lambert\,W structure.
+\item \textbf{Robustness to information\,cost choice.} The exponential $b_E e^{-\alpha d}$ is the simplest monotone decreasing ansatz. Replacing it by other reasonable models still yields a unique stable minimum: (i) for a power\,law $L(d)=b_E d^{-p}$ with $p>0$, minimising $F(d)=L(d)+\beta d^2$ gives $d_*\propto (b_E/\beta)^{1/(p+2)}$; (ii) for a logarithmic form $L(d)=-b_E\log(\alpha d)$ one finds $d_*\propto\sqrt{b_E/\beta}$. Thus the existence of a small, stable fixed point is generic; the exponential ansatz gives the compact Lambert\,W expression.
+\item Section 6.1 uses a weak\,bias regime where the bias chiefly sets a coordination ``temperature,'' stabilising small\,integer valence without overriding the local Boltzmann link form.
+\end{itemize}
+
+\section{Measurement Double\,Well and Pointer States}\label{si:measure-dw}
+We outline how the coupled system–apparatus landscape generically acquires a double\,well that implements projective, latching measurement.
+
+\subsection*{Coarse\,grained apparatus model}
+Let the apparatus $A$ be a grain (or a small bundle of grains) with an internal phase current $p_A$ that couples to a system mode (phase orientation) $p_S$. The coarse\,grained free energy at fixed amplitude reads
+\begin{equation}
+  F(p_A;p_S) \;=\; \tfrac12 M_p |p_A|^2 \; -\; C\,(p_A\!\cdot\!p_S) \; +\; \lambda |p_A|^4,
+\end{equation}
+with $M_p>0$ the phase inertia, $C>0$ an attractive phase\,channel coupling (composition\,independent), and $\lambda>0$ a weak stabiliser summarising higher\,order terms and amplitude–phase backreaction.
+
+For weak coupling ($C$ small), the unique minimum is $p_A=0$ (no record). Above a threshold $C\gtrsim C_\mathrm{crit}\sim M_p^2/\lambda$ the origin loses stability and two symmetry\,related minima appear at $p_A=\pm p_*\,\hat p_S$ with $p_*\propto C/M_p$ (pitchfork bifurcation). These minima correspond to macroscopically distinct apparatus records aligned/anti\,aligned with the system phase.
+
+\subsection*{Relative\,phase reduction}
+Clamping amplitudes near $w_*$ and projecting onto the single relative phase $\theta=\phi_A-\phi_S$ gives the effective interaction $V_{\mathrm{rel}}(\theta)\approx -K\cos\theta+O(\cos2\theta)$ with $K\propto C$. The minima at $\theta=0\,(\mathrm{mod}\,2\pi)$ (and, when higher harmonics are relevant, $\theta=0,\pi$) furnish the discrete pointer states.
+
+\subsection*{Decoherence and hysteresis}
+The apparatus–bath coupling acts through the same phase sector. Off\,diagonal coherences between distinct minima dephase at a rate set by the bath's low\,frequency power, $\Gamma_{\mathrm{dephase}}\sim S_\xi(0)/(2\hbar_{\mathrm{eff}})$, as the macroscopically different phase\,current patterns imprint distinguishable bath states. The quartic stabiliser creates a barrier $\Delta E_b$; with damping $\zeta$ and effective temperature $T_{\mathrm{eff}}$, the Kramers escape rate $\Gamma\approx(\omega_0\omega_b/2\pi\zeta)\,e^{-\Delta E_b/(k_B T_{\mathrm{eff}})}$ is exponentially small in the measurement regime. Thus the minima are dynamically selected (einselection) and latched (hysteresis), realising projective measurement onto the apparatus' eigenbasis.
+
+\section{Tipping Point Criteria for Measurement Regimes}\label{si:thresholds}
+As introduced in Section 11 of the main paper, the transition from continuous tracking to projective measurement involves crossing several distinct physical thresholds. Here, we provide the precise mathematical conditions for these tipping points, formulated within the free\,energy landscape of Eq.~(\ref{eq:VtotalSA}) of the main text.
+
+The key parameters are the system–apparatus coupling ($K \propto C$), the apparatus's internal even-harmonic potential scale ($B$), its stabilizing nonlinearity ($\lambda_A$), its phase inertia ($M_p$), and the bath properties (damping $\zeta$, effective temperature $T_{\rm eff}$, and low-frequency noise power $S_\xi(0)$).
+
+\paragraph{1. Onset of Bistability (Two Outcomes).} The fundamental switch from a single continuous pointer to two discrete pointer states occurs when the apparatus potential develops a double-well structure. This happens when the even-harmonic term overcomes the centering effect of the system coupling. The exact threshold is:
+\begin{equation}
+  B = B_{\rm crit} = \frac{K}{4}.
+\end{equation}
+For $B > B_{\rm crit}$, two stable pointer minima exist.
+
+\paragraph{2. Onset of Orthogonality (Which-Way Information).} For the two pointer states to represent distinct, non-interfering information, their overlap must be negligible. This is governed by the action separation $\mathcal{A}$ between them. Using the macroscopic phase-current difference $\Delta p_A \approx 2C/M_p$, the tipping point where interference is suppressed is:
+\begin{equation}
+  \frac{\mathcal{A}}{\hbar_{\mathrm{eff}}} \approx \frac{\pi \, \Delta p_A}{\hbar_{\mathrm{eff}}} \approx \frac{2\pi C}{M_p \, \hbar_{\mathrm{eff}}} = 1.
+\end{equation}
+
+\paragraph{3. Onset of Decoherence (Loss of Superposition).} A superposition of pointer states is destroyed when the environment can distinguish them faster than the system evolves. This occurs when the decoherence rate, $\Gamma_{\rm dephase}$, dominates over the relevant integration time, $T_{\rm int}$. The tipping point is:
+\begin{equation}
+  \Gamma_{\rm dephase} T_{\rm int} \approx \frac{(\Delta p_A)^2 S_\xi(0)}{2\,\hbar_{\mathrm{eff}}} \, T_{\rm int} = 1.
+\end{equation}
+
+\paragraph{4. Onset of Latching (Durable Record).} A measurement is recorded classically when the pointer is trapped in one minimum, unable to tunnel to the other. This requires the energy barrier $\Delta E_b$ to be large compared to the thermal energy of the bath. The tipping point for a stable record is:
+\begin{equation}
+  \frac{\Delta E_b}{k_B T_{\rm eff}} \sim \frac{C^2}{\lambda_A \, k_B T_{\rm eff}} = 1.
+\end{equation}
+
+\paragraph{Conformally Invariant Control.} These four conditions define the boundaries between measurement regimes. They can be packaged into five dimensionless ratios: $\alpha = B/K$, $\beta = \lambda_A/K$, and the three tipping parameters $\Xi_1, \Xi_2, \Xi_3$ defined by the expressions above. Because these ratios are constructed from quantities that co-vary under changes in the observational window, the regime boundaries are conformally invariant in local units, a key prediction of the framework.
+
+\paragraph{Conformal behavior (local\,unit invariance).} In our framework, predictions are expressed in local units adapted to the coarse\,graining window: $c_s$ is fixed by $c_s^2=\kappa w_*^2$, and $\hbar_{\rm eff}\simeq E_{\rm cell}\,\tau_{\rm cell}$ is constructed to be coarse\,grain invariant. Under admissible window changes, the microscopic quantities $K$, $B$, $\lambda_A$, $M_p$, $S_\xi(0)$, $T_{\rm eff}$ co\,vary, but the \emph{dimensionless} ratios $\alpha$, $\beta$, $\Xi_1$, $\Xi_2$, $\Xi_3$ remain approximately unchanged. Hence the tipping surfaces are conformally invariant in local units. Thermodynamic convergence implies tiny residual drifts (Sec. 9 of the main paper): these shift thresholds only by higher\,order corrections, yielding at most slow, testable motions of the tipping lines without qualitative change of regimes.
+
+\section{Matter--Kernel Coupling Lemma (Static, Linear Response)}\label{si:matter-kernel}
+We show that a static energy density $\rho_m(x)$ induces a local perturbation $\delta K(x)$ of the continuum phase kernel such that $\delta K(x) \propto \rho_m(x)$ to leading order.
+
+\paragraph{Assumptions.} Near-regular subgraphs; volume-normalized couplings; time-scale separation (phase fast, links slow); static, small perturbations of a localized soliton core; continuum limit of the Laplacian exists on the patch of interest.
+
+\subsection*{From microscopic links to kernel perturbations}
+Let a localized soliton core $\Delta$ of excess energy density $\rho_m(x)$ perturb the equilibrium link weights $J_{ij}\to J_{ij}+\delta J_{ij}$. Stationarity of the coarse functional $\Gamma[J]$ (Sec.~S1) implies, to linear order,
+\begin{equation}
+  \delta \Gamma \;=\; \frac{1}{2} T_{\rm eff}\,\Tr\big[L(J)^{-1}\,\delta L\big] \; -\; T\,\delta S[J] \; +\; \delta\mathcal B[J] \;=\; 0,
+\end{equation}
+with $\delta L$ the Laplacian variation induced by $\delta J$. Localized excess energy modifies $J$ in the vicinity of $\Delta$ by renormalising short bonds and screening long bonds. Volume normalisation ensures $\delta J$ remains local and integrable. In the continuum, $L\mapsto -\nabla\!\cdot(c_s^2\nabla)$ and small link changes map to a local perturbation of $c_s^2$:
+\begin{equation}
+  -\nabla\!\cdot(c_s^2\nabla) \;\longrightarrow\; -\nabla\!\cdot\big((c_s^2+\delta c_s^2)\nabla\big) \;=\; -\nabla\!\cdot(c_s^2\nabla)\; -\; \underbrace{\nabla\!\cdot(\delta c_s^2\nabla)}_{\delta K}.
+\end{equation}
+To leading order, $\delta c_s^2(x)$ is proportional to the local excess energy density $\rho_m(x)$: $\delta c_s^2(x)=\chi_c\,\rho_m(x)$ with $\chi_c>0$ a susceptibility fixed by microscopic parameters and the window. Hence
+\begin{equation}
+  \delta K(x) \;=\; -\nabla\!\cdot\big(\chi_c\,\rho_m(x)\,\nabla\big) \;\equiv\; \mathcal C[\rho_m](x),
+\end{equation}
+defining a local functional $\mathcal C$ of $\rho_m$.
+
+\subsection*{Statement of the lemma}
+In the static, weak-perturbation regime on near-regular patches,
+\begin{equation}
+  \boxed{\quad \delta K(x) \;\propto\; \rho_m(x) \quad \text{(local proportionality, to leading order)}\quad}
+\end{equation}
+with proportionality mediated by $\mathcal C$ above. Higher derivatives of $\rho_m$ enter at subleading order and are suppressed by the coarse scale.
+
+\paragraph{Remarks.} (i) The sign $\chi_c>0$ is fixed by the increase of local phase stiffness around energy concentrations (cores), consistent with the pruning mechanism. (ii) Nonlocal tails of $\delta J$ renormalise the proportionality but do not change locality at leading order in the Coulombic window. (iii) Time dependence introduces retardation kernels beyond the present static scope.
+
+\section*{References Prep}
+\noindent Reference pointers are summarized in the main paper. Additional SI-specific citations appear inline where relevant.
+
+% (Optional SI-only references could be listed here if they are not in the paper.)
+
+\end{document}
+
+

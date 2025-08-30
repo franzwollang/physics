@@ -1,0 +1,357 @@
+% !TeX program = pdflatex
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\usepackage{fancyhdr}
+
+% Footer marking the draft status
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\small Supplementary Information — Draft}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Number sections as S1, S2, ...
+\renewcommand{\thesection}{S\arabic{section}}
+\renewcommand{\thesubsection}{S\arabic{section}.\arabic{subsection}}
+
+\title{Supplementary Information\\A Sea of Noise: Relativity from a Thermodynamic Force in Scale-Space \\, (\textit{Draft})}
+\author{Franz Wollang\\ \small Independent Researcher}
+\date{\small Dated: 2025-08-29}
+
+\begin{document}
+\maketitle
+
+% Prominent draft disclaimer box
+\begin{center}
+\setlength{\fboxsep}{8pt}%
+\fbox{\parbox{0.92\textwidth}{\centering\bfseries DRAFT — NOT FOR CITATION\\[4pt]
+This Supplementary Information accompanies the manuscript ``A Sea of Noise: Relativity from a Thermodynamic Force in Scale-Space'' and collects technical derivations and interpretive material referenced in the main text.}}
+\end{center}
+\vspace{1em}
+
+\tableofcontents
+\vspace{1em}
+
+\section{Observation Windows and Local Units}\label{si:window}
+Continuum variables in this framework are defined \emph{relative to an observation window}. By a window we mean IR/UV cutoffs $k_{\min}(t)$ and $k_{\max}(t)$ applied to the ambient spectrum $S(k)$ of fluctuations. The windowed background measure is
+\begin{equation}
+  \rho_{N,\rm eff}(t) \,=\, \int_{k_{\min}}^{k_{\max}} \! S(k)\,dk,\qquad \frac{d\rho_{N,\rm eff}}{dt} \,=\, S(k_{\max})\,\dot k_{\max} - S(k_{\min})\,\dot k_{\min}.
+\end{equation}
+On bounded windows the induced operators are compact and have discrete spectra. This justifies: (i) the coarse\,grained complex field, (ii) stable soliton clocks (dominant internal mode), and (iii) the approximate coarse\,grain invariant $\hbar_{\rm eff}\simeq E_{\rm cell}\,\tau_{\rm cell}$ used throughout.
+
+\subsection*{Operational cutoffs and their origins}
+We choose cutoffs that are physically motivated and close under slow drift:
+\begin{equation}
+  k_{\min}(t) \,=\, \max\!\Big(\tfrac{2\pi}{L_{\rm obs}},\, \xi_{\rm IR}\,\tfrac{H_{\rm eff}(t)}{c_s}\Big),\qquad
+  k_{\max}(t) \,=\, \min\!\Big(\tfrac{\pi}{R_{\rm obs}},\, \xi_{\rm UV}\,\tfrac{1}{\ell_{\rm gap}},\, \tfrac{2\pi}{c_s T_{\rm obs}}\Big).
+\end{equation}
+Here $L_{\rm obs},R_{\rm obs},T_{\rm obs}$ are the spatial/temporal window scales, $\ell_{\rm gap}=\sqrt{\alpha_{\rm grad}/(2\beta_{\rm pot})}$ is the amplitude screening length, and $\xi_{\rm IR},\xi_{\rm UV}=\mathcal O(1)$. The IR term $H_{\rm eff}/c_s$ reflects the Lorentzian phase cone and the finite causal reach of slowly evolving backgrounds; the UV terms are set by (i) the amplitude gap (no long\,range amplitude modes beyond $1/\ell_{\rm gap}$) and (ii) finite temporal resolution through the cone ($\omega_{\max}\sim 2\pi/T_{\rm obs}\Rightarrow k_{\max}\sim \omega_{\max}/c_s$).
+
+\subsection*{Self\,consistent closure with $H_{\rm eff}$ and $\Lambda_{\rm eff}$}
+Given $(k_{\min},k_{\max})$, define the homogeneous offset captured by the window as
+\begin{equation}
+  \Lambda_{\rm eff}(t) \;\propto\; \int_{k_{\min}(t)}^{k_{\max}(t)}\! S(k)\,dk.
+\end{equation}
+In unimodular/low\,curvature regimes the background rate obeys $H_{\rm eff}^2 \propto \Lambda_{\rm eff}$. This yields an adiabatic fixed\,point map: start from $H_{\rm eff}^{(n)}$, compute $k_{\min}^{(n)}$, evaluate $\Lambda_{\rm eff}^{(n+1)}$ via the integral, and set $H_{\rm eff}^{(n+1)}$ from the proportionality. For slowly drifting windows the sequence converges and leaves \emph{dimensionless} local predictions unchanged; only the homogeneous offset tracks the window. In this sense the apparent recurrence between the IR cutoff and $\Lambda_{\rm eff}$ is resolved by adiabatic fixed\,point closure.
+
+\subsection*{Consequences in local units}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Coordinate vs local speeds:} Index variations $\chi(\rho_N)$ change coordinate speeds ($c_s/\chi$), while locally measured light speed remains $c_s$ via co\,scaling of rulers and clocks.
+  \item \textbf{Calibration of $G$:} The Newtonian constant is fixed operationally in the Coulombic window; sliding the window drifts dimensionful constants but not the $1/r^2$ law or dimensionless observables.
+  \item \textbf{Homogeneous background ($\Lambda_{\rm eff}$):} The windowed background sets a homogeneous offset that behaves as an effective cosmological term in unimodular form; bound systems are insensitive to this offset at leading order.
+\end{itemize}
+
+\subsection*{Acceleration\,induced window shifts (pointer)}
+Proper acceleration shifts the comoving window's effective UV edge. It is convenient to summarise this as a small Unruh\,like contribution with $T_U(a)=\hbar a/(2\pi c_s k_B)$ (Unruh, 1976; see also Birrell\,\&\,Davies) entering the effective noise scale used for drag. Detailed consequences for non\,geodesic motion (the drag law and equivalence considerations) are developed in Section~\ref{si:drag}; they are not needed for the window justification itself.
+
+\section{Drag Scaling and Justification}\label{si:drag}
+We quantify an acceleration-dependent drag that acts only for non-geodesic (forced) motion and vanishes on geodesics; the Lorentzian light cone already makes $c_s$ an unattainable speed limit for massive excitations. Let $\mathbf a_0$ denote the apparent acceleration in the lab frame (e.g., from a background gradient), and $\hat v$ the unit velocity direction. The proper acceleration experienced in the comoving frame is
+\begin{equation}
+  a_{\rm eff} = \gamma_v^{3}\, (\mathbf a_0\!\cdot\!\hat v),\qquad \gamma_v=\frac{1}{\sqrt{1-v^2/c_s^2}}.
+\end{equation}
+The rate of interaction with phase-space cells is proportional to a covariant scalar built from the 4-acceleration. A minimal, frame-consistent baseline uses the proper acceleration scale in the comoving frame (with $\omega_d\propto a_s$ for a driven bound mode) and lab-frame beaming/normalisation weights to yield
+\begin{equation}
+  P_{\rm rad} \,\propto\, \gamma_v^{4}\, a_s^{2},
+\end{equation}
+up to an overall coefficient fixed by microphysics (see Section~\ref{si:drag-justify}).
+Balancing dissipated power with mechanical power input $P_{\rm work}=F\!\cdot v$ must be carried out in a single frame (or covariantly). A nonrelativistic balance $P_{\rm work}=m a v$ mixes frames and miscounts $\gamma_v$ factors. We defer the proper balance to the covariant subsection below, which yields a general relation $a(v)\propto \gamma_v^{\,3-p}$ when $P_{\rm rad}\propto \gamma_v^{p} a^2$ in the lab frame (colinear case).
+
+\paragraph{Equivalence of accelerations; isotropy vs anisotropy.} In this framework, ``gravitational'' acceleration (from a noise/index gradient) and ``mechanical'' acceleration (from an external force) are equivalent at the level of the comoving-frame kinematics that enter the drag law: both produce a proper acceleration $a_{\rm eff}$ and hence a window shift and an effective temperature $T_{\rm eff}(a)$. However, the induced \emph{downshifting of soliton scale} can differ in its transient spatial pattern.
+
+For a quasi-static noise gradient (gravitational case), $\tau(x)$ is a scalar that increases toward the source, so the equilibrium scale $\sigma^*(x)\propto 1/\tau(x)$ contracts \emph{isotropically} to leading order. By contrast, for mechanical acceleration, the comoving-frame window shifts due to Doppler/Rindler effects preferentially along the acceleration axis. In the instantaneous comoving frame the Unruh bath is thermal and nearly isotropic for pointlike detectors, but a finite-size soliton samples mode populations and gradients differently along and transverse to $\hat a$, producing a small \emph{anisotropic} excitation of internal modes.
+
+\subsection{Covariant derivation and frame consistency}\label{si:drag-justify}
+We present a covariant, frame-consistent sketch and then connect to phenomenology. Let $U^\mu=\gamma_v(1,\mathbf v/c_s)$ be the soliton 4-velocity and $A^\mu=dU^\mu/d\tau$ its 4-acceleration (proper time $\tau$), with $A\!\cdot\!U=0$ and magnitude $a\equiv\sqrt{-A^\mu A_\mu}$. The external 4-force $F^\mu$ obeys $F^\mu U_\mu=0$ and induces $A^\mu=F^\mu/m$. Energy change is $dE/dt = F^\mu U_\mu\,\gamma_v c_s^2= \mathbf F\!\cdot\!\mathbf v$ in the lab.
+
+Radiation must be built from scalars formed with $U^\mu$ and $A^\mu$. For colinear motion (acceleration parallel to velocity), the only scale is $a$ and the lab power picks up kinematic weights from time dilation and flux: a minimal ansatz consistent with dimensional analysis and colinearity is
+\begin{equation}
+  P_{\rm rad}(v,a) \,=\, C_{\rm drag}\, \gamma_v^{p}\, a^{2},\label{eq:cov-prad}
+\end{equation}
+with $p$ determined by the operator content (e.g., gradient vs higher multipoles). The $a^2$ dependence follows from $(A\!\cdot\!A)$ as the lowest scalar; any odd power would violate $A^\mu\!\to\!-A^\mu$ symmetry at fixed $U^\mu$. The coefficient $C_{\rm drag}$ carries the units required for power; in local units, microscopic scales (e.g., $c_s$ and stiffnesses) can be absorbed into $C_{\rm drag}$.
+
+Mechanical power in the lab is $P_{\rm work}=\mathbf F\!\cdot\!\mathbf v = (\gamma_v^3 m a) v$ for longitudinal acceleration. Steady drive imposes $P_{\rm work}=P_{\rm rad}$, hence
+\begin{equation}
+  \gamma_v^{3} m a\, v \;\propto\; C_{\rm drag}\, \gamma_v^{p}\, a^{2} \quad \Rightarrow \quad a(v) \;\propto\; \gamma_v^{\,3-p}\, v \,.
+\end{equation}
+Thus ultra\,relativistic suppression ($a\to0$ as $\gamma_v\to\infty$) requires $p>3$. Any concrete micro\,derivation that yields $p>3$ is therefore compatible with the qualitative conclusion that non\,geodesic drag further suppresses approach to $c_s$.
+
+Connecting to Kubo/EFT: linear\,response with a super\,Ohmic phase bath and worldline\,multipole couplings both suggest that the dominant comoving frequency scales as $\omega_d\propto a$ (first nontrivial scalar) and that lab fluxes acquire positive $\gamma_v$ weights from contraction and current normalization, while time dilation suppresses rates. The net exponent $p$ is operator\,dependent and must be computed covariantly; phenomenology (storage rings) then bounds $C$.
+
+\paragraph{Fixing $p$ under leading assumptions (baseline choice).} For the present framework the leading coupling of a composite soliton to the massless phase is gradient\,type (first derivative). In worldline EFT, this corresponds to the lowest symmetry\,allowed operator linear in $\partial\phi$ (scalar dipole analogue). For colinear acceleration, boosting the comoving emission pattern to the lab introduces two powers of $\gamma_v$ from beaming/solid\,angle compression and two from field/current normalisation relative to proper time, while a single $\gamma_v^{-1}$ enters from time dilation in $P=dE/dt$. The net minimal weight is therefore $\gamma_v^{4}$, which we take as the \emph{baseline} exponent for gradient couplings (cf. Unruh 1976; worldline EFT discussions by Goldberger\,\&\,Rothstein, and Porto):
+\begin{equation}
+  p_{\rm baseline} \;=\; 4\,.
+\end{equation}
+Higher multipoles and additional tensor structure can only increase $p$ (e.g., the electromagnetic Liénard case yields $p=6$ for purely longitudinal acceleration). With $p=4$, Eq.~\eqref{eq:cov-prad} gives
+\begin{equation}
+  a(v) \;\propto\; \gamma_v^{-1}\, v\,,
+\end{equation}
+which exhibits ultra\,relativistic suppression (and is a conservative lower bound on suppression strength; $p\ge 4$).
+We summarise complementary routes that support Eq.~\eqref{eq:cov-prad} with the derived exponent $p=4$:
+\begin{equation}
+  P_{\rm rad}(v,a) \;=\; C_{\rm drag}\; \gamma_v^{4}\; a^{2},\qquad \omega_d\;\propto\; a\,\gamma_v^{3/2},
+\end{equation}
+where $C_{\rm drag}$ is an overall coefficient to be calibrated empirically (carrying the required units in local\,unit conventions), and we delineate their regime of validity.
+
+\paragraph{(i) Linear response (Kubo) with Unruh bath.} Let a dominant internal coordinate $q$ couple to a bath operator $B$ sourced by proper acceleration ($T_U=\hbar a/(2\pi c_s k_B)$; Unruh 1976; Birrell\,\&\,Davies): $H_{\rm int}=-q\,B$. The dissipated power in the comoving frame is
+\begin{equation}
+  P \;\simeq\; \int_0^{\infty}\! d\omega\; \omega\; \mathrm{Im}\,\chi_{qq}(\omega)\; S_{BB}(\omega;T_U),
+\end{equation}
+with $\chi_{qq}$ the susceptibility and $S_{BB}$ the bath spectrum obeying FDT. For the phase sector, gradient\,type couplings give super\,Ohmic spectra. Boosting to the lab multiplies the comoving result by appropriate $\gamma_v$ factors from time dilation and flux; the net power matches the structure in Eq.~\eqref{eq:cov-prad} with $p=4$ for the baseline gradient coupling.
+
+\paragraph{(ii) Worldline EFT for a composite soliton.} Model the soliton as a worldline with dynamical multipoles $Q_i, Q_{ij},\dots$ coupled to the phase field via the lowest symmetry\,allowed operators. The imaginary part of the dressed propagator (optical theorem) sets the radiation power $\propto (A\!\cdot\!A)$ at leading order; boosting to the lab produces Eq.~\eqref{eq:cov-prad} with $p=4$ for the baseline gradient coupling (first-derivative operators). See, e.g., discussions of scalar radiation in worldline EFT frameworks (Goldberger\,\&\,Rothstein; Porto).
+
+\paragraph{(iii) Scaling in local units.} In the comoving frame, the available scales are the proper acceleration $a$ (T$^{-2}$) and the signal speed $c_s$ (LT$^{-1}$), with the stabiliser ensuring small deformations. For a driven bound mode, the dominant frequency scales as the acceleration itself,
+\begin{equation}
+  \omega_d \;\propto\; \frac{a}{c_s} \;\propto\; a,
+\end{equation}
+with the $\gamma_v^{3/2}$ factor supplied by relativistic kinematics as above.
+
+\section{Induced Gravitational Action from Microdynamics (Sketch)}\label{si:induced-gravity}
+This section sketches how the gravitational action arises by integrating out the phase sector defined by the microdynamics, connecting the coarse\,grained free energy to an induced Einstein\,Hilbert term plus higher\,curvature corrections.
+
+\subsection*{Setup and assumptions}
+We work on near\,regular subgraphs where the discrete phase kernel (graph Laplacian) admits a continuum description. The coarse\,grained phase Lagrangian at fixed amplitude is
+\begin{equation}
+  \mathcal L_\phi \;=\; \frac{\kappa w_*^2}{2}\, g^{\mu\nu}\, \partial_\mu\phi\,\partial_\nu\phi,\qquad c_s^2=\kappa w_*^2.
+\end{equation}
+The metric $g_{\mu\nu}$ encodes the slowly varying geometry induced by vacuum relaxation of links (continuum mapping in Appendix~A of the main text). Amplitude fluctuations are gapped with screening length $\ell$, so at energies $E\ll \ell^{-1}$ they contribute only finite renormalisations of coefficients and can be integrated out once.
+
+\subsection*{Path integral and trace\,log}
+Define the phase\,sector partition function on a fixed background $g$. The action scale is set by $\hbar_{\rm eff}$ (the coarse\,grain invariant action per cycle in local units), which is the natural quantum of action for the effective low\,energy theory:
+\begin{equation}
+  Z[g] \;=\; \int \!\mathcal D\phi\; \exp\!\left\{-\frac{1}{\hbar_{\rm eff}} \int \! d^4x\, \sqrt{|g|}\, \frac{\kappa w_*^2}{2}\, g^{\mu\nu}\, \partial_\mu\phi\,\partial_\nu\phi \right\}.
+\end{equation}
+Gaussian integration yields the effective action (up to an additive constant)
+\begin{equation}
+  \Gamma[g] \;=\; -\hbar_{\rm eff} \ln Z[g] \;=\; \frac{\hbar_{\rm eff}}{2}\, \operatorname{Tr} \ln (-\Box_g)\,,\qquad \Box_g:=\nabla_\mu\nabla^\mu.
+\end{equation}
+Using the heat\,kernel representation $\operatorname{Tr}\ln(-\Box_g)=-\int_{\varepsilon}^{\infty}\!\frac{ds}{s}\, \operatorname{Tr}\, e^{-s(-\Box_g)}$ and the Seeley\,DeWitt expansion $\operatorname{Tr}\, e^{-s(-\Box_g)}=\frac{1}{(4\pi s)^2}\sum_{n\ge0} a_n s^n$, one obtains the local curvature expansion
+\begin{equation}
+  \Gamma[g] \;=\; \int \! d^4x\,\sqrt{|g|}\; \Big[ C_0\, \Lambda_{\rm eff}^4 \; +\; C_1\, \Lambda_{\rm eff}^2\, R \; +\; C_2\, \ln(\Lambda_{\rm eff}^2/\mu^2)\, \mathcal R^2 \; +\; \cdots \Big],
+\end{equation}
+where $\mathcal R^2$ stands for curvature\,squared combinations (e.g., $R^2$, $R_{\mu\nu}R^{\mu\nu}$), and $\Lambda_{\rm eff}$ is an effective UV scale discussed next.
+
+\subsection*{Window/cutoff and coefficient identification}
+In this framework the UV scale is set operationally by the observation window and the phase spectrum, \,$\Lambda_{\rm eff}\sim \sqrt{\kappa}\, w_*\, k_{\max}$, with $k_{\max}$ determined by the UV edge of the sliding window (Section~\ref{si:window}) or by the amplitude gap when more restrictive. Matching the $R$\,term to the Einstein\,Hilbert form gives
+\begin{equation}
+  \frac{1}{16\pi G} \;=\; C_1\, \Lambda_{\rm eff}^2.
+\end{equation}
+For a standard minimally coupled real scalar one finds $C_1 = \hbar_{\rm eff}/(96\pi^2)$ up to scheme\,dependent factors. Note that $C_1$ is scheme- and matter-content dependent (order-one factors), and the identification $1/(16\pi G) = C_1 \Lambda_{\rm eff}^2$ is robust only up to that ambiguity; in this framework $\Lambda_{\rm eff}$ is set by the window and the phase spectrum. In the present framework the total $C_1$ receives additive contributions from both the massless phase and the gapped amplitude sectors. The spacetime\,constant piece does not source curvature in unimodular form; operationally its value is tied to the homogeneous windowed background and appears as an integration constant matched to $\Lambda_{\rm eff}$ in cosmology. This synergy makes the unimodular implementation particularly natural here. Curvature\,squared terms are suppressed by $\ln(\Lambda_{\rm eff}^2/\mu^2)$ and by the small\,curvature regime $|R|\ll \Lambda_{\rm eff}^2$.
+
+\subsection*{Zero modes, normalisation, and symmetries}
+The phase shift symmetry ($\phi\!\to\!\phi+\text{const}$) implies a zero mode on compact domains; we remove it with the standard prime determinant (or gauge condition) so that $\det'(-\Box_g)$ is finite. Local\,unit (conformal) rescalings move strength between $\kappa, w_*, \hbar_{\rm eff}$ and the window edges but leave the dimensionless predictions and the induced \,$C_1\Lambda_{\rm eff}^2$\,combination invariant up to slow drifts captured by the window formalism.
+
+\subsection*{Validity and outlook}
+The expansion holds for curvatures well below the window scale, $|R|\ll \Lambda_{\rm eff}^2$, and for slowly varying backgrounds consistent with the continuum mapping. A full first\,principles derivation of the numerical coefficients requires the microscopic spectral density of the induced Laplacian on near\,regular subgraphs; this can be obtained either analytically for idealised lattices or numerically within the graph simulation programme. The sketch above shows how the microdynamics place the framework in the Einstein universality class and identifies how $G$ and higher\,curvature terms encode window and microparameter dependence.
+
+\section{U(1) from Phase Sheets: Brief Derivation}\label{si:u1-sheets}
+We outline how codimension-1 phase sheets yield a Gauss law and $1/r$ potentials, supporting the U(1) mapping sketched in the main text.
+
+\subsection*{Phase jump across a sheet}
+Consider a phase field $\phi(x)$ with a $2\pi$ discontinuity across a codimension-1 surface $\Sigma$. The distributional gradient is $\nabla\phi = \nabla\phi_{\rm smooth} + 2\pi\,\mathbf n\,\delta(\Sigma)$, where $\mathbf n$ is the unit normal to $\Sigma$. Define the coarse electric field as $\mathbf E = -\nabla\Phi_{\rm eff}$, with $\Phi_{\rm eff}$ a potential whose circulation around closed loops counts net sheet crossings.
+
+\subsection*{Gauss law from sheet counting}
+For a closed surface $\partial V$, the flux $\oint_{\partial V} \mathbf E \cdot d\mathbf S$ equals the net number of sheet crossings through $\partial V$ (with orientation). Since sheets terminate at amplitude cores (topological defects), the net crossing count equals the number of enclosed sources/sinks, yielding $\oint \mathbf E \cdot d\mathbf S \propto Q_{\rm enc}$. For isolated point sources this gives $|\mathbf E| \propto 1/r^2$ and $\Phi_{\rm eff} \propto 1/r$.
+
+\subsection*{Lorentz covariance}
+The phase action $\mathcal L_\phi = (\kappa w_*^2/2) g^{\mu\nu} \partial_\mu\phi \partial_\nu\phi$ is Lorentz covariant with wave speed $c_s = \sqrt{\kappa} w_*$. Coarse-graining the distributional $\partial_\mu\phi$ from sheet configurations and assembling into an antisymmetric tensor $F_{\mu\nu}$ with $\partial_{[\mu}F_{\nu\rho]} = 0$ yields Maxwell structure in local units. The detailed constitutive relations (coupling constants, field normalizations) require a full treatment beyond this sketch.
+
+\section{Geometric Interpretations (Maps)}\label{si:geom-maps}
+Geometric analogues of the ``position\,+\,scale'' state $(x,\sigma)$ used in the scale--space force derivation. The bundle language below is offered as an interpretive map; the paper's derivations remain in the continuum field formalism.
+
+\textbf{Frame bundle (Cartan/moving frames):} States are $(x,e)$ with $e$ an orthonormal frame in the principal $\mathrm{SO}(n)$ (or conformal $\mathrm{CO}(n)=\mathbb R^+\times \mathrm{SO}(n)$) bundle. The $\mathbb R^+$ factor encodes local scale. Our $(x,\sigma)$ corresponds to the $(x,\mathbb R^+)$ subbundle of the conformal frame bundle.
+
+\textbf{Weyl--Cartan (conformal gauge) geometry:} Adds a local dilation gauge on top of Lorentz frames. The Weyl 1\,--form is the scale connection. The field $\tau(x)$ (noise/scale proxy) can be viewed as fixing a section in the $\mathbb R^+$ fiber; $\nabla\tau$ plays the role of a scale-connection gradient. The projection of total-space gradients to spacetime through an Ehresmann connection mirrors the force projection used here.
+
+\textbf{Parabolic Cartan geometry (conformal):} A $G/H$ geometry with $H=\mathrm{CO}(1,3)=\mathbb R^+\times \mathrm{SO}(1,3)$. The Cartan connection splits into translational (vielbein), rotational (spin), and dilatational (scale) parts. The pair $(x,\sigma)$ lives naturally in the dilation fiber; the scale--space force is the horizontal projection of a potential defined on the total space.
+
+\textbf{Jet/fibered field viewpoint:} Extend the configuration bundle with an internal fiber coordinate $\sigma$; dynamics on the total space employ a connection to split horizontal (spacetime) versus vertical (scale) variations. The adiabatic reduction used in $E_{\rm eq}(x)$ corresponds to minimizing along vertical directions and projecting the gradient onto spacetime.
+
+\section{Thermodynamic vs Entropic Gravity (Comparison)}\label{si:compare}
+Gravity is emergent in both pictures, but the mechanisms differ. Here, a single bulk field with a bona fide free energy $F=E-TS$ and a noise scale $\tau(x)$ yields a conservative force $\mathbf F=-\nabla E_{\rm eq}$ (with $E_{\rm eq}\propto-\tau^2$ and $\tau^2\propto\Phi$), and metric dynamics arise by integrating out phase fluctuations (Sakharov-like, optionally unimodular). Entropic approaches instead tie forces and field equations to horizon/screen thermodynamics (Clausius relation, Unruh temperature, area law), obtaining Einstein's equations as an equation of state and $\mathbf F=T\,\nabla S$ from entropy gradients. Horizons and holography are central there but optional (effective-temperature) here. Universality in this framework follows from composition-independent phase coupling (single light cone), whereas entropic routes invoke universal horizon thermodynamics. Phenomenologically, this work predicts isothermal halos with $v_{\rm flat}^2\simeq2\sigma^2$ and a tiny $w\approx-1$ drift from sliding windows; entropic/elastic variants (e.g. Verlinde-type) instead relate flat curves and lensing to elastic/entanglement responses with MOND-like scalings.
+
+\section{Deriving the Noise Field $\tau$ from Graph Microdynamics}\label{si:tau-from-graph}
+We outline two independent, complementary constructions that define the scalar ``noise'' field $\tau(x)$ from the graph microdynamics underlying the continuum limit: a spectral route based on the local fluctuation spectrum of the phase kernel, and a linear-response/Fluctuation--Dissipation (FDT) route grounded in operational dissipation measurements. Agreement between the two makes $\tau$ an operational observable rather than a mere definition.
+
+\paragraph{Assumptions (compact).}
+\begin{itemize}[leftmargin=*]
+  \item Near-regular subgraphs with slowly varying symmetric weights; dense sampling of regions of interest.
+  \item Massless phase sector at long wavelengths; continuum generator $-\nabla\!\cdot(c_s^2\nabla)$ well-defined.
+  \item Observation window in the Coulombic regime (Section~\ref{si:window}): $k_{\min}\ll k\ll k_{\max}$, with amplitude gap ensuring phase dominance.
+  \item Local-unit (conformal) interpretation: homogeneous window shifts change $\tau_0^2$ only, not gradients/forces.
+  \item Linear response holds for probe couplings; internal deformations remain small in the drag measurements.
+\end{itemize}
+
+\subsection*{Setup: from graph kernel to continuum}
+On near-regular subgraphs, the discrete phase kernel $K$ (graph Laplacian with weights) admits a continuum limit
+\begin{equation}
+  K \;\longrightarrow\; -\nabla\!\cdot\!\big(c_s^2(x)\,\nabla\,\cdot\big) \equiv -c_s^2\,\Delta + \cdots,
+\end{equation}
+whose principal symbol fixes the light cone (Section~\ref{si:induced-gravity}). Let $\{\varphi_n(x)\}$ be localised modes of $K$ with eigenvalues $\omega_n^2$. Denote by $\rho(x,\omega)$ the local density of states (LDOS) and by $n(x,\omega)$ the local occupation (set by microdynamics and the observational window in Section~\ref{si:window}).
+
+\paragraph{Discrete-to-continuum details.} On a weighted, undirected graph with vertices $i$ at embedded positions $x_i$ and symmetric weights $w_{ij}=w_{ji}\ge0$, the phase Laplacian acts as
+\begin{equation}
+  (K f)_i \,=\, \sum_{j} w_{ij}\,\big(f_i - f_j\big).
+\end{equation}
+On near-regular subgraphs with slowly varying weights and dense sampling, one has quadratic-form convergence
+\begin{equation}
+  \sum_{i,j} w_{ij}\,\big(f_i - f_j\big)^2 \;\longrightarrow\; \int c_s^2(x)\, |\nabla f(x)|^2\, d^D x,
+\end{equation}
+identifying $-\nabla\!\cdot(c_s^2\nabla)$ as the continuum generator (cf. Appendix~A in the main text). For a mollifier $W_\ell(x)$ (width $\ell\ll$ curvature scales), define the LDOS by
+\begin{equation}
+  \rho(x,\omega) \,=\, \sum_{n} \Big(\int W_\ell(x-x')\, |\varphi_n(x')|^2\, d^D x'\Big)\,\delta(\omega-\omega_n),
+\end{equation}
+and the window selector $\Theta(k;k_{\min},k_{\max})=\mathbf 1_{[k_{\min},k_{\max}]}(k)$.
+
+\subsection*{Spectral route (primary)}
+Define the local fluctuation spectrum of phase modes
+\begin{equation}
+  S(x,k) \;:=\; \rho\big(x,\omega=c_s k\big)\, n\big(x,\omega=c_s k\big),
+\end{equation}
+and the windowed variance (``effective noise density'')
+\begin{equation}
+  \rho_{N,\rm eff}(x) \;=\; \int_{k_{\min}}^{k_{\max}}\! S(x,k)\, dk,\qquad (k_{\min},k_{\max})~\text{from Section~\ref{si:window}}.
+\end{equation}
+We \emph{define} the noise scale by
+\begin{equation}
+  \tau^2(x) \;\propto\; \rho_{N,\rm eff}(x), \label{eq:tau-from-spectrum}
+\end{equation}
+with the proportionality constant fixed by the local-unit convention (co-scaling; Section~\ref{si:window}). This choice is natural because $\tau$ governs equilibration of internal soliton degrees of freedom and the radiative drag; both depend on the integrated fluctuation power accessible in the observational window.
+
+Equivalently, in the continuum one may write a gradient-correlation estimator
+\begin{equation}
+  \tau^2(x) \,\propto\, \int_{k_{\min}}^{k_{\max}}\! dk\; k^2\, \mathcal P_{\phi}(x,k),\qquad \mathcal P_{\phi}(x,k):=\frac{1}{V_k}\,\big\langle |\phi_k(x)|^2\big\rangle,
+\end{equation}
+so that $\tau^2\propto \langle |\nabla\phi|^2\rangle_{\rm window}$, making explicit that $\tau$ measures phase-gradient fluctuations which control equilibration and coupling to composite solitons.
+
+\subsection*{Linear-response/FDT route (independent cross-check)}
+Couple a probe soliton's dominant internal coordinate $q$ to the phase sector through the lowest symmetry-allowed operator (gradient coupling), $H_{\rm int} = -\lambda\, q\, e_i\,\partial_i\phi$. The dissipated power under proper acceleration $a$ reads (Section~\ref{si:drag})
+\begin{equation}
+  P \;=\; \int_0^{\infty}\! d\omega\; \omega\; \mathrm{Im}\,\chi_{qq}(\omega)\; S_{BB}(x;\omega),
+\end{equation}
+with $S_{BB}$ the bath spectrum set by local fluctuations and $\chi_{qq}$ the probe susceptibility. The FDT connects $S_{BB}$ to the symmetrised correlator and hence to an \emph{effective} local temperature/noise scale $T_{\rm eff}(x) \propto \tau(x)$ through the Unruh-like scaling in Section~\ref{si:drag-justify}. Inverting the measured $P(a,v)$ scaling yields an \emph{operational} estimate of $\tau(x)$, which can be compared pointwise with Eq.~\eqref{eq:tau-from-spectrum}.
+
+More explicitly, for the gradient coupling one finds a super-Ohmic phase-bath spectral density $J(\omega)\propto\omega^3$ (Section~\ref{si:drag-justify}). The symmetrised bath spectrum satisfies
+\begin{equation}
+  S_{BB}(\omega;x) \,=\, \hbar\, J(\omega;x)\, \coth\!\Big(\frac{\hbar\omega}{2k_B T_{\rm eff}(x)}\Big),
+\end{equation}
+so that the frequency $\omega_*$ dominating the integrand scales as $\omega_*\propto T_{\rm eff}^{1/2}$. Measuring either the peak in the driven response or the roll-off in $P(\omega)$ allows one to infer $T_{\rm eff}(x)$ and thus $\tau(x)=\kappa_\tau\, T_{\rm eff}(x)$, where $\kappa_\tau$ is fixed by the local-unit convention.
+
+\subsection*{Window and units; robustness}
+Changing $(k_{\min},k_{\max})$ shifts $\rho_{N,\rm eff}$ by a \emph{homogeneous} offset (Section~\ref{si:window}). In local units, such offsets are absorbed into the background $\tau_0^2$ and do not affect gradients or forces. The gradient field $\nabla(\tau^2)$ is invariant within the Coulombic window where the long-range tail dominates.
+
+\subsection*{Corrections and regimes}
+Finite amplitude gap implies screened/Yukawa tails at short range, leading to a Helmholtz correction $(\nabla^2-\lambda^2)\tau^2\approx\cdots$ near strong sources. Nonlinearities become relevant when soliton cores overlap or the amplitude gap closes; then the full nonlocal functional should be evaluated rather than the shell approximation.
+
+\paragraph{Simulation protocol (for validation).} On synthetic near-regular graphs: (i) compute the LDOS and $S(x,k)$, form $\tau^2(x)$ via Eq.~\eqref{eq:tau-from-spectrum}; (ii) embed a driven probe and extract $\tau(x)$ from $P(a,v)$; (iii) compare the two maps and quantify deviations outside the Coulombic window.
+
+\paragraph{Background bath and vanishing limit.} The windowed variance admits a homogeneous background $\tau_0^2$ from the long-wavelength phase spectrum even in regions without nearby matter, so in practice $\tau_0^2>0$. Only in an idealized limit (no matter anywhere, perfectly static/flat background, zero temperature, and a degenerate/infinite window that removes all finite-band power) would one have $\tau_0^2\to 0$. Realistic finite windows and cosmological backgrounds render $\tau_0^2$ nonzero; localized matter adds the inhomogeneous $\delta\tau^2$ on top.
+
+\section{Poisson Equivalence: Why $\tau^2 \propto \Phi$}\label{si:tau-poisson}
+We show that in the static, long-wavelength regime, the windowed fluctuation envelope $\tau^2(x)$ obeys the same Poisson problem as the Newtonian potential $\Phi(x)$, fixing their proportionality up to a boundary-dependent constant.
+
+\paragraph{Assumptions (compact).}
+\begin{itemize}[leftmargin=*]
+  \item Static, weak-field, long-wavelength limit (Coulombic window); negligible time dependence of backgrounds.
+  \item Massless phase sector controls the long-range response; amplitude sector gapped so short-range only.
+  \item Linear response of the fluctuation spectrum to matter density $\rho_m$; kernel admits a $k\to0$ Green function.
+  \item Common boundary conditions for $\Phi$ and $\tau^2$ (e.g., vanishing at infinity, or neutralised periodic cell).
+  \item Near-regularity ensures continuum Laplacian mapping; uniqueness theorem for Poisson problem applicable.
+\end{itemize}
+
+\subsection*{Linear response of the spectrum to matter (via $\delta K$)}
+Input from ICG (SI Sec.~S8, \emph{Matter--Kernel Coupling Lemma}): a static energy density $\rho_m(x)$ induces a local perturbation of the continuum phase kernel,
+\begin{equation}
+  \delta K(x) \,=\, -\nabla\!\cdot\big(\chi_c\,\rho_m(x)\,\nabla\big) \;\propto\; \rho_m(x).
+\end{equation}
+At fixed frequency, the perturbed Green function obeys $(K+\delta K)\,G' = \delta$. To leading order,
+\begin{equation}
+  G' \;=\; G \, -\, G\,\delta K\, G \,+\, O(\delta K^2),\qquad G:=K^{-1}.
+\end{equation}
+Hence the spectral density and the local fluctuation power shift by
+\begin{equation}
+  \delta S(x,k) \;\propto\; \int d^3x'\,d^3x''\; G_k(x,x')\,\delta K(x')\, G_k(x',x'') \;=\; \int d^3x'\; \mathcal G_k(x-x')\, \rho_m(x'),
+\end{equation}
+where $\mathcal G_k$ is the $k$-resolved kernel inherited from $G\,\delta K\,G$. In the $k\to 0$ limit (Coulombic window), $\mathcal G_k\to \mathcal G_0$ with $\propto 1/|x-x'|$ spatial envelope in 3D.
+
+\paragraph{Origin of the $1/r$ envelope.} The massless phase sector is governed at long scales by $-\nabla\!\cdot(c_s^2\nabla)$, whose static Green function in $\mathbb R^3$ satisfies
+\begin{equation}
+  -c_s^2\, \nabla^2 G_0(x-x') \,=\, \delta^{(3)}(x-x')\quad \Rightarrow\quad G_0(r) \,=\, -\,\frac{1}{4\pi c_s^2}\, \frac{1}{r}.
+\end{equation}
+Any long-wavelength, static response built from this kernel inherits the $1/r$ envelope up to multiplicative renormalisations from the window and short-distance physics.
+
+\subsection*{Window integration to $\tau^2$ and PDE}
+Integrating over the observational window,
+\begin{equation}
+  \delta\tau^2(x) \;\propto\; \int_{k_{\min}}^{k_{\max}}\! dk\, \delta S(x,k) \;=\; \int d^3x'\; G(x-x')\, \rho_m(x'),
+\end{equation}
+with $G$ the windowed Green function whose long-range part is $\propto 1/|x-x'|$. Therefore $\delta\tau^2$ solves the Poisson equation
+\begin{equation}
+  \nabla^2\, \delta\tau^2(x) \;=\; -\, C\, \rho_m(x), \qquad C>0~\text{set by microparameters and window edges}.\label{eq:poisson-tau}
+\end{equation}
+Impose the same boundary condition as for $\Phi$ (e.g., vanishing at infinity, or neutralisation in periodic cells). Uniqueness of solutions to Poisson's equation then gives
+\begin{equation}
+  \delta\tau^2(x) \;=\; -\, \frac{C}{4\pi G}\, \Phi(x), \qquad \Rightarrow\qquad \tau^2(x) \;=\; \tau_0^2 \,-\, \alpha\, \Phi(x),\label{eq:tau2-phi}
+\end{equation}
+with $\alpha=C/(4\pi G)$ and $\tau_0^2$ a homogeneous offset.
+
+\paragraph{Boundary-value uniqueness (rigour).} For a bounded domain $\Omega$ with Dirichlet data on $\partial\Omega$, or for $\Omega=\mathbb R^3$ with $f\to0$ at infinity, the Poisson problem $\nabla^2 f = s$ has a unique weak solution. Hence if $f_1:=\delta\tau^2$ and $f_2:= -\frac{C}{4\pi G}\,\Phi$ obey the same Poisson equation with the same boundary data, then $f_1\equiv f_2$.
+
+\subsection*{Force law and calibration}
+From the coarse-grained free energy $E_{\rm eq}(x)\propto -\tau^2(x)$, the effective force is $\mathbf F = -\nabla E_{\rm eq} = +\nabla(\tau^2) = -\alpha\, \nabla\Phi$. Matching to Newton’s law fixes $\alpha$ (equivalently $C$) once and for all. This is a single calibration, not an ad hoc mapping.
+
+\subsection*{Robustness checks}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Gauss law:} For isolated sources, $\oint \nabla(\tau^2)\!\cdot d\mathbf A \propto$ enclosed mass.
+  \item \textbf{Superposition:} For well-separated sources in the Coulombic window, $\delta\tau^2$ is additive.
+  \item \textbf{Boundary dependence:} $\tau_0^2$ tracks the same reference offset as $\Phi$ under the chosen BCs.
+  \item \textbf{Screening corrections:} In regimes with finite-range corrections, $(\nabla^2-\lambda^2)\,\delta\tau^2= -C\,\rho_m$ reproduces Yukawa tails; far field remains Coulombic.
+\end{itemize}
+
+\paragraph{Link to induced gravity coefficients.} The micro-to-macro coefficient $C$ can be cross-checked against the induced $R$-term coefficient $C_1$ in Section~\ref{si:induced-gravity} and the window scale $\Lambda_{\rm eff}$. Consistency between the Poisson normalisation and $C_1\Lambda_{\rm eff}^2=(16\pi G)^{-1}$ provides a nontrivial internal check.
+
+\paragraph{Numerical validation plan.} (i) Place a point mass (or compact source) on a near-regular graph; (ii) compute $\tau^2(x)$ via the spectral and FDT estimators of Section~\ref{si:tau-from-graph}; (iii) fit the far field to Eq.~\eqref{eq:poisson-tau} to extract $C$ and verify Eq.~\eqref{eq:tau2-phi}; (iv) test superposition with two sources; (v) confirm Gauss-law scaling for spherical surfaces.
+
+\section{Additional References and Pointers}\label{si:refs}
+Standard references for the integration of Gaussian fields on curved backgrounds and the resulting local effective action (Einstein--Hilbert plus higher curvature) include: Seeley and DeWitt coefficient expansions (e.g., DeWitt, \emph{Dynamical Theory of Groups and Fields}; Vassilevich, ``Heat kernel expansion: user's manual,'' Phys. Rept. 388 (2003) 279--360), QFT in curved spacetime texts (e.g., Birrell \& Davies, \emph{Quantum Fields in Curved Space}), and condensed expositions of Sakharov's induced gravity (e.g., Visser, Mod. Phys. Lett. A 17 (2002) 977; Barvinsky \& Vilkovisky, Nucl. Phys. B). These sources justify the schematic form $\Gamma[g]=\int\sqrt{|g|}(C_0\Lambda^4+C_1\Lambda^2 R + C_2 \mathcal R^2+\cdots)$ used in the main text.
+
+\medskip
+\noindent Unruh, W. G. (1976). Notes on black-hole evaporation. Phys. Rev. D 14, 870.
+
+\noindent Birrell, N. D., \& Davies, P. C. W. (1982). Quantum Fields in Curved Space. Cambridge University Press.
+
+\noindent Goldberger, W. D., \& Rothstein, I. Z. (2006). An effective field theory of gravity for extended objects. Phys. Rev. D 73, 104029. (Worldline EFT; scalar radiation context.)
+
+\noindent Porto, R. A. (2016). The effective field theorist’s approach to gravitational dynamics. Phys. Rept. 633, 1–104.
+
+\noindent LEP Design Report (CERN Yellow Reports); KEKB B-Factory Design Report (KEK Report 95-7); PEP-II Conceptual Design Report (SLAC-418); LHC Design Report (CERN-2004-003).
+
+\end{document}

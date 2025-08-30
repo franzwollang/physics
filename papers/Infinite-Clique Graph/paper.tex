@@ -1,0 +1,952 @@
+% !TeX program = pdflatex
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{physics}
+\usepackage{hyperref}
+\usepackage{xr-hyper}
+\externaldocument{SI}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{authblk}
+\usepackage{cite}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
+
+% Footer marking the draft status
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\small Draft — version posted to Zenodo on 2025-08-20}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\title{Spacetime from First Principles: Free\mbox{\,-}Energy Foundations on the Infinite\mbox{\,-}Clique Graph \, (\textit{Draft})}
+\author[ ]{Franz Wollang}
+\affil[ ]{\small Independent Researcher}
+\date{\small Dated: 2025-08-20}
+
+\begin{document}
+\maketitle
+
+% Prominent draft disclaimer box
+\begin{center}
+\setlength{\fboxsep}{8pt}%
+\fbox{\parbox{0.92\textwidth}{\centering\bfseries DRAFT — NOT FOR CITATION\\[4pt]
+This is a preliminary working version posted for discussion and feedback. Content may change significantly before formal submission.}}
+\end{center}
+\vspace{1em}
+
+\begin{abstract}
+This paper derives the foundational structures of modern field theories from a principled minimalist framework. We begin with two postulates: (1) a substrate consisting of a single, real-valued field on an infinite-clique graph representing a geometrically unstructured ``single substance''; and (2) a simple, volume-normalized free-energy functional governing node interactions. From these minimal assumptions, we derive the key elements of physical continuum field behavior: light-cone structure, metric universality, a Newtonian $1/r$ limit, and an effective action scale $\hbar_{\mathrm{eff}}$. Our central contribution is a complete, bottom-up derivation path, showing how the core apparatus of modern physics, from the complex nature of the wavefunction to the structure of spacetime, emerges as a collective phenomenon from a pre-geometric substrate.
+\end{abstract}
+
+\section{Introduction and Postulates}
+
+Modern physics rests on a set of foundational structures—Lorentzian spacetime, quantum phase, universal gravitational coupling—that are postulated rather than derived. This work seeks to derive these structures from a more fundamental, philosophically minimal starting point.
+
+\paragraph{Overview and organization.} Section~2 motivates the emergent complex state from a real field. Sections~3--5 develop the free-energy functional, volume normalization, and the two interaction channels. Sections~6--8 explain locality, the emergent metric and Lorentz cone, and the exclusion of additional long-range forces. Sections~9--11 develop the effective action scale $\hbar_{\rm eff}$, entanglement as phase-link hysteresis, and measurement via phase locking and latching. A compact parameter map and constraints follow in Section~12; detailed derivations and proofs appear in the Supplementary Information (SI) as Secs.~S1--S7.
+
+\subsection{Principled Minimalism}
+
+We build our model on two postulates that embody principled minimalism: one defining the substrate of reality, and one defining the simple laws of interaction upon it.
+
+Our first postulate concerns the \textbf{substrate}. We posit a universe built on the principle of a ``single substance'':
+
+\paragraph{Postulate 1: A single, real-valued field on an infinite-clique graph.} The universe consists of an uncountable set of nodes, each carrying a single real, positive-valued field, $A_n(t) > 0$. The nodes form an infinite clique $\mathcal{C}_\infty$, representing a state of maximal relational symmetry and minimal geometric assumption.
+
+This choice is justified by several considerations:
+\begin{itemize}
+\item \textbf{Single substance}: We avoid postulating multiple fundamental fields or entities
+\item \textbf{Real values}: We begin with the simplest possible field content
+\item \textbf{Infinite clique}: This provides maximal connectivity without imposing geometric structure
+\item \textbf{Pre-geometric}: No metric, dimension, or spatial relationships are assumed
+\end{itemize}
+
+Our second postulate defines the \textbf{interaction principle}. The system evolves by minimizing a \emph{free energy} that balances energetic drive with an entropic preference for unbiased connectivity:
+
+\paragraph{Postulate 2: Free-energy extremization.} The dynamics extremize
+\begin{equation}
+F[A,J] = \Big(E_{\text{local}} + E_{\text{cohesion}} + E_{\text{correlation}}\Big)\; -\; T\, S[J],
+\end{equation}
+\paragraph{Definition 2.1 (Model free-energy functional).} Consistent with Postulate~2, we specify the model form of the energetic and entropic terms as follows,
+where the energetic part collects the three basic terms
+\begin{align}
+E_{\text{local}} &= \int (\mu A_n^2 + \lambda A_n^4)\, dn \quad \text{(Mexican hat potential)}\\
+E_{\text{cohesion}} &= \frac{1}{2} \sum_{n,m} J_{nm}\, A_n^2 A_m^2 \quad \text{(density-density interaction)}\\
+E_{\text{correlation}} &= \frac{1}{2} \sum_{n,m} J'_{nm}\, A_n A_m \quad \text{(linear coupling)}
+\end{align}
+and the entropy term promotes unbiased, spread-out weights
+\begin{equation}
+S[J] = - \sum_{k}\sum_{m} \Big(\tfrac{J_{km}}{Z_k}\Big)\, \ln\Big(\tfrac{J_{km}}{Z_k}\Big),\qquad Z_k := \sum_m J_{km},\quad T>0.
+\end{equation}
+Equivalently, $F=E+T\,H[J]$ with $H[J]=\sum (J_{km}/Z_k)\ln(J_{km}/Z_k)$ the convex maximum-entropy regulariser used later in the vacuum relaxation (Section~9.1). Volume normalization of pair couplings,
+\begin{equation}
+J_{nm} = \eta_0/V_K,\qquad J'_{nm} = J'_0/V_K,
+\end{equation}
+ensures a finite continuum limit and extensive scaling. $V_K$ denotes the grain size: in the discrete/graph regime it is a finite per-cell normalisation budget (the effective volume of $K$ in the chosen discretisation), and in the continuum it is the geometric volume $V_K=\int_K d^d x$ with respect to the emergent metric.
+
+\subsection{Terminology: Nodes, Grains, and Droplets}
+
+Throughout this paper, we distinguish between:
+\begin{itemize}
+\item \textbf{Nodes}: The uncountable points of the infinite clique, carrying the real field $A_n(t)$.
+\item \textbf{Grains}: Countable coarse\,grainings of nodes into finite volumes $V_K$ with characteristic radius $R_K$ (the elementary coarse cell used throughout).
+\item \textbf{Droplets}: Arbitrary, localized collections of grains (e.g. a soliton core, a composite subsystem, or an apparatus region). For a droplet $\Delta$, one may define $V_\Delta = \sum_{K\in \Delta} V_K$ and a characteristic radius $R_\Delta$ from its second moment. Droplets are the mesoscopic composites on which multi\,grain dynamics (coupling, measurement, etc.) are discussed.
+\end{itemize}
+
+This terminology reflects the dual nature of our approach: discrete at the fundamental level, continuous in the emergent description.
+
+\noindent\textit{Technical roadmap.} Detailed derivations and proofs are provided in the Supplementary Information (SI), ordered from foundations to applications: discrete\,$\to$\,continuum convergence of the Laplacian (S1), fluctuation spectrum (gapped amplitude \,/ massless phase) (S2), vacuum marginalisation (S3), discrete vs continuum scaling (S4), Laplacian gradient energy (S5), renormalization and stability (S6), dimensional fixed point (S7), measurement double-well (S8), tipping criteria (S9), and the \emph{Matter--Kernel Coupling Lemma} (S10; static $\delta K\propto\rho_m$).
+
+\section{From a Real Field to an Emergent Complex State}
+
+A crucial first step is to justify why the familiar complex wave function $\Psi$ emerges as a valid effective description for coarse-grained regions of our real field. This section provides a first-principles derivation showing how complex field properties arise naturally from real field dynamics.
+
+\subsection{The Coarse-Graining Argument}
+
+Consider a grain $K$ representing an arbitrary coarse-graining of the underlying real field. A simple average $\langle A\rangle$ is insufficient as it loses all information about internal dynamics. We must also capture the net movement or dynamics across interacting values within the region.
+
+The state of grain $K$ is described by two emergent properties:
+
+\begin{itemize}
+\item \textbf{Bulk Value ($U_K$)}: The average value of the field, $\langle A\rangle_K$
+\item \textbf{Bulk Momentum ($V_K$)}: The average time derivative, $\tau_K\langle\partial A/\partial t\rangle_K$
+\end{itemize}
+
+where $\tau_K$ is a characteristic timescale derived from the field's autocovariance.
+
+Because each grain contains uncountably many nodes, these statistical quantities are well-defined even in the infinitesimal limit—the micro-derivative $\partial A/\partial t$ exists because there are always infinitely many field values to average over within any constructed region.
+
+\subsection{The Analytic Signal}
+
+\textbf{Assumptions (narrowband/separation of scales).}
+\begin{itemize}[leftmargin=*]
+  \item Carrier/envelope separation: the real field $A$ contains a fast carrier and a slow envelope with $\lambda_{\text{carrier}}\ll \lambda_{\text{soliton}}$.
+  \item Narrowband around $\omega_0$: the relative bandwidth satisfies $\Delta\omega/\omega_0\ll 1$.
+\end{itemize}
+
+\textbf{Definition (complex envelope / analytic signal).}
+\begin{equation}
+  \Psi(x,t) \,:=\, A(x,t) + i\,\mathcal H[A](x,t) \,=\, w(x,t)\,e^{i\phi(x,t)}.
+\end{equation}
+
+\textbf{Validity and accuracy.} For narrowband real signals, the Hilbert-transform analytic signal yields a one-sided spectrum; errors scale as $O(\Delta\omega/\omega_0)$ in the standard envelope regime.
+
+\textbf{Relation to the time-derivative proxy.}
+\begin{equation}
+  \mathcal H[A] \;\approx\; \frac{1}{\omega_0}\,\partial_t A \qquad \text{(narrowband / SVEA)}.
+\end{equation}
+
+\noindent \textit{Standard note.} We use the standard analytic-signal construction $\Psi = A + i\,\mathcal H[A]$ for a narrowband real field (error $O(\Delta\omega/\omega_0)$); see Gabor (1946); Oppenheim \& Schafer; Bracewell; Boashash (1992); and SVEA/envelope treatments in Goodman and Agrawal.
+
+\subsection{Amplitude and Phase Decomposition}
+
+From the two-component state $(U_K, V_K)$, we naturally define:
+\begin{itemize}
+\item \textbf{Amplitude}: $w_K = \sqrt{U_K^2 + V_K^2}$ (magnitude of the complex proxy)
+\item \textbf{Phase}: $\phi_K = \arctan(V_K/U_K)$ (argument of the complex proxy)
+\end{itemize}
+
+The complex proxy $\Psi_K = U_K + iV_K = w_K e^{i\phi_K}$ is a representational convenience—the fundamental degrees of freedom remain the real statistics $(U_K, V_K)$.
+
+\textbf{Conclusion}: The complex field $\Psi$ is not fundamental. It is an emergent, effective description of the bulk value and internal dynamics of the real field within any constructed volume. The key to this emergence is that our infinite-clique substrate ensures that even infinitesimal coarse-grainings contain uncountably many constituents, making statistical quantities like bulk momentum well-defined at all scales. This bridges the gap between the discrete, real-valued microscopic reality and the continuous, complex-valued effective description.
+
+\section{Free-Energy Functional and Its Justification}
+
+Before exploring emergent parameters, we justify the energetic part of the free-energy functional: (i) a local Mexican-hat potential $E_{\text{local}}$, (ii) a density–density cohesion term $E_{\text{cohesion}}\propto A_n^2A_m^2$, and (iii) a correlation (Laplacian) quadratic $E_{\text{correlation}}$. We begin with the cohesion term.
+
+\subsection{Justification of the $|\Psi|^2|\Psi|^2$ Form}
+
+\subsubsection{Physical Intuition: A Density-Density Interaction}
+
+In both quantum mechanics and classical field theory, $|\Psi|^2$ represents the density of the field. The simplest way for two densities to interact is for interaction strength to be proportional to their product—analogous to Newton's law of gravity ($\propto m_1m_2$) or electrostatic potential energy ($\propto \rho_1\rho_2$). The connection is strong only when there is significant field ``substance'' at both locations.
+
+\subsubsection{Field Theory Analogy: The Four-Point Vertex}
+
+This model is a discrete, non-local version of standard quantum field theory. The most fundamental self-interaction in modern physics is the \textbf{$\phi^4$ interaction}. Our model uses a non-local or ``bi-local'' coupling $\eta \phi^2(x) \phi^2(y)$, which is the discrete graph analogue of the local $\lambda\phi^4(x)$ vertex.
+
+\subsubsection{Mathematical Necessity: Simplicity and Symmetry}
+
+We need the simplest possible coupling between two points. Physics must be independent of global phase, so any term must depend on the gauge-invariant quantity $|\Psi|^2$. The lowest-order, non-trivial interaction that can be constructed from $|\Psi_k|^2$ and $|\Psi_j|^2$ is their simple product.
+
+These three justifications strongly motivate the $|\Psi|^2|\Psi|^2$ form as the most fundamental, simple, and physically sound basis for cohesion in our model. Stability and renormalization properties of this choice are discussed in SI~\S\ref{si:renorm}.
+
+\subsection{Justification of the local potential $E_{\text{local}}$}
+
+The on-site ``Mexican-hat'' form is the minimal local potential consistent with symmetry, stability, and the phenomena required later (finite background amplitude, gapped amplitude mode, and soliton cores). Locality and permutation symmetry restrict the on-site energy to even polynomials in the scalar amplitude; boundedness from below requires a positive quartic, and a nonzero vacuum requires a negative quadratic around the origin. In the coarse-grained variables this is $V(w)=-\beta_{\mathrm{pot}} w^2+\gamma w^4$ with $\beta_{\mathrm{pot}},\gamma>0$ (Sec.~7), which corresponds to $E_{\text{local}}=\int(\mu A_n^2+\lambda A_n^4)\,dn$ at the node level after coarse-graining and rescaling. This choice is the minimal one consistent with spontaneous symmetry breaking. As formally derived in SI~\S\ref{si:gapped-massless}, it necessarily yields a low-energy spectrum with a gapped amplitude fluctuation $m_\xi^2=2\beta_{\mathrm{pot}}$ and a massless Goldstone phase mode, and supports localized cores with Yukawa tails—features used in the Newtonian limit and elsewhere.
+
+\subsection{Justification of the correlation (gradient) term $E_{\text{correlation}}$}
+
+The bilinear ``correlation'' term is the off-diagonal part of the standard graph-Laplacian quadratic form that produces gradient energy in the continuum. Starting from the permutation-symmetric quadratic form over differences,
+\begin{equation}
+\tfrac12\sum_{n,m} J'_{nm}\,(A_n-A_m)^2 \;=\; \sum_n \Big(\tfrac12\sum_m J'_{nm}\Big)A_n^2 \; - \; \sum_{n<m} J'_{nm}\,A_n A_m,\label{eq:diff-form}
+\end{equation}
+one sees that, up to an on-site piece that can be absorbed into $E_{\text{local}}$, the interaction reduces to a bilinear coupling between neighbouring amplitudes. Writing the quadratic form as $\tfrac12\sum_{n,m} J'_{nm} A_n A_m$ thus captures the off-diagonal (coupling) content of Eq.~\eqref{eq:diff-form} with a choice of sign/diagonal convention, and under volume normalisation ($J'_{nm}=J'_0/V_K$) it converges to the continuum gradient energy $\int (\nabla A)^2\,dV$ (Sec.~4.5/SI~\S\,\ref{si:laplacian}; rigorously proved in SI~\S\ref{si:disc-cont-conv}). The same Laplacian structure, applied to the phase sector at fixed amplitude, yields the hyperbolic action and emergent light cone in Sec.~8.
+
+\section{Volume Normalization and Emergent Parameters}
+
+\subsection{The Problem of Infinities}
+
+Recall from Definition 2.1 that our model free-energy functional includes a local Mexican-hat potential $E_{\text{local}} = \int (\mu A_n^2 + \lambda A_n^4)\, dn$. In the emergent complex field description, this becomes an on-site stiffness term $\gamma|\Psi_K|^4$ that prevents collapse by creating an energy cost for high local amplitude.
+
+The central question is whether this on-site stiffness $\gamma$ can be derived from the more fundamental pairwise cohesion $\eta$. A naive, fully connected counting shows why a fix is required:
+
+\paragraph{Naive counting and divergence.} Consider a grain $K$ as a coarse-graining of $N$ micro-nodes, all-to-all coupled with strength controlled by $\eta$, with approximately uniform amplitude $|\Psi_i|\approx |\Psi_K|$. In a clique, the number of internal links is $\approx N^2/2$, the average link strength is $\langle J\rangle \approx \eta\,|\Psi_K|^4$, and therefore the total internal energy scales as $E_{\text{internal}} \approx (N^2/2)\,\eta\,|\Psi_K|^4$ when identified with the on-site quartic term.
+Matching $E_{\gamma} = \gamma_{\text{macro}} |\Psi_K|^4$ yields
+\begin{equation}
+  \gamma_{\text{macro}} \approx \frac{N^2\,\eta}{2},
+\end{equation}
+which diverges in the continuum limit $N\to\infty$. This motivates a renormalized interaction rule, introduced next.
+
+\subsection{The Normalized Interaction Principle}
+
+The solution comes from statistical mechanics: \textbf{interaction strengths must be normalized by the system volume}. A single node doesn't feel the overwhelming effect of every other node individually, but rather the average effect of the entire system.
+
+\textbf{Volume-Normalized Coupling Rule}: The interaction between nodes $i$ and $j$ within grain $K$ is:
+\begin{equation}
+J_{ij} = \eta_0/V_K
+\end{equation}
+where $\eta_0$ is a fundamental coupling constant with units [Energy] and $V_K$ is the grain volume.
+
+\subsection{Derivation of Emergent Stiffness $\gamma$}
+
+Using the volume-normalized coupling rule $J_{ij}=\eta_0/V_K$, the internal cohesion energy re-computes as:
+
+\textbf{Re-derived stiffness under volume normalization.} The internal link count is $\approx V_K^2/2$ and the per-link strength is $\eta_0/V_K$, so
+\begin{equation}
+E_{\text{internal}} \approx \frac{V_K^2}{2}\,\frac{\eta_0}{V_K}\,|\Psi_K|^4.
+\end{equation}
+
+The $V_K$ terms partially cancel:
+\begin{equation}
+E_{\text{internal}} = \frac{\eta_0}{2} V_K |\Psi_K|^4
+\end{equation}
+
+\textbf{Final Result}: $\gamma_K = (\eta_0/2) V_K$
+
+The on-site stiffness $\gamma$ is an \textbf{extensive property}, directly proportional to the grain volume. This makes intuitive sense —a larger region has more internal connections and should have greater resistance to compression. The volume normalization ensures the continuum limit is well-behaved while preserving the physical scaling.
+
+\subsection{Derivation of Phase Inertia $M_p$}
+
+Phase inertia emerges from the energy cost of establishing gradients. Consider a linear gradient $A(x) = p_K \cdot x$ across grain $K$. In the discrete model the kinetic energy is
+\begin{equation}
+E_{\text{kinetic}} = \sum_{i<j} J'_{ij}\,(A_i - A_j)^2,\qquad J'_{ij}=\frac{J'_0}{V_K}.
+\end{equation}
+For a linear gradient one has $\langle(A_i - A_j)^2\rangle \propto |p_K|^2 R_K^2$, and with $\mathcal O(V_K^2)$ internal links the total scales as
+\begin{equation}
+E_{\text{gradient}} \approx \frac{V_K^2}{2}\,\frac{J'_0}{V_K}\,(|p_K|^2 R_K^2) \,=\, C\, V_K R_K^2 |p_K|^2.
+\end{equation}
+
+This yields $E_{\text{gradient}} \approx C\, V_K R_K^2 |p_K|^2$. Consequently,
+\begin{equation}
+  M_p \;\propto\; V_K R_K^2.
+\end{equation}
+
+The phase inertia scales with both volume and the squared radius, representing the collective resistance of the network to being ``tilted'' into a gradient state.
+
+\subsection{Graph Laplacian Interpretation}
+
+The inertia can be understood through graph theory. The discrete version of $\int(\nabla A)^2dV$ is the quadratic form $A^T L A$, where $L$ is the graph Laplacian. For a linear gradient, the energy is $p^T (\int x x^T dV) L p$. The term in parentheses is the geometric moment of inertia tensor, giving $M_p \propto V_K R_K^2$ for an isotropic grain.
+
+\section{Two Channels: Cohesion vs. Correlation}
+
+The links between grains are not simple scalars but \textbf{two-channel conduits}, each governing different aspects of field dynamics.
+
+\subsection{The Amplitude Channel: Cohesion}
+
+This channel governs how amplitude gradients drive field flow. From our stiffness derivation, the effective coarse-grained link strength for amplitude exchange scales with local densities at both ends,
+\begin{equation}
+J_{ww}^{\mathrm{(eff)}} \propto \eta_0 |\Psi_1|^2 |\Psi_2|^2,
+\end{equation}
+while the primitive microscopic couplings remain volume-normalised, $J_{ij}=\eta_0/V_K$.
+
+This channel is strong only where significant amplitude exists, forming the sparse ``classical'' world of massive particles. For phase-dominated configurations where $|\Psi|$ remains near the background value, this link strength is negligible.
+
+\subsection{The Phase Channel: Correlation}
+
+This channel governs how phase gradients (internal momentum $p_K$) drive information flow. The ability of links to transmit collective ``twist'' is a fundamental property of graph topology. Since every node in grain $K_1$ connects to every node in grain $K_2$ (clique structure), their internal gradient fields are powerfully coupled.
+
+The strength doesn't depend on amplitude but on connection structure:
+\begin{equation}
+J_{\phi\phi} = \text{constant}
+\end{equation}
+
+This channel represents the ``quantum'' substrate of non-local connectivity—always available but requiring activation.
+
+\subsection{Physical Interpretation}
+
+The amplitude channel builds the sparse classical world: its strength grows with local amplitude and it generates the matter-dominated structures we observe. By contrast, the phase channel provides the substrate for quantum correlations: it is composition-independent and supports non-local effects and entanglement once activated.
+
+The composition‑independent phase channel suggests metric universality; we make this precise in Section 8.4.
+
+\section{Emergence of Geometric Structure and Locality}
+
+We must explain how separable, spatially local subsystems can exist at all in an all‑to‑all connected substrate. In our framework, locality is not assumed; it emerges as the low‑energy organisation of the vacuum driven by the free‑energy functional.
+
+\subsection{Gradient energy suppresses long links; vacuum self‑organises}
+
+The gradient (phase) sector penalises large differences across strongly weighted connections. Links joining regions of very different amplitude/phase carry a high quadratic cost, while links that touch vacuum‑like regions ($w\approx0$) are weak because their weights scale with local amplitudes and are volume‑normalized.
+
+To justify the pruning mechanism, consider the vacuum‑relaxation functional obtained by coarse‑graining the full free energy and dropping the data‑fidelity term (no external injection in the vacuum). This follows from a standard timescale separation: the phase $\phi$ adapts quickly while the link weights $J$ relax slowly; marginalising over near‑equilibrium $\phi$ yields a Lyapunov functional for the slow reweighting of $J$.
+
+\noindent \textit{Assumptions (for this coarse‑graining).} Connected graph; quadratic (Gaussian) phase sector around equilibrium; time‑scale separation ($\phi$ fast, $J$ slow); gauge‑fix the zero mode with $\sum_k \phi_k=0$; diffusive window exists for the heat kernel $K(t)$.
+
+We write:
+\begin{equation}
+F_{\text{vac}}[J, \phi] = \frac{1}{2} \sum_{k<j} J_{kj} (\phi_k - \phi_j)^2 - H[J] + \beta (\langle d_{\text{int}} \rangle[J] - d^\star)^2
+\end{equation}
+
+\paragraph{Explicit marginalisation (sketch).} Start from the microscopic free energy for the vacuum sector (no external drive)
+\begin{equation}
+  F[J,\phi] \;=\; \frac{1}{2}\sum_{k<j} J_{kj}\,(\phi_k-\phi_j)^2 \; -\; T\, S[J] \; +\; \mathcal B[J],
+\end{equation}
+where $S[J]$ is the convex entropy of normalised outgoing weights (information cost) and $\mathcal B[J]$ is a weak, convex bias functional that penalises patterns which raise the intrinsic/spectral dimension (implemented below by the quadratic surrogate in $\langle d_{\text{int}}\rangle$). In the time‑scale separated vacuum dynamics, $\phi$ equilibrates rapidly on the current graph while $J$ drifts slowly. Defining the coarse‑grained (effective) functional for $J$ by marginalising fast variables,
+\begin{equation}
+  \Gamma[J] \;:=\; -\ln \int \mathcal D\phi\; e^{-F[J,\phi]/T_\text{eff}} \;\approx\; \min_{\phi}\, F[J,\phi] \; +\; \text{const},
+\end{equation}
+one obtains at leading order in the adiabatic approximation the vacuum relaxation functional (see SI~\S\ref{si:vac-marg} for a full derivation)
+\begin{equation}
+  F_{\text{vac}}[J] \;=\; \frac{1}{2}\sum_{k<j} J_{kj}\,(\phi_k^{\star}-\phi_j^{\star})^2 \; -\; H[J] \; +\; \beta\, (\langle d_{\text{int}}\rangle[J]-d^\star)^2,
+\end{equation}
+with $\phi^{\star}$ the near‑equilibrium phase configuration solving $\sum_j J_{kj}\,(\phi_k^{\star}-\phi_j^{\star})=0$ (graph Laplace equation). The entropy term is $H[J]=\sum_k\sum_j (J_{kj}/Z_k)\,\ln(J_{kj}/Z_k)$ (maximum‑entropy regulariser; equivalently, a negative log‑likelihood from integrating out microscopic link fluctuations), and $\langle d_{\text{int}}\rangle[J]$ is computed from the heat kernel of the Laplacian $L(J)$ as in SI~\S\ref{si:dim-fp} via $K(t)=\Tr(e^{-tL})$ and $\langle d_{\text{int}}\rangle=-2\,d\ln K/d\ln t$. This makes explicit how integrating out fast $\phi$ produces a Lyapunov functional for the slow link reweighting.
+
+
+Per-node normalisation constraints on outgoing weights are enforced by Lagrange multipliers: $\sum_j J_{kj}=Z_k$.
+
+\medskip
+
+Stationarity w.r.t. a single link yields
+\begin{equation}
+\frac{\partial F_{\text{vac}}}{\partial J_{kj}} = \frac{1}{2} (\phi_k - \phi_j)^2 - \frac{1}{Z_k}(1 + \ln(J_{kj}/Z_k)) + 2\beta (\langle d_{\text{int}} \rangle - d^\star) \left(\frac{\partial\langle d_{\text{int}} \rangle}{\partial J_{kj}}\right) + \lambda_k = 0
+\end{equation}
+
+Locally (or in the weak‑bias regime where $(\langle d_{\text{int}} \rangle-d^\star)$ is small), the dimensional term can be absorbed into the normalisation, giving the Boltzmann‑like solution
+\begin{equation}
+J_{kj} \propto \exp\left[ - \frac{1}{2} \Theta_k (\phi_k - \phi_j)^2 \right]
+\end{equation}
+for some effective temperature $\Theta_k \propto Z_k$. Thus links spanning large phase differences (which correlate with large geodesic separation on the emergent lattice) are exponentially suppressed. The entropy term prevents a proliferation of strong links even where phases match, selecting a sparse backbone; the small‑integer bias (the $\beta$ term) stabilises coordination near a low valence by penalising link patterns that increase $\langle d_{\text{int}} \rangle$ (long links and high degree both raise spectral dimension via the Laplacian spectrum). Using spectral dimension rather than degree makes the bias basis‑independent and sensitive to both high valence and long‑range patterns; in the weak‑bias regime it simply sets the coordination ``temperature'', avoiding degenerate hub‑and‑spoke or over‑connected meshes. Together these terms prune energetically costly, effectively non‑local couplings and favour networks of short, comparable‑weight links. The vacuum therefore self‑organises toward a near‑regular, low‑valence connectivity that minimises the integrated gradient energy.
+
+\subsection{Spectral dimension and small‑integer lattice‑like states}
+
+On such self‑organized subgraphs, diffusion and wave propagation behave as if they lived on a space with a finite spectral dimension $D_s$ (see SI~\S\ref{si:dim-fp}). Energy minimisation prefers small‑integer effective valences (2D/3D‑like), because higher valence raises both the cohesion cost (more links) and the gradient burden (more directions to equalise). Thus the low‑energy vacuum approximates a lattice‑like state with slowly varying $D_s$ and small‑integer coordination.
+
+Notation and interpretation. We use $d$ (or $\langle d_{\text{int}} \rangle$) to denote the effective spectral (intrinsic) dimension extracted from the heat‑kernel of the Laplacian in a fixed diffusive window (SI~\S\ref{si:dim-fp}). In regions where that estimate is approximately flat in time and space, we write $D_s \approx d$ and treat it as a scalar field of slow variation. This $d$ is real‑valued; it need not be an integer. The tendency toward small integers is an emergent fixed‑point property of the vacuum (see SI~\S\ref{si:dim-fp}), not an imposed constraint.
+
+\subsection{Effective metric from the phase kernel}
+
+On these near‑regular subgraphs the induced phase kernel (graph Laplacian) converges to a continuum Laplace–Beltrami operator under the conditions of near-regularity and local isotropy derived in SI~\S\ref{si:disc-cont-conv}, with an emergent metric derived from the phase action. Phase signals propagate with speed $c_s=\sqrt{\kappa} w_*$ along geodesics of this metric; slowly varying inhomogeneities appear as weak index gradients. Hence, ``distance'' and ``neighbourhood'' become operational notions defined by phase‑signal travel and Green's functions of the kernel.
+
+
+\subsection{Separation scales and coherence lengths}
+
+Two localized regions are operationally separate if their supports are disjoint on the emergent lattice and their overlap (in both amplitude and phase Green's functions) is negligible beyond the relevant coherence lengths (set by the Yukawa screening length $\ell$ from the Newtonian section for amplitude and by the phase correlation length defined by the phase kernel). This furnishes a concrete, scale‑dependent notion of subsystem that does not exist in the raw clique.
+
+
+\section{Newtonian $1/r$ Limit}
+A Mexican-hat potential in the amplitude sector supports localized cores (solitons). Linearizing about $w_*$ gives a Helmholtz equation
+\begin{equation}
+(-\alpha\nabla^2 + m_\xi^2)\,\delta w = 0,\qquad m_\xi^2=2\beta_{\mathrm{pot}},
+\end{equation}
+where $\alpha\equiv \alpha_{\mathrm{grad}}$ is the amplitude-sector gradient coefficient and $\beta_{\mathrm{pot}}$ the quadratic coefficient of the local potential. With these definitions, the Yukawa tails are $\delta w(r)\propto e^{-r/\ell}/r$ with $\ell=\sqrt{\alpha_{\mathrm{grad}}/(2\beta_{\mathrm{pot}})}$. 
+
+Consider a spherically symmetric cluster of soliton cores with total source strength $M_{\text{eff}}$ (``mass'') and characteristic size $R_{\text{cl}}$. In this framework, ``mass'' is the additive source measure that couples to an emergent long‑wavelength scalar potential $\Phi(r)$:
+\begin{align}
+S_i &\propto \int (w_i^2 - w_*^2) d^3x \equiv \text{(free‑energy excess in amplitude sector)}\\
+M_{\text{eff}} &:= \sum_i S_i
+\end{align}
+
+For observation points in the pre-asymptotic window ($R_{\text{cl}} \ll r \ll \ell$) with a screening length much larger than the cluster size ($\ell \gg R_{\text{cl}}$), a Fourier-domain check ($\Phi(\mathbf k)=\rho(\mathbf k)/(k^2+\ell^{-2})$) shows that $k\sim 1/r\gg 1/\ell$ implies $\Phi(\mathbf k)\approx \rho(\mathbf k)/k^2$. Inverse transforming recovers an approximate monopole far-field $\Phi(r)\approx (\text{const}\cdot M_{\mathrm{eff}})/r$, giving 
+\begin{align}
+\abs{\nabla\Phi}\propto 1/r^2
+\end{align}
+
+
+\section{Hyperbolic Action and Lorentz Cone}
+
+\subsection{From Discrete to Continuous}
+
+In the continuum limit, the discrete phase interactions become a field theory. The phase correlation energy:
+\begin{equation}
+E_{\text{phase}} = \frac{1}{2} \sum_{n,m} J'_{nm} (\phi_n - \phi_m)^2
+\end{equation}
+becomes an integral over phase gradients.
+
+With volume normalization $J'_{nm} = J'_0/V_K$ and taking the limit of dense packing, this yields:
+\begin{equation}
+S_\phi = \frac{\kappa w_*^2}{2} \int \eta^{\mu\nu} \partial_\mu\phi \partial_\nu\phi \, d^4x
+\end{equation}
+where $\kappa = J'_0$ (up to normalization), $w_*$ is the equilibrium amplitude, and $\eta^{\mu\nu}$ is an emergent metric tensor.
+
+\subsection{The Emergence of Lorentz Structure}
+
+The hyperbolic signature follows from the same Laplacian structure that yielded phase inertia and gradient stiffness. In the coarse variables, temporal variations of the phase cost energy proportional to $(\partial_t\phi)^2$ with a positive coefficient (the phase inertia; cf. Sec.~4.4), whereas spatial variations cost energy through the graph-Laplacian quadratic form $\propto (\nabla\phi)^2$ (Sec.~4.5/SI~\S\,S5). Writing the Lagrangian as $L=T-V$ therefore identifies the time-derivative term as kinetic and the spatial quadratic as potential, fixing the relative minus sign. Stability enforces the positive definiteness of both quadratic forms around equilibrium, and isotropy of the underlying clique (after vacuum relaxation) ensures a single scalar phase stiffness. Expanding the phase correlation energy near equilibrium then gives:
+\begin{equation}
+\delta E \propto \left(\frac{\partial\phi}{\partial t}\right)^2 - c_s^2(\nabla\phi)^2
+\end{equation}
+where the speed $c_s = \sqrt{\kappa}w_*$ emerges from the balance of temporal and spatial phase correlations.
+
+\subsection{Local Lorentz Invariance}
+
+The continuum phase action:
+\begin{equation}
+S_\phi = \frac{\kappa w_*^2}{2} \int \left[\left(\frac{\partial\phi}{\partial t}\right)^2 - c_s^2(\nabla\phi)^2\right] d^4x
+\end{equation}
+is invariant under local Lorentz transformations. This is not imposed but emerges naturally from the isotropic structure of the infinite clique.
+
+\subsection{Metric Universality and Equivalence Principle}
+
+Assuming that observed particle species are soliton‑like excitations of the single real substrate and that their dynamics are governed by the same volume‑normalized free‑energy functional, all fields couple to the same emergent metric because:
+\begin{enumerate}
+\item The phase channel strength is composition-independent ($J_{\phi\phi} = \text{constant}$)
+\item All matter consists of the same underlying field $A_n$
+\item Different ``particle types'' are different patterns in the same substrate
+\end{enumerate}
+
+This leads directly to the \textbf{weak equivalence principle}: all forms of matter respond identically to the emergent gravitational field because they are all manifestations of the same underlying dynamics.
+
+\paragraph{Sufficiency for GR.} In four spacetime dimensions, the coexistence of (i) a universal Newtonian monopole limit in the weak‑field, long‑distance regime, (ii) local Lorentz invariance with a single light‑cone, and (iii) covariant conservation of stress–energy, is sufficient—together with diffeomorphism invariance and second‑order metric field equations—to single out Einstein gravity (up to a cosmological constant) as the unique low‑energy metric theory. The present construction provides (i) and (ii) with metric universality; promoting the emergent metric to a dynamical field that extremises an appropriate curvature functional then reproduces standard GR phenomenology in the corresponding regimes. A full curvature‑sector derivation—relating the emergent metric dynamics to the phase sector's effective operator (wave/Laplace–Beltrami) and action—is left to future work.
+
+\subsection{Exclusion of long‑range fifth forces: symmetry and EFT bounds}
+\label{sec:no-fifth-forces}
+
+The derivations above rely on the \emph{universality} of the phase channel for kinematics. Here we make explicit why this does not hide any additional long‑range, composition‑dependent forces.
+
+\paragraph{Only one massless degree of freedom.} In the low‑energy spectrum, the amplitude sector is gapped with mass $m_\xi^2=2\beta$ and screening length $\ell=\sqrt{\alpha/(2\beta)}$ (Sec.~7), so any amplitude‑mediated force is Yukawa‑suppressed $\propto e^{-r/\ell}$. The sole massless mode is the Goldstone phase $\phi$ with shift symmetry $\phi\to \phi+\mathrm{const}$ inherited from the broken $U(1)$.
+
+\paragraph{Shift symmetry and allowed couplings.} At the effective level, the most general leading interactions of $\phi$ with matter consistent with the symmetry are \emph{derivative} couplings to conserved currents,
+\begin{equation}
+  \mathcal L_{\rm int} \,=\, \sum_a g_a\, \partial_\mu\phi\, J_a^\mu \; +\; \underbrace{\sum_b \epsilon_b\, \phi\, \mathcal O_b}_{\text{shift breaking}} \; +\; \cdots\,.
+  \label{eq:Lint-phi}
+\end{equation}
+For isolated, equilibrated subsystems one has $\partial_\mu J_a^\mu=0$. Integrating by parts, the derivative piece reduces to a boundary term,
+\begin{equation}
+  \int d^4x\; \partial_\mu\phi\, J_a^\mu \,=\, -\int d^4x\; \phi\, (\partial_\mu J_a^\mu) \; +\; \text{boundary},
+\end{equation}
+so it does not mediate a static $1/r$ force between stationary, conserved sources. Long‑range $1/r$ forces would require the non‑derivative terms $\epsilon_b\, \phi\, \mathcal O_b$, which explicitly break the shift symmetry.
+
+\paragraph{Micro‑to‑macro universality of the derivative channel.} Microscopically the phase channel arises from the composition‑independent conductance $J'_{ij}=J'_0/V_K$ on the clique (see Definition~2.1 and the volume‑normalization rule). This single constant feeds the coarse‑grained phase stiffness $\kappa$ and fixes the \emph{same} derivative coupling for all composites formed from the substrate. Hence even where derivative interactions matter (e.g., velocity‑dependent effects), they are universal and do not violate weak equivalence at leading order.
+
+\paragraph{Residual operators and quantitative bounds.} Any putative fifth force must come from (i) leakage of the gapped amplitude sector (Yukawa with range $\ell$) or (ii) tiny symmetry‑breaking coefficients $\epsilon_b$ in Eq.~\eqref{eq:Lint-phi}. Both are constrained:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Amplitude leakage (Yukawa).} The static potential between sources receives a correction of the form $V_5(r)= -\alpha_5\, G\,m_1 m_2\, e^{-r/\ell}/r$. In this framework $\ell$ is finite and set by $\alpha,\beta$ (Sec.~7). For laboratory to Solar‑System scales ($r\gg R_{\rm cl}$), choosing $\ell$ well below those scales suppresses $V_5$ exponentially.
+  \item \textbf{Shift breaking.} A non‑derivative $\phi$ coupling yields a genuine long‑range $1/r$ force with relative strength $\alpha_5\propto \epsilon^2$. Existing constraints give $\alpha_5\lesssim 10^{-10}\text{--}10^{-12}$ for ranges near $0.1$--$1\,\text{AU}$ (planetary ephemerides) and $\alpha_5\lesssim \text{few}\times 10^{-11}$ at lunar distances (LLR); composition‑dependent WEP tests bound the Eötvös parameter to $\eta\lesssim 10^{-13}\text{--}10^{-14}$ (not a direct Yukawa $\alpha$ at AU). Thus any effective $\epsilon$ must satisfy
+  \begin{equation}
+    \alpha_5 \;=\; c\, \epsilon^2 \;\ll\; 1,\qquad c=\mathcal O(1),
+  \end{equation}
+  which is naturally realised here because (a) exact shift symmetry at leading order \emph{forbids} $\epsilon$, and (b) vacuum relaxation drives symmetry‑breaking mixings toward zero; any residual is loop‑ and window‑suppressed.
+\end{itemize}
+
+\paragraph{No hidden vectors or extra cones.} The substrate furnishes a single real field; there is no independent massless vector or tensor beyond the emergent metric built from the phase kernel. Hence there is no additional light cone and no separate long‑range mediator to couple composition‑dependently.
+
+\paragraph{Takeaway.} At distances $r\gg R_{\rm cl}$ and energies well below the amplitude gap, the only massless excitation is the shift‑symmetric phase. Its derivative, conserved‑current couplings do not produce static $1/r$ forces and are universal by construction. Non‑derivative (fifth‑force) operators are symmetry‑forbidden at leading order and observationally bounded to $\alpha_5\!\ll\!1$ if present at all. Consequently, the universal metric channel is the \emph{only} long‑range interaction in the low‑energy regime of this model.
+
+\paragraph{Connection to experimental bounds (explicit).} In this framework, the ephemerides and LLR Yukawa limits constrain only two EFT knobs: (i) the screening length $\ell$ of the gapped amplitude sector (via the $e^{-r/\ell}/r$ tail), and (ii) the shift‑breaking coefficient(s) $\epsilon_b$ in Eq.~\eqref{eq:Lint-phi} through $\alpha_5=c\epsilon^2$. The universal, derivative phase coupling that builds the metric is unaffected by these bounds. Thus published $\alpha_5(\lambda)$ and $\eta$ limits translate into $\ell$ and $\epsilon$ bounds for our EFT without constraining the core metric universality.
+
+
+\section{Emergence of $\hbar_{\mathrm{eff}}$ and Coherence}
+
+\subsection{The Quantum Scale from Coarse-Grained Dynamics}
+
+An effective Planck constant emerges because any coarse-grained cell (grain) supports a well-defined set of collective phase modes with a local period. The underlying substrate remains an uncountable clique, and a grain contains an uncountable set of internal links; nevertheless, the induced kernel/Laplacian on this bounded region is a compact operator, so its normal‑mode spectrum is discrete and countable. Because the continuum variables are defined only after choosing a spatial and temporal coarse‑graining window, predictions are necessarily window‑relative. Different legitimate choices renormalise the couplings but describe the same low‑energy physics.
+
+\paragraph{Why no observer‑free description exists} The continuum fields $\Psi(x)$ and all derived coarse‑grained quantities ($V_K, R_K, E_{\text{cell}}, \tau_{\text{cell}}$, etc.) are defined only after selecting a grain size and an observation window in time. That choice fixes (i) the bounded region on which the induced kernel/Laplacian is defined—ensuring compactness and a discrete spectrum, (ii) the effective normalization of link strengths ($J_{ij}\propto 1/V_K$), and (iii) the split between ``fast'' modes that are integrated out and ``slow'' modes retained. Consequently, numerical values of couplings and mode energies are window‑dependent (renormalised). What survives these changes are invariants such as $\hbar_{\mathrm{eff}} \simeq E_{\text{cell}}\,\tau_{\text{cell}}$, singled out precisely because they remain approximately unchanged under admissible coarse‑graining. In this sense, ``observer'' denotes the analysis scale (spatio‑temporal resolution) with respect to which continuum variables are defined.
+
+This necessity singles out an invariant action scale. Let $E_{\text{cell}}$ and $\tau_{\text{cell}}$ denote, respectively, the renormalised energy stored in the dominant internal phase mode and its period, both defined at the chosen coarse‑graining. Under admissible changes of coarse‑graining, extensive quantities (like mode energy) and time scales counter‑vary so that their product is approximately invariant. Equivalently, for the dominant harmonic mode, the adiabatic invariant $J=\oint p\,dq=2\pi E/\omega$ is preserved under slow window changes, yielding $E_{\text{cell}}\,\tau_{\text{cell}}\approx\text{const}$. That invariant defines the effective Planck constant of the low‑energy theory.
+
+\subsection{Coarse‑Grain Invariance and the Action Quantum}
+
+Changing the grain scale integrates out short‑wavelength modes and rescales the remaining degrees of freedom. In the regime where (i) the amplitude sector is extensive in volume ($\gamma \propto V_K$) and (ii) the relevant phase mode frequency follows the lowest Laplacian eigenvalue on the grain ($\omega_1 \propto R_K^{-2}$ up to renormalised prefactors), one finds the compensating behaviour
+\begin{align}
+E_{\text{cell}} &\nearrow \text{(extensive in } V_K\text{)}\\
+\tau_{\text{cell}} = 2\pi/\omega_1 &\searrow \text{(shrinks with } R_K^{-2}\text{)}
+\end{align}
+so that the product $E_{\text{cell}} \cdot \tau_{\text{cell}}$ remains approximately constant across admissible coarse‑grain choices. The physically meaningful phase increment per cycle is
+\begin{equation}
+\Delta\phi = \frac{E_{\text{cell}} \cdot \tau_{\text{cell}}}{\hbar_{\mathrm{eff}}}
+\end{equation}
+and coarse‑grain invariance demands $\Delta\phi$ be unchanged by the choice of resolution. Hence $\hbar_{\mathrm{eff}}$ is identified with the invariant action per cycle,
+\begin{equation}
+\hbar_{\mathrm{eff}} \simeq E_{\text{cell}} \cdot \tau_{\text{cell}} \quad \text{(coarse‑grain invariant)}
+\end{equation}
+providing the operational origin of the ``quantum of action'' in this model. This is stronger than a generic Fourier argument: the discreteness of the normal‑mode spectrum follows from compactness, and the invariance of the action per cycle follows from the renormalisation structure of the coarse‑grained theory.
+
+\subsection{Connection to Energy–Time Uncertainty}
+
+Combining the discrete normal‑mode spectrum on bounded grains (compactness) with the invariant action per cycle established in §8.2 yields the operational energy–time relation
+\begin{equation}
+\Delta E \cdot \Delta t \approx \hbar_{\mathrm{eff}}
+\end{equation}
+where $\Delta t$ is the observation/coherence time for the dominant mode and $\Delta E$ the associated linewidth.
+
+\subsection{Parameter Scaling}
+
+The effective Planck constant is defined as a coarse‑grain invariant:
+\begin{itemize}
+\item $E_{\text{cell}}$ varies with grain size and local stiffness parameters (e.g., $\beta, \gamma, \kappa$) through the renormalised mode energy
+\item $\tau_{\text{cell}}$ tracks the dominant mode period via the grain's lowest eigenfrequency
+\item Their product is approximately invariant across admissible coarse‑graining and weak inhomogeneity, so $\hbar_{\mathrm{eff}}$ remains constant in local units by construction
+\end{itemize}
+
+\noindent In local units adapted to a chosen spatial and temporal analysis window (rulers and clock defined by the same grain), $\hbar_{\mathrm{eff}}$ is constant by construction; in ``absolute'' units it agrees with the standard Planck constant only for a particular, fixed choice of window. A systematic treatment of the conformal rescalings induced by varying the window, and their physical implications, is left to future work.
+
+\paragraph{Thermodynamic convergence (predictive note).} The co\,variation that fixes local $\hbar_{\mathrm{eff}}$ is thermodynamic rather than exact: the relevant couplings relax toward their window\,dependent fixed ratios. This implies tiny microscopic deviations---high\,frequency fluctuations and/or slow drifts relative to an external standard---that become detectable only at sufficiently high resolution (e.g., next\,generation clock comparisons or long baseline astrophysical probes). In local units these effects are suppressed, but they furnish falsifiable predictions of the framework.
+
+\section{Entanglement as Phase-Link Hysteresis}
+
+Given the emergent, small‑integer lattice‑like vacuum established in Section 6 (with operational locality and separability), the graph effectively furnishes a low‑valence subgraph on which subsystems can be defined. Within this substrate, two well‑separated localized cores—represented at the grain scale as regions A and B—can interact through the phase channel. The entanglement mechanism described below is therefore a property of this lattice‑embedded pair, not of the raw all‑to‑all clique.
+
+\subsection{Why a double‑well appears (origin, mappings, symmetries)}
+
+The effective interaction landscape for two separated cores follows from three ingredients already derived:
+\begin{itemize}
+\item Phase inertia (Section 4.4): exciting a coherent phase current $p$ in a core costs $\frac{1}{2} M_p |p|^2$.
+\item Phase coupling (Section 5): cross‑links transmit a collective twist with composition‑independent conductance, giving an attractive bilinear term between core currents.
+\item Local nonlinearity: higher‑order terms stabilise the magnitude of the currents when coupling is strong enough to overcome inertia.
+\end{itemize}
+
+A minimal Landau expansion consistent with rotational symmetry in each core's internal phase space and exchange symmetry $A \leftrightarrow B$ is
+\begin{equation}
+V(p_A, p_B) = \frac{1}{2} M_p (|p_A|^2 + |p_B|^2) - C (p_A \cdot p_B) + \lambda (|p_A|^4 + |p_B|^4) + \ldots
+\end{equation}
+where $C, \lambda > 0$.
+
+The quadratic competition (inertia vs coupling) selects aligned, equal‑magnitude solutions when $C$ is sufficiently large, while the quartic term prevents runaway growth, producing two symmetry‑related minima ($\pm$ orientation of the common current) separated by a barrier whose height grows with $C^2/\lambda$ and the phase stiffness (through $M_p$).
+
+\paragraph{Micro$\to$macro mappings.} The coefficients are fixed by previously introduced primitives:
+\begin{itemize}
+\item Phase inertia: $M_p$ is the coarse‑grained phase inertia from §4.4. For the two‑core collective coordinate, $M_p^{\text{tot}} \simeq M_{p,A} + M_{p,B} \propto V_A R_A^2 + V_B R_B^2$.
+\item Phase coupling: the attractive bilinear $C (p_A\cdot p_B)$ descends from the phase‑channel conductance. At continuum level,
+\begin{equation}
+K  \simeq  \kappa w_*^2 \int_{\Omega_{AB}} G_\phi(r- r') \, d^3 r,
+\end{equation}
+with $G_\phi$ the phase Green's function over the inter‑core region $\Omega_{AB}$; at graph level,
+\begin{equation}
+C  \propto  J_{\phi\phi} \cdot N_{\text{link}}(\Omega_{AB}),
+\end{equation}
+with $N_{\text{link}}$ the effective number of cross‑links in the overlap bundle between the two cores.
+\item Stabiliser: $\lambda$ collects weak higher‑order terms at fixed amplitude (quartic in current) and amplitude–phase backreaction; dimensional analysis gives $\lambda \sim O(\kappa/\Lambda^2)$ with $\Lambda$ the shortest coarse‑grained length scale.
+\end{itemize}
+
+An equivalent single‑angle reduction uses the relative phase $\theta = \phi_A - \phi_B$ (with amplitudes clamped near $w_*$): projecting the phase‑diffusion/correlation energy (the $J_{\phi\phi}$ channel at fixed amplitude) into the relative‑phase coordinate yields an effective
+\begin{equation}
+V_{\text{rel}}(\theta) \approx - K \cos \theta + O(\cos 2\theta), \quad K>0,
+\end{equation}
+which has two symmetry‑related minima at $\theta = 0 \pmod{2\pi}$ and $\theta = 2\pi \pmod{2\pi}$ (or, when higher harmonics matter, $0$ and $\pi$), again defining a double‑well landscape in the coarse‑grained variable.
+
+\textit{Assumptions.} The reduction assumes well‑separated cores (small tail overlap), amplitudes clamped near $w_*$, and weak gradients so that the single relative‑phase mode dominates.
+
+\subsection{The Double‑Well Potential}
+
+
+
+Building on the origin and mappings above, the coarse‑grained interaction for two lattice‑embedded, well‑separated cores reduces to the competition between their phase inertia and their attractive phase coupling. Writing $p_A, p_B$ for the coarse‑grained internal phase currents, the leading terms are:
+\begin{enumerate}
+\item \textbf{Self-Energy}: $V_{\text{self}} = \frac{1}{2}M_p(|p_A|^2 + |p_B|^2)$ (resistance to internal currents)
+\item \textbf{Interaction Energy}: $V_{\text{int}} = -C p_A \cdot p_B$ (energy reduction from alignment)
+\end{enumerate}
+
+Together these form $V_{\text{total}} = V_{\text{self}} + V_{\text{int}}$ which, once stabilised by weak quartic terms or by clamping the current magnitudes near their steady values, yields a \textbf{double‑well} in the relative orientation of the currents (or, equivalently, in the relative phase $\theta$). The two minima are symmetry‑related (exchange of A/B or reversal of current orientation) and are separated by a finite barrier set by $M_p, C$ and the weak stabilising nonlinearity.
+
+\subsection{Two Stable States}
+
+\subsubsection{State 1: ``Off'' (Uncorrelated)}
+\begin{itemize}
+\item Global minimum at $p_A = p_B = 0$
+\item Default state for causally disconnected particles
+\item No coherent internal currents; phase link inactive
+\end{itemize}
+
+\subsubsection{State 2: ``On'' (Entangled)}
+\begin{itemize}
+\item Metastable local minimum where $p_A = -p_B \neq 0$
+\item Energy cost of individual currents balanced by interaction energy reduction
+\item Requires $C > 0$ and sufficient interaction strength to overcome $M_p$
+\end{itemize}
+
+\subsection{Phase-Link Hysteresis Mechanism}
+
+An \textbf{entanglement event} (like parametric down-conversion) provides activation energy to kick the system from the ground state into the metastable well. Once there, the correlation is maintained by system dynamics regardless of distance.
+
+\textbf{Decoherence} occurs when measurement interactions provide enough energy to kick the system back to the $p = 0$ ground state, ``unlatching'' the link.
+
+\subsection{Lifetime and Environmental Dependence (Kramers escape)}
+
+Let $x$ denote the one‑dimensional reaction coordinate along the minimum‑energy path between the two wells (e.g., the relative phase $\theta$ or the collective current orientation). Its stochastic dynamics can be modeled as
+\begin{equation}
+M_{\text{eff}} \cdot \ddot{x} + \zeta \cdot \dot{x} = - \frac{\partial V_{\text{rel}}(x)}{\partial x} + \xi(t)
+\end{equation}
+where $\langle\xi(t) \xi(t')\rangle = 2 \zeta k_B T_{\text{eff}} \delta(t-t')$.
+
+In the overdamped Kramers regime ($\zeta \gg \sqrt{M_{\text{eff}} V''}$), the mean escape rate from one well is
+\begin{equation}
+\Gamma \approx \frac{\omega_0 \cdot \omega_b}{2\pi \zeta} \cdot \exp\left[ - \frac{\Delta E_b}{k_B T_{\text{eff}}} \right]
+\end{equation}
+with
+\begin{align}
+\omega_0^2 &= V_{\text{rel}}''(x_{\text{min}})/M_{\text{eff}}\\
+\omega_b^2 &= |V_{\text{rel}}''(x_{\text{saddle}})|/M_{\text{eff}}\\
+\Delta E_b &= V_{\text{rel}}(x_{\text{saddle}}) - V_{\text{rel}}(x_{\text{min}})
+\end{align}
+
+Hence the lifetime is $\tau \approx 1/\Gamma$. The exponential factor provides the Arrhenius dependence, while the prefactor sets the attempt rate through the local curvatures and damping. In our mapping: $\Delta E_b$ grows with the phase‑coupling strength $C$ and phase stiffness (via $M_p$), $\zeta$ encodes weak dissipation through the phase channel and ambient bath, and $T_{\text{eff}}$ is the average perturbation energy of that environment. Accordingly, the lifetime shortens as $T_{\text{eff}}$ (or $\zeta$) increases and lengthens as $\Delta E_b$ increases.
+
+\paragraph{Local‑unit normalisation (scope and caveat).} Using the coarse‑grain arguments of Section 8, define the local clock as the dominant internal phase mode of a core, with period $\tau_{\text{cell}}$, and the local unit of action by $\hbar_{\mathrm{eff}} \simeq E_{\text{cell}} \cdot \tau_{\text{cell}}$ (coarse‑grain invariant). Expressing the Kramers rate in these units yields a dimensionless lifetime
+\begin{equation}
+\tau_{\text{local}} := \tau / \tau_{\text{cell}} \approx \left[ \frac{\omega_0 \cdot \omega_b}{2\pi \zeta} \right]^{-1} \cdot \exp\left[ \frac{\Delta E_b}{k_B T_{\text{eff}}} \right]
+\end{equation}
+so that the leading sensitivity is through the ratio $\Delta E_b/(k_B T_{\text{eff}})$ and the dimensionless curvature/damping prefactor. When the same environmental coarse‑graining that sets the clock also governs the perturbation energy scale $T_{\text{eff}}$ and the barrier $\Delta E_b$ (e.g., through the same renormalised link statistics), the local‑unit lifetime $\tau_{\text{local}}$ is approximately stable. In this paper we refrain from asserting exact invariance without a micro‑model for the co‑variation of $\Delta E_b$ and $T_{\text{eff}}$; the present result should be read as a normalisation procedure that makes the environmental dependence explicit and typically weak in local units.
+
+\subsection{Bell nonlocality, no\textendash communication, and GR compatibility}
+
+The metastable phase\textendash link described above provides \emph{nonlocal} correlations between well\textendash separated cores. In Bell's language, the model rejects the \emph{locality} assumption: the joint state includes a single coarse\textendash grained degree of freedom (the shared phase\textendash current orientation/relative phase) that spans the pair and is not reducible to variables localized in the separate past light cones on the emergent lattice. This suffices to violate Bell inequalities in the usual settings.
+
+Crucially, the construction preserves the no\textendash communication theorem. The phase channel that carries the correlation does not transmit controllable signals: (i) all dynamical excitations in the phase sector propagate as waves with speed $c_s=\sqrt{\kappa}\,w_*$ along the emergent metric; (ii) a local choice of measurement setting at $A$ cannot modulate the \emph{marginal} statistics at $B$ because the latter depend only on the local setting and on the link's internal state distribution, which is unaffected by distant settings in the absence of an ordinary (timelike) channel. Operationally, joint correlations change with both settings, but single\textendash wing distributions remain invariant, precluding superluminal signalling.
+
+General\textendash relativity is respected because the correlational link does not carry energy\textendash momentum across spacetime: there is no stress\textendash energy flux along the nonlocal constraint, and any dynamical disturbance still propagates within the emergent light cone determined by the phase action. Metric universality (Section 6.4) ensures that all matter couples to the same cone, maintaining the weak equivalence principle. Thus the model realises Bell nonlocality without causal paradoxes.
+
+This picture is conceptually akin to the spirit of ER=EPR: a nontraversable connection correlates distant systems without enabling communication. In the present framework, the connection is a bundle of renormalised phase cross\textendash links inherited from the clique substrate rather than a geometric wormhole; its observables are the relative\textendash phase (or current) variables already introduced.
+
+A detailed derivation of CHSH\textendash type violations and an explicit no\textendash signalling proof for the stochastic coarse\textendash grained equations (including measurement backaction and link unlatching) is left to follow\textendash up work; the present paper establishes the structural ingredients and operational constraints.
+
+\section{From Entanglement to Measurement: Phase Locking, Einselection, and Hysteresis}
+The same phase\,channel mechanism that produces a double\,well for two spatially separated droplets (regions A/B) also governs system\textendash apparatus measurement when the apparatus is a larger droplet (localized composite of grains). This section summarises the operational consequences; a compact derivation is given in SI~\S\ref{si:measure-dw}.
+
+\subsection{Asymmetric coupling and pointer minima}
+Let a system phase mode couple attractively to an apparatus droplet's internal phase current. The coarse\,grained free energy (at fixed amplitude) takes the Landau form $\tfrac12 M_p|p_A|^2 - C\,(p_A\!\cdot\!p_S) + \lambda|p_A|^4$. Above a threshold in $C/M_p$, the origin loses stability and symmetry\,related minima appear, aligned with the system's phase mode. These minima are the apparatus' pointer states.
+
+\subsection{Decoherence and latching}
+Environmental coupling acts through the phase sector, rapidly dephasing superpositions between distinct minima (einselection). The weak quartic (or amplitude\textendash phase backreaction) creates a barrier that renders inter\,well transitions exponentially rare in the measurement regime (Kramers scaling), latching the outcome as a classical record.
+
+\subsection{Operational implications and scope}
+\begin{itemize}
+\item Outcomes are effectively projective onto the apparatus eigenbasis (the minima of the phase\,energy landscape).
+\item The mechanism is composition\,independent and respects the universal phase cone.
+\item Assumptions (separation, clamped amplitude, dominant relative phase mode) make the analysis tractable but do not fine\,tune the effect.
+\end{itemize}
+
+\subsection{Mathematical model: total potential and settings}
+Any two\,outcome instrument possesses a macroscopic setting axis $\theta_{\rm set}$ and a $\mathbb Z_2$ symmetry of outcomes (e.g., pass/fail, up/down). The minimal rotationally\,invariant apparatus potential that respects these facts is a Fourier series containing only even harmonics of $(\theta_A-\theta_{\rm set})$; the leading term is $-B\cos\big(2(\theta_A-\theta_{\rm set})\big)$, which produces two stable minima at $\theta_A=\theta_{\rm set}$ and $\theta_{\rm set}+\pi$. The universal phase\,channel coupling derived earlier furnishes the system–apparatus interaction $-K\cos(\theta_A-\theta_S)$. Collecting lowest\,order terms (and a weak stabiliser), the effective potential (free energy at fixed amplitudes) is
+\begin{equation}
+  V_{\rm tot}(\theta_A,\theta_S;\theta_{\rm set}) \,=\, \underbrace{-K\cos(\theta_A-\theta_S)}_{\text{system–apparatus phase coupling}} \;\; +\;\; \underbrace{-B\cos\big(2(\theta_A-\theta_{\rm set})\big)}_{\text{apparatus symmetry \,/ setting}} \;\; +\;\; \lambda_A\,\cos^4(\theta_A-\theta_{\rm set}),
+  \label{eq:VtotalSA}
+\end{equation}
+where $K\propto C>0$ encodes the phase\,channel coupling, the $B$\,term is the apparatus' dichotomic structure aligned with the macroscopic setting (e.g., a polariser or Stern–Gerlach axis), and $\lambda_A>0$ stabilises finite curvature at the minima. The $\cos 2(\cdot)$ term is the minimal rotationally\,invariant choice for a two\,outcome instrument.
+
+\paragraph{Pointer minima (apparatus side).} For fixed $\theta_S$, $V_{\rm tot}$ is minimised when $\theta_A$ locks near $\theta_{\rm set}$ or $\theta_{\rm set}+\pi$. The stationarity condition $\partial_{\theta_A}V_{\rm tot}=0$ gives
+\begin{equation}
+  K\sin(\theta_A-\theta_S) \; +\; 2B\sin\big(2(\theta_A-\theta_{\rm set})\big) \; -\; 4\lambda_A\,\cos^3(\theta_A-\theta_{\rm set})\sin(\theta_A-\theta_{\rm set}) \;=\; 0,
+\end{equation}
+whose stable solutions are $\theta_A\approx\theta_{\rm set}$ or $\theta_{\rm set}+\pi$ provided $B$ dominates the curvature around those points (threshold discussed below). Thus the apparatus pointer has two stable minima (the two outcomes) aligned with the macroscopic setting.
+
+\paragraph{Effective projection (system side).} For fixed $\theta_A$ at a pointer minimum, the system feels the effective potential
+\begin{equation}
+  V_{\rm eff}(\theta_S\,|\,\theta_A) \;=\; -K\cos(\theta_A-\theta_S),
+\end{equation}
+which is minimised by $\theta_S\rightarrow\theta_A$ modulo $2\pi$. Thus, once the apparatus selects a pointer direction (by the $B$\,term), the coupling $K$ drives the system phase into the corresponding eigenchannel. This implements a projective map onto the apparatus eigenbasis.
+
+\subsection{Bistability threshold and mutual enforcement}
+Linearising around a candidate minimum $\theta_A=\theta_{\rm set}$ (set $\varphi:=\theta_A-\theta_{\rm set}$, $\delta:=\theta_S-\theta_{\rm set}$, with $|\varphi|,|\delta|\ll1$), the quadratic expansion is
+\begin{equation}
+  V_{\rm tot} \;\approx\; \tfrac12 \big( K+4B\big)\,\varphi^2 \; -\; K\,\varphi\,\delta \; +\; \tfrac12 K\,\delta^2 \; +\; O(\varphi^3,\delta^3) .
+\end{equation}
+The apparatus curvature at the minimum is $\partial^2_{\theta_A}V_{\rm tot}|_{\rm min}\approx K+4B$, and the mixed term $-K\,\varphi\,\delta$ communicates the system phase into the apparatus. Bistability obtains when the $\cos 2$ structure dominates the apparatus sector, i.e. $B\gtrsim B_{\rm crit}\sim K/4$, ensuring two deep minima at $\theta_A=\theta_{\rm set},\,\theta_{\rm set}+\pi$. In the opposite limit ($B\ll K$) the apparatus simply tracks $\theta_S$ continuously.
+
+Eliminating $\varphi$ by its stationary value $\varphi_*=\tfrac{K}{K+4B}\,\delta$ yields an effective potential for $\delta$ with curvature $\tfrac12 K\,\tfrac{4B}{K+4B}$, showing how the macroscopic setting enforces alignment of the system phase with the selected eigenchannel and vice versa. Thus the correspondence is enforced in both directions: the macroscopic setting biases the apparatus minima; the apparatus minimum projects (locks) the microscopic system phase.
+
+\subsection{Decoherence and orthogonality of records}
+Let the two pointer minima be $\theta_A^{(\pm)}=\theta_{\rm set}\,,\,\theta_{\rm set}+\pi$. Their macroscopic phase\,current patterns differ by $\Delta p_A\sim 2p_*$, so the bath dephasing rate between the corresponding apparatus states scales as $\Gamma_{\rm dephase}\sim (\Delta p_A)^2 S_\xi(0)/(2\hbar_{\rm eff})$. For large action separation $\mathcal A\sim \int p_A\,d\phi$ the overlap is exponentially small, $\langle A_+|A_-\rangle\sim e^{-\mathcal A/\hbar_{\rm eff}}$, ensuring effective orthogonality of macroscopic records in local units.
+
+\paragraph{Barrier and latching.} The stabiliser $\lambda_A$ sets the barrier $\Delta E_b$ between the two minima; with damping $\zeta$ and effective temperature $T_{\rm eff}$ the Kramers rate $\Gamma\sim (\omega_0\omega_b/2\pi\zeta)\,e^{-\Delta E_b/(k_B T_{\rm eff})}$ is exponentially small in the measurement regime, preventing rapid hopping and latching the outcome.
+
+\subsection{Compatibility with vacuum relaxation and small\,integer $D_s$}
+The vacuum tends toward a small\,integer spectral dimension by minimising a coarse\,grained cost $F(d)=b_E e^{-\alpha d}+\beta_{\mathrm{dim}} d^2$ (see SI~\S\ref{si:dim-fp}). One might worry that the sparse bundle of cross\,links supporting an entanglement or measurement channel between two droplets (the region $\Omega_{AB}$) would be pruned by this drive. We show that once the phase link is latched, the energetic advantage of retaining the bundle dominates the vacuum\,relaxation incentive, and that the bundle does not shift $D_s$ at leading order.
+
+\paragraph{Energetic comparison.} Let $N_{\mathrm{link}}(\Omega_{AB})$ be the effective number of cross\,links whose renormalised conductance supports the phase coupling $K\propto\kappa w_*^2\int_{\Omega_{AB}}G_\phi$. The barrier protecting the latched state scales as $\Delta E_b\sim\mathcal C\,C^2/\lambda$ (or via the curvature of $V_{\mathrm{rel}}$), an $\mathcal O(1)$ system\,scale energy in local units. By contrast, the vacuum\,relaxation gain from pruning a sparse, localised bundle consists of (i) an entropy term $T\,\Delta H[J]$ and (ii) a small shift in the dimensional bias $\Delta F_{\mathrm{dim}}\sim\beta_{\mathrm{dim}}(\partial\langle d_{\mathrm{int}}\rangle/\partial J)\,\Delta J$. For a large near\,regular substrate with total volume $N$ (grains), both contributions scale at most as $\mathcal O(N_{\mathrm{link}}/N)$, since the heat\,kernel trace that defines $\langle d_{\mathrm{int}}\rangle$ shifts by $\delta K(t)\approx -t\,\mathrm{Tr}(\delta L\,e^{-tL})$ for sparse, localised $\delta L$. Hence
+\begin{equation}
+  \Delta F_{\mathrm{vac}}\;\equiv\;T\,\Delta H[J]+\Delta F_{\mathrm{dim}}\;\lesssim\;c_1 T\,\frac{N_{\mathrm{link}}}{N}+c_2\beta_{\mathrm{dim}}\,\frac{N_{\mathrm{link}}}{N},
+\end{equation}
+with $c_{1,2}$ dimensionless factors $\sim\mathcal O(1)$. For macroscopic $N$ this is negligible compared to the latched barrier $\Delta E_b$, so pruning is not favoured once the link is established.
+
+\paragraph{Geometric interpretation.} The "non\,locality" of the phase link is higher\,dimensional in the fiber sense: it lives in the internal phase (U(1)) rotor bundle over the spatial base. The spectral dimension $D_s$ is extracted from the base Laplacian via the heat kernel; adding a sparse inter\,droplet bundle changes the base spectrum only at subleading order $\mathcal O(N_{\mathrm{link}}/N)$ and does not move the fixed point. Thus entanglement hysteresis is compatible with small\,integer $D_s$ and the vacuum\,relaxation drive.
+
+\subsection{Continuous\,to\,projective interpolation (measurement regimes)}
+The same free\,energy landscape encodes a smooth deformation from classical\,like continuous readout to sharp, projective and latched outcomes. The relevant knobs are the apparatus scale $B$ (setting potential), the coupling $K$, the stabiliser $\lambda_A$ (barrier), and the bath parameters $(\zeta, T_{\rm eff})$.
+
+\paragraph{Overdamped pointer dynamics.} In the measurement window the apparatus pointer obeys a Langevin equation
+\begin{equation}
+  \zeta\,\dot\theta_A \;=\; -\partial_{\theta_A} V_{\rm tot}(\theta_A,\theta_S;\theta_{\rm set}) \; +\; \xi_A(t),\qquad \langle\xi_A(t)\xi_A(t')\rangle=2\zeta k_B T_{\rm eff}\,\delta(t-t').
+\end{equation}
+Linearising around $\theta_A\approx\theta_{\rm set}$ with $\varphi:=\theta_A-\theta_{\rm set}$ and $\delta:=\theta_S-\theta_{\rm set}$ (small), Eq.~\eqref{eq:VtotalSA} yields
+\begin{equation}
+  \zeta\,\dot\varphi \;=\; -\big(K+4B\big)\,\varphi \; +\; K\,\delta \; +\; \xi_A(t).
+\end{equation}
+In the quasi\,static limit ($\dot\varphi\approx0$) the continuous readout relation emerges
+\begin{equation}
+  \varphi \;\approx\; \frac{K}{K+4B}\,\delta \; +\; \frac{\xi_A}{K+4B},
+\end{equation}
+so the pointer tracks the system angle with gain $K/(K+4B)$ and additive noise.
+
+\paragraph{Regimes.} Define dimensionless ratios $\alpha:=B/K$ and $\beta:=\lambda_A/K$.
+\begin{itemize}
+  \item \textbf{Continuous (weak) measurement:} $\alpha\ll1$, shallow or no barrier ($\beta\lesssim1$). The pointer tracks $\theta_S$ continuously; hopping between orientations is frequent (no latching). Readout noise set by $T_{\rm eff}$ and $\zeta$.
+  \item \textbf{Intermediate/POVM\,like:} $\alpha\sim\mathcal O(1)$, moderate barrier ($\beta\gtrsim1$). Partial alignment with finite dwell times; effective Kraus maps arise under coarse\,graining.
+  \item \textbf{Projective + latching:} $\alpha\gg1$ and large barrier ($\beta\gg1$). The apparatus selects a pointer minimum aligned with $\theta_{\rm set}$; the system is projected by $-K\cos(\theta_A-\theta_S)$; Kramers rate $\Gamma\sim(\omega_0\omega_b/2\pi\zeta) e^{-\Delta E_b/(k_B T_{\rm eff})}$ is exponentially small.
+\end{itemize}
+Timescale separation ($\tau_{\rm relax}^{\rm app}\ll\tau_{\rm dephase}\ll\tau_{\rm dyn}^{\rm sys}$) ensures basis selection (einselection) and, in the last regime, durable classical records (latching).
+
+\subsection{Single-Mechanism Continuity and Measurement Regimes}
+A key feature of this framework is its \emph{single-mechanism continuity}: the same free-energy landscape smoothly connects classical-like continuous readout with sharp, projective measurement. The transition is controlled by tuning physical parameters of the very same potential. The primary control knob is the relative strength of the apparatus's internal even-harmonic term versus the system–apparatus coupling.
+
+\noindent \textbf{Primary switch (bistability).} A sharp two-outcome device appears when the apparatus potential develops a double-well. The exact onset is $B=K/4$. Below this, the pointer tracks the system continuously; above it, two minima exist and a pointer state can be selected.
+
+\noindent \textbf{From visibility to projection and records.} Once bistability exists, whether interference persists or outcomes become effectively projective (and latched) depends on which-way distinguishability, environmental dephasing over the integration time, and barrier stability. The precise, conformally invariant criteria are collected in SI~\S\ref{si:thresholds}.
+
+\subsection{Schr\"odinger envelope limit (slowly varying phase)}
+In weakly inhomogeneous backgrounds and for narrowband excitations one can pass from the relativistic phase equation to a nonrelativistic Schr\"odinger evolution for the complex envelope. Write the phase as a fast carrier plus a slow envelope,
+\begin{equation}
+  \phi(x,t) = \Omega_0\,t + \vartheta(x,t),\qquad \big|\partial_t \vartheta\big|,\,\big|\nabla\vartheta\big| \ll \Omega_0,
+\end{equation}
+and define the envelope field by removing the carrier,
+\begin{equation}
+  \psi(x,t) := w(x,t)\,e^{i\vartheta(x,t)} = e^{-i\Omega_0 t}\,\Psi(x,t),\qquad \Psi = w\,e^{i\phi}.
+\end{equation}
+Linearising around $w\simeq w_*$ and expanding the dispersion near the carrier yields
+\begin{equation}
+  \omega(\mathbf k) \simeq \Omega_0 + \frac{c_s^2}{2\,\Omega_0}\,|\mathbf k|^2 + \delta\omega(x,t),
+\end{equation}
+where $c_s^2=\kappa w_*^2$ and $\delta\omega$ encodes weak index/potential variations. Introducing the effective mass and potential in local units
+\begin{equation}
+  m_{\mathrm{eff}} := \frac{\hbar_{\mathrm{eff}}\,\Omega_0}{c_s^2},\qquad V_{\mathrm{eff}}(x,t) := \hbar_{\mathrm{eff}}\,\delta\omega(x,t),
+\end{equation}
+the slowly varying envelope $\psi$ obeys the Schr\"odinger equation
+\begin{equation}
+  i\,\hbar_{\mathrm{eff}}\,\partial_t \psi(x,t) \;=\; -\frac{\hbar_{\mathrm{eff}}^2}{2\,m_{\mathrm{eff}}}\,\nabla^2 \psi(x,t) \; +\; V_{\mathrm{eff}}(x,t)\,\psi(x,t)
+\end{equation}
+to leading order in the paraxial/SVEA expansion. An equivalent nonrelativistic limit holds for massive (subluminal) soliton cores under a multi-scale expansion around the dominant internal mode, with the same identifications for $m_{\mathrm{eff}}$ and $V_{\mathrm{eff}}$ up to renormalised prefactors.
+
+\paragraph{Validity conditions.} The envelope limit assumes: (i) narrowband excitations around $\Omega_0$ with $\Delta\omega/\Omega_0\ll 1$, (ii) slowly varying backgrounds (weak index/potential), (iii) amplitudes clamped near $w_*$, and (iv) paraxial/small-angle propagation so that higher-order dispersion terms are negligible. In these regimes, examples discussed in this paper evolve approximately according to Schr\"odinger dynamics in local units.
+
+\section{Parameter Map}
+
+\subsection{Fundamental Parameters}
+
+The model contains several emergent parameters, all derived from the two fundamental constants $\eta_0$ and $J'_0$:
+\begin{itemize}
+\item \textbf{Signal speed}: $c_s^2 = \kappa w_*^2$ where $\kappa = J'_0$
+\item \textbf{On-site stiffness}: $\gamma = (\eta_0/2)V_K$
+\item \textbf{Phase inertia}: $M_p \propto V_K R_K^2$
+\item \textbf{Effective Planck constant}: $\hbar_{\mathrm{eff}} = E_{\text{cell}} \tau_{\text{cell}}$
+\end{itemize}
+
+\subsection{Connection to Physical Constants (and scope)}
+
+The following identifications are supported by prior sections; where calibration is required we state it explicitly:
+\begin{itemize}
+\item $c_s$ (from §6): signal speed of phase waves with $c_s^2 = \kappa w_*^2$.
+\item $\hbar$ (from §9): effective action quantum via coarse‑grain invariant $\hbar_{\mathrm{eff}} \simeq E_{\text{cell}} \cdot \tau_{\text{cell}}$.
+\item $G$ (from §7): defines the monopole strength of the emergent scalar potential. Calibrate the constant in $\Phi_{\text{total}}(r) \approx (\text{const} \cdot M_{\text{eff}})/r$ by matching the far‑field force on a test core to $F = G M_{\text{eff}} m_{\text{eff}} / r^2$ in local units, thereby fixing $G$ for a given environment/coarse‑grain.
+\item Cosmological window (scope and robustness): we model observation/coarse\,graining by a sliding window with a UV edge set by the smallest resolvable internal scale and an IR edge limited by causal/relaxation response (e.g., $k_{\min}\sim a H_{\rm eff}/c_s$ up to an $\mathcal O(1)$ factor). Allowing generic scalings of these edges, departures from $w=-1$ are suppressed by the large logarithmic bandwidth $\ln(k_{\max}/k_{\min})$. Thus, for broad windows one naturally expects $|w+1|\ll 1$ without fine tuning. A quantitative cosmological treatment and specific scaling laws are deferred to follow\,up work and lie outside the scope of the present paper.
+\item Fine‑structure–like ratios: sector‑dependent coupling ratios (e.g., between channels) require additional gauge‑sector structure not developed here; they are not fixed within this paper.
+\end{itemize}
+
+\section{Constraints on Free Parameters and Consistency}
+
+\subsection{Notation and scope}
+
+Several parameters appear in distinct sectors. To avoid ambiguity in this section we distinguish:
+\begin{itemize}
+  \item Amplitude potential parameters: $\alpha_{\mathrm{grad}}$ (gradient coefficient in the amplitude sector), $\beta_{\mathrm{pot}}$ (quadratic coefficient in $V(w)$), and $\gamma$ (on-site stiffness).
+  \item Dimensional-bias parameters (see SI~\S\ref{si:dim-fp}): $\alpha_{\mathrm{dim}}$ (screening constant in the information-cost model), $b_E$ (bit-cost), and $\beta_{\mathrm{dim}}$ (dimensional stiffness). These are \emph{independent} of the amplitude-sector symbols reused elsewhere in the paper.
+\end{itemize}
+
+All parameters referenced below are assumed positive in their physical regimes.
+
+\subsection{Volume-normalized couplings and emergent speeds}
+
+\textbf{Couplings.} Volume normalization requires
+\begin{equation}
+J_{ij} = \eta_0/V_K,\qquad J'_{ij} = J'_0/V_K,\qquad \kappa \equiv J'_0.
+\end{equation}
+Positivity $\eta_0>0$, $J'_0>0$ guarantees extensive scaling ($\gamma \propto V_K$) and finite continuum energies.
+
+\textbf{Signal speed.} The phase-wave speed obeys
+\begin{equation}
+c_s^2 = \kappa\, w_*^2,\qquad w_* = \sqrt{\beta_{\mathrm{pot}}/(2\gamma)}.
+\end{equation}
+Hence $c$ is fixed (in local units) once $(\kappa,\beta_{\mathrm{pot}},\gamma)$ are fixed; with $\gamma=(\eta_0/2)\,V_K$ one has $w_* \propto (\beta_{\mathrm{pot}}/\eta_0)^{1/2} V_K^{-1/2}$ and $c$ independent of $V_K$.
+
+\subsection{Amplitude sector: stability, screening, and solitons}
+
+The Mexican-hat potential $V(w)=-\beta_{\mathrm{pot}} w^2 + \gamma w^4$ requires $\beta_{\mathrm{pot}}>0$, $\gamma>0$ for a stable minimum at $w_*$. Linearization yields
+\begin{equation}
+m_\xi^2 = V''(w_*) = 2\beta_{\mathrm{pot}} > 0,\qquad \ell = \sqrt{\frac{\alpha_{\mathrm{grad}}}{m_\xi^2}} = \sqrt{\frac{\alpha_{\mathrm{grad}}}{2\beta_{\mathrm{pot}}}}.
+\end{equation}
+For the Newtonian $1/r$ far-field to emerge from clustered screened sources, the screening and cluster scales must satisfy
+\begin{equation}
+R_{\mathrm{cl}} \ll r \ll \ell,\qquad \ell \gg R_{\mathrm{cl}}\quad (\text{Coulombic window}).
+\end{equation}
+
+\subsection{Phase sector: inertia, coupling, and entanglement lifetimes}
+
+\textbf{Inertia.} The phase inertia scales as $M_p \propto V_K R_K^2$ and is positive.
+
+\textbf{Coupling.} The effective two-core coupling admits the mappings
+\begin{equation}
+K \simeq \kappa w_*^2 \int_{\Omega_{AB}} G_\phi(\mathbf r-\mathbf r')\, d^3r,\qquad C \propto J_{\phi\phi} \cdot N_{\mathrm{link}}(\Omega_{AB}),\qquad J_{\phi\phi}>0.
+\end{equation}
+\textbf{Lifetime.} In the overdamped Kramers regime,
+\begin{equation}
+\Gamma \approx \frac{\omega_0\,\omega_b}{2\pi\,\zeta}\, \exp\!\left(-\frac{\Delta E_b}{k_B T_{\mathrm{eff}}}\right),\qquad \tau\approx\Gamma^{-1},
+\end{equation}
+with $\Delta E_b$ increasing with $C$ and $M_p$. All prefactors and $T_{\mathrm{eff}}$ are positive by construction.
+
+\subsection{Dimensional fixed point: analytic constraints}
+
+From SI~\S\ref{si:dim-fp},
+\begin{equation}
+d_* = \frac{1}{\alpha_{\mathrm{dim}}}\, W\!\left( \frac{\alpha_{\mathrm{dim}}^2 b_E}{2\beta_{\mathrm{dim}}} \right),\qquad \alpha_{\mathrm{dim}},\, b_E,\, \beta_{\mathrm{dim}} > 0.
+\end{equation}
+Imposing $d_*=3$ fixes the \emph{ratio}
+\begin{equation}
+\frac{b_E}{\beta_{\mathrm{dim}}} = \frac{6}{\alpha_{\mathrm{dim}}}\, e^{3\alpha_{\mathrm{dim}}},\qquad \text{equivalently }\; W\!\left( \frac{\alpha_{\mathrm{dim}}^2 b_E}{2\beta_{\mathrm{dim}}} \right)=3\alpha_{\mathrm{dim}}.
+\end{equation}
+Curvature at the fixed point is strictly positive,
+\begin{equation}
+F''(d_*) = 2\beta_{\mathrm{dim}}\,(\alpha_{\mathrm{dim}} d_* + 1) > 0,
+\end{equation}
+so the solution is a minimum for any positive parameters. The \emph{weak-bias} regime used in Section~9 requires that the $\beta_{\mathrm{dim}}$ term not dominate the Boltzmann link form; this constrains only the overall scale of $\beta_{\mathrm{dim}}$ along the fixed $b_E/\beta_{\mathrm{dim}}$ ratio.
+
+\paragraph{Calibration and testability (simulation).} Direct laboratory measurement of $(\alpha_{\mathrm{dim}},\beta_{\mathrm{dim}})$ is unlikely, but they can be calibrated in graph simulations that implement the microscopic free\,energy $F=(E_{\text{local}}+E_{\text{cohesion}}+E_{\text{correlation}})-T S[J]$ with volume\,normalized couplings. One relaxes large graphs to vacuum, estimates the spectral dimension $d$ from the heat kernel $K(t)$ via $\langle d_{\text{int}}\rangle=-2\,d\ln K/d\ln t$ on near\,homogeneous patches, and fits the reduced cost $F(d)\approx b_E e^{-\alpha d}+\beta_{\mathrm{dim}} d^2$ near its minimum. The log\,slope yields $\alpha\equiv\alpha_{\mathrm{dim}}$; the curvature gives $\beta_{\mathrm{dim}}\simeq \tfrac12 F''(d_*)$. Consistency with $d_*=3$ enforces $b_E/\beta_{\mathrm{dim}}=(6/\alpha) e^{3\alpha}$, narrowing the allowed band. The resulting $(\alpha,\beta_{\mathrm{dim}})$ induce cross\,predictions for dispersion isotropy, link sparsity, coherence lengths, and entanglement lifetimes that can be checked within the same simulations.
+
+\subsection{Action scale and coherence}
+
+Compactness of the induced operator on bounded grains ensures a discrete normal-mode spectrum. Coarse-grain transformations induce
+\begin{equation}
+E_{\mathrm{cell}} \nearrow,\quad \tau_{\mathrm{cell}} = \frac{2\pi}{\omega_1} \searrow,\quad \hbar_{\mathrm{eff}} \simeq E_{\mathrm{cell}} \tau_{\mathrm{cell}} \;\; (\text{approximately invariant}).
+\end{equation}
+This fixes $\hbar_{\mathrm{eff}}$ in local units without further parameter constraints.
+
+\subsection{Newtonian calibration and $G$}
+
+The effective scalar potential at large $r$ obeys $\Phi(r) \approx (\mathrm{const}\cdot M_{\mathrm{eff}})/r$, with $M_{\mathrm{eff}}=\sum_i \int (w_i^2-w_*^2)\, d^3x$. The gravitational constant $G$ is \emph{defined} operationally by matching the far-field force on a test core,
+\begin{equation}
+F(r) = \frac{G\, M_{\mathrm{eff}}\, m_{\mathrm{eff}}}{r^2}\quad \text{in local units},
+\end{equation}
+after fixing the monopole constant from many-source superposition. No additional constraints on $(\alpha_{\mathrm{grad}},\beta_{\mathrm{pot}},\gamma)$ arise beyond stability and the existence of a Coulombic window $R_{\mathrm{cl}} \ll r \ll \ell$ with $\ell \gg R_{\mathrm{cl}}$.
+
+\subsection{Consistency summary}
+
+\begin{itemize}
+  \item Positivity: $\eta_0, J'_0, \kappa, \beta_{\mathrm{pot}}, \gamma, \alpha_{\mathrm{grad}}, M_p, J_{\phi\phi}, b_E, \beta_{\mathrm{dim}}, \alpha_{\mathrm{dim}} > 0$.
+  \item Dimensional fixed point: $d_*=3$ fixes $b_E/\beta_{\mathrm{dim}} = (6/\alpha_{\mathrm{dim}}) e^{3\alpha_{\mathrm{dim}}}$; $F''(d_*)>0$ ensures stability.
+  \item Weak-bias: choose the overall scale of $\beta_{\mathrm{dim}}$ such that the dimensional term does not overwhelm the Boltzmann link form.
+  \item Amplitude stability and screening: $\beta_{\mathrm{pot}},\gamma>0$, $\ell = \sqrt{\alpha_{\mathrm{grad}}/(2\beta_{\mathrm{pot}})}$, and a Coulombic window $R_{\mathrm{cl}} \ll r \ll \ell$ with $\ell \gg R_{\mathrm{cl}}$.
+  \item No conflicts: these constraints are mutually compatible and consistent with Sections~6--11.
+\end{itemize}
+
+\section{Conclusion}
+
+Starting from two minimal postulates—a single real field on an infinite clique and a volume\,normalized free\,energy—we derived the core structures of low\,energy physics as emergent phenomena. A coarse\,grained complex field arises from the analytic\,signal construction; the phase sector yields a Lorentz\,invariant quadratic action with a single, universal light cone; clustered screened sources reproduce a Coulombic $1/r$ far field within the window $R_{\mathrm{cl}}\ll r\ll \ell$; and an effective action scale $\hbar_{\mathrm{eff}}\simeq E_{\text{cell}}\,\tau_{\text{cell}}$ appears as a coarse\,grain invariant. Vacuum relaxation prunes nonlocal links and selects a near\,regular, low\,valence connectivity, establishing operational locality and an effective metric. Within this substrate, entanglement is a metastable phase\,link hysteresis that realises Bell nonlocality without signalling and remains compatible with GR, and measurement emerges from the same phase\,channel landscape via phase locking, einselection, and latching of pointer states. A compact parameter map and consistency constraints tie these sectors together.
+
+Future work focuses on (i) promoting the emergent metric to a dynamical curvature sector derived from the phase operator, (ii) a detailed treatment of interference in slowly varying backgrounds and under window changes, and (iii) full CHSH/no\,signalling proofs including measurement backaction and link unlatching. On the practical side, simulation calibration of the dimensional\,bias parameters $(\alpha_{\mathrm{dim}},\beta_{\mathrm{dim}})$—and the resulting cross\,predictions for dispersion isotropy, link sparsity, coherence lengths, and entanglement lifetimes—provides a concrete validation path.
+
+\section{Notation (compact)}
+\begin{center}
+\small
+\begin{tabular}{ll}
+\hline
+\textbf{Symbol} & \textbf{Meaning} \\
+\hline
+$A_n(t)$ & Real field at node $n$ \\
+$\Psi$ & Emergent complex field (analytic signal) \\
+$V_K,\ R_K$ & Grain volume and characteristic radius \\
+$J_{ij},\ J'_{ij}$ & Volume\,normalized couplings in amplitude/phase channels ($\eta_0/V_K$, $J'_0/V_K$) \\
+$\eta_0,\ J'_0$ & Fundamental coupling constants (energy units) \\
+$\gamma$ & On\,site stiffness $\gamma=(\eta_0/2)\,V_K$ \\
+$\kappa$ & Phase\,gradient stiffness ($\kappa\equiv J'_0$) \\
+$w_*$ & Equilibrium amplitude $w_*=\sqrt{\beta_{\mathrm{pot}}/(2\gamma)}$ \\
+$c_s$ & Phase\,wave speed $c_s=\sqrt{\kappa}\,w_*$ \\
+$\alpha_{\mathrm{grad}},\ \beta_{\mathrm{pot}}$ & Amplitude gradient/potential coefficients \\
+$m_\xi,\ \ell$ & Mass/screening: $m_\xi^2=2\beta_{\mathrm{pot}}$, $\ell=\sqrt{\alpha_{\mathrm{grad}}/m_\xi^2}$ \\
+$M_p$ & Phase inertia $\propto V_K R_K^2$ \\
+$C,\ \lambda$ & Two\,core coupling and quartic stabiliser \\
+$K$ & Effective phase coupling in $V_{\mathrm{rel}}(\theta)\approx -K\cos\theta$ \\
+$Z_k$ & Per\,node outbound budget $Z_k=\sum_m J_{km}$ \\
+$S[J],\ H[J]$ & Entropy of normalised weights; convex regulariser ($H=\sum p\ln p$) \\
+$\hbar_{\mathrm{eff}}$ & Coarse\,grain invariant $E_{\mathrm{cell}}\,\tau_{\mathrm{cell}}$ \\
+$K(t)$ & Heat kernel $\mathrm{Tr}(e^{-t L(J)})$ \\
+$L(J)$ & Graph Laplacian \\
+$d,\ D_s$ & Spectral (intrinsic) dimension; effective spectral dimension \\
+$\alpha_{\mathrm{dim}},\ \beta_{\mathrm{dim}},\ b_E$ & Dimensional\,bias parameters in $F(d)=b_E e^{-\alpha d}+\beta d^2$ \\
+$G,\ \Phi$ & Newtonian constant (calibrated); scalar potential \\
+\hline
+\end{tabular}
+\end{center}
+
+\section*{References Prep}
+
+Add standard references for graph theory and field theory.
+
+\vspace{1em}
+
+1. Quantum Graphity (Konopka, Markopoulou \& Smolin, 2006–2008)
+\quad Konopka, Markopoulou, and Smolin propose a model in which the fundamental substrate is an initially complete graph invariant under permutation symmetry. At high energy the graph is maximally connected and non-local; as the system cools, it undergoes a phase transition—termed "geometrogenesis"—to a low-dimensional, ordered lattice with emergent locality and geometry. Stability under perturbations and the possibility of emergent gauge degrees of freedom are demonstrated through a string-net condensation mechanism.
+
+The present work parallels this by beginning with an infinite-clique substrate and deriving locality through entropy-weighted link pruning. While both approaches share the principle of locality emerging from an initially unstructured graph, the present framework supplements the qualitative phase-transition picture with volume-normalized couplings to regularize the continuum limit and an explicit analytic treatment of the Laplacian spectrum. This renders the geometrogenesis process calculable within a free-energy minimization formalism.
+
+2. Causal Dynamical Triangulations (Ambj\o rn, Loll, Jurkiewicz, 2005–)
+\quad Causal Dynamical Triangulations construct spacetime from a sum over causal, piecewise-flat simplices. Numerical simulations reveal a scale-dependent spectral dimension: approximately four at macroscopic scales and approximately two in the ultraviolet regime. This dimensional running is interpreted as an intrinsic ultraviolet self-regularization of the theory.
+
+In the present framework, a similar phenomenon emerges from a different origin. SI~\S\ref{si:dim-fp} derives a spectral-dimension fixed point from the minimization of an information-theoretic cost functional, yielding a Lambert-W expression that favours small-integer dimensions. Whereas CDT obtains the dimension flow empirically from Monte Carlo simulations of the path integral, the present approach provides an analytic derivation tied to the entropy and connectivity properties of the underlying graph Laplacian.
+
+3. Causal Set Theory (Sorkin, Rideout, 2000+)
+\quad Causal Set Theory postulates that spacetime is fundamentally a discrete partially ordered set, with continuum geometry and Lorentz invariance emerging statistically from random "sprinklings" into a manifold. The random sprinkling preserves Lorentz symmetry without imposing it at the fundamental level.
+
+The present model likewise achieves emergent Lorentzian structure without assuming a prior metric. In Section 8, the light-cone structure and hyperbolic dispersion relation arise from isotropic phase coupling on the coarse-grained graph. The mechanism is rooted in the symmetry of the infinite-clique substrate and the uniformity of volume-normalized couplings, which together ensure isotropy in the emergent causal structure.
+
+4. Analogue Gravity (Barcel\'o, Liberati \& Visser, early 2000s)
+\quad The analogue-gravity programme demonstrates that perturbations in certain condensed-matter systems—such as fluids, Bose–Einstein condensates, or superfluids—propagate according to effective curved-space metrics. These analogues exhibit phenomena such as horizons and Hawking radiation within laboratory media.
+
+The present work shows a comparable emergence of Lorentzian geometry, but from a discrete, graph-theoretic starting point. Section 8 derives a Lorentz-invariant phase action and effective metric from a free-energy functional on an infinite clique. While the analogue-gravity models employ continuous media, the present approach replaces the background continuum with a self-organizing network whose local connectivity reproduces the role of the effective metric.
+
+5. Emergent Gravity from Entanglement (Van Raamsdonk, 2010; subsequent developments)
+\quad Van Raamsdonk and collaborators argue that spacetime connectivity and gravitational dynamics arise from the entanglement structure of underlying quantum degrees of freedom. Changes in entanglement entropy correspond to geometric deformations, and the Einstein equation can be recovered from the first law of entanglement entropy.
+
+In the present framework, metric universality (Section 8.4) follows from the composition-independence of the phase channel, and long-lived non-local correlations are modelled as phase-link hysteresis (Section 10). This provides a microscopic, field-theoretic mechanism for robust two-body correlations, including explicit Kramers-type lifetime estimates. The approach thus complements the entanglement–geometry correspondence by furnishing a dynamical substrate and calculable parameters for the entanglement-induced link.
+
+6. Spectral-Dimension Flow in Other Lattice Quantum Gravity Approaches (e.g., Laiho \& Coumbe, 2011)
+\quad Several lattice-based quantum gravity approaches, including asymptotic-safety-motivated discretizations, display scale-dependent spectral dimension similar to CDT: large-scale values near four and short-scale values near two. These results suggest that dimensional reduction is a robust feature across multiple nonperturbative quantum-gravity candidates.
+
+The present model's spectral-dimension fixed-point mechanism is compatible with these observations. The information-cost functional and bias toward small-integer coordination produce dimension flows consistent with the phenomenology of lattice simulations, but derived from a graph-theoretic and renormalization-inspired formalism rather than from numerical triangulations.
+
+7. Equivalence principle, LLR, and ephemerides constraints. \quad Precision torsion-balance experiments (E\"ot-Wash) and the MICROSCOPE space mission bound composition-dependent differential accelerations at the level $\eta\lesssim 10^{-13}$--$10^{-14}$ (e.g., Adelberger, Heckel, Nelson, Annu. Rev. Nucl. Part. Sci. 59 (2009) 163--205; Touboul et al., Phys. Rev. Lett. 129 (2022) 121102). Lunar Laser Ranging constrains Earth--Moon differential accelerations toward the Sun to parts in $10^{13}$ and bounds Yukawa-type deviations at lunar distance to $\alpha\lesssim \text{few}\times 10^{-11}$. Planetary and spacecraft ephemerides (INPOP/EPM) further limit Yukawa terms with ranges $\lambda\sim 0.1$--$1\,\text{AU}$ to $\alpha\lesssim 10^{-10}$--$10^{-12}$, depending on dataset and modeling (e.g., Fienga et al., INPOP 2019/2020; Pitjeva \& Pitjev, EPM; Hees et al., Living Rev. Relativ. 2017).
+
+8. Varying-$\alpha$ frameworks and connection to this model. \quad Gauge-kinetic couplings of the form $\mathcal L\supset -\tfrac14 B_F(\varphi) F_{\mu\nu}F^{\mu\nu}$ induce $\alpha\propto B_F^{-1}(\varphi)$, as in Bekenstein's theory (Phys. Rev. D 25 (1982)) and the BSBM model (Sandvik, Barrow, Magueijo, Phys. Rev. Lett. 88 (2002) 031302). Environmental scalars with least-coupling behavior (Damour \& Polyakov, Nucl. Phys. B 423 (1994) 532--558) naturally suppress composition dependence; broad reviews include Uzan, Rev. Mod. Phys. 75 (2003) 403--455; 83 (2011) 195--245. State-of-the-art atomic clocks constrain present drift to $|\dot{\alpha}/\alpha|\lesssim 10^{-17}\,\text{yr}^{-1}$ (Rosenband et al., Science 319 (2008) 1808--1812; Godun et al., Phys. Rev. Lett. 113 (2014) 210801), and screening mechanisms (e.g., chameleon: Khoury \& Weltman, Phys. Rev. Lett. 93 (2004) 171104; Phys. Rev. D 69 (2004) 044026) illustrate how environment can hide scalar couplings locally while allowing cosmological variation. The present model realises a Weyl-aware variant: a weak dependence $\alpha(\tau)=\alpha_0[1+\kappa_\alpha f(\tau)]$ with local units co-scaling. Experimental limits primarily constrain the small coupling $\kappa_\alpha$ and any composition-dependent mixings, not the universal metric coupling (see item 7 for WEP and fifth-force/Yukawa bounds).
+
+9. We use the standard analytic-signal construction $\Psi = A + i\,\mathcal H[A]$ for a narrowband real field (error $O(\Delta\omega/\omega_0)$); see Gabor (1946); Oppenheim \& Schafer; Bracewell; Boashash (1992); and SVEA/envelope treatments in Goodman and Agrawal.
+
+10. Scale Relativity (Laurent Nottale, 1993–)
+\quad Scale Relativity postulates a fundamentally non\,differentiable (fractal) spacetime and extends relativity to scale transformations. Quantum dynamics (e.g., Schr\"odinger) emerge from scale\,covariant geodesics with complex diffusion; Lorentz structure is preserved. In the present framework, analogous structures appear \emph{effectively}: scale dependence via coarse\,graining windows and spectral\,dimension flow (SI~\S\ref{si:dim-fp}), Schr\"odinger dynamics via the envelope limit (Sec.~11.5), and an emergent Lorentzian phase cone (Sec.~8). The key difference is ontological: here fractality/scale behavior are \emph{emergent} from link statistics and free\,energy minimization rather than postulated at the kinematic level.
+
+11. Causal Fermion Systems (Finster, 1999–)
+\quad Spacetime and fields emerge from a universal measure over operators in a Hilbert space; dynamics follow from a global variational principle (the causal action). Causality/light cones arise from spectra of closed-chain operators; Dirac/gauge/gravity sectors appear in continuum limits. In contrast, the present framework starts from a single real field on an all-to-all graph with a free-energy functional; metric/quantum and Newtonian windows emerge via coarse-graining.
+
+\paragraph{Newtonian limit and uniqueness (pointers).}
+\noindent For the uniqueness of the static weak-field $1/r$ potential and the Poisson equation under locality, linearity, and $\mathrm O(3)$ invariance, see standard Green's function and PDE treatments (e.g., Jackson, Classical Electrodynamics; Arfken, Weber \& Harris, Mathematical Methods for Physicists). For the weak-field/PPN mapping in metric theories and the recovery of $\gamma=\beta=1$ at leading order, see C. M. Will, Living Reviews in Relativity (2014/2018), and Poisson \& Will, Gravity (2014).
+
+\paragraph{Graph Laplacian, heat kernel, and coarse\,graining (pointers).}
+\noindent Spectral graph/Laplacian basics: Chung, Spectral Graph Theory (CBMS 1997); Lov\'asz, ``Random walks on graphs,'' in Combinatorics (1993). Heat kernel and spectral estimates on graphs: Grigor'yan \& Telcs, Math. Ann.  324 (2002) 721--739 (and follow\,ups). Gaussian functional integration/adiabatic elimination: Zinn\,Justin, Quantum Field Theory and Critical Phenomena (Oxford), and standard Mori–Zwanzig projections in nonequilibrium statistical mechanics.
+
+\paragraph{Decoherence scaling for collective couplings (pointers).}
+\noindent Environment\,induced superselection and dephasing growth with system size: Zurek, Rev. Mod. Phys. 75 (2003) 715--775; Schlosshauer, Decoherence and the Quantum\,to\,Classical Transition (Springer, 2007). For collective (common\,mode) versus local couplings and the resulting $N$ vs $N^2$ scaling bounds, see discussions in Caldeira\,Leggett, Ann. Phys. 149 (1983) 374--456, and in open\,systems reviews.
+
+\end{document}
