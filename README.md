@@ -1,4 +1,4 @@
-# README (draft)
+# README
 
 ## Overview
 
