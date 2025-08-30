@@ -12,19 +12,6 @@ I studied physics at the university level for about five years without earning a
 
 This repository is an attempt to break that logjam. With LaTeX, LLM assistance, and stubborn persistence, I’m writing these drafts into existence. I’m not claiming to have “the answers”. I’m claiming that these questions keep resurfacing for me — and I want to give them and some kind of roughly coherent response form, whether it ends up being completely accurate or not.
 
-## Transparency and Limitations
-
-- Drafts are LLM-assisted, with a high likelihood of mathematical errors.
-- The point is not perfection but communication.
-- I acknowledge that this project is in many ways indistinguishable from crank/crackpot physics. My way of countering that is total transparency: show the drafts, show the reasoning and motivations, include as much maths as I can, include falsifiable predictions when possible, leave the work open for critique, and make meaningful attempts to address flaws that are pointed out.
-- My background is informal but informed: years of study without a degree, embedded in a community of physicists.
-
-## How I Use AI (Workflow and Models)
-
-- I lean into LLMs' strengths: fast iteration, broad fluency across a huge swath of fields, and the ability to connect proposals to known patterns or suggest new ones for me to interrogate. Rapid cycles help discard clearly bad ideas and converge on not‑immediately‑terrible ones worth deeper work.
-- I use multiple state‑of‑the‑art models. This project only became viable in the last ~12–18 months as models crossed qualitative thresholds: more abstract reasoning and better coherence across more complex contexts. They still require constant guidance and a tight leash; I remain the editor and final arbiter.
-- Even with the heavy use of LLMs, these drafts represent months of work. That is already only a small fraction of the time it would have taken otherwise.
-
 ## Goals
 
 1. Provide a coherent record of a speculative framework that can be evaluated on its content.
@@ -34,8 +21,9 @@ This repository is an attempt to break that logjam. With LaTeX, LLM assistance, 
 
 ## What Counts as Success (Rigor vs Coherence)
 
-- My target is not full formal rigor everywhere. I aim for a mostly consistent, coherent narrative where the pieces work together to form a compelling gestalt.
-- I will keep improving accuracy, cross‑checks, and consistency, and I do intend to confront data as time allows. Publication is not the goal although it would be a welcome cherry on top. Without an institutional affiliation, I can take more risks and I intend to use that freedom to the fullest as it's one of the few advantages I have here.
+My target is not full formal rigor everywhere. I aim for a mostly consistent, coherent narrative where the pieces work together to form a compelling gestalt.
+
+I will keep improving accuracy, cross‑checks, and consistency, and I do intend to confront data as time allows. Publication is not the goal although it would be a welcome cherry on top. Without an institutional affiliation, I can take more risks and I intend to use that freedom to the fullest as it's one of the few advantages I have here.
 
 ## How to Read These Drafts
 
@@ -54,6 +42,19 @@ This repository is an attempt to break that logjam. With LaTeX, LLM assistance, 
 
 - Spacetime from First Principles: Free-Energy Foundations on the Infinite-Clique Graph (Draft) — DOI [10.5281/zenodo.15843979](https://zenodo.org/records/17000342)
 - A Sea of Noise: Relativity from a Thermodynamic Force in Scale-Space (Draft) — DOI [10.5281/zenodo.17000665](https://zenodo.org/records/17000666)
+
+## Transparency and Limitations
+
+- Drafts are LLM-assisted, with a high likelihood of mathematical errors.
+- The point is not perfection but communication.
+- I acknowledge that this project is in many ways indistinguishable from crank/crackpot physics. My way of countering that is total transparency: show the drafts, show the reasoning and motivations, include as much maths as I can, include falsifiable predictions when possible, leave the work open for critique, and make meaningful attempts to address flaws that are pointed out.
+- My background is informal but informed: years of study without a degree, embedded in a community of physicists.
+
+## How I Use AI (Workflow and Models)
+
+- I lean into LLMs' strengths: fast iteration, broad fluency across a huge swath of fields, and the ability to connect proposals to known patterns or suggest new ones for me to interrogate. Rapid cycles help discard clearly bad ideas and converge on not‑immediately‑terrible ones worth deeper work.
+- I use multiple state‑of‑the‑art models. This project only became viable in the last ~12–18 months as models crossed qualitative thresholds: more abstract reasoning and better coherence across more complex contexts. They still require constant guidance and a tight leash; I remain the editor and final arbiter.
+- Even with the heavy use of LLMs, these drafts represent months of work. That is already only a small fraction of the time it would have taken otherwise.
 
 ---
 
