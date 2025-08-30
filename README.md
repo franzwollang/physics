@@ -50,6 +50,11 @@ This repository is an attempt to break that logjam. With LaTeX, LLM assistance, 
 - `/figures/` — Images, diagrams, and supporting visuals.
 - `/notes/` — Background notes, scratchwork, and intermediate ideas.
 
+## Current Drafts
+
+- Spacetime from First Principles: Free-Energy Foundations on the Infinite-Clique Graph (Draft) — DOI [10.5281/zenodo.15843979](https://zenodo.org/records/17000342)
+- A Sea of Noise: Relativity from a Thermodynamic Force in Scale-Space (Draft) — DOI [10.5281/zenodo.17000665](https://zenodo.org/records/17000666)
+
 ---
 
 ## Motivations (Problems I Keep Returning To)
