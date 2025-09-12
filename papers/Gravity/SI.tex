@@ -172,17 +172,34 @@ The phase shift symmetry ($\phi\!\to\!\phi+\text{const}$) implies a zero mode on
 \subsection*{Validity and outlook}
 The expansion holds for curvatures well below the window scale, $|R|\ll \Lambda_{\rm eff}^2$, and for slowly varying backgrounds consistent with the continuum mapping. A full first\,principles derivation of the numerical coefficients requires the microscopic spectral density of the induced Laplacian on near\,regular subgraphs; this can be obtained either analytically for idealised lattices or numerically within the graph simulation programme. The sketch above shows how the microdynamics place the framework in the Einstein universality class and identifies how $G$ and higher\,curvature terms encode window and microparameter dependence.
 
-\section{U(1) from Phase Sheets: Brief Derivation}\label{si:u1-sheets}
-We outline how codimension-1 phase sheets yield a Gauss law and $1/r$ potentials, supporting the U(1) mapping sketched in the main text.
+\section{Emergence of a U(1) Gauge\,like Structure from Phase Defects}\label{si:u1-sheets}
+We outline how stable phase defects in a $\mathrm U(1)$ order parameter produce an emergent Gauss law and Coulombic $1/r$ behavior in local units. The logic proceeds from microscopic topology (defects) to macroscopic field structure (sheets and flux). This chain is \emph{predictive}: starting from continuity and $\pi_1(\mathrm U(1))=\mathbb Z$, we derive defects and their flux law; no Gauss\,law behavior is assumed a priori.
 
-\subsection*{Phase jump across a sheet}
-Consider a phase field $\phi(x)$ with a $2\pi$ discontinuity across a codimension-1 surface $\Sigma$. The distributional gradient is $\nabla\phi = \nabla\phi_{\rm smooth} + 2\pi\,\mathbf n\,\delta(\Sigma)$, where $\mathbf n$ is the unit normal to $\Sigma$. Define the coarse electric field as $\mathbf E = -\nabla\Phi_{\rm eff}$, with $\Phi_{\rm eff}$ a potential whose circulation around closed loops counts net sheet crossings.
+\subsection*{Topological defects and energetic pinning}\label{si:u1-cores}
+\paragraph{Phase winding and defects.} The order\,parameter manifold for the phase is $\mathrm U(1)$ with fundamental group $\pi_1(\mathrm U(1)) = \mathbb Z$. Closed loops $\mathcal C$ in space carry an integer winding,
+\begin{equation}
+  n \;=\; \frac{1}{2\pi} \oint_{\mathcal C} \nabla\phi\!\cdot\! d\boldsymbol \ell \;\in\; \mathbb Z\,.
+\end{equation}
+Nonzero $n$ cannot be removed by a \emph{continuous} phase deformation unless the mapping lifts off $\mathrm U(1)$ at some point; in this framework, that requires the amplitude to vanish locally so the phase becomes undefined. Those loci where $w\to 0$ are the \emph{amplitude cores}. For any contractible loop with $n\neq 0$, continuity thus \emph{necessitates} at least one core inside the loop.
+
+\paragraph{Energetic barrier from the amplitude gap.} Around the homogeneous vacuum the amplitude mode is gapped with $m_\xi^2=2\beta_{\rm pot}>0$ (see ICG SI Sec.~S2, "Fluctuation Spectrum: Gapped Amplitude and Massless Phase"), setting a screening length $\ell = \sqrt{\alpha_{\rm grad}/m_\xi^2}$. Suppressing $w$ to zero over a region of size $\sim \ell$ costs a finite core energy (gap plus gradients). Changing $n$ therefore requires a localized, nonperturbative event ($w\to 0$ at the core), which energetically pins defects and renders them long\,lived. Equivalently, the core regularises the otherwise divergent phase\,gradient energy that a pure phase singularity would entail.
+
+\subsection*{Phase sheets and sources}
+\paragraph{Phase jump across a sheet.} Consider a codimension\,1 surface $\Sigma$ across which the phase jumps by $2\pi$. The distributional gradient is
+\begin{equation}
+  \nabla\phi \;=\; \nabla\phi_{\rm smooth} \; +\; 2\pi\,\mathbf n\,\delta(\Sigma)\,,
+\end{equation}
+with $\mathbf n$ the unit normal to $\Sigma$. The sheet can terminate only where the phase is undefined, i.e., on amplitude cores ($w=0$), so sheet endpoints identify defect locations. Sheets are not postulated; they are the macroscopic encoding of allowed $2\pi$ jumps made possible by the existence of cores.
 
 \subsection*{Gauss law from sheet counting}
-For a closed surface $\partial V$, the flux $\oint_{\partial V} \mathbf E \cdot d\mathbf S$ equals the net number of sheet crossings through $\partial V$ (with orientation). Since sheets terminate at amplitude cores (topological defects), the net crossing count equals the number of enclosed sources/sinks, yielding $\oint \mathbf E \cdot d\mathbf S \propto Q_{\rm enc}$. For isolated point sources this gives $|\mathbf E| \propto 1/r^2$ and $\Phi_{\rm eff} \propto 1/r$.
+Define the coarse electric field by $\mathbf E = -\nabla\Phi_{\rm eff}$, with $\Phi_{\rm eff}$ a potential whose circulation counts net sheet crossings. For a closed surface $\partial V$ the flux
+\begin{equation}
+  \oint_{\partial V} \mathbf E \cdot d\mathbf S \;\propto\; \text{(net sheet crossings through }\partial V) \;=\; Q_{\rm enc}
+\end{equation}
+counts the number of sheet endpoints (defects) enclosed, with orientation. For isolated point sources one obtains $|\mathbf E|\propto 1/r^2$ and $\Phi_{\rm eff}\propto 1/r$ in local units. Thus defect charge (sheet endpoints) sources a Coulombic $1/r$ far field. This Gauss\,like behavior is therefore a \emph{consequence} of the microscopic structure, not an input assumption.
 
-\subsection*{Lorentz covariance}
-The phase action $\mathcal L_\phi = (\kappa w_*^2/2) g^{\mu\nu} \partial_\mu\phi \partial_\nu\phi$ is Lorentz covariant with wave speed $c_s = \sqrt{\kappa} w_*$. Coarse-graining the distributional $\partial_\mu\phi$ from sheet configurations and assembling into an antisymmetric tensor $F_{\mu\nu}$ with $\partial_{[\mu}F_{\nu\rho]} = 0$ yields Maxwell structure in local units. The detailed constitutive relations (coupling constants, field normalizations) require a full treatment beyond this sketch.
+\subsection*{Lorentz covariance and field representation}
+The phase action $\mathcal L_\phi = (\kappa w_*^2/2)\, g^{\mu\nu}\, \partial_\mu\phi\,\partial_\nu\phi$ is Lorentz covariant with wave speed $c_s=\sqrt{\kappa}w_*$. Coarse\,graining the distributional $\partial_\mu\phi$ from sheet configurations and assembling into an antisymmetric tensor $F_{\mu\nu}$ with $\partial_{[\mu}F_{\nu\rho]}=0$ yields Maxwell structure in local units; detailed constitutive relations (normalizations, couplings) require a fuller treatment beyond this sketch.
 
 \section{Geometric Interpretations (Maps)}\label{si:geom-maps}
 Geometric analogues of the ``position\,+\,scale'' state $(x,\sigma)$ used in the scale--space force derivation. The bundle language below is offered as an interpretive map; the paper's derivations remain in the continuum field formalism.

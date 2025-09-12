@@ -343,6 +343,142 @@ For $B > B_{\rm crit}$, two stable pointer minima exist.
 
 \paragraph{Conformal behavior (local\,unit invariance).} In our framework, predictions are expressed in local units adapted to the coarse\,graining window: $c_s$ is fixed by $c_s^2=\kappa w_*^2$, and $\hbar_{\rm eff}\simeq E_{\rm cell}\,\tau_{\rm cell}$ is constructed to be coarse\,grain invariant. Under admissible window changes, the microscopic quantities $K$, $B$, $\lambda_A$, $M_p$, $S_\xi(0)$, $T_{\rm eff}$ co\,vary, but the \emph{dimensionless} ratios $\alpha$, $\beta$, $\Xi_1$, $\Xi_2$, $\Xi_3$ remain approximately unchanged. Hence the tipping surfaces are conformally invariant in local units. Thermodynamic convergence implies tiny residual drifts (Sec. 9 of the main paper): these shift thresholds only by higher\,order corrections, yielding at most slow, testable motions of the tipping lines without qualitative change of regimes.
 
+\section{General Interference Suppression for $M$ Outcomes}\label{si:M-outcome-interference}
+We provide a detailed derivation that any multi-state phase alignment necessarily suppresses interference, quantifying visibility in terms of apparatus overlaps and action separation.
+
+\subsection*{Setup}
+Let $\{|m\rangle\}_{m=1}^M$ be orthonormal system channels (eigenvectors, slits, bins), and let the initial system state be $|\psi_S\rangle = \sum_m c_m |m\rangle$. The apparatus starts in $|A_0\rangle$ and couples through the phase channel so that near a given outcome $m$ the apparatus pointer relaxes into a distinct phase-current minimum $|A_m\rangle$. The joint state after the measurement interaction window is
+\begin{equation}
+  |\Psi_{SA}\rangle \;=\; \sum_{m=1}^M c_m\, |m\rangle\otimes|A_m\rangle,\qquad |A_m\rangle \in \mathcal H_A.
+\end{equation}
+
+\subsection*{Reduced state and coherence factors}
+Tracing out the apparatus gives
+\begin{equation}
+  \rho_S' \;=\; \mathrm{Tr}_A\,|\Psi_{SA}\rangle\langle\Psi_{SA}| \;=\; \sum_{m} |c_m|^2 |m\rangle\langle m| \; +\; \sum_{m\ne n} c_m c_n^{\!*}\, \gamma_{mn}\, |m\rangle\langle n|,
+\end{equation}
+where the overlap (decoherence) factors are
+\begin{equation}
+  \gamma_{mn} \,=\, \langle A_n|A_m\rangle,\qquad \gamma_{mm}=1,\qquad |\gamma_{mn}|\le 1.
+\end{equation}
+Hence off-diagonal coherences are universally suppressed by $\gamma_{mn}$. For any observable whose interference term depends on $\langle m|\rho_S'|n\rangle$ ($m\ne n$), the visibility is reduced by $|\gamma_{mn}|$.
+
+\subsection*{Two-path intensity and visibility}
+For $M=2$ and a detection amplitude at position $x$ given by $\psi(x)=\psi_1(x)|1\rangle+\psi_2(x)|2\rangle$, the intensity reads
+\begin{equation}
+  I(x) = |\psi_1(x)|^2 + |\psi_2(x)|^2 + 2\,\mathrm{Re}\big[\,\gamma_{12}\,\psi_1(x)\,\psi_2(x)^{\!*}\,\big].
+\end{equation}
+Thus the fringe visibility satisfies $\mathcal V=\mathcal V_0\,|\gamma_{12}|$, where $\mathcal V_0$ is the ideal visibility without coupling.
+
+\subsection*{Macroscopic pointer overlaps from action separation}
+In this framework, the $|A_m\rangle$ are macroscopic phase-current patterns localized in distinct minima of the apparatus potential (Sec.~\ref{si:measure-dw}). The difference between two outcomes $(m,n)$ is characterized by a current separation $\Delta p_A^{(mn)}$. Standard semiclassical estimates give
+\begin{equation}
+  |\langle A_n|A_m\rangle| \;\approx\; \exp\!\Big(-\frac{\mathcal A_{mn}}{\hbar_{\mathrm{eff}}}\Big),\qquad \mathcal A_{mn} \sim \pi\, \frac{\Delta p_A^{(mn)}}{\hbar_{\mathrm{eff}}},
+\end{equation}
+consistent with the tipping criteria in Eq.~(S\,\ref{si:thresholds}). Therefore, in the projective+latched regime one has $\mathcal A_{mn}\gg \hbar_{\mathrm{eff}}$ and $\gamma_{mn}\approx 0$ for all $m\ne n$, yielding complete suppression of interference between distinct outcomes.
+
+\subsection*{Continuous (weak) alignment and partial decoherence}
+In the weak/continuous regime the apparatus minima are shallow and the induced $|A_m\rangle$ are only partially distinguishable, producing $0<|\gamma_{mn}|<1$. The same formulas predict quantitatively how visibility degrades with coupling strength and with increasing action separation. Environmental dephasing further multiplies $\gamma_{mn}$ by a factor $e^{-\Gamma_{\rm dephase}T_{\rm int}}$ derived in Sec.~\ref{si:thresholds}, reinforcing suppression over the integration time.
+
+\subsection*{Degeneracies and residual interference}
+If multiple system channels map to the \emph{same} pointer state (degenerate outcome), their mutual overlaps satisfy $\gamma_{mn}=1$ within that degenerate class, so interference among those channels can persist. Interference is destroyed \emph{iff} the measurement establishes distinguishable apparatus states for the channels in question, i.e. $\gamma_{mn}\to 0$.
+
+\paragraph{Conclusion.} Any multi-state phase alignment generates entanglement with macroscopically distinct apparatus states; the overlap factors $\gamma_{mn}$ universally multiply off-diagonal coherences and thus control interference visibility. In the latched regime $\gamma_{mn}\approx 0$ and interference vanishes; in continuous readout $\gamma_{mn}$ interpolates between 1 and 0, yielding partial visibility consistent with the thresholds in Sec.~\ref{si:thresholds}.
+
+\subsection*{Partial Measurement and Intermediate Visibility}
+The continuous nature of the pointer state overlap $\gamma_{mn}$ implies that measurement itself is not a binary event but a continuous spectrum. An ideal projective measurement corresponds to the limit $|\gamma_{mn}|\to 0$, while the absence of measurement corresponds to $|\gamma_{mn}|=1$. The intermediate case, $0 < |\gamma_{mn}| < 1$, describes a \emph{partial measurement}.
+
+This regime arises when the interaction is sufficient to distinguish the system's paths partially, but not perfectly. In the context of this framework, this corresponds to shallow potential minima for the apparatus's phase current, where the pointer states $|A_m\rangle$ and $|A_n\rangle$ are distinct but not orthogonal. The fringe visibility $\mathcal V$ provides a direct measure of the degree of distinguishability. For the two-path case, the intensity is
+\begin{equation}
+  I(x) = |\psi_1(x)|^2 + |\psi_2(x)|^2 + 2|\gamma_{12}|\,|\psi_1(x)|\,|\psi_2(x)^{\!*}|\,\cos(\delta(x)+\phi_{12}),
+\end{equation}
+where $\delta(x)$ is the phase difference from the path lengths and $\phi_{12}$ is the phase of the complex overlap $\gamma_{12}$. The standard visibility is $\mathcal V = (I_{\max}-I_{\min})/(I_{\max}+I_{\min})$. For the common case $|\psi_1(x)|=|\psi_2(x)|$, this simplifies to
+\begin{equation}
+  \mathcal V = |\gamma_{12}|.
+\end{equation}
+Thus, a partial measurement yields partial which-way information and results in a partially washed-out interference pattern, with the visibility providing a quantitative measure of the pointer state overlap.
+
+\subsection*{Application: The Quantum Eraser}
+The quantum eraser is a profound demonstration of these principles, showing that which-way information can be statistically `erased' via post-selection. Our framework provides a clear, step-by-step mechanism for this phenomenon without invoking retrocausality.
+
+\paragraph{Step 1: Entanglement with a Which-Way Detector.}
+Let the system be a particle passing through two slits, $S$, initially in state $|\psi_S\rangle = c_1|1\rangle + c_2|2\rangle$. A Which-Way Detector (WWD), which is an apparatus $A$ in our formalism, is placed at the slits. After the interaction, the system and WWD become entangled. If the WWD works perfectly, it transitions to orthogonal internal states $|A_1\rangle$ and $|A_2\rangle$ depending on the slit, with $\langle A_1|A_2\rangle=0$. The joint state is:
+\begin{equation}
+  |\Psi_{SA}\rangle = c_1|1\rangle|A_1\rangle + c_2|2\rangle|A_2\rangle.
+\end{equation}
+At this stage, tracing over the WWD gives a diagonal reduced density matrix for the system, $\rho_S = |c_1|^2|1\rangle\langle 1| + |c_2|^2|2\rangle\langle 2|$, and the interference pattern at the screen is destroyed.
+
+\paragraph{Step 2: The Eraser Measurement.}
+The `eraser' is a second measurement performed not on the system $S$, but on the WWD $A$. Critically, this measurement is performed in a basis that does not distinguish between $|A_1\rangle$ and $|A_2\rangle$. Let's define the `eraser basis' as:
+\begin{align}
+  |+\rangle_A &= \frac{1}{\sqrt{2}}(|A_1\rangle + |A_2\rangle) \\
+  |-\rangle_A &= \frac{1}{\sqrt{2}}(|A_1\rangle - |A_2\rangle)
+\end{align}
+
+\paragraph{Step 3: State Representation in the Eraser Basis.}
+The core of the phenomenon is revealed by rewriting the entangled state $|\Psi_{SA}\rangle$ in this new basis. We first invert the transformation:
+\begin{align}
+  |A_1\rangle &= \frac{1}{\sqrt{2}}(|+\rangle_A + |-\rangle_A) \\
+  |A_2\rangle &= \frac{1}{\sqrt{2}}(|+\rangle_A - |-\rangle_A)
+\end{align}
+Now, we substitute these expressions back into the joint state $|\Psi_{SA}\rangle$:
+\begin{equation}
+  |\Psi_{SA}\rangle = c_1|1\rangle \frac{1}{\sqrt{2}}(|+\rangle_A + |-\rangle_A) + c_2|2\rangle \frac{1}{\sqrt{2}}(|+\rangle_A - |-\rangle_A)
+\end{equation}
+Regrouping the terms by the eraser basis states, $|+\rangle_A$ and $|-\rangle_A$, yields the final, crucial form:
+\begin{equation}
+  |\Psi_{SA}\rangle = \frac{1}{\sqrt{2}} \bigg[ \underbrace{\left( c_1|1\rangle + c_2|2\rangle \right) \otimes |+\rangle_A}_{\text{Interference sub-ensemble}} + \underbrace{\left( c_1|1\rangle - c_2|2\rangle \right) \otimes |-\rangle_A}_{\text{Anti-interference sub-ensemble}} \bigg]
+\end{equation}
+
+\paragraph{Step 4: Post-Selection and Interference Recovery.}
+The final state shows that the system's state is now correlated with the outcome of the eraser measurement.
+\begin{itemize}
+    \item If we measure the WWD and find it in the state $|+\rangle_A$, the system is projected into the state $|\psi_+\rangle_S \propto c_1|1\rangle + c_2|2\rangle$. The sub-ensemble of particles corresponding to this eraser outcome will form a perfect interference pattern on the screen.
+    \item If we measure the WWD and find it in the state $|-\rangle_A$, the system is projected into $|\psi_-\rangle_S \propto c_1|1\rangle - c_2|2\rangle$. This sub-ensemble will form an anti-interference pattern (where the bright and dark fringes are swapped).
+\end{itemize}
+If we simply observe all particles hitting the screen without regard to the eraser outcome, we are summing the two patterns, which are perfectly out of phase. The total intensity is a featureless classical distribution. The interference is recovered only when we \emph{post-select} the data, using the eraser's results to sort the particles into the appropriate sub-ensemble. The which-way information is never truly destroyed; it is merely transferred into the correlation between the particle and the eraser, making it unavailable for any given sub-ensemble.
+
+\subsection*{Visibility–Distinguishability Bound (Englert) and Mixed Pointers}
+For two alternatives, define the distinguishability of the apparatus states by the trace distance $D := \tfrac12\,\lVert \rho_A^{(1)} - \rho_A^{(2)} \rVert_1$, where $\rho_A^{(m)}$ is the apparatus state conditional on alternative $m$. Let the (maximal) fringe visibility be $\mathcal V$. Then the Englert inequality holds
+\begin{equation}
+  \mathcal V^2 + D^2 \;\le\; 1.
+\end{equation}
+Sketch: For pure pointer states $|A_1\rangle,|A_2\rangle$, one has $D = \sqrt{1 - |\langle A_1|A_2\rangle|^2}$ and --- for balanced intensities --- $\mathcal V = |\langle A_1|A_2\rangle|$, saturating $\mathcal V^2+D^2=1$. For mixed $\rho_A^{(m)}$, $\mathcal V$ is upper-bounded by the Uhlmann fidelity $F(\rho_A^{(1)},\rho_A^{(2)})$ via $\mathcal V \le F$, while $D \ge \sqrt{1-F^2}$ (Fuchs–van de Graaf), which implies the inequality.
+
+In our framework, pointer mixedness arises from environmental coupling or coarse-grain averaging. The result shows rigorously that partial which-way information ($D>0$) necessarily reduces visibility ($\mathcal V<1$); full which-way information ($D=1$) forces $\mathcal V=0$.
+
+\paragraph{Empirical assumptions: pointer orthogonality and mixedness.}
+\emph{Pointer orthogonality.} In laboratory apparatus, macroscopically distinct pointer configurations (e.g., different phase-current minima in our model) occupy effectively disjoint regions of a very large Hilbert space. In the present framework, the inner product obeys $|\langle A_n|A_m\rangle|\approx \exp(-\mathcal A_{mn}/\hbar_{\rm eff})$ with $\mathcal A_{mn}\sim \pi\,\Delta p_A^{(mn)}/\hbar_{\rm eff}$. When the coupling $K$ exceeds the bistability threshold and the barrier is appreciable (measurement regime), $\Delta p_A^{(mn)}$ is macroscopic in local units, yielding $\mathcal A_{mn}\gg 1$ and hence practical orthogonality. Weak residual overlaps, if present, show up exactly as finite $|\gamma_{mn}|$ and the predicted partial visibility.
+
+\emph{Pointer mixedness.} Real pointers are open systems. Even if the conditional apparatus states originate as pure, uncontrolled bath modes and coarse-grain averaging render the effective pointer states $\rho_A^{(m)}$ mixed on the analysis window. Mixedness increases distinguishability through the environment, typically raising the trace distance $D$ and decreasing the visibility bound via $\mathcal V \le F(\rho_A^{(1)},\rho_A^{(2)})$. In our model, the same bath that dephases distinct minima (rate $\Gamma_{\rm dephase}$) also relaxes the apparatus toward outcome-dependent stationary states, making $\rho_A^{(m)}$ stable over the integration time and justifying the use of fixed $\rho_A^{(m)}$ in the inequality.
+
+\emph{Operational tests.} Orthogonality/mixedness can be inferred without full tomography by: (i) measuring visibility versus controlled coupling time/strength to fit $|\gamma_{mn}|$ (or fidelity $F$); (ii) performing eraser-basis rotations and quantifying conditional visibilities (imperfect eraser analysis below); (iii) estimating action separation from independent calibration of $\Delta p_A$ and comparing to the predicted $\exp(-\mathcal A/\hbar_{\rm eff})$ scaling.
+
+\subsection*{Explicit Two-Path Intensities and Imperfect Eraser}
+Let detection amplitudes be $\psi_1(x)$ and $\psi_2(x)$ at screen coordinate $x$, with initial weights $c_1,c_2$. Conditioned on eraser outcomes $|\pm\rangle_A= (|A_1\rangle \pm |A_2\rangle)/\sqrt{2}$ (ideal case), the conditional system states are $|\psi_\pm\rangle \propto c_1|1\rangle \pm c_2|2\rangle$, yielding intensities
+\begin{equation}
+  I_\pm(x) \;=\; \big| c_1\,\psi_1(x) \pm c_2\,\psi_2(x) \big|^2.
+\end{equation}
+The unconditional pattern (summing both eraser outcomes) is
+\begin{equation}
+  I(x) \;=\; \tfrac12\,\big(I_+(x)+I_-(x)\big) \;=\; |c_1|^2|\psi_1(x)|^2 + |c_2|^2|\psi_2(x)|^2,
+\end{equation}
+demonstrating exact classical washout without retrocausality.
+
+For an imperfect eraser with a rotated superposition basis $|e_1\rangle = \cos\theta\,|A_1\rangle + e^{i\varphi}\sin\theta\,|A_2\rangle$, $|e_2\rangle = -e^{-i\varphi}\sin\theta\,|A_1\rangle + \cos\theta\,|A_2\rangle$, the conditional intensities become
+\begin{align}
+  I_{e_1}(x) &= \big| \cos\theta\, c_1\,\psi_1(x) + e^{i\varphi}\sin\theta\, c_2\,\psi_2(x) \big|^2,\\
+  I_{e_2}(x) &= \big| -e^{-i\varphi}\sin\theta\, c_1\,\psi_1(x) + \cos\theta\, c_2\,\psi_2(x) \big|^2.
+\end{align}
+Thus partial recovery obtains with visibility set by $\theta$ and the relative phase $\varphi$. The unconditional sum remains classical.
+
+\subsection*{No-Signalling and Delayed-Choice}
+Let $M_x$ be the POVM element for detection at $x$ on the system, and $E_j$ a POVM on the apparatus performed at any later time. The joint probability is $P(x,j)=\mathrm{Tr}[(M_x\otimes E_j)\,|\Psi_{SA}\rangle\langle\Psi_{SA}|]$. The marginal at the screen is
+\begin{equation}
+  P(x) \;=\; \sum_j P(x,j) \;=\; \mathrm{Tr}\Big[ (M_x\otimes \mathbb I)\,|\Psi_{SA}\rangle\langle\Psi_{SA}| \Big],
+\end{equation}
+which is independent of the later choice of $\{E_j\}$. Hence the eraser cannot signal or retroact on $P(x)$; conditional fringes emerge only within sub-ensembles selected by $j$.
+
 \section{Matter--Kernel Coupling Lemma (Static, Linear Response)}\label{si:matter-kernel}
 We show that a static energy density $\rho_m(x)$ induces a local perturbation $\delta K(x)$ of the continuum phase kernel such that $\delta K(x) \propto \rho_m(x)$ to leading order.
 

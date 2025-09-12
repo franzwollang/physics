@@ -710,6 +710,27 @@ A key feature of this framework is its \emph{single-mechanism continuity}: the s
 
 \noindent \textbf{From visibility to projection and records.} Once bistability exists, whether interference persists or outcomes become effectively projective (and latched) depends on which-way distinguishability, environmental dephasing over the integration time, and barrier stability. The precise, conformally invariant criteria are collected in SI~\S\ref{si:thresholds}.
 
+\subsection{Interference suppression by phase alignment (any discrete outcomes)}
+Any measurement-like phase alignment---including weak/continuous readout---suppresses interference by entangling the system channels with distinct apparatus states. Let an $M$-outcome decomposition of the system be $|\psi_S\rangle = \sum_{m=1}^M c_m\,|m\rangle$ (eigenmodes/slits/bins), and let the apparatus pointer start in $|A_0\rangle$. The phase-coupling implements
+\begin{equation}
+  |\psi_{SA}\rangle \;=\; \sum_{m=1}^M c_m\, |m\rangle\otimes|A_m\rangle,\qquad |A_m\rangle := U\,|A_0\rangle\,\,(\text{pointer near }m\text{ alignment}).
+\end{equation}
+Tracing out the apparatus gives the reduced density matrix
+\begin{equation}
+  \rho_S' \;=\; \sum_m |c_m|^2 |m\rangle\langle m| \; +\; \sum_{m\ne n} c_m c_n^{\!*}\, \underbrace{\langle A_n|A_m\rangle}_{:\,\gamma_{mn}}\, |m\rangle\langle n|.
+\end{equation}
+Thus, all off-diagonal coherences are multiplied by the apparatus overlaps $\gamma_{mn}$. For a two-path interferometer with amplitudes $\psi_1(x),\psi_2(x)$ at a screen coordinate $x$ one finds
+\begin{equation}
+  I(x) \;=\; |\psi_1(x)|^2 + |\psi_2(x)|^2 + 2\,\mathrm{Re}\big[\,\gamma_{12}\, \psi_1(x)\,\psi_2(x)^{\!*}\,\big],\qquad \mathcal V \propto |\gamma_{12}|.
+\end{equation}
+Hence any which-way information ($|\gamma_{12}|<1$) reduces the fringe visibility $\mathcal V$, and perfect distinguishability ($\gamma_{12}\!=\!0$) destroys interference.
+
+In the present framework the pointer states $|A_m\rangle$ are macroscopically distinct phase-current minima (Sec.~10). Their inner products are exponentially small in the action separation (SI~\S\ref{si:thresholds}):
+\begin{equation}
+  |\langle A_n|A_m\rangle| \;\approx\; e^{-\mathcal A_{mn}/\hbar_{\mathrm{eff}}},\qquad \mathcal A_{mn} \sim \pi\, \Delta p_A^{(mn)}/\hbar_{\mathrm{eff}}.
+\end{equation}
+In the projective+latched regime the barrier and dephasing make $\mathcal A_{mn}\gg \hbar_{\mathrm{eff}}$, so $\gamma_{mn}\!\approx\!0$ and interference is eliminated. In the continuous (weak) regime the same formula predicts partial suppression with $0<|\gamma_{mn}|<1$, quantitatively tying visibility to apparatus overlaps. For $M$ outcomes, all cross terms are suppressed by $\gamma_{mn}$; only channels that share the \emph{same} pointer state (degenerate outcome) can still interfere.
+
 \subsection{Schr\"odinger envelope limit (slowly varying phase)}
 In weakly inhomogeneous backgrounds and for narrowband excitations one can pass from the relativistic phase equation to a nonrelativistic Schr\"odinger evolution for the complex envelope. Write the phase as a fast carrier plus a slow envelope,
 \begin{equation}
