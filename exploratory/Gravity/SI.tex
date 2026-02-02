@@ -166,6 +166,28 @@ In this framework the UV scale is set operationally by the observation window an
 \end{equation}
 For a standard minimally coupled real scalar one finds $C_1 = \hbar_{\rm eff}/(96\pi^2)$ up to scheme\,dependent factors. Note that $C_1$ is scheme- and matter-content dependent (order-one factors), and the identification $1/(16\pi G) = C_1 \Lambda_{\rm eff}^2$ is robust only up to that ambiguity; in this framework $\Lambda_{\rm eff}$ is set by the window and the phase spectrum. In the present framework the total $C_1$ receives additive contributions from both the massless phase and the gapped amplitude sectors. The spacetime\,constant piece does not source curvature in unimodular form; operationally its value is tied to the homogeneous windowed background and appears as an integration constant matched to $\Lambda_{\rm eff}$ in cosmology. This synergy makes the unimodular implementation particularly natural here. Curvature\,squared terms are suppressed by $\ln(\Lambda_{\rm eff}^2/\mu^2)$ and by the small\,curvature regime $|R|\ll \Lambda_{\rm eff}^2$.
 
+\paragraph{Operator route (Lippmann\,Schwinger) and coefficient $C$.} For completeness we give an operator derivation of the Poisson closure and identify explicitly the coefficient $C$ in Eq.~\eqref{eq:poisson-tau}. Let $K$ be the static phase operator $K=-\nabla\!\cdot(c_s^2\nabla)$ with Green operator $G:=K^{-1}$ (defined on the subspace orthogonal to the zero mode). A localized, static matter distribution $\rho_m$ induces $\delta K(x)=-\nabla\!\cdot(\chi_c\,\rho_m(x)\,\nabla)$ (ICG SI, Matter\,Kernel Coupling). The perturbed resolvent obeys the Lippmann\,Schwinger series
+\begin{equation}
+  G' \;=\; G \,-\, G\,\delta K\,G \,+\, G\,\delta K\,G\,\delta K\,G \,-\,\cdots,
+\end{equation}
+so to first order $\delta G = -G\,\delta K\,G$. The (static) windowed fluctuation response at wavenumber $k$ inherits this variation,
+\begin{equation}
+  \delta S(x,k) \;\propto\; \int d^3x' d^3x''\; G_k(x,x')\,\delta K(x')\, G_k(x',x'')\,\Xi_k(x'')\,,
+\end{equation}
+where $\Xi_k$ encodes the local spectral estimator used for the noise proxy (cf. Sec.~\ref{si:tau-from-graph}). In the Coulombic window ($k\to 0$), $G_0(r)=-1/(4\pi c_s^2)\,1/r$ (Eq.~(S\,\ref{si:tau-poisson})), and the double convolution with $\delta K= -\nabla\!\cdot(\chi_c\,\rho_m\,\nabla)$ reduces at long range to a single convolution with a windowed Green kernel
+\begin{equation}
+  G_{\rm win}(x-x') \;=\; A_{\rm win}\, G_0(x-x') \;=\; -\,\frac{A_{\rm win}}{4\pi c_s^2}\,\frac{1}{|x-x'|}\,,\qquad A_{\rm win}>0,
+\end{equation}
+where $A_{\rm win}$ is a positive, dimensionless functional of the observation window and the estimator normalization. Integrating over the window gives
+\begin{equation}
+  \delta\tau^2(x) \;=\; \int d^3x'\; G_{\rm win}(x-x')\, \rho_m(x').
+\end{equation}
+Using $\nabla^2(1/r)=-4\pi\,\delta^{(3)}$ one obtains the Poisson closure
+\begin{equation}
+  \nabla^2\, \delta\tau^2(x) \;=\; -\, C\, \rho_m(x)\,,\qquad C \;=\; \frac{\chi_c\, A_{\rm win}}{c_s^2} \;>\; 0\,.
+\end{equation}
+For canonical gradient-correlation estimators (SI Eq.~(S\,\ref{eq:tau-from-spectrum})), $A_{\rm win}=\mathcal O(1)$, so the microphysical dependence is carried by $\chi_c$ and $c_s^2$.
+
 \subsection*{Zero modes, normalisation, and symmetries}
 The phase shift symmetry ($\phi\!\to\!\phi+\text{const}$) implies a zero mode on compact domains; we remove it with the standard prime determinant (or gauge condition) so that $\det'(-\Box_g)$ is finite. Local\,unit (conformal) rescalings move strength between $\kappa, w_*, \hbar_{\rm eff}$ and the window edges but leave the dimensionless predictions and the induced \,$C_1\Lambda_{\rm eff}^2$\,combination invariant up to slow drifts captured by the window formalism.
 
@@ -213,7 +235,155 @@ Geometric analogues of the ``position\,+\,scale'' state $(x,\sigma)$ used in the
 \textbf{Jet/fibered field viewpoint:} Extend the configuration bundle with an internal fiber coordinate $\sigma$; dynamics on the total space employ a connection to split horizontal (spacetime) versus vertical (scale) variations. The adiabatic reduction used in $E_{\rm eq}(x)$ corresponds to minimizing along vertical directions and projecting the gradient onto spacetime.
 
 \section{Thermodynamic vs Entropic Gravity (Comparison)}\label{si:compare}
-Gravity is emergent in both pictures, but the mechanisms differ. Here, a single bulk field with a bona fide free energy $F=E-TS$ and a noise scale $\tau(x)$ yields a conservative force $\mathbf F=-\nabla E_{\rm eq}$ (with $E_{\rm eq}\propto-\tau^2$ and $\tau^2\propto\Phi$), and metric dynamics arise by integrating out phase fluctuations (Sakharov-like, optionally unimodular). Entropic approaches instead tie forces and field equations to horizon/screen thermodynamics (Clausius relation, Unruh temperature, area law), obtaining Einstein's equations as an equation of state and $\mathbf F=T\,\nabla S$ from entropy gradients. Horizons and holography are central there but optional (effective-temperature) here. Universality in this framework follows from composition-independent phase coupling (single light cone), whereas entropic routes invoke universal horizon thermodynamics. Phenomenologically, this work predicts isothermal halos with $v_{\rm flat}^2\simeq2\sigma^2$ and a tiny $w\approx-1$ drift from sliding windows; entropic/elastic variants (e.g. Verlinde-type) instead relate flat curves and lensing to elastic/entanglement responses with MOND-like scalings.
+Gravity is emergent in both pictures, but the mechanisms differ. Here, a single bulk field with a bona fide free energy $F=E-TS$ and a noise scale $\tau(x)$ yields a conservative force $\mathbf F=-\nabla E_{\rm eq}$ (with $E_{\rm eq}\propto-\tau^2$ and $\tau^2\propto\Phi$), and metric dynamics arise by integrating out phase fluctuations (Sakharov-like, optionally unimodular). Entropic approaches instead tie forces and field equations to horizon/screen thermodynamics (Clausius relation, Unruh temperature, area law), obtaining Einstein's equations as an equation of state and $\mathbf F=T\,\nabla S$ from entropy gradients. Horizons and holography are central there but optional (effective-temperature) here. Universality in this framework follows from composition-independent phase coupling (single light cone), whereas entropic routes invoke universal horizon thermodynamics.
+
+\medskip
+\noindent\textbf{Phenomenological distinction.} This framework predicts isothermal halos with $v_{\rm flat}^2\simeq2\sigma^2$ (derived in Section~\ref{si:isothermal}) and a tiny $w\approx-1$ drift from sliding windows; entropic/elastic variants (e.g. Verlinde-type) instead relate flat curves and lensing to elastic/entanglement responses with MOND-like scalings. The isothermal prediction is a direct consequence of the thermodynamic equilibration mechanism and does not require dark matter as a separate particle species.
+
+\section{Jeans Isothermal Equilibrium from Noise Thermodynamics}\label{si:isothermal}
+We derive the conditions under which a self-gravitating collection of solitons reaches an isothermal equilibrium with constant velocity dispersion $\sigma$, yielding flat rotation curves with $v_{\rm flat}^2 = 2\sigma^2$. The derivation proceeds through four stages: (i) separation of the noise field into equilibration and force components, (ii) FDT-based derivation of the kinetic temperature, (iii) the Jeans equation under isothermal conditions, and (iv) energy removal processes that maintain quasi-equilibrium.
+
+\paragraph{Assumptions (compact).}
+\begin{itemize}[leftmargin=*]
+  \item Quasi-static, spherically symmetric halo in the Coulombic window ($R_{\rm core} \ll r \ll \ell$).
+  \item Solitons (amplitude excitations) act as test particles sampling the collective potential $\Phi(x)$.
+  \item Internal soliton modes equilibrate with the phase bath on timescales $\tau_{\rm int} \ll \tau_{\rm orbit}$.
+  \item Translational relaxation occurs over many orbits: $\tau_{\rm relax} \gg \tau_{\rm orbit}$.
+  \item Energy removal (evaporation) at the escape boundary maintains quasi-steady state.
+\end{itemize}
+
+\subsection{Separation of Noise into Equilibration and Force Components}
+
+The noise field admits a decomposition into homogeneous and inhomogeneous parts (cf. Section~\ref{si:tau-poisson}):
+\begin{equation}
+  \tau^2(x) \;=\; \tau_0^2 \;+\; \delta\tau^2(x), \qquad \delta\tau^2(x) \;=\; -\alpha\,\big[\Phi(x) - \Phi_{\rm ref}\big].
+\end{equation}
+These components play distinct physical roles:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Homogeneous background $\tau_0^2$}: Set by the windowed phase spectrum (Section~\ref{si:window}). In local units, this is absorbed into the definition of rulers and clocks, making it operationally constant across the halo. It determines the \emph{equilibration temperature} for internal and kinetic degrees of freedom.
+  \item \textbf{Inhomogeneous perturbation $\delta\tau^2(x)$}: Sourced by matter via the Poisson equation $\nabla^2(\delta\tau^2) = -C\,\rho_m$. Its gradient provides the \emph{gravitational force}: $\mathbf F = -\nabla E_{\rm eq} = +\nabla(\tau^2) = \nabla(\delta\tau^2) = -\alpha\,\nabla\Phi$.
+\end{itemize}
+The separation is justified by the local-unit interpretation: homogeneous window shifts change $\tau_0^2$ but not forces or dimensionless ratios. Within the halo, the ratio $|\delta\tau^2|/\tau_0^2$ is small in the weak-field regime, ensuring the perturbative treatment is valid.
+
+\subsection{Kinetic Temperature from Fluctuation--Dissipation}
+
+The FDT (Section~\ref{si:tau-from-graph}) connects the bath spectrum to an effective temperature:
+\begin{equation}
+  S_{BB}(\omega;x) \;=\; \hbar\, J(\omega;x)\, \coth\!\Big(\frac{\hbar\omega}{2k_B T_{\rm eff}(x)}\Big), \qquad T_{\rm eff}(x) \;\propto\; \tau(x).
+\end{equation}
+For gradient coupling (super-Ohmic, $J(\omega)\propto\omega^3$), internal soliton modes equilibrate at temperature $T_{\rm int}(x) = T_{\rm eff}(x)$.
+
+\paragraph{Translational degrees of freedom.} The center-of-mass motion of a soliton couples to the bath through acceleration-dependent radiation (Section~\ref{si:drag}). For a soliton on an orbit of period $T_{\rm orbit}$, the effective kinetic temperature is set by the \emph{orbit-averaged} bath:
+\begin{equation}
+  T_{\rm kin} \;\equiv\; \Big\langle T_{\rm eff}\big(x(t)\big) \Big\rangle_{\rm orbit} \;=\; \frac{1}{T_{\rm orbit}} \oint T_{\rm eff}\big(x(t)\big)\, dt.
+\end{equation}
+In the weak-field regime where $\delta\tau^2 \ll \tau_0^2$, expanding to leading order:
+\begin{equation}
+  T_{\rm kin} \;\approx\; T_0 \,+\, \mathcal O\!\left(\frac{\delta\tau^2}{\tau_0^2}\right), \qquad T_0 \;\propto\; \tau_0.
+\end{equation}
+Thus the kinetic temperature is approximately \emph{constant} across the halo, with corrections suppressed by the weak-field parameter.
+
+\paragraph{Velocity dispersion.} For an ensemble of solitons in kinetic equilibrium at temperature $T_{\rm kin}$, the equipartition theorem gives:
+\begin{equation}
+  \frac{1}{2}\,m_{\rm eff}\,\sigma^2 \;=\; \frac{1}{2}\,k_B T_{\rm kin}, \qquad \Rightarrow \qquad \sigma^2 \;=\; \frac{k_B T_0}{m_{\rm eff}} \;\approx\; \text{const}.
+\end{equation}
+This is the \textbf{isothermal condition}: the velocity dispersion is spatially constant because it is set by the homogeneous background temperature $T_0$, not by the local noise $\tau(x)$.
+
+\subsection{Jeans Equation and Isothermal Density Profile}
+
+For a spherically symmetric, self-gravitating system in hydrostatic equilibrium, the Jeans equation reads:
+\begin{equation}
+  \frac{1}{\rho}\,\frac{d(\rho\sigma_r^2)}{dr} \;+\; \frac{2\beta_{\rm aniso}(r)\,\sigma_r^2}{r} \;=\; -\frac{d\Phi}{dr},
+\end{equation}
+where $\sigma_r$ is the radial velocity dispersion and $\beta_{\rm aniso} := 1 - \sigma_\theta^2/\sigma_r^2$ is the anisotropy parameter. For an isotropic, isothermal system ($\sigma_r = \sigma_\theta = \sigma = \text{const}$, $\beta_{\rm aniso}=0$):
+\begin{equation}
+  \sigma^2\,\frac{d\ln\rho}{dr} \;=\; -\frac{d\Phi}{dr}.
+\end{equation}
+Integrating:
+\begin{equation}
+  \rho(r) \;=\; \rho_0\,\exp\!\left(-\frac{\Phi(r) - \Phi_0}{\sigma^2}\right). \label{eq:isothermal-rho}
+\end{equation}
+This is the \textbf{isothermal distribution function}: the density follows a Boltzmann distribution with ``temperature'' $\sigma^2$ (in units where $k_B/m_{\rm eff}=1$).
+
+\paragraph{Singular isothermal sphere.} For a self-gravitating isothermal sphere, combining Eq.~\eqref{eq:isothermal-rho} with the Poisson equation $\nabla^2\Phi = 4\pi G\rho$ yields the Lane--Emden equation for the isothermal case. At large radii, the asymptotic solution is:
+\begin{equation}
+  \rho(r) \;\approx\; \frac{\sigma^2}{2\pi G r^2}, \qquad \Phi(r) \;\approx\; 2\sigma^2\,\ln(r/r_0).
+\end{equation}
+The enclosed mass grows linearly: $M(<r) = 2\sigma^2 r/G$, giving the circular velocity:
+\begin{equation}
+  v_c^2(r) \;=\; \frac{G M(<r)}{r} \;=\; 2\sigma^2 \;=\; \text{const}. \label{eq:flat-rotation}
+\end{equation}
+This is the \textbf{flat rotation curve} characteristic of isothermal halos, with $v_{\rm flat}^2 = 2\sigma^2$.
+
+\subsection{Energy Removal and Quasi-Equilibrium}
+
+A purely isothermal sphere has infinite mass and extent. Real halos are truncated by energy removal processes that maintain a quasi-steady state:
+
+\paragraph{(i) Evaporation at the tidal boundary.} Solitons with kinetic energy exceeding the local escape energy leave the system:
+\begin{equation}
+  \frac{1}{2}\,m_{\rm eff}\,v^2 \;>\; m_{\rm eff}\,|\Phi_{\rm edge}| \quad \Rightarrow \quad \text{escape}.
+\end{equation}
+This preferentially removes high-velocity particles from the tail of the distribution, maintaining a truncated Maxwellian (King model) in the core that approaches isothermal at small radii.
+
+\paragraph{(ii) Drag dissipation on non-geodesic orbits.} Non-geodesic accelerations (e.g., from scattering, external perturbations) induce energy loss via the drag mechanism (Section~\ref{si:drag}):
+\begin{equation}
+  P_{\rm rad} \;=\; C_{\rm drag}\,\gamma_v^4\,a_s^2.
+\end{equation}
+This removes energy from perturbed orbits and drives the system toward the relaxed, geodesic-dominated state where drag vanishes.
+
+\paragraph{(iii) Phase-channel relaxation.} Internal soliton modes continuously exchange energy with the phase bath, maintaining internal equilibrium at $T_{\rm int} \approx T_0$. This thermalization couples to translational motion through amplitude--phase backreaction, providing a slow relaxation channel.
+
+\paragraph{Timescale hierarchy.} For a quasi-steady isothermal halo:
+\begin{equation}
+  \tau_{\rm int} \;\ll\; \tau_{\rm orbit} \;\ll\; \tau_{\rm relax} \;\ll\; \tau_{\rm evap},
+\end{equation}
+where $\tau_{\rm evap}$ is the evaporation timescale. This hierarchy ensures that (i) internal modes are always equilibrated, (ii) orbits are approximately geodesic, (iii) the velocity distribution relaxes toward isothermal, and (iv) evaporation is slow enough for quasi-equilibrium.
+
+\subsection{Self-Consistent Closure: The $\tau$--$\Phi$--$\rho$ Triangle}
+
+The isothermal equilibrium forms a closed, self-consistent system:
+\begin{align}
+  &\text{Poisson (matter sources potential):} && \nabla^2\Phi \;=\; 4\pi G\,\rho, \\
+  &\text{$\tau$--$\Phi$ link (noise tracks potential):} && \tau^2 \;=\; \tau_0^2 - \alpha\,\Phi, \\
+  &\text{FDT (temperature from noise):} && T_{\rm kin} \;\propto\; \tau_0 \;\approx\; \text{const}, \\
+  &\text{Jeans (density from temperature):} && \rho \;=\; \rho_0\,\exp(-\Phi/\sigma^2), \quad \sigma^2 \propto T_{\rm kin}.
+\end{align}
+The closure is:
+\begin{equation}
+  \nabla^2\Phi \;=\; 4\pi G\,\rho_0\,\exp\!\left(-\frac{\Phi}{\sigma^2}\right),
+\end{equation}
+which is the defining equation for the isothermal sphere. The framework's contribution is to \emph{derive} why $\sigma^2$ should be constant: it is set by the homogeneous background $\tau_0$, not by the local potential.
+
+\subsection{Predictions and Observational Consequences}
+
+\paragraph{Flat rotation curves without dark matter particles.} The isothermal profile emerges from thermodynamic equilibration of amplitude solitons with the phase bath, not from a separate dark matter species. The ``missing mass'' is the effective gravitational response of the noise-thermodynamic mechanism.
+
+\paragraph{Core--halo structure.} The singular isothermal sphere ($\rho \propto r^{-2}$) develops a finite core when amplitude-gap effects or strong-field corrections become relevant at small radii. The core radius $r_c \sim \ell$ (screening length) sets the transition scale.
+
+\paragraph{Velocity dispersion--circular velocity relation.} The prediction $v_{\rm flat}^2 = 2\sigma^2$ is a direct consequence of the isothermal Jeans equilibrium and can be tested observationally by comparing stellar velocity dispersions to rotation curves in the same systems.
+
+\paragraph{Deviations from isothermality.} Corrections arise from:
+\begin{itemize}[leftmargin=*]
+  \item Finite $\delta\tau^2/\tau_0^2$ (weak-field corrections to orbit-averaging);
+  \item Anisotropy ($\beta_{\rm aniso} \neq 0$) from incomplete relaxation;
+  \item Truncation effects (King-model deviations at large radii);
+  \item Non-equilibrium transients in merging or forming halos.
+\end{itemize}
+In the weak-field regime where $|\alpha\,\Phi/\tau_0^2|\ll 1$, we can write
+\begin{equation}
+  \tau^2(x) \;=\; \tau_0^2\,[1+\epsilon(x)], \qquad |\epsilon(x)|\ll 1,
+\end{equation}
+so that
+\begin{equation}
+  \tau(x) \;\approx\; \tau_0\,[1+\epsilon(x)/2],
+\end{equation}
+and the kinetic temperature (hence $\sigma^2$) is constant to leading order, with $O(\epsilon)$ corrections. Deviations from isothermality in $\sigma^2(r)$ or $\rho(r)$ therefore directly probe the small parameter $\epsilon(x)$.
+
+Spectrally, $\tau_0^2$ is set by integrating the phase spectrum over many decades in $k$ at the RG fixed point $S(k)\propto 1/k$, so it is dominated by the full bandwidth. In contrast, $\delta\tau^2(x)$ comes only from small distortions of the long-wavelength tail induced by matter via the Poisson kernel. This makes $|\delta\tau^2|/\tau_0^2$ generically small in weak-field environments, independently of any detailed choice of $\alpha$.
+
+This is analogous to a Brownian particle in a potential $U(x)$ coupled to a homogeneous heat bath: the equilibrium density is $\rho(x)\propto e^{-U/(k_B T)}$ with fixed $T$ determined by the bath, even though $U(x)$ varies strongly in space. Here $T\leftrightarrow\tau_0^2$ and $U\leftrightarrow\Phi$.
+
+Galactic and cluster potentials satisfy $|\Phi|/c^2 \sim 10^{-6}$--$10^{-5}$, so unless $\tau_0^2$ is tuned anomalously small relative to the microphysical scale that sets $c_s^2$, one expects $|\alpha\,\Phi/\tau_0^2|\ll 1$ automatically wherever the weak-field approximation is valid. These predict systematic departures from the singular isothermal model that may be constrained by high-precision rotation curve and velocity dispersion measurements. A full derivation of the $O(\epsilon)$ corrections to $\sigma^2(r)$ requires a kinetic (Fokker--Planck) treatment or numerical simulations; here we treat the $\epsilon\to 0$ limit as the leading-order closure and regard measured deviations from isothermality as empirical probes of $\epsilon$.
 
 \section{Deriving the Noise Field $\tau$ from Graph Microdynamics}\label{si:tau-from-graph}
 We outline two independent, complementary constructions that define the scalar ``noise'' field $\tau(x)$ from the graph microdynamics underlying the continuum limit: a spectral route based on the local fluctuation spectrum of the phase kernel, and a linear-response/Fluctuation--Dissipation (FDT) route grounded in operational dissipation measurements. Agreement between the two makes $\tau$ an operational observable rather than a mere definition.
@@ -352,6 +522,21 @@ From the coarse-grained free energy $E_{\rm eq}(x)\propto -\tau^2(x)$, the effec
   \item \textbf{Boundary dependence:} $\tau_0^2$ tracks the same reference offset as $\Phi$ under the chosen BCs.
   \item \textbf{Screening corrections:} In regimes with finite-range corrections, $(\nabla^2-\lambda^2)\,\delta\tau^2= -C\,\rho_m$ reproduces Yukawa tails; far field remains Coulombic.
 \end{itemize}
+
+\subsection*{Solvable lattice example (cubic near-regular)}
+Consider a simple cubic lattice with spacing $a$, nearest-neighbour weights $w_0>0$ (coordination $z=6$), and the graph Laplacian $(Lf)_i=\sum_{j\sim i} w_0 (f_i-f_j)$. The discrete quadratic form $\tfrac12\sum_{\langle ij\rangle} w_0 (f_i-f_j)^2$ converges to $\int c_s^2 |\nabla f|^2 d^3x$ with principal coefficient
+\begin{equation}
+  c_s^2 \;=\; \zeta\, w_0 a^2\,,\qquad \zeta\sim \mathcal O(1)\,\text{ (geometric factor)}.
+\end{equation}
+Let a localized, static excess energy density $\rho_m(x)$ modify the local bond weight to $w_0\to w_0+\delta w(x)$ within a bounded neighbourhood. To leading order, $\delta c_s^2(x) = (\partial c_s^2/\partial w_0)\,\delta w(x)= \zeta a^2\,\delta w(x)$. Writing $\delta w(x)=\alpha_w\,\rho_m(x)$ for a local susceptibility $\alpha_w>0$ (near-regular, volume-normalised), one identifies
+\begin{equation}
+  \delta c_s^2(x) \;=\; \chi_c\,\rho_m(x)\,,\qquad \chi_c \;=\; \zeta a^2\,\alpha_w \,>\,0\,.
+\end{equation}
+With the windowed kernel amplitude $A_{\rm win}=\mathcal O(1)$ (gradient-correlation estimator), the Poisson coefficient becomes
+\begin{equation}
+  C \;=\; \frac{\chi_c\, A_{\rm win}}{c_s^2} \;=\; \frac{\zeta a^2\alpha_w}{\zeta w_0 a^2}\, A_{\rm win} \;=\; \frac{\alpha_w}{w_0}\, A_{\rm win} \,>\,0\,.
+\end{equation}
+Hence, on cubic near-regular lattices, $C$ is explicitly positive and controlled by the ratio of the local bond susceptibility to the background weight, with bounded $A_{\rm win}$. This exemplifies the general discussion and provides an order-of-magnitude anchor; see ICG SI (Matter--Kernel Coupling) for the discrete-to-continuum mapping hypotheses.
 
 \paragraph{Link to induced gravity coefficients.} The micro-to-macro coefficient $C$ can be cross-checked against the induced $R$-term coefficient $C_1$ in Section~\ref{si:induced-gravity} and the window scale $\Lambda_{\rm eff}$. Consistency between the Poisson normalisation and $C_1\Lambda_{\rm eff}^2=(16\pi G)^{-1}$ provides a nontrivial internal check.
 

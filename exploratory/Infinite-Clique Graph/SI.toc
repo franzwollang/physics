@@ -1,0 +1,43 @@
+\contentsline {section}{\numberline {S1}Discrete\,\textrightarrow \,Continuum Convergence of the Laplacian}{2}{section.1}%
+\contentsline {paragraph}{Assumptions (compact).}{2}{section*.2}%
+\contentsline {paragraph}{Remarks.}{3}{section*.5}%
+\contentsline {section}{\numberline {S2}Fluctuation Spectrum: Gapped Amplitude and Massless Phase}{3}{section.2}%
+\contentsline {paragraph}{Assumptions (compact).}{3}{section*.6}%
+\contentsline {paragraph}{Outcome.}{4}{section*.11}%
+\contentsline {section}{\numberline {S3}Vacuum Marginalisation (full derivation)}{4}{section.3}%
+\contentsline {section}{\numberline {S4}Discrete vs. Continuum Scaling}{5}{section.4}%
+\contentsline {subsection}{\numberline {S4.1}The Scaling Dichotomy}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {S4.2}Mathematical Origin}{5}{subsection.4.2}%
+\contentsline {subsection}{\numberline {S4.3}Practical Application}{5}{subsection.4.3}%
+\contentsline {section}{\numberline {S5}Graph Laplacian and Gradient Energy}{5}{section.5}%
+\contentsline {subsection}{\numberline {S5.1}Quadratic Form Representation}{5}{subsection.5.1}%
+\contentsline {subsection}{\numberline {S5.2}Spectral Properties}{5}{subsection.5.2}%
+\contentsline {subsection}{\numberline {S5.3}Isotropic Case}{6}{subsection.5.3}%
+\contentsline {section}{\numberline {S6}Renormalization and Stability}{6}{section.6}%
+\contentsline {subsection}{\numberline {S6.1}Volume Normalization as Renormalization}{6}{subsection.6.1}%
+\contentsline {subsection}{\numberline {S6.2}Self-Organization Principle}{6}{subsection.6.2}%
+\contentsline {subsection}{\numberline {S6.3}Numerical Considerations}{6}{subsection.6.3}%
+\contentsline {section}{\numberline {S7}Dimensional Fixed\,Point (Lambert\,W derivation)}{7}{section.7}%
+\contentsline {subsection}{\numberline {S7.1}Notation and scope}{7}{subsection.7.1}%
+\contentsline {subsection}{\numberline {S7.2}Spectral dimension from the heat kernel}{7}{subsection.7.2}%
+\contentsline {subsection}{\numberline {S7.3}Information\,theoretic cost and dimensional stiffness}{7}{subsection.7.3}%
+\contentsline {subsection}{\numberline {S7.4}Fixed\,point and Lambert\,W}{8}{subsection.7.4}%
+\contentsline {subsection}{\numberline {S7.5}Remarks}{8}{subsection.7.5}%
+\contentsline {section}{\numberline {S8}Measurement Double\,Well and Pointer States}{8}{section.8}%
+\contentsline {section}{\numberline {S9}Tipping Point Criteria for Measurement Regimes}{9}{section.9}%
+\contentsline {paragraph}{1. Onset of Bistability (Two Outcomes).}{9}{section*.16}%
+\contentsline {paragraph}{2. Onset of Orthogonality (Which-Way Information).}{9}{section*.17}%
+\contentsline {paragraph}{3. Onset of Decoherence (Loss of Superposition).}{9}{section*.18}%
+\contentsline {paragraph}{4. Onset of Latching (Durable Record).}{10}{section*.19}%
+\contentsline {paragraph}{Conformally Invariant Control.}{10}{section*.20}%
+\contentsline {paragraph}{Conformal behavior (local\,unit invariance).}{10}{section*.21}%
+\contentsline {section}{\numberline {S10}General Interference Suppression for $M$ Outcomes}{10}{section.10}%
+\contentsline {paragraph}{Conclusion.}{11}{section*.28}%
+\contentsline {paragraph}{Step 1: Entanglement with a Which-Way Detector.}{12}{section*.31}%
+\contentsline {paragraph}{Step 2: The Eraser Measurement.}{12}{section*.32}%
+\contentsline {paragraph}{Step 3: State Representation in the Eraser Basis.}{12}{section*.33}%
+\contentsline {paragraph}{Step 4: Post-Selection and Interference Recovery.}{13}{section*.34}%
+\contentsline {paragraph}{Empirical assumptions: pointer orthogonality and mixedness.}{13}{section*.36}%
+\contentsline {section}{\numberline {S11}Matter--Kernel Coupling Lemma (Static, Linear Response)}{14}{section.11}%
+\contentsline {paragraph}{Assumptions.}{14}{section*.39}%
+\contentsline {paragraph}{Remarks.}{15}{section*.42}%

@@ -7,23 +7,21 @@
 # Allow directory structure so nested whitelists can work
 !*/
 
-# Whitelist
+# Whitelist (what should be committed)
 !README.md
 
-!/papers/Infinite-Clique Graph/one-pager.md
-!/papers/Infinite-Clique Graph/paper.tex
-!/papers/Infinite-Clique Graph/paper.pdf
-!/papers/Infinite-Clique Graph/SI.tex
-!/papers/Infinite-Clique Graph/SI.tex
+!/exploratory/
+!/exploratory/**
 
-!/papers/Gravity/one-pager.md
-!/papers/Gravity/paper.tex
-!/papers/Gravity/paper.pdf
-!/papers/Gravity/SI.tex
-!/papers/Gravity/SI.tex
+!/simulations/
+!/simulations/**
 
-!/papers/Dark Sector/one-pager.md
-!/papers/Dark Sector/paper.tex
-!/papers/Dark Sector/paper.pdf
-!/papers/Dark Sector/SI.tex
-!/papers/Dark Sector/SI.tex
+# Ignore common LaTeX build artifacts (repo bloat)
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz

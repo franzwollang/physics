@@ -1,0 +1,47 @@
+\contentsline {section}{\numberline {S1}Observation Windows and Local Units}{2}{section.1}%
+\contentsline {section}{\numberline {S2}Drag Scaling and Justification}{3}{section.2}%
+\contentsline {paragraph}{Equivalence of accelerations; isotropy vs anisotropy.}{3}{section*.6}%
+\contentsline {subsection}{\numberline {S2.1}Covariant derivation and frame consistency}{3}{subsection.2.1}%
+\contentsline {paragraph}{Fixing $p$ under leading assumptions (baseline choice).}{4}{section*.7}%
+\contentsline {paragraph}{(i) Linear response (Kubo) with Unruh bath.}{4}{section*.8}%
+\contentsline {paragraph}{(ii) Worldline EFT for a composite soliton.}{5}{section*.9}%
+\contentsline {paragraph}{(iii) Scaling in local units.}{5}{section*.10}%
+\contentsline {section}{\numberline {S3}Induced Gravitational Action from Microdynamics (Sketch)}{5}{section.3}%
+\contentsline {paragraph}{Operator route (Lippmann\,Schwinger) and coefficient $C$.}{6}{section*.14}%
+\contentsline {section}{\numberline {S4}Emergence of a U(1) Gauge\,like Structure from Phase Defects}{7}{section.4}%
+\contentsline {paragraph}{Phase winding and defects.}{7}{section*.18}%
+\contentsline {paragraph}{Energetic barrier from the amplitude gap.}{7}{section*.19}%
+\contentsline {paragraph}{Phase jump across a sheet.}{7}{section*.21}%
+\contentsline {section}{\numberline {S5}Geometric Interpretations (Maps)}{8}{section.5}%
+\contentsline {section}{\numberline {S6}Thermodynamic vs Entropic Gravity (Comparison)}{8}{section.6}%
+\contentsline {section}{\numberline {S7}Jeans Isothermal Equilibrium from Noise Thermodynamics}{9}{section.7}%
+\contentsline {paragraph}{Assumptions (compact).}{9}{section*.24}%
+\contentsline {subsection}{\numberline {S7.1}Separation of Noise into Equilibration and Force Components}{9}{subsection.7.1}%
+\contentsline {subsection}{\numberline {S7.2}Kinetic Temperature from Fluctuation--Dissipation}{10}{subsection.7.2}%
+\contentsline {paragraph}{Translational degrees of freedom.}{10}{section*.25}%
+\contentsline {paragraph}{Velocity dispersion.}{10}{section*.26}%
+\contentsline {subsection}{\numberline {S7.3}Jeans Equation and Isothermal Density Profile}{10}{subsection.7.3}%
+\contentsline {paragraph}{Singular isothermal sphere.}{11}{section*.27}%
+\contentsline {subsection}{\numberline {S7.4}Energy Removal and Quasi-Equilibrium}{11}{subsection.7.4}%
+\contentsline {paragraph}{(i) Evaporation at the tidal boundary.}{11}{section*.28}%
+\contentsline {paragraph}{(ii) Drag dissipation on non-geodesic orbits.}{11}{section*.29}%
+\contentsline {paragraph}{(iii) Phase-channel relaxation.}{11}{section*.30}%
+\contentsline {paragraph}{Timescale hierarchy.}{11}{section*.31}%
+\contentsline {subsection}{\numberline {S7.5}Self-Consistent Closure: The $\tau $--$\Phi $--$\rho $ Triangle}{11}{subsection.7.5}%
+\contentsline {subsection}{\numberline {S7.6}Predictions and Observational Consequences}{12}{subsection.7.6}%
+\contentsline {paragraph}{Flat rotation curves without dark matter particles.}{12}{section*.32}%
+\contentsline {paragraph}{Core--halo structure.}{12}{section*.33}%
+\contentsline {paragraph}{Velocity dispersion--circular velocity relation.}{12}{section*.34}%
+\contentsline {paragraph}{Deviations from isothermality.}{12}{section*.35}%
+\contentsline {section}{\numberline {S8}Deriving the Noise Field $\tau $ from Graph Microdynamics}{13}{section.8}%
+\contentsline {paragraph}{Assumptions (compact).}{13}{section*.36}%
+\contentsline {paragraph}{Discrete-to-continuum details.}{13}{section*.38}%
+\contentsline {paragraph}{Simulation protocol (for validation).}{15}{section*.43}%
+\contentsline {paragraph}{Background bath and vanishing limit.}{15}{section*.44}%
+\contentsline {section}{\numberline {S9}Poisson Equivalence: Why $\tau ^2 \propto \Phi $}{15}{section.9}%
+\contentsline {paragraph}{Assumptions (compact).}{15}{section*.45}%
+\contentsline {paragraph}{Origin of the $1/r$ envelope.}{16}{section*.47}%
+\contentsline {paragraph}{Boundary-value uniqueness (rigour).}{16}{section*.49}%
+\contentsline {paragraph}{Link to induced gravity coefficients.}{17}{section*.53}%
+\contentsline {paragraph}{Numerical validation plan.}{17}{section*.54}%
+\contentsline {section}{\numberline {S10}Additional References and Pointers}{17}{section.10}%

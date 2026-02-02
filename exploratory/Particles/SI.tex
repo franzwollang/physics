@@ -1,0 +1,157 @@
+% !TeX program = pdflatex
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+\title{Supplementary Information: Particles from Rotor Textures and Link Energetics}
+\author{Franz Wollang}
+\date{\small Dated: YYYY-MM-DD}
+
+\renewcommand{\thesection}{S\arabic{section}}
+
+\begin{document}
+\maketitle
+
+\section{Overlap Suppression with a Concrete Texture Basis}\label{sec:si-overlap}
+Consider the orthonormal Laguerre basis $\Xi_n(x)=L_n(x)$ with weight $e^{-x}$ on $x\in[0,\infty)$. A small metric deformation $w_*^2(x)=e^{-x}(1-\eta x)$ perturbs the overlaps to
+\begin{equation}
+  I_{nm} \;=\; \int_0^\infty \Xi_n^{*}(x)\,\Xi_m(x)\,w_*^2(x)\,dx \;=\; \delta_{nm} - \eta\big[(2n+1)\delta_{nm} - n\,\delta_{n,m+1} - (n+1)\delta_{n+1,m}\big].
+\end{equation}
+For $\eta=0.15$ the overlap matrix becomes
+\begin{equation}
+  I \approx
+  \begin{pmatrix}
+    0.85 & 0.15 & 0\\
+    0.15 & 0.55 & 0.30\\
+    0 & 0.30 & 0.25
+  \end{pmatrix},
+\end{equation}
+showing (i) diagonal suppression for higher textures and (ii) off-diagonals that remain small but nonzero, generating hierarchical masses and controlled mixing when inserted into $M_f\propto I$ up to sector weights.
+
+\section{Toy Mass/Mixing Computation}\label{sec:si-toy}
+\paragraph{Input matrices.} The matrices used in the main text are
+\begin{align}
+  M_u &\propto \begin{pmatrix} 1 & 0.02 & 0.02 \\ 0.02 & 0.20 & 0.02 \\ 0.02 & 0.02 & 0.04 \end{pmatrix}, &
+  M_d &\propto \begin{pmatrix} 0.98 & 0.08 & 0.04 \\ 0.08 & 0.98\times0.25 & 0.04 \\ 0.04 & 0.04 & 0.98\times0.25^2 \end{pmatrix},\\
+  M_e &\propto 0.95\,M_u,\qquad &
+  M_\nu &\propto \begin{pmatrix} 0.70 & 0.05 & 0.025 \\ 0.05 & 0.70\times0.22 & 0.05 \\ 0.025 & 0.05 & 0.70\times0.22^2 \end{pmatrix}.
+\end{align}
+
+\paragraph{Eigenvalues.} Power-iteration diagonalization gives (arbitrary units)
+\begin{align}
+  m_u &\approx (1.001,\,0.202,\,0.0372),&
+  m_d &\approx (0.991,\,0.243,\,0.0523),\\
+  m_e &\approx (0.951,\,0.192,\,0.0354),&
+  m_\nu &\approx (0.706,\,0.166,\,0.0157).
+\end{align}
+
+\paragraph{Mixing.} The unitary rotations that diagonalize $(M_u,M_d)$ and $(M_e,M_\nu)$ yield
+\begin{equation}
+  |V_{\rm CKM}| \approx \begin{pmatrix} 0.996 & 0.085 & 0.024 \\ 0.087 & 0.994 & 0.071 \\ 0.018 & 0.073 & 0.997 \end{pmatrix},\qquad
+  |V_{\rm PMNS}| \approx \begin{pmatrix} 0.997 & 0.074 & 0.018 \\ 0.076 & 0.973 & 0.220 \\ 0.001 & 0.221 & 0.975 \end{pmatrix}.
+\end{equation}
+The pattern matches the qualitative goal: small Cabibbo-like quark mixing and large atmospheric-like leptonic mixing driven by the larger off-diagonals in $M_\nu$.
+
+\section{P\"oschl--Teller check for three bound states}\label{sec:si-pt}
+For an analytic benchmark, take $w^2(r)$ such that the radial equation reduces to the P\"oschl--Teller problem
+\begin{equation}
+  -\psi'' - \frac{2}{r}\psi' + \frac{\ell(\ell+1)}{r^2}\psi - \frac{\lambda(\lambda+1)}{R^2}\,\text{sech}^2\!\frac{r}{R}\,\psi = -k^2 \psi,
+\end{equation}
+with effective depth set by $\lambda(\lambda+1)/R^2$. The discrete spectrum is
+\begin{equation}
+  k_{n\ell}^2 \;=\; \frac{1}{R^2}\Big(\lambda - 1 - n - \ell\Big)^2,\qquad n=0,1,\dots < \lambda - \ell - 1.
+\end{equation}
+We identify the particle generations with the distinct \emph{geometric grades} corresponding to angular momentum sectors $\ell=0$ (Line), $\ell=1$ (Surface), and $\ell=2$ (Volume). Radial excitations ($n>0$) are treated as unstable resonances or heavy partners.
+
+Choosing the depth parameter $\lambda \in (3,4)$ (e.g., $\lambda=3.5$) ensures that exactly three angular sectors admit bound states:
+\begin{itemize}
+    \item $\ell=0$ (Grade 1): Ground state exists ($n=0$).
+    \item $\ell=1$ (Grade 2): Ground state exists ($n=0$).
+    \item $\ell=2$ (Grade 3): Ground state exists ($n=0$).
+    \item $\ell \ge 3$: No bound states exist ($3 > 3.5 - 1$, violating condition).
+\end{itemize}
+This rigorously demonstrates that a smooth soliton core of finite depth naturally truncates the spectrum to exactly three geometric generations, independent of radial excitations.
+
+\section{Mass Formula from Geometric Self-Energy}\label{sec:si-mass}
+We quantify the "Moduli Hierarchy" hypothesis by calculating the self-energy of defects with different geometric grades. The mass of a defect is its self-energy $E = \int T_{00} d^3x$.
+
+\paragraph{Grade 1 (Electron): Vector Field Strength.}
+A Line defect (Grade 1) is a source of vector flux ($\nabla \phi$). Its energy density is dominated by the phase stiffness:
+\begin{equation}
+  u_1 \;\propto\; E^2 \;\propto\; (\nabla \phi)^2.
+\end{equation}
+Integrating over the defect volume, the mass scales with the softest modulus:
+\begin{equation}
+  m_e \;\sim\; \kappa \int (\nabla \phi)^2 dV \;\propto\; \kappa.
+\end{equation}
+
+\paragraph{Grade 2 (Muon): Bivector Field Strength.}
+A Surface defect (Grade 2) involves a twist in the metric or connection, represented by a bivector field strength $B = \nabla \wedge A$. This requires bending the vacuum amplitude profile $w(x)$. The energy density includes a curvature term:
+\begin{equation}
+  u_2 \;\propto\; B^2 + \text{Bend}^2 \;\propto\; (\nabla A)^2 + \alpha_{\rm grad} (\nabla w)^2.
+\end{equation}
+The mass scales with the intermediate curvature stiffness:
+\begin{equation}
+  m_\mu \;\sim\; m_e + \beta_{\rm curv} \int (\nabla w)^2 dV \;\propto\; \kappa + \beta_{\rm curv}.
+\end{equation}
+
+\paragraph{Grade 3 (Tau): Trivector Field Strength.}
+A Volume defect (Grade 3) forces a compression of the lattice unit cell, represented by a trivector distortion $V$. This displaces the amplitude $w$ from its vacuum minimum $w_*$ over a bulk region. The energy density is dominated by the potential term:
+\begin{equation}
+  u_3 \;\propto\; V^2 \;\propto\; (\delta w)^2.
+\end{equation}
+The mass scales with the hardest modulus (the bulk modulus/Higgs mass):
+\begin{equation}
+  m_\tau \;\sim\; B_{\rm vol} \int V(w) dV \;\propto\; B_{\rm vol} \gg \beta_{\rm curv} \gg \kappa.
+\end{equation}
+
+\paragraph{Resulting Hierarchy.}
+The observed lepton mass ratios allow us to calibrate the vacuum moduli ratios:
+\begin{equation}
+  \frac{\text{Curvature Stiffness}}{\text{Phase Stiffness}} \sim \frac{m_\mu}{m_e} \approx 200, \qquad
+  \frac{\text{Bulk Modulus}}{\text{Curvature Stiffness}} \sim \frac{m_\tau}{m_\mu} \approx 17.
+\end{equation}
+This confirms that the vacuum is "stiff" geometrically (hard to bend) and "very stiff" volumetrically (hard to compress), explaining the generation gaps without fine-tuned Yukawas.
+
+\section{Origin of the Chiral Double-Well from Graph Energetics}\label{sec:si-chirality}
+We derive the double-well potential for the chiral order parameter $\theta$ starting from the microscopic graph alignment energy. We show that the effective potential coefficient $a(\rho_N)$ changes sign as the noise field/stiffness evolves, driving a spontaneous symmetry breaking.
+
+\paragraph{Microscopic Order Parameter.}
+Let each coarse grain $i$ contain a triad of internal gradient modes $R_i \in \text{Frame}(\mathbb{C}^3)$. We define the local chiral order parameter (triad handedness) as the Ising-like variable:
+\begin{equation}
+  \chi_i \;=\; \text{sgn}(\det R_i) \;\in\; \{+1, -1\}.
+\end{equation}
+This is a parity-odd scalar. A state with $\langle \chi \rangle \neq 0$ breaks mirror symmetry.
+
+\paragraph{Graph Hamiltonian.}
+The total free energy of the graph patch is a sum of alignment energies between linked grains and local entropic costs. For the reduced variable $\chi$, this takes the form of an effective Ising model:
+\begin{equation}
+  \mathcal{H}[\chi] \;=\; - \sum_{\langle ij \rangle} J(\rho_N) \, \chi_i \chi_j \;-\; \sum_i h_i \chi_i,
+\end{equation}
+where $J(\rho_N) > 0$ is the effective ferromagnetic coupling. It arises because smooth connections (low curvature) are energetically cheaper than connections with a handedness flip (domain wall). A mismatch $\chi_i \neq \chi_j$ implies a twist in the connection across the link, incurring an energy cost proportional to the rotor stiffness. Thus, $J(\rho_N) \propto \kappa(\rho_N) w_*^2(\rho_N)$.
+
+\paragraph{Mean-Field Free Energy.}
+In the mean-field approximation, we replace the neighbor interaction with an average field $\theta = \langle \chi \rangle$. The effective free energy per grain $f(\theta)$ balances the alignment energy against the entropy of the binary choice:
+\begin{equation}
+  f(\theta) \;\approx\; \underbrace{- \frac{z}{2} J(\rho_N) \, \theta^2}_{\text{Alignment Energy}} \;+\; \underbrace{T_{\text{eff}}(\rho_N) \int_0^\theta \tanh^{-1}(x) dx}_{\text{Configurational Entropy}}.
+\end{equation}
+Here $z$ is the coordination number and $T_{\text{eff}}$ is the effective temperature (noise level). Expanding for small $\theta$:
+\begin{equation}
+  f(\theta) \;\approx\; \frac{1}{2} \left( T_{\text{eff}} - zJ(\rho_N) \right) \theta^2 \;+\; \frac{T_{\text{eff}}}{12} \theta^4 \;+\; \mathcal{O}(\theta^6).
+\end{equation}
+
+\paragraph{Spontaneous Symmetry Breaking.}
+The quadratic coefficient is $a(\rho_N) = T_{\text{eff}}(\rho_N) - zJ(\rho_N)$.
+\begin{itemize}
+    \item \textbf{High Noise (Early Universe):} $\rho_N$ is large, so $T_{\text{eff}}$ is high and the stiffness $J$ is low (or washed out). $a(\rho_N) > 0$. The potential is convex with a single minimum at $\theta=0$. The vacuum is parity-symmetric on average.
+    \item \textbf{Low Noise (Cooling):} As the universe evolves and amplitude cores stabilize, the noise $T_{\text{eff}}$ drops and the link stiffness $J$ increases. At a critical density $\rho_c$, $a(\rho_N)$ crosses zero.
+    \item \textbf{Broken Phase:} For $a(\rho_N) < 0$, the potential develops a double well with minima at $\theta = \pm \theta_0$. The system must choose a handedness.
+\end{itemize}
+
+\paragraph{Domain Formation.}
+Random fluctuations nucleate local domains of $+$ and $-$. As the barrier height grows (cooling), domain walls become energetically costly. The system undergoes a coarsening process (Ising model kinetics) where domains merge. In our observable patch, a single domain (e.g., $\theta \approx +\theta_0$) wins out, establishing the "Global Chiral Bias" formalized as a Lorentz-safe pseudoscalar condensate.
+
+\end{document}

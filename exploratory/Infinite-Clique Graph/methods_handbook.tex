@@ -1,0 +1,579 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{microtype}
+\usepackage{hyperref}
+
+% Basic operator declarations used throughout
+\DeclareMathOperator{\Tr}{Tr}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
+
+\title{Technical Methods Handbook}
+\author{Franz Wollang}
+\date{\small Draft --- working technical notes}
+
+\begin{document}
+\maketitle
+
+\section{Analytic Signal and Emergent Complex Field}
+
+\subsection{Real narrowband fields and the analytic signal}
+
+The fundamental substrate in the infinite-clique framework is a single real-valued field $A$ defined on the nodes of the clique. The long-lived excitations and coarse observables of interest, however, are not arbitrary field configurations but those that behave approximately like narrowband oscillations around some carrier frequency $\omega_0$, with slowly varying envelopes and phases. Soliton cores, bound states, and many collective modes fall into this class: they have a dominant internal oscillation whose period is short compared to the timescales on which the envelope and phase profile change. To characterise such configurations it is natural to separate the fast carrier from the slow envelope and to work with an object that directly encodes the local amplitude and phase of the dominant mode. In one spatial dimension, or at a fixed spatial point, a real narrowband signal can be represented in exactly this way by its \emph{analytic signal}, a complex-valued function constructed from $A$ and its Hilbert transform.
+
+Given a real function $A(t)$ with Fourier transform $\hat A(\omega)$, the analytic signal $\Psi(t)$ is defined by suppressing negative frequencies in the spectrum,
+\begin{equation}
+  \Psi(t) = A(t) + i\,\mathcal H[A](t),
+\end{equation}
+where $\mathcal H[A]$ is the Hilbert transform of $A$. In the frequency domain this corresponds to
+\begin{equation}
+  \widehat{\Psi}(\omega) =
+  \begin{cases}
+    2\,\hat A(\omega), & \omega > 0,\\
+    0, & \omega < 0,
+  \end{cases}
+\end{equation}
+and the real signal is recovered as the real part of $\Psi$. When $A$ is narrowly concentrated around a positive carrier frequency $\omega_0$ and varies slowly on the timescale $1/\omega_0$, the analytic signal can be written as
+\begin{equation}
+  \Psi(t) = w(t)\,e^{i\phi(t)},
+\end{equation}
+with $w(t)$ a slowly varying amplitude and $\phi(t)$ a slowly varying phase. In this regime the Hilbert transform is closely related to the time derivative of $A$; one has
+\begin{equation}
+  \mathcal H[A](t) \approx \frac{1}{\omega_0}\,\frac{\partial A}{\partial t}(t),
+\end{equation}
+so that the two real components $(A,\mathcal H[A])$ provide, up to a scaling, the instantaneous value and time derivative of the underlying real field.
+
+\subsection{Grain variables and emergent complex degrees of freedom}
+
+On the infinite clique, a coarse-graining procedure groups uncountably many microscopic nodes into a grain $K$ with effective volume $V_K$. Within such a grain one can define averaged statistics of the real field, such as the mean value and the mean time derivative over the nodes in $K$ during an observation window. Denoting by $\langle\cdot\rangle_K$ a suitable average over the grain, a natural pair of coarse variables is
+\begin{align}
+  U_K &= \langle A\rangle_K,\\
+  V_K &= \tau_K\,\big\langle \partial_t A\big\rangle_K,
+\end{align}
+where $\tau_K$ is a characteristic time scale associated with the grain, for example derived from the autocovariance of the field fluctuations within $K$. These two real quantities summarise the local level and trend of the real field within the grain.
+
+Motivated by the analytic-signal construction, one introduces a complex proxy
+\begin{equation}
+  \Psi_K := U_K + i\,V_K,
+\end{equation}
+and writes it in polar form as
+\begin{equation}
+  \Psi_K = w_K\,e^{i\phi_K},
+\end{equation}
+with amplitude
+\begin{equation}
+  w_K = \sqrt{U_K^2+V_K^2}
+\end{equation}
+and phase
+\begin{equation}
+  \phi_K = \arctan\!\bigg(\frac{V_K}{U_K}\bigg).
+\end{equation}
+In this language the pair $(U_K,V_K)$ is re-expressed as an amplitude $w_K$ and a phase $\phi_K$ that describe, respectively, the strength of the coarse-grained field and the local oscillatory state of the dominant narrowband mode within the grain.
+
+The key point is that the complex variable $\Psi_K$ is not a new primitive degree of freedom, but a compact way of packaging two real, coarse-grained statistics of the underlying field. The analytic-signal motivation shows that, under narrowband conditions, this packaging preserves essentially all information relevant to slowly varying dynamics while discarding only high-frequency detail that is outside the observational window. In the continuum description, one replaces the indexed grains by spatial points and writes $\Psi(x,t)$ for the corresponding complex envelope field, with $w(x,t)$ and $\phi(x,t)$ the coarse-grained amplitude and phase.
+
+\subsection{Scope and limitations of the construction}
+
+The analytic-signal construction and the identification of $\Psi_K$ with $(U_K,V_K)$ rely on a separation of scales: there must be a clear carrier frequency $\omega_0$ and an associated window in which the real field is well described as a slowly varying envelope modulating a fast oscillation. When this separation holds, the analytic signal has a one-sided spectrum and the error incurred by representing the field by $\Psi$ scales with the relative bandwidth $\Delta\omega/\omega_0$. In that regime the complex description is an efficient and faithful summary of the dynamics on the scales of interest.
+
+Outside the narrowband regime the analytic-signal picture becomes less accurate, and additional real degrees of freedom would be needed to capture all relevant structure. In the present framework this simply means that the coarse-grained variables and their dynamics are defined relative to an observation window: different choices of coarse-graining and carrier scale lead to different envelope descriptions, all of which are derived from the same underlying real field. The complex field $\Psi$ used in the continuum treatment should therefore be understood as an emergent, scale-dependent object that summarises the behaviour of the real substrate at the chosen resolution.
+
+\section{Mexican-Hat Potential, Fluctuation Spectrum, and Screening}
+
+\subsection{Local amplitude potential and vacuum}
+
+The amplitude $w$ of the complex envelope $\Psi=w\,e^{i\phi}$ experiences an effective local potential that encodes the energetic cost of changing the modulus of the field at fixed phase. The simplest potential compatible with rotational symmetry in the complex plane and with the need for a nonzero vacuum amplitude is the quartic “Mexican-hat” form
+\begin{equation}
+  V(w) = -\beta_{\mathrm{pot}}\,w^2 + \gamma\,w^4,
+\end{equation}
+with $\beta_{\mathrm{pot}}>0$ and $\gamma>0$. The minus sign in front of the quadratic term ensures that $w=0$ is an unstable point, while the positive quartic term stabilises the potential at large $w$. Minimising $V(w)$ with respect to $w$ yields
+\begin{equation}
+  \frac{dV}{dw} = -2\beta_{\mathrm{pot}}\,w + 4\gamma\,w^2 = 0,
+\end{equation}
+which has solutions $w=0$ and
+\begin{equation}
+  w_*^2 = \frac{\beta_{\mathrm{pot}}}{2\gamma}.
+\end{equation}
+The point $w=0$ is a local maximum, while $w=w_*$ is a minimum. The second derivative at the minimum is
+\begin{equation}
+  V''(w_*) = -2\beta_{\mathrm{pot}} + 12\gamma\,w_*^2 = 2\beta_{\mathrm{pot}},
+\end{equation}
+so small fluctuations of the amplitude around $w_*$ behave, to leading order, like a massive scalar field with mass-squared
+\begin{equation}
+  m_\xi^2 = 2\beta_{\mathrm{pot}}.
+\end{equation}
+This mass gap for amplitude fluctuations will be responsible for screening in the amplitude sector and for the separation between a massive amplitude mode and a massless phase mode in the fluctuation spectrum.
+
+\subsection{Amplitude and phase fluctuations around the vacuum}
+
+To study the low-energy spectrum one writes the coarse-grained field as
+\begin{equation}
+  \Psi(x,t) = \big(w_*+\delta w(x,t)\big)\,e^{i\phi(x,t)},
+\end{equation}
+where $\delta w$ is a small real deviation of the amplitude from its vacuum value and $\phi$ is the phase. At quadratic order in derivatives and fluctuations, and suppressing higher-order mixing terms, the Lagrangian density for the amplitude and phase can be written schematically as
+\begin{equation}
+  \mathcal L \approx \frac{1}{2}\,\alpha_{\mathrm{grad}}\,|\nabla \delta w|^2 - \frac{1}{2}\,m_\xi^2\,(\delta w)^2 + \frac{\kappa w_*^2}{2}\,\dot\phi^2 - \frac{\kappa w_*^2 c_s^2}{2}\,|\nabla\phi|^2.
+\end{equation}
+Here $\alpha_{\mathrm{grad}}$ is the amplitude gradient coefficient, $m_\xi^2=2\beta_{\mathrm{pot}}$ is the amplitude mass-squared computed above, and $\kappa w_*^2$ is the phase stiffness discussed later in the context of the hyperbolic action. The amplitude sector is described by a relativistic-like massive scalar field with positive mass-squared, while the phase sector is described by a massless scalar field with a linear dispersion relation.
+
+The Euler–Lagrange equations derived from this quadratic Lagrangian separate into an amplitude equation
+\begin{equation}
+  \alpha_{\mathrm{grad}}\,\nabla^2\delta w - m_\xi^2\,\delta w = 0
+\end{equation}
+and a phase equation
+\begin{equation}
+  \ddot\phi - c_s^2\,\nabla^2\phi = 0.
+\end{equation}
+The amplitude equation is elliptic in the static limit and leads to Yukawa screening, while the phase equation is hyperbolic and leads to long-range, wave-like propagation with speed $c_s$.
+
+\subsection{Screening and the Coulombic window}
+
+In the static limit the amplitude fluctuation equation reduces to
+\begin{equation}
+  \big(-\alpha_{\mathrm{grad}}\,\nabla^2 + m_\xi^2\big)\,\delta w = 0.
+\end{equation}
+The Green function of this operator in three dimensions is the Yukawa kernel
+\begin{equation}
+  G_{\mathrm{Yuk}}(r) \propto \frac{e^{-r/\ell}}{r},
+\end{equation}
+with screening length
+\begin{equation}
+  \ell = \sqrt{\frac{\alpha_{\mathrm{grad}}}{m_\xi^2}} = \sqrt{\frac{\alpha_{\mathrm{grad}}}{2\beta_{\mathrm{pot}}}}.
+\end{equation}
+A localised source of amplitude deviation therefore produces a field whose spatial profile decays exponentially on scales larger than $\ell$ and reduces to a $1/r$ profile on scales much smaller than $\ell$ but larger than the size of the source. This defines a “Coulombic window” of radii $r$ satisfying
+\begin{equation}
+  R_{\mathrm{source}} \ll r \ll \ell,
+\end{equation}
+within which the amplitude sector mimics the behaviour of a massless field governed by a Poisson equation. The Newtonian $1/r$ potential used later is extracted in precisely this intermediate regime, by identifying a suitable scalar potential built from $\delta w$ and matching its far-field behaviour to the Yukawa Green function in the limit $r\ll\ell$.
+
+Outside the Coulombic window the exponential screening dominates. At distances $r\gg\ell$ the amplitude perturbation is suppressed as $e^{-r/\ell}$, so in the strict field-theoretic sense any interaction mediated by $\delta w$ alone is short-ranged: its Green function decays exponentially and does not support an additional unscreened long-range force. Long-range behaviour associated with the amplitude sector in this framework arises in two ways: first, through the Coulombic window where the Yukawa kernel reduces to an effective $1/r$ law, and second, at larger scales, through the incoherent superposition of many screened contributions to a scalar potential sourced by the cumulative excess energy density. Gauge-like interactions built from the phase sector, by contrast, require coherent phase relations along a channel; their practical range is limited by decoherence and by the coherence length of the phase field, even though the underlying Goldstone mode is massless. In this handbook we use ``long range'' in the strict sense when classifying elementary excitations: the amplitude mode is heavy and does not introduce an extra unscreened fifth force, while the phase mode is the unique strictly massless degree of freedom. The separation between the massive amplitude mode and the massless phase mode, together with the existence of a Coulombic window, is a central structural feature of the model and underlies both the emergence of an approximate Newtonian limit and the absence of additional composition-dependent long-range forces from the amplitude sector.
+
+\section{Graph Laplacians, Heat Kernels, and Spectral Dimension}
+
+\subsection{Why graph Laplacians and spectral dimension?}
+
+In the infinite-clique framework, vacuum relaxation and coarse-graining turn an all-to-all substrate into a sparse, near-regular weighted graph that encodes which regions ``behave as neighbours''. The purpose of this section is to justify why the graph Laplacian of that effective graph is the right object to (i) generate continuum-like diffusion and wave dynamics and (ii) define an effective dimension from those dynamics, so that familiar three-dimensional behaviour can emerge or be ruled out on given scales.
+
+Many problems in emergent geometry, transport, and field theory on discrete substrates share the same core task:
+\begin{quote}
+  Given a weighted graph representing connectivity, how do we describe diffusion or wave propagation on it, and how do we extract an ``effective dimension'' from that behaviour?
+\end{quote}
+
+The \emph{graph Laplacian} plays the central role here for three reasons. First, it is the discrete analogue of the Laplace--Beltrami operator: on a smooth Riemannian manifold $(M,g)$, diffusion and many wave equations are governed by $\Delta_g$, and on a graph the Laplacian $L$ is the natural operator whose quadratic form encodes differences across edges.
+
+Second, it controls diffusion and random walks: the heat equation on a graph uses $L$ in exactly the same way that the continuum heat equation uses $\Delta$, and the spectrum of $L$ determines how quickly probability spreads and how return probabilities decay.
+
+Third, it provides an intrinsic notion of dimension: the \emph{spectral dimension} $d_s$ is defined through the short-time asymptotics of the heat kernel trace $\Tr(e^{-tL})$, in direct analogy with the continuum relation $K(t)\sim t^{-d/2}$ in $d$ dimensions. This makes $d_s$ a natural descriptor for irregular or emergent geometries where no obvious embedding dimension is given. In applications where geometry is supposed to emerge from an underlying network, the graph Laplacian is therefore the correct ``kinematic'' object: it is basis-independent, directly tied to connectivity, and comes equipped with a well-developed spectral analysis.
+
+\subsection{Weighted graphs and Laplacians}
+
+We work with finite, undirected, weighted graphs. A graph $G=(V,E,w)$ consists of a node set $V=\{1,\dots,N\}$, an edge set $E\subseteq V\times V$ (with $(i,j)\in E$ if and only if nodes $i$ and $j$ are connected), and a symmetric weight function $w_{ij}=w_{ji}\ge 0$ that assigns a conductance to each edge, with $w_{ij}=0$ whenever $(i,j)\notin E$.
+
+The \emph{weighted degree} of node $i$ is
+\begin{equation}
+  d_i := \sum_{j} w_{ij}.
+\end{equation}
+Let $D$ be the diagonal matrix with entries $D_{ii}=d_i$, and let $W$ be the symmetric weight matrix with entries $W_{ij}=w_{ij}$. The \emph{combinatorial Laplacian} is
+\begin{equation}
+  L := D - W.
+\end{equation}
+Acting on a real-valued function $f:V\to\mathbb R$ (represented as a column vector), one has
+\begin{equation}
+  (Lf)_i = \sum_j w_{ij}\,\big(f_i - f_j\big).
+\end{equation}
+
+Several properties are immediate and important. The matrix $L$ is symmetric and positive semi-definite, and it annihilates the constant vector $\bm{1}$, so $0$ is always an eigenvalue. If $G$ is connected, the eigenspace at eigenvalue $0$ is one-dimensional (spanned by $\bm{1}$). The quadratic form associated with $L$,
+\begin{equation}
+  f^{\mathsf T} L f = \frac{1}{2}\sum_{i,j} w_{ij}\,\big(f_i-f_j\big)^2,
+\end{equation}
+is the discrete analogue of the Dirichlet energy $\int |\nabla f|^2 dV$. These facts are basis-independent and do not rely on any embedding of the graph, and they already imply why $L$ is the natural object for encoding gradient energy and diffusion.
+
+\paragraph{Normalized variants.}
+Two closely related Laplacians are widely used:
+\begin{align}
+  L_{\mathrm{rw}} &:= I - D^{-1}W &\text{(random-walk Laplacian)},\\
+  L_{\mathrm{sym}} &:= I - D^{-1/2} W D^{-1/2} &\text{(symmetric normalized Laplacian)}.
+\end{align}
+$L_{\mathrm{rw}}$ is the generator of a continuous-time random walk with jump rates determined by $w_{ij}$, and $L_{\mathrm{sym}}$ is convenient for spectral clustering. In many applications, $L$ and $L_{\mathrm{rw}}$ carry essentially the same information, related by a similarity transform whenever all degrees are positive.
+
+\subsection{Heat equation on a graph and the heat kernel}
+
+On a smooth manifold, the heat equation for a scalar field $u(x,t)$ with diffusion constant $D$ is
+\begin{equation}
+  \partial_t u(x,t) = D\,\Delta u(x,t).
+\end{equation}
+
+On a graph, the completely analogous equation for a function $u:V\times[0,\infty)\to\mathbb R$ is
+\begin{equation}
+  \partial_t u_i(t) = - (L u(t))_i = -\sum_j w_{ij}\,\big(u_i(t)-u_j(t)\big),
+\end{equation}
+where we have absorbed a diffusion constant into the weights for simplicity. In vector form,
+\begin{equation}
+  \partial_t u(t) = -L u(t).
+\end{equation}
+The solution is
+\begin{equation}
+  u(t) = e^{-tL} u(0),
+\end{equation}
+where $e^{-tL}$ is defined by the usual matrix exponential. This is the \emph{heat semigroup} on the graph.
+
+\paragraph{Heat kernel.}
+The matrix
+\begin{equation}
+  K(t) := e^{-tL}
+\end{equation}
+is called the (discrete) \emph{heat kernel}. Its entries $K_{ij}(t)$ give the probability of diffusing from $j$ to $i$ in time $t$ if we start from an initial delta distribution at $j$, up to possible normalization conventions.
+
+For many purposes, a key object is the trace of the heat kernel,
+\begin{equation}
+  K_{\mathrm{trace}}(t) := \Tr(e^{-tL}) = \sum_{n=1}^N e^{-t\lambda_n},
+\end{equation}
+where $\{\lambda_n\}$ are the eigenvalues of $L$, counted with multiplicity. This trace has two complementary interpretations. Seen as a sum over eigenmodes, it encodes the whole Laplacian spectrum in a smoothed way. Seen as a sum over diagonal entries, $K_{\mathrm{trace}}(t)=\sum_i K_{ii}(t)$, it is the total return probability for diffusion starting uniformly over all nodes. The dependence of $K_{\mathrm{trace}}(t)$ on $t$ encodes how fast diffusion explores the graph; this time-dependence is what underlies the definition of spectral dimension.
+
+\subsection{Spectral dimension: definition and continuum intuition}
+
+In the continuum, consider the heat equation on $\mathbb R^d$ with Laplacian $\Delta$. The fundamental solution (heat kernel) is
+\begin{equation}
+  p(x,t) = \frac{1}{(4\pi D t)^{d/2}}\,\exp\!\left(-\frac{|x|^2}{4Dt}\right).
+\end{equation}
+The return probability at the origin decays as
+\begin{equation}
+  p(0,t) \propto t^{-d/2}.
+\end{equation}
+More generally, on a $d$-dimensional manifold without boundaries, the small-$t$ behaviour of the on-diagonal heat kernel has the asymptotic form
+\begin{equation}
+  K(x,x;t) \sim \frac{1}{(4\pi t)^{d/2}} \big( a_0(x) + a_1(x)\,t + \cdots \big)
+\end{equation}
+for $t\to 0^+$. Integrating over $x$ gives
+\begin{equation}
+  \int K(x,x;t)\,dV_x \sim \frac{A_0}{(4\pi t)^{d/2}} + \cdots,
+\end{equation}
+so that
+\begin{equation}
+  -2\,\frac{d\ln K_{\mathrm{trace}}(t)}{d\ln t} \approx d
+\end{equation}
+for sufficiently small $t$, where $K_{\mathrm{trace}}(t)=\int K(x,x;t)\,dV_x$.
+
+This motivates the following graph-based definition.
+
+\paragraph{Definition (spectral dimension).}
+Let $L$ be the graph Laplacian with heat-kernel trace $K_{\mathrm{trace}}(t)=\Tr(e^{-tL})$. The \emph{spectral dimension} as a function of diffusion time $t$ is
+\begin{equation}
+  d_s(t) := -2\,\frac{d\ln K_{\mathrm{trace}}(t)}{d\ln t}.
+\end{equation}
+If there exists a time window in which $d_s(t)$ is approximately constant, we write $d_s(t)\approx d_{\ast}$ on that window and interpret $d_{\ast}$ as the effective dimension of the graph on the corresponding scale.
+
+Several remarks are important. The function $d_s(t)$ need not be an integer; it is a real-valued function of $t$ that can capture fractal or scale-dependent behaviour. On a regular $d$-dimensional lattice (with appropriate boundary conditions and sufficiently large size), one finds $d_s(t)\approx d$ over a wide intermediate range of $t$. For graphs with nontrivial structure (such as trees, fractal-like graphs, or networks with long links), $d_s(t)$ can vary with $t$, reflecting how diffusion probes different scales.
+
+\subsection{Practical computation on finite graphs}
+
+On a finite graph with Laplacian eigenvalues $0=\lambda_1\le \lambda_2\le \dots \le \lambda_N$, the heat-kernel trace is
+\begin{equation}
+  K_{\mathrm{trace}}(t) = \sum_{n=1}^N e^{-t\lambda_n}.
+\end{equation}
+To estimate $d_s(t)$ numerically one typically proceeds as follows. One first computes the spectrum $\{\lambda_n\}$ (or at least a sufficiently large subset of low-lying eigenvalues if $N$ is large). For a range of times $t\in [t_{\min},t_{\max}]$ one then evaluates the trace using the formula above. The logarithmic derivative with respect to $t$, for example approximated by finite differences in $\ln t$ via
+\begin{equation}
+  d_s(t) \approx -2\,\frac{\ln K_{\mathrm{trace}}(t+\Delta t) - \ln K_{\mathrm{trace}}(t-\Delta t)}
+  {\ln(t+\Delta t) - \ln(t-\Delta t)},
+\end{equation}
+is used to obtain an estimate of $d_s(t)$, and one finally identifies plateaus where $d_s(t)$ is approximately constant; these plateaus correspond to effective dimensions at the corresponding scales.
+
+In practice one often works in terms of the \emph{return probability} averaged over nodes,
+\begin{equation}
+  P_{\mathrm{ret}}(t) := \frac{1}{N} \sum_{i=1}^N K_{ii}(t) = \frac{1}{N} K_{\mathrm{trace}}(t),
+\end{equation}
+in which case
+\begin{equation}
+  d_s(t) = -2\,\frac{d\ln P_{\mathrm{ret}}(t)}{d\ln t}
+\end{equation}
+since the factor $1/N$ drops out of the derivative.
+
+\subsection{Simple examples}
+
+We record two standard examples to illustrate the definitions.
+
+\subsubsection{Regular $d$-dimensional lattice}
+
+Consider a large hypercubic lattice in $d$ dimensions with nearest-neighbour coupling and periodic boundary conditions, so that finite-size effects are negligible on the timescales of interest. In the continuum limit, the Laplacian spectrum approaches that of the standard Laplacian on a $d$-torus. The corresponding heat-kernel trace obeys
+\begin{equation}
+  K_{\mathrm{trace}}(t) \propto t^{-d/2}
+\end{equation}
+for an extended range of $t$, and one finds
+\begin{equation}
+  d_s(t)\approx d.
+\end{equation}
+
+This shows that on graphs which are regular discretisations of a smooth $d$-dimensional space, the spectral dimension reproduces the usual notion of dimension.
+
+\subsubsection{Path graph (1D chain)}
+
+As a concrete finite example, take a path graph $P_N$ on $N$ nodes with unit weights between neighbours. The Laplacian eigenvalues are
+\begin{equation}
+  \lambda_n = 2\Big(1 - \cos\frac{\pi n}{N+1}\Big), \qquad n=1,\dots,N.
+\end{equation}
+For large $N$ and times $t$ not so large that boundaries dominate, the low-lying eigenvalues behave as $\lambda_n\approx (\pi n/(N+1))^2$ and the heat-kernel trace approximates that of a one-dimensional Laplacian. One finds
+\begin{equation}
+  K_{\mathrm{trace}}(t) \sim \text{const}\cdot t^{-1/2}, \qquad d_s(t)\approx 1.
+\end{equation}
+
+This provides an explicit check that the graph-based construction matches the expected 1D behaviour.
+
+\subsection{Why this tool is appropriate for emergent geometry}
+
+Finally, it is useful to summarise why the graph Laplacian, heat kernel, and spectral dimension form a natural toolkit in contexts where geometry is not fundamental but emerges from connectivity. The Laplacian $L$ and its spectrum depend only on the intrinsic connectivity and weights, not on any chosen embedding in an ambient space, so all constructions are coordinate-free. Diffusion and wave propagation are generated by $L$ in the same way that continuum dynamics are generated by $\Delta_g$, so the same operator controls both kinematics and effective geometry. The heat-kernel trace $K_{\mathrm{trace}}(t)$ naturally probes different scales as $t$ varies, allowing $d_s(t)$ to capture crossovers between different effective dimensions without additional assumptions. Under many forms of coarse-graining, the low-lying spectrum of $L$ (and thus the behaviour of $K_{\mathrm{trace}}(t)$ at moderate $t$) is approximately preserved, making $d_s(t)$ a stable observable across scales. These features explain why spectral-dimension estimates derived from heat-kernel traces are widely used in discrete and lattice approaches to geometry and gravity, and why the same constructions are natural whenever a physical model is formulated on a weighted graph or network.
+
+\section{Vacuum Relaxation and Self-Organised Connectivity}
+
+\subsection{From microscopic links to an effective functional}
+
+The infinite clique provides an all-to-all connectivity at the microscopic level, with link weights $J_{ij}$ entering the phase-sector energy through the graph Laplacian. After coarse-graining and a separation of timescales, the phase variables $\phi$ relax quickly on a fixed graph, while the link weights $J$ drift slowly. A convenient way to describe the slow evolution of $J$ is to define a coarse-grained free energy for the combined system and then integrate out the fast phase degrees of freedom.
+
+Consider a microscopic phase free energy of the schematic form
+\begin{equation}
+  F[J,\phi] = \frac{\kappa}{2}\,\phi^{\mathsf T} L(J)\,\phi - T\,S[J] + \mathcal B[J],
+\end{equation}
+where $L(J)$ is the graph Laplacian built from the weights $J$, the first term is the quadratic phase energy with stiffness $\kappa$, the second term is an entropic contribution $T\,S[J]$ that penalises concentrated or highly structured weight patterns, and $\mathcal B[J]$ is a weak bias functional that penalises increases in the effective (spectral) dimension. The partition function over the fast phase variables is
+\begin{equation}
+  Z[J] = \int \mathcal D\phi\; e^{-F[J,\phi]/T_{\mathrm{eff}}},
+\end{equation}
+and the corresponding effective functional for the slow links is defined by
+\begin{equation}
+  \Gamma[J] := -T_{\mathrm{eff}} \ln Z[J].
+\end{equation}
+
+Because the phase sector is Gaussian at quadratic order, the functional integral over $\phi$ can be performed explicitly. Up to an additive constant one obtains
+\begin{equation}
+  \Gamma[J] = \frac{T_{\mathrm{eff}}}{2}\,\ln\det{}' L(J) - T\,S[J] + \mathcal B[J],
+\end{equation}
+where $\det{}'$ denotes the determinant with the trivial zero mode removed. The first term encodes the phase fluctuations through the spectrum of $L(J)$, the second term is the entropy of the normalised weights, and the third term encodes the dimensional bias. In practice it is often convenient to express $\ln\det{}' L$ in terms of the heat kernel of $L$, which links this functional back to the spectral-dimension discussion in the previous section.
+
+\subsection{Stationarity and Boltzmann-like link statistics}
+
+The slow self-organisation of the graph corresponds to gradient descent in $J$ on the effective functional $\Gamma[J]$ subject to positivity and normalisation constraints on outgoing weights. Stationarity with respect to a single link $J_{kj}$ at fixed total outbound strength $Z_k=\sum_j J_{kj}$ gives an equation of the form
+\begin{equation}
+  \frac{\partial \Gamma}{\partial J_{kj}} + \lambda_k = 0,
+\end{equation}
+where $\lambda_k$ is a Lagrange multiplier enforcing the constraint on $Z_k$. The derivative of the fluctuation term involves the Green function of $L(J)$, the derivative of the entropy term produces a $\ln(J_{kj}/Z_k)$ contribution, and the derivative of the dimensional bias term introduces a small correction proportional to the sensitivity of the spectral dimension to $J_{kj}$.
+
+In regimes where the dimensional bias is weak and the graph is locally near-regular, this stationarity condition takes a Boltzmann-like form. One finds that the equilibrium weights approximately satisfy
+\begin{equation}
+  J_{kj} \propto \exp\!\bigg[-\frac{1}{2}\,\Theta_k\,(\phi_k^{\star}-\phi_j^{\star})^2\bigg],
+\end{equation}
+where $\Theta_k$ is an effective inverse temperature and $\phi^{\star}$ is the near-equilibrium phase configuration solving the graph Laplace equation $L(J)\,\phi^{\star}=0$. Large phase differences between nodes are therefore exponentially suppressed in the equilibrium weights, while small phase differences are favoured. The entropy term prevents all weight from concentrating on a single neighbour, and the dimensional bias disfavors patterns that would raise the spectral dimension (for example by adding many long-range links or hubs).
+
+\subsection{Emergence of a sparse, near-regular lattice}
+
+The combined effect of the fluctuation term, the entropy of the link distribution, and the weak dimensional bias is that long links and high-degree hubs are energetically disfavoured once the phase field has relaxed. Links connecting nodes with large phase differences carry a large quadratic cost in the phase energy and are therefore weakened; links connecting nodes with similar phases are cheaper and retained, but the entropy term spreads weight over several neighbours rather than concentrating it. The dimensional bias stabilises the evolution around small-integer effective valences by penalising link patterns that raise the spectral dimension extracted from the heat kernel of $L(J)$.
+
+Over time this relaxation drives the graph from the initial infinite-clique connectivity toward a sparse, near-regular, low-valence structure. On patches where the resulting connectivity is approximately homogeneous and isotropic, the Laplacian $L(J)$ approximates a continuum Laplace--Beltrami operator and diffusion behaves as if it lived on a space of finite effective dimension. In this sense the vacuum self-organises into a lattice-like state, and the spectral-dimension analysis of the previous section becomes the appropriate tool for diagnosing whether the emergent connectivity is effectively three-dimensional on the scales of interest.
+
+\section{Dimensional Fixed Point and Lambert \texorpdfstring{$W$}{W}}
+
+\subsection{Effective dimensional cost and stiffness}
+
+The vacuum relaxation described above favours graphs whose effective spectral dimension lies near a small integer, typically close to three in the regimes of interest. This preference can be captured at a coarse level by a reduced cost function $F(d)$ for the intrinsic dimension $d$ extracted from the heat kernel. One convenient parametrisation, used in the main text and SI, models $F(d)$ as the sum of two contributions: a description cost that decreases with dimension and a stiffness term that penalises large deviations of $d$,
+\begin{equation}
+  F(d) = b_E\,e^{-\alpha d} + \beta\,d^2,
+\end{equation}
+with $b_E>0$, $\alpha>0$, and $\beta>0$. The first term represents, in an averaged way, the information cost of maintaining active links at dimension $d$: higher effective dimension typically correlates with shorter screening lengths and sparser long-range connectivity, which reduce the cost of storing link information per unit volume. The second term encodes a stiffness that resists large excursions of the dimension away from the vacuum’s preferred range.
+
+\subsection{Stationary dimension and Lambert \texorpdfstring{$W$}{W}}
+
+Minimising $F(d)$ with respect to $d$ yields the stationarity condition
+\begin{equation}
+  \frac{dF}{dd} = -\alpha b_E\,e^{-\alpha d} + 2\beta d = 0.
+\end{equation}
+Rearranging gives
+\begin{equation}
+  2\beta d = \alpha b_E\,e^{-\alpha d},
+\end{equation}
+which can be written as
+\begin{equation}
+  (\alpha d)\,e^{\alpha d} = \frac{\alpha^2 b_E}{2\beta}.
+\end{equation}
+The solution of this equation for $d$ in terms of elementary functions is not available, but it can be expressed in closed form using the Lambert $W$ function, defined implicitly by $W(z)e^{W(z)}=z$. Applying this definition with $z=(\alpha^2 b_E)/(2\beta)$ and $W(z)=\alpha d$ gives
+\begin{equation}
+  d_\ast = \frac{1}{\alpha}\,W\!\left(\frac{\alpha^2 b_E}{2\beta}\right).
+\end{equation}
+For a broad range of parameter values this fixed point $d_\ast$ lies near a small integer. The Lambert $W$ form makes explicit how the ratio $b_E/\beta$ and the scale $\alpha$ of the exponential cost combine to set the preferred intrinsic dimension of the vacuum.
+
+\subsection{Interpretation and robustness}
+
+The form of $F(d)$ used here is a convenient, simple model rather than a fundamental law. The exponential term captures the idea that, beyond a certain point, increasing the effective dimension becomes costly in terms of link information and screening, while the quadratic term provides a smooth, convex penalty that stabilises the system around a particular $d_\ast$. Other plausible choices for the description cost lead to similar behaviour. For example, a power-law form $L(d)=b_E d^{-p}$ with $p>0$ combined with the same quadratic stiffness produces a unique positive minimum with $d_\ast$ scaling as a positive power of $b_E/\beta$, and a logarithmic form $L(d)=-b_E\log(\alpha d)$ likewise yields a single stable minimum. The existence of a small, stable fixed point for the spectral dimension is therefore a robust prediction of this class of models, while the specific Lambert $W$ expression is a convenient closed-form representation for the exponential ansatz.
+
+In practice one can view the parameters $(\alpha,b_E,\beta)$ as effective summaries of microscopic link statistics and screening behaviour. Graph simulations that implement the full vacuum-relaxation dynamics could, in principle, be used to measure the dependence of the coarse-grained cost on $d$ and to fit an $F(d)$ of the form above near its minimum. The resulting values of $(\alpha,b_E,\beta)$ would then determine $d_\ast$ via the Lambert $W$ expression and provide a quantitative test of whether the preferred intrinsic dimension of the relaxed graphs matches the value inferred from continuum physics.
+
+\section{Poisson Operators, Newtonian Potential, and Matter--Kernel Coupling}
+
+\subsection{Poisson and Helmholtz operators in the static limit}
+
+In the amplitude sector, small deviations of the coarse-grained amplitude $w$ from its vacuum value $w_*$ obey a screened (Helmholtz-type) equation of the form
+\begin{equation}
+  \big(-\alpha_{\mathrm{grad}}\,\nabla^2 + m_\xi^2\big)\,\delta w = 0,
+\end{equation}
+with $m_\xi^2>0$ set by the curvature of the local potential at $w_*$. The Green function of this operator in three spatial dimensions is the Yukawa kernel, which decays as $e^{-r/\ell}/r$ with screening length $\ell=\sqrt{\alpha_{\mathrm{grad}}/m_\xi^2}$. In the intermediate regime where distances $r$ are much smaller than $\ell$ but much larger than the size of individual sources, the screening is negligible and the operator behaves effectively as a pure Laplacian, so that
+\begin{equation}
+  -\nabla^2 \Phi(\mathbf x) \simeq \rho(\mathbf x)
+\end{equation}
+with $\Phi$ a rescaled potential built from $\delta w$ and $\rho$ an effective source density. In this window the static field sourced by a localised cluster of excitations acquires a Coulombic $1/r$ tail and is governed by a Poisson equation.
+
+At the level of general partial differential equations, the Poisson operator $-\nabla^2$ is singled out by locality, rotational invariance, and linearity: it is the unique (up to constant factors) second-order, translation-invariant, elliptic operator with these symmetries. Its Green function in three dimensions is proportional to $1/r$, and the superposition of many sources is linear. These facts underlie the appearance of $1/r$ potentials in Newtonian gravity and electrostatics and justify treating the emergent scalar potential in the amplitude sector as a solution of a Poisson equation in the appropriate regime.
+
+\subsection{Linear response of the phase kernel to matter}
+
+The phase sector is governed by a graph Laplacian $L(J)$ that, in the continuum limit on a near-regular patch, becomes a differential operator of the form
+\begin{equation}
+  K = -\nabla\!\cdot(c_s^2(\mathbf x)\,\nabla),
+\end{equation}
+where $c_s^2(\mathbf x)$ is the local phase-wave speed squared. A localised matter distribution modifies the equilibrium link statistics in its neighbourhood and therefore perturbs the coarse-grained stiffness $c_s^2(\mathbf x)$. In the static, weak-perturbation regime this can be treated by linear response: one writes
+\begin{equation}
+  c_s^2(\mathbf x) = c_{s,0}^2 + \delta c_s^2(\mathbf x),
+\end{equation}
+with $c_{s,0}^2$ the vacuum value and $\delta c_s^2$ a small correction supported near the matter region.
+
+Replacing $K$ by $K+\delta K$ with
+\begin{equation}
+  \delta K = -\nabla\!\cdot\big(\delta c_s^2(\mathbf x)\,\nabla\big)
+\end{equation}
+and matching to the underlying microscopic picture shows that, to leading order, $\delta c_s^2(\mathbf x)$ is proportional to the local excess energy density $\rho_m(\mathbf x)$ carried by the amplitude deviations. One can therefore write
+\begin{equation}
+  \delta c_s^2(\mathbf x) = \chi_c\,\rho_m(\mathbf x),
+\end{equation}
+with $\chi_c$ a susceptibility that depends on microscopic couplings and the coarse-graining window. The corresponding variation of the kernel is
+\begin{equation}
+  \delta K(\mathbf x) = -\nabla\!\cdot\big(\chi_c\,\rho_m(\mathbf x)\,\nabla\big),
+\end{equation}
+which states that, at leading order, the matter density acts as a local source for the stiffness of the phase operator.
+
+\subsection{Alignment of amplitude and phase operators}
+
+The Matter--Kernel Coupling Lemma formalises the statement that, under the assumptions above, a static excess energy density in the amplitude sector induces a local perturbation of the phase kernel that is proportional to the same source. In the Coulombic window where the amplitude sector reduces effectively to a Poisson equation for the scalar potential built from $\delta w$, and on near-regular patches where the phase operator is well approximated by $-\nabla\!\cdot(c_s^2\nabla)$, both sectors therefore obey closely related Poisson-type equations with the same source structure. This alignment is what allows the emergent scalar potential that mediates the Newtonian $1/r$ force and the perturbation of the phase kernel that defines the metric response to be tied together consistently: matter sources both the amplitude field and the local stiffness of the phase operator in a way that preserves linear superposition and long-range Coulombic behaviour in the appropriate regime.
+
+\section{Hyperbolic Phase Action, Lorentz Signature, and Goldstone Mode}
+
+\subsection{Global phase symmetry and its breaking}
+
+The coarse-grained complex field $\Psi=w\,e^{i\phi}$ inherits a simple global phase symmetry from the underlying construction: simultaneous shifts of the phase by a constant, $\phi\mapsto\phi+\alpha$, leave the coarse-grained free energy unchanged as long as all terms depend only on gradients of $\phi$ and on the amplitude $w$. The Mexican-hat potential for $w$,
+\begin{equation}
+  V(w) = -\beta_{\mathrm{pot}}\,w^2 + \gamma\,w^4,
+\end{equation}
+depends only on the magnitude $w$ and not on the phase, and the leading phase-gradient energy involves only derivatives of $\phi$, so the coarse-grained model is invariant under $\phi\to\phi+\alpha$. This global $U(1)$ symmetry is spontaneously broken when the system settles into a vacuum with nonzero $w_*$, since the choice of a particular phase for the vacuum picks out a direction in the complex plane of $\Psi$.
+
+Expanding around the homogeneous vacuum, one writes $\Psi=(w_*+\delta w)\,e^{i\phi}$ and finds that the quadratic part of the Lagrangian consists of a massive amplitude fluctuation $\delta w$ and a massless phase mode $\phi$. The amplitude mode acquires a mass $m_\xi$ from the curvature of $V(w)$ at $w_*$, while the phase mode remains gapless because the global $U(1)$ symmetry forbids a $\phi^2$ term without derivatives. This is the standard Goldstone mechanism: a continuous global symmetry broken by the choice of vacuum gives rise to a massless mode whose dynamics are governed by derivatives of the phase field.
+
+\subsection{From discrete phase energy to a hyperbolic action}
+
+On the graph, the phase energy at fixed amplitude $w\approx w_*$ is built from differences of phases across edges. After coarse-graining and taking the continuum limit on a near-regular patch, this produces a gradient energy of the form
+\begin{equation}
+  E_{\mathrm{grad}}[\phi] = \frac{\kappa w_*^2}{2}\int d^d x\,|\nabla\phi|^2,
+\end{equation}
+with $\kappa w_*^2$ the effective phase stiffness. Temporal variations of the phase are governed by an inertia term that assigns an energy cost to $\dot\phi^2$; at the coarse level this can be written as
+\begin{equation}
+  E_{\mathrm{inert}}[\phi] = \frac{\kappa w_*^2}{2}\int d^d x\,\frac{1}{c_s^2}\,\dot\phi^2,
+\end{equation}
+where $c_s$ is the phase-wave speed. Combining these pieces, the natural quadratic action for the phase becomes
+\begin{equation}
+  S_\phi = \frac{\kappa w_*^2}{2}\int d^{d+1}x\,\big(\dot\phi^2 - c_s^2\,|\nabla\phi|^2\big).
+\end{equation}
+
+The relative sign between the temporal and spatial terms is fixed by the identification of $\dot\phi^2$ as the kinetic contribution and $|\nabla\phi|^2$ as the potential contribution in the mechanical analogy: the Lagrangian is defined as kinetic minus potential energy. Stability of the vacuum requires both quadratic forms to be positive-definite when considered separately, so the only consistent quadratic action is one with a plus sign in front of $\dot\phi^2$ and a minus sign in front of $|\nabla\phi|^2$. The resulting Euler--Lagrange equation is
+\begin{equation}
+  \ddot\phi - c_s^2\,\nabla^2\phi = 0,
+\end{equation}
+which is a hyperbolic wave equation. Solutions propagate along characteristic cones with speed $c_s$, and the action is invariant under Lorentz transformations with light-cone structure determined by $c_s$.
+
+\subsection{Emergent Lorentz structure from isotropy}
+
+The emergence of a Lorentz-invariant phase action requires more than the hyperbolic form of the equation; it also requires that the coarse-grained stiffness be isotropic and that there be a single characteristic speed $c_s$ governing all directions. In the infinite-clique model, the vacuum relaxation described earlier drives the connectivity toward a near-regular, isotropic structure on large scales, so that the effective Laplacian approximates the standard Laplace operator in a Euclidean background. When combined with the unique quadratic time-derivative term fixed by the inertial properties of the phase, this isotropy ensures that the principal part of the phase operator has the form of the d'Alembertian associated with a Minkowski metric.
+
+To leading order in deviations from homogeneity, one can therefore write the phase action as
+\begin{equation}
+  S_\phi = \frac{\kappa w_*^2}{2}\int d^{d+1}x\,\eta^{\mu\nu}\,\partial_\mu\phi\,\partial_\nu\phi,
+\end{equation}
+where $\eta^{\mu\nu}$ is the emergent Minkowski metric with signature $(+,-,\dots,-)$ and the coordinates $(t,\mathbf x)$ are adapted to the coarse-grained vacuum. Inhomogeneities in the connectivity and amplitude translate into slow variations of the effective metric, and the same construction can be repeated locally to define a curved-space generalisation of the phase action. In this way the global $U(1)$ symmetry of the coarse-grained complex field, its spontaneous breaking by a nonzero $w_*$, and the isotropic self-organisation of the graph combine to produce a hyperbolic phase action with a single light cone and an associated Goldstone mode that plays the role of a massless scalar field on the emergent spacetime.
+
+\section{Kramers Escape, Double-Well Dynamics, and Hysteresis}
+
+\subsection{Double-well potentials and metastability}
+
+Several phenomena in the main text, including long-lived entanglement links and latched measurement records, are modelled at a coarse level by dynamics in an effective double-well potential. A single collective coordinate $x$ (for example, a phase difference or pointer orientation) experiences a potential $V(x)$ with two minima separated by a barrier. In the absence of noise, the system sits indefinitely in one of these minima; in the presence of weak noise or coupling to a bath, rare fluctuations can drive it over the barrier into the other minimum. The resulting dynamics are metastable: the system spends long periods near one minimum, punctuated by rare transitions to the other.
+
+The simplest example is a quartic potential of the form
+\begin{equation}
+  V(x) = a x^4 - b x^2,
+\end{equation}
+with $a>0$ and $b>0$. This potential has minima at $x=\pm x_0$ with $x_0=\sqrt{b/(2a)}$ and a maximum at $x=0$. The barrier height between a minimum and the central maximum is
+\begin{equation}
+  \Delta E_b = V(0) - V(x_0) = \frac{b^2}{4a}.
+\end{equation}
+In the applications of interest the exact functional form of $V(x)$ is less important than the existence of two symmetry-related minima and a finite barrier between them.
+
+\subsection{Overdamped Langevin dynamics and Kramers rate}
+
+When the dynamics of $x$ are slow and strongly damped compared to the natural oscillation frequency in a well, it is appropriate to describe the evolution by an overdamped Langevin equation. One writes
+\begin{equation}
+  \zeta\,\dot x(t) = -\frac{dV}{dx}(x(t)) + \xi(t),
+\end{equation}
+where $\zeta$ is a damping coefficient and $\xi(t)$ is a stochastic force representing the influence of a thermal or effective bath. The noise is typically taken to be Gaussian and white on the timescales of interest, with zero mean and correlator
+\begin{equation}
+  \langle \xi(t)\,\xi(t')\rangle = 2\zeta k_B T_{\mathrm{eff}}\,\delta(t-t'),
+\end{equation}
+so that the system relaxes toward a quasi-equilibrium distribution at effective temperature $T_{\mathrm{eff}}$.
+
+In this setting the classic result of Kramers is that, for sufficiently high barriers and weak noise, the mean escape rate $\Gamma$ from one well to the other is exponentially small in the barrier height. In the overdamped regime the escape rate from a given minimum can be approximated by
+\begin{equation}
+  \Gamma \approx \frac{\omega_0\,\omega_b}{2\pi\,\zeta}\,\exp\!\left(-\frac{\Delta E_b}{k_B T_{\mathrm{eff}}}\right),
+\end{equation}
+where $\omega_0$ is the small-oscillation frequency at the bottom of the well, $\omega_b$ is the magnitude of the (imaginary) frequency at the barrier top, and $\Delta E_b$ is the energy difference between the barrier and the minimum. The corresponding mean residence time $\tau$ in a given well is $\tau\approx 1/\Gamma$, which grows exponentially with the ratio $\Delta E_b/(k_B T_{\mathrm{eff}})$.
+
+\subsection{Mapping to phase links and measurement pointers}
+
+In the phase-link picture of entanglement and in the double-well models of measurement, the coordinate $x$ is a coarse collective variable built from underlying phase currents or orientations. For a pair of cores, $x$ can represent a relative phase or current orientation; for a measurement apparatus, it can represent the pointer angle relative to the macroscopic setting. The effective potential $V(x)$ encodes the competition between phase inertia, coupling strength, and weak stabilising nonlinearities. When the coupling is strong enough, two symmetry-related minima appear, corresponding to two correlated or pointer states.
+
+The Kramers formula is then interpreted in this coarse context. The barrier height $\Delta E_b$ depends on the strength of the phase coupling and the stiffness of the phase sector; stronger coupling and stiffer phases generally raise the barrier. The damping $\zeta$ encodes the effective friction introduced by the bath that couples to the phase currents, and $T_{\mathrm{eff}}$ represents the typical energy scale of fluctuations in that bath on the timescales of interest. The exponential sensitivity of $\tau$ to $\Delta E_b/(k_B T_{\mathrm{eff}})$ explains how entangled links and measurement records can be simultaneously robust and fragile: small changes in coupling or environment can change the lifetime by many orders of magnitude.
+
+In the entanglement context, a long-lived phase link corresponds to a situation where $\Delta E_b/(k_B T_{\mathrm{eff}})$ is large enough that the escape rate is negligible on experimental timescales, so the shared phase-current configuration remains correlated over macroscopic distances. In the measurement context, a latched pointer corresponds to a regime in which the barrier between pointer states is high compared to the environmental noise, so that once the apparatus has settled into a particular minimum, transitions to the other minimum are extraordinarily rare.
+
+\section{Coarse-Graining, Action per Cycle, and \texorpdfstring{$\hbar_{\mathrm{eff}}$}{hbar\_eff}}
+
+\subsection{Bounded regions and discrete spectra}
+
+The identification of an effective Planck constant in this framework is tied to the behaviour of coarse-grained regions (grains or droplets) that support discrete spectra of internal modes. Consider a bounded region of the relaxed graph, large enough to contain many microscopic nodes but small enough to be treated as approximately homogeneous. The phase operator on this region, with suitable boundary conditions, has a discrete spectrum of normal modes with eigenfrequencies $\{\omega_n\}$ determined by the induced Laplacian. The lowest nontrivial eigenfrequency $\omega_1$ sets the timescale of the dominant internal mode.
+
+The energy stored in this mode, denoted $E_{\mathrm{cell}}$, depends on the amplitude of the excitation and on the local stiffness parameters; the corresponding period is $\tau_{\mathrm{cell}} = 2\pi/\omega_1$. When the grain is enlarged by coarse-graining over a larger region, $E_{\mathrm{cell}}$ and $\tau_{\mathrm{cell}}$ both change: the energy typically grows with the volume of the region, while the fundamental frequency decreases as the region gets larger and the eigenmodes become longer-wavelength.
+
+\subsection{Adiabatic invariants and action per cycle}
+
+In many slowly varying systems, there exist adiabatic invariants associated with periodic motion. For a single harmonic mode with energy $E$ and frequency $\omega$, the action integral over one cycle,
+\begin{equation}
+  J = \oint p\,dq = \frac{2\pi E}{\omega},
+\end{equation}
+remains approximately constant under slow changes of parameters that do not disturb the structure of the cycle. Translating this idea to the coarse-grained internal modes of a grain suggests that the product of the mode energy and its period,
+\begin{equation}
+  E_{\mathrm{cell}}\,\tau_{\mathrm{cell}} = \frac{2\pi E_{\mathrm{cell}}}{\omega_1},
+\end{equation}
+is approximately invariant under admissible changes of the coarse-graining scale.
+
+As one changes the grain size within a suitable range, additional microscopic degrees of freedom are integrated out and the remaining effective mode variables are renormalised. The mode energy $E_{\mathrm{cell}}$ increases because the mode encompasses more volume, while the period $\tau_{\mathrm{cell}}$ decreases because the fundamental eigenfrequency shifts with the size of the region. The adiabatic-invariant picture suggests that these changes compensate in such a way that $E_{\mathrm{cell}}\tau_{\mathrm{cell}}$ remains nearly constant across a family of grains that describe the same physical situation at different resolutions.
+
+\subsection{Definition and role of \texorpdfstring{$\hbar_{\mathrm{eff}}$}{hbar\_eff}}
+
+The effective Planck constant in this model is identified with the approximate invariant action per cycle of the dominant internal mode of a grain,
+\begin{equation}
+  \hbar_{\mathrm{eff}} \simeq E_{\mathrm{cell}}\,\tau_{\mathrm{cell}}.
+\end{equation}
+This is not a fundamental input but an emergent quantity that characterises how energy and time trade off under changes of coarse-graining. Different choices of coarse-graining and observation window lead to different numerical values of $E_{\mathrm{cell}}$ and $\tau_{\mathrm{cell}}$, but within an appropriate regime their product remains approximately unchanged. In local units adapted to a given coarse-graining window, one can treat $\hbar_{\mathrm{eff}}$ as effectively constant.
+
+This viewpoint also clarifies why there is no fully scale-independent, observer-free description in the emergent continuum. All coarse-grained quantities, including $E_{\mathrm{cell}}$ and $\tau_{\mathrm{cell}}$, depend on the chosen resolution. What survives across admissible changes of resolution are invariants such as the action per cycle and the spectra of dimensionless ratios. The identification of $\hbar_{\mathrm{eff}}$ with $E_{\mathrm{cell}}\tau_{\mathrm{cell}}$ isolates precisely this type of invariant and provides a bridge between the microscopic real-field dynamics on the clique and the familiar quantum scale that appears in the effective continuum theory.
+
+\end{document}
+
+

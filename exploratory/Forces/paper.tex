@@ -1,0 +1,719 @@
+% !TeX program = pdflatex
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+\title{Forces from Kink Sheets and Internal Rotors\\Electromagnetism and Gauge Structure in the Soliton--Noise Framework}
+\author{Franz Wollang}
+\date{\small Dated: YYYY-MM-DD}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We derive the U(1), SU(2), and SU(3) gauge sectors as emergent structures within the soliton--noise framework. First, we model U(1) electromagnetism by identifying phase kink sheets as its fundamental carriers; from their tension, flux conservation, and Lorentz covariance, we recover electrostatics, magnetostatics, and radiation at the universal signal speed $c_s$. We then generalize by coupling internal phase rotors within a coarse--grain to produce the SU(2) and SU(3) symmetries. This supports key phenomenology, including an effective Fermi constant for weak interactions, linear confinement for the strong force, and flavour oscillations as SU(2)/SU(3) precession in the noise bath. The paper provides a minimal, self--contained map from the framework's core ingredients to the observed gauge structure, with technical derivations and open problems deferred to the appendices and future work.
+\end{abstract}
+
+\section{Introduction and Scope}
+Gauge symmetries organize the forces of nature, yet their physical origin and hierarchy are not usually derived from simpler first principles. This paper gives a unified account of U(1), SU(2), and SU(3) as emergent features of the soliton--noise framework, using the same underlying ingredients: a single complex state, a dynamic noise background, and volume--normalized interactions.
+
+Our route is constructive:
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{U(1) from kink sheets.} Topological defects in the phase---kink sheets---act as U(1) carriers. Their tension and flux conservation yield an effective electric field with a $1/r$ potential; Lorentz covariance then generates magnetism and radiation propagating at the universal speed $c_s$.
+  \item \textbf{SU(2) and SU(3) from internal rotors.} Coupling multiple internal phase rotors inside a coarse--grain enlarges symmetry from U(1) to SU(2) and SU(3), furnishing the weak and strong sectors without postulating separate fundamental substrates for each.
+  \item \textbf{Core phenomenology.} An effective Fermi constant arises from SU(2) rotor exchange; SU(3) flux tubes produce a linear confinement potential; neutrino flavour oscillations follow as SU(2)/SU(3) orientation precession in the noise bath.
+\end{enumerate}
+
+The aim is a clear bridge from the framework's primitives to standard gauge phenomenology. Technical details are placed in the appendices; well--posed open problems are marked for future work.
+
+\subsection*{Notation and cross-paper consistency}
+We use $c_s$ for the universal signal speed (phase waves); any bare $c$ should be read as $c_s$. The noise field is $\rho_N$ in cosmology; here we use a local proxy $\tau(x)$ with calibration $\tau^2\propto \rho_N$ and, in the Newtonian window, $\tau^2\propto \Phi$. Amplitude--sector coefficients $(\alpha_{\rm grad},\beta_{\rm pot})$ are distinct from dimensional--bias $(\alpha_{\rm dim},\beta_{\rm dim})$.
+
+\paragraph*{Scope (chirality).} We make only minimal assumptions about intrinsic chirality: at most, tiny, dimensionless \emph{pseudoscalar} condensates $\theta(x)$ (``$\theta$-like'' parameters) may appear in the effective theory through CP-odd topological densities (schematically $\theta\,\mathrm{Tr}(F_{\mu\nu}\tilde F^{\mu\nu})$ in the rotor sector). Being pseudoscalar, $\theta$ does not introduce a preferred direction and is compatible with Lorentz symmetry at leading order; a nearly constant $\theta$ in a given cosmological patch can be understood as the outcome of an early-domain selection process. In this language, chirality acts as an effective \emph{helicity preference} for topological sectors rather than a preferred-frame ``wind.'' We do not specify its dynamics here; detailed mechanisms and phenomenology are deferred to future work.
+
+\section{U(1) Carriers: Phase Defects and Flux Lines}
+The massless (phase) sector, where the amplitude is clamped near its vacuum value ($w\approx w_*$), supports stable topological defects that mediate interactions. While the fundamental symmetry is U(1)---the symmetry of a phase defined on a 1D line---in 3D space these defects manifest as \emph{flux lines} (vortex filaments) where the phase winds by $2\pi$. The \emph{kink sheets} discussed below can be understood as the coherent wavefronts or branch cuts associated with bundles of these fundamental lines.
+
+\subsection{Definition and Energetics}
+Let $\Psi= w\,e^{i\phi}$ with $w\approx w_*$ outside amplitude cores. A fundamental U(1) carrier is a vortex line: a codimension--2 defect around which $\phi$ winds by $2\pi$. In the continuum phase action,
+\begin{equation}
+  S_\phi = \frac{\kappa w_*^2}{2}\int g^{\mu\nu}\,\partial_\mu\phi\,\partial_\nu\phi\,\sqrt{|g|}\,d^4x,
+\end{equation}
+gradients concentrate near the core. A dense bundle of such lines can form a \emph{kink sheet} (codimension--1) across which the phase jumps effectively. This collective structure carries a finite surface tension $\sigma \sim 4 w_*\sqrt{\beta_{\rm pot}\,\kappa}$ (Appendix~\ref{app:sheet}).
+\noindent\emph{Framework link:} $\kappa,\beta_{\rm pot},w_*$ descend from the volume--normalized free energy; $w_*$ co--varies with the noise via $\tau^2\propto\rho_N$.
+
+\subsection{Topological Conservation and Flux}
+The integer winding defines a conserved topological charge. Vortex lines must either form closed loops or terminate on amplitude solitons (charges), making the latter sources/sinks for flux. The net number of lines (or sheet flux) linked to a source is an integer--quantized charge. This is the geometric origin of a Gauss--like law.
+\noindent\emph{Framework link:} Sheet endpoints coincide with amplitude cores stabilized by on--site stiffness $\gamma$ (from volume--normalized cohesion). The topology is inherited from the emergent complex phase manifold.
+
+\section{Electrostatics from Coarse--Grained Sheet Dynamics}
+\subsection{Field identification}
+At scales much larger than the typical spacing between sheets, a discrete bundle is unresolvable. One perceives a continuous vector field---the electric field $\mathbf E$---that encodes the average properties of the bundle:
+\begin{itemize}[leftmargin=*]
+  \item direction: average sheet normal,
+  \item magnitude: local sheet areal density.
+\end{itemize}
+This coarse--grained field is irrotational for a random parallel sheet bundle and reduces to $\mathbf E = -\nabla\Phi$ in electrostatics.
+\noindent A microscopic proxy before coarse--graining is
+\begin{equation}
+  \mathbf E \;:=\; E_0\,\sum_k n_k\,\bm{\hat n}_k\,\delta_\perp(\Sigma_k)\quad\longrightarrow\quad \mathbf E = -\nabla\Phi\,.
+\end{equation}
+Here $\Sigma_k$ are kink sheets with unit normals $\bm{\hat n}_k$, integers $n_k$, and $E_0$ a stiffness--set scale.
+
+\subsection{Gauss law and the $1/r$ potential (sketch)}
+Flux conservation and the fact that sheets begin/end on charges imply a Gauss law. Counting net sheet crossings through a closed surface $\mathcal S$ yields
+\begin{equation}
+  \oint_{\mathcal S} \mathbf E\cdot d\mathbf S \;=\; \frac{Q_{\rm topo}}{\varepsilon_0^{\rm eff}},\qquad Q_{\rm topo} := E_0\sum_{\text{crossings}} n_k,
+\end{equation}
+which implies $\nabla\cdot\mathbf E = \rho/\varepsilon_0^{\rm eff}$ in the coarse--grained limit. For an isolated isotropic source, flux through spheres is conserved, forcing $|\mathbf E|\propto 1/r^2$ and $\Phi\propto 1/r$. Appendix~\ref{app:maxwell} details the continuum limit and constants.
+\noindent\emph{Framework link:} $\varepsilon_0^{\rm eff},\mu_0^{\rm eff}$ are functions of $(\kappa,w_*,\beta_{\rm pot})$ and the analysis window; sliding–window conformal rescaling keeps $\varepsilon_0^{\rm eff}\mu_0^{\rm eff}=1/c_s^2$ in local units.
+
+\paragraph{Open item.} Provide a rigorous derivation of the coarse--grained constitutive constant $\varepsilon_0^{\rm eff}$ from $(\kappa,w_*,\beta_{\rm pot})$.
+
+\subsection{Aharonov--Bohm phase (anchor)}
+A phase kink sheet linking a closed particle path $\mathcal C$ induces a holonomy
+\begin{equation}
+  \Delta\varphi_{\rm AB} \;=\; \oint_{\mathcal C} \mathbf A\cdot d\mathbf x \;=\; \int_{\mathcal S} (\nabla\times\mathbf A)\cdot d\mathbf S \;=\; \frac{q}{\hbar_{\rm eff}}\,\Phi_B,
+\end{equation}
+with $\Phi_B$ the effective flux threading the surface $\mathcal S$. In the sheet picture, $\Phi_B$ counts net sheet linking (weighted by tension/scale), giving the standard AB phase after constants are fixed in Appendix~\ref{app:maxwell}.
+\noindent\emph{Framework link:} The holonomy is the geometric phase of the emergent complex state (analytic signal) on the coarse–grained infinite–clique; the connection is induced by the phase kernel.
+
+\subsection{Radiation fields and Poynting}
+Time--varying sheet configurations generate transverse waves at speed $c_s$. The stress--energy of the phase sector maps to the electromagnetic energy density and Poynting vector; see Appendix~\ref{app:maxwell} for the explicit identification.
+\noindent\emph{Framework link:} Radiation follows the universal phase cone $c_s$; in inhomogeneous $\rho_N$ backgrounds, coordinate fields bend by index while local energetics are conformally invariant.
+
+\subsection{Minimal coupling and charge quantization}
+Promoting spatial gradients to covariant derivatives with the effective U(1) connection couples matter solitons to $\mathbf A$. Integer winding of the phase around clamped--amplitude cores yields quantized charge (Appendix~\ref{app:noether}).
+
+\section{Magnetism and Radiation from Relativistic Covariance}
+With electrostatics established as a coarse--grained effect of static kink sheets, magnetism and radiation follow from the Lorentz covariance of the phase action $S_\phi$.
+
+\subsection{The Magnetic Field from Boosted Sheets}
+A moving charge is equivalent to a boosted static sheet bundle. A Lorentz boost of a purely electric field in the charge's rest frame yields a transverse component recognized as the magnetic field $\mathbf B$. Coarse--grained fields $(\mathbf E,\mathbf B)$ assemble into the antisymmetric tensor $F_{\mu\nu}$; their transformation properties are fixed by the same universal causal structure with speed $c_s$.
+
+\subsection{Maxwell's Equations}
+The relativistic completion of Gauss's law is the full set of Maxwell equations in any local inertial chart:
+\begin{align}
+  \nabla\cdot\mathbf E &= \rho/\varepsilon_0^{\rm eff}, & \nabla\times\mathbf B - \frac{1}{c_s^2}\,\partial_t \mathbf E &= \mu_0^{\rm eff}\,\mathbf J,\\
+  \nabla\cdot\mathbf B &= 0, & \nabla\times\mathbf E + \partial_t \mathbf B &= 0,
+\end{align}
+with $\varepsilon_0^{\rm eff}\mu_0^{\rm eff} = 1/c_s^2$. Time--varying sheet configurations source transverse waves at $c_s$ (radiation). Appendix~\ref{app:maxwell} maps phase variables to $(\mathbf E,\mathbf B)$ and the Poynting vector.
+\noindent\emph{Framework link:} The same induced operator (phase--sector Laplace--Beltrami) governs both metric optics and U(1) propagation.
+
+\paragraph{Open items.} (i) Derive $\{\varepsilon_0^{\rm eff},\mu_0^{\rm eff}\}$ from microscopic $\{\kappa,w_*,\beta_{\rm pot}\}$. (ii) Model radiation reaction for accelerating sheet sources and compare with drag laws.
+
+\section{Internal Rotor Ladder: U(1) $\to$ SU(2) $\to$ SU(3)}
+\subsection{Origin of the Rotor: Isotropic Gradient Degeneracy}
+The enlargement of symmetry from U(1) to SU(n) emerges from the geometry of the coarse grain itself. Within any observational window defined by $\hbar_{\mathrm{eff}}$, the internal state of a grain is characterized by its fluctuations.
+
+\paragraph{The Gradient Modes ($n=d$).}
+The lowest-energy excitations of the phase field within a grain are the linear gradients. In a $d$-dimensional space, there are exactly $d$ independent gradient directions. For our emergent $d=3$ vacuum, the internal state vector is the complex gradient $\nabla\phi \in \mathbb{C}^3$.
+
+\paragraph{Isotropy enforces degeneracy.}
+Crucially, the statistical isotropy of the emergent vacuum implies that gradients in any spatial direction incur the same energetic cost. Therefore, the three gradient modes ($\partial_x, \partial_y, \partial_z$) are \emph{spectrally degenerate} within the grain. This degeneracy creates a 3-dimensional "soft subspace" protected by the spatial symmetry.
+
+\paragraph{Emergent Gauge Symmetry.}
+The effective physics within the grain is invariant under unitary rotations of this degenerate subspace.
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Volume Symmetry (SU(3)):} In the bulk isotropic vacuum, all 3 gradient modes are available and degenerate. The symmetry group of this $\mathbb{C}^3$ tangent space is SU(3).
+  \item \textbf{Surface Symmetry (SU(2)):} In regions where dynamics are confined to 2D topological structures (e.g., domain walls or surface twists), only 2 gradient modes are active/degenerate, yielding SU(2).
+  \item \textbf{Line Symmetry (U(1)):} Along 1D defects (flux lines), only the longitudinal gradient is relevant, yielding U(1).
+\end{itemize}
+This identifies the gauge groups not as fundamental inputs, but as the stabilizer groups of the geometric sub-manifolds (Volume, Surface, Line) allowed in 3D space.
+
+The gradient energy for these multi-component rotors naturally generalizes to
+\begin{equation}
+  \mathcal F_{\rm grad} = \tfrac12\,\kappa w_*^2\,\sum_a (\nabla\phi^a)^2 + \text{mixing terms},
+\end{equation}
+with a corresponding non--Abelian connection when spatially varying orientations are parallel transported. Appendix~\ref{app:rotor} provides a more detailed geometric view.
+
+\subsection{Gauge potentials as connections (sketch)}
+On slowly varying backgrounds, identify the effective gauge potential with the connection that keeps rotor orientations parallel along paths. Field strengths arise from curvature of this connection, reproducing Yang--Mills structure at leading order.
+
+\subsection{The Geometric Ceiling: Why the ladder stops at SU(3)}
+The "ladder" of symmetries stops at SU(3) because the dimensionality of space limits the number of degenerate gradient modes.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hard Geometric Limit:} There are only 3 independent spatial directions in $d=3$. There is no fourth gradient direction $\partial_w$ to form a degenerate quartet.
+    \item \textbf{Spectral Gap:} The next class of modes in the grain's spectrum corresponds to higher-order shape deformations (quadrupole/$\ell=2$ modes). These involve higher derivatives or curvatures, incurring a significantly larger energy cost ("spectral gap").
+\end{itemize}
+Thus, SU(3) is the maximal gauge group because it saturates the tangent space of the 3D vacuum. Any higher symmetry group would require "accidental" degeneracy between gradient modes and higher-order shape modes, which is energetically forbidden by the gap. The entropic selection of $d=3$ (ICG Paper) therefore dictates the SU(3) ceiling.
+
+\paragraph{Open items.} (i) Derive the effective coupling constants and self--interaction terms from link energetics; focus only on departures from standard Yang--Mills generated by the graph/free--energy foundations. (ii) Quantify the SU(3) ceiling from energy--entropy balance in this context.
+
+\section{The Weak Force from an SU(2) Rotor Sector}
+The single phase degree of freedom that generates U(1) can be enlarged by coupling additional internal phase rotors within a coarse--grain. This yields an internal SU(2) structure without introducing new fundamental substrates.
+
+\subsection{Weak Current and Muon Decay (Anchor)}
+Exchange of SU(2) rotor excitations between lepton currents produces, at low momentum transfer, an effective four--fermion contact term. The muon decay width
+\begin{equation}
+  \Gamma_{\mu} \;\simeq\; \frac{(G_F^{\rm eff})^2\,m_\mu^5}{192\,\pi^3}\,(1+\delta_\mu)
+\end{equation}
+defines $G_F^{\rm eff}$ operationally in this framework (Appendix~\ref{app:ewmix} sketches the mapping from rotor exchange to the contact interaction and radiative corrections $\delta_\mu$).
+\noindent\emph{Framework link:} SU(2) rotors are coupled internal phases within a coarse--grain; $G_F^{\rm eff}$ inherits window dependence from sliding--window renormalization.
+
+\subsection{Electroweak Mixing and Mass Generation}
+Let $B_\mu$ denote the U(1) connection (kink--sheet sector) and $W^a_\mu$ the SU(2) rotor connection. A spontaneous alignment (VEV) in rotor space mixes $B_\mu$ and $W^3_\mu$ to produce the physical photon $A_\mu$ and the $Z_\mu$, with mixing angle $\theta_W$ ($\tan\theta_W = g'/g$). The alignment scale endows the $W$ and $Z$ with mass while leaving the photon massless (Appendix~\ref{app:ewmix}).
+\noindent\emph{Framework link:} This symmetry breaking is the same type that stabilizes $w\neq 0$; weak--boson masses co--vary with $\rho_N$ but ratios (e.g., $M_W/M_Z$) remain invariant in local units.
+
+\subsection{Parity Violation}
+An intrinsic handedness in the SU(2) rotor dynamics yields left--chiral couplings to matter solitons, reproducing parity violation in weak processes (e.g., polarized electron--nucleus scattering).
+\noindent\emph{Scope.} Only the intrinsic SU(2) parity structure is considered here; any additional tiny parity--odd tilts ($\theta$--like) are deferred to future work.
+
+
+\section{Strong Sector: SU(3) Confinement and Hadronic Anchors}
+\subsection{Flux tubes from Phase Mismatch (Mechanism)}
+Standard non-Abelian gauge theory attributes confinement to gluon self-interaction. In this geometric framework, we identify a more direct topological origin: **Phase Mismatch Minimization**.
+\begin{itemize}
+    \item \textbf{Integer Sources (Leptons):} A U(1) source has integer winding $n=1$. The phase field $\phi$ changes by exactly $2\pi$ around any loop. Since $0 \equiv 2\pi$, there is no discontinuity. The flux can spread isotropically, resulting in a $1/r$ Coulomb potential.
+    \item \textbf{Fractional Sources (Quarks):} An SU(3) source carries fractional winding (e.g., $1/3$). The phase changes by $2\pi/3$ around a loop. Since $0 \neq 2\pi/3$, isotropic spreading is impossible; it would create a 2D "discontinuity sheet" extending to infinity with infinite energy.
+    \item \textbf{Tube Formation:} To minimize free energy, the vacuum compresses this phase mismatch into the smallest possible volume—a narrow flux tube connecting the source to a sink (anti-quark) or completing a circuit (baryon).
+\end{itemize}
+The "linear potential" $V(r) \sim \sigma r$ is simply the tension of this phase-mismatch tube.
+
+\subsection{Flux tubes and linear potential (anchor)}
+Non--Abelian self--interaction restricts the flux to these tubes. The static $q\bar q$ potential obeys $V(r)\simeq \sigma_{\rm string}\,r$ at large $r$, with $\sigma_{\rm string}$ set by sheet tension (Appendix~\ref{app:wilson}).
+\noindent\emph{Framework link:} Vacuum self–organization to small–integer valence (from the infinite–clique functional) supports flux–tube formation; $\sigma_{\rm string}$ is a functional of $(\kappa,\beta_{\rm pot},w_*)$ and connectivity.
+
+\subsection{Example hadronic width (anchor)}
+Using a simple overlap model, the $\rho\to\pi\pi$ width scales as $\Gamma\sim 2\pi\,C_{\rm had}^2\,F_{\rm overlap}^2(\sigma,\lambda)\,\rho_{\rm had}$. This connects to the calibration protocol in the Standard Model Cover note; we reference constants there and defer details.
+\noindent\emph{Framework link:} Overlap factors reflect rotor–sheet geometry inside coarse–grains; scales trace back to $\gamma,\eta_0,\kappa$ via volume–normalized couplings.
+
+\section{Flavour Oscillations as SU(2)/SU(3) Precession}
+\subsection{Orientation dynamics}
+Phase--only solitons (neutrino--like) carry an internal orientation in SU(2)/SU(3). In a homogeneous bath they precess with frequencies set by tiny dressing splittings (from coupling to the medium). Matter effects (noise density gradients) shift precession (MSW--like). Appendix~\ref{app:osc} summarizes the mapping and observable phases.
+
+\paragraph{Open items.} (i) Compute medium--dependent dispersion for phase sheets in SU(2)/SU(3). (ii) Connect to PMNS parameters and oscillation baselines.
+
+\subsection{Two--flavour oscillations (anchor)}
+Oscillations arise as SU(2)/SU(3) orientation precession of phase--only solitons. In vacuum they exhibit standard two--flavour behaviour; in matter/noise the mixing parameters are shifted (MSW--like). We defer explicit formulae and focus on the framework link: the effective matter potential is a function of $\rho_N$ (or $\tau$), while local phases are conformally normalized so that oscillation observables are invariant in local units (Appendix~\ref{app:osc}).
+
+\section{Coupling to Matter Solitons, Currents, and Charge}
+\subsection{Minimal coupling (sketch)}
+Localized amplitude+phase solitons couple to the U(1) sector via a conserved topological current. Minimal coupling emerges by promoting gradients to covariant derivatives with the effective connection.
+\noindent\emph{Framework link:} The current is the Noether current of the coarse–grained free energy's U(1) invariance; charge units come from integer windings permitted by finite $\gamma$.
+
+\subsection{Noether current and quantization (anchor)}
+From the free energy, the U(1) phase invariance yields a conserved current $J^\mu$. Integer winding around amplitude--clamped cores implies quantized charge units. Appendix~\ref{app:noether} provides the derivation.
+
+\section{The Amplitude Sector: Higgs as a Radial Mode}
+The framework identifies the "Higgs field" not as a separate fundamental scalar, but as the radial amplitude mode of the order parameter itself.
+\begin{itemize}
+    \item \textbf{The Field:} The complex order parameter is $\Psi(x) = w(x) e^{i\phi(x)}$. The amplitude $w(x)$ fluctuates around the vacuum VEV $w_* = \sqrt{\beta_{\rm pot}/(2\gamma)}$. We identify the fluctuation $h(x) = w(x) - w_*$ as the physical Higgs boson.
+    \item \textbf{The Mass:} Expanding the potential $V(w)$ around the minimum yields $V(w) \approx V(w_*) + \frac{1}{2} m_h^2 h^2$ with $m_h^2 = 4\beta_{\rm pot}$. The Higgs mass is thus the curvature of the "Mexican Hat" potential in the radial direction.
+    \item \textbf{Couplings:} Matter particles (solitons) are regions where the amplitude deviates from $w_*$ (the core). The mass of a particle is largely the energy cost of this deviation: $m_f \sim \int V(w) dV$. This naturally creates a coupling between the particle's mass and the amplitude fluctuation $h(x)$, recovering the Standard Model relation $g_{ffh} \propto m_f$.
+\end{itemize}
+
+\section{Parameter Map and Running (Skeleton)}
+\begin{itemize}[leftmargin=*]
+  \item EM: $\{\kappa,w_*,\beta_{\rm pot}\}\to\{\varepsilon_0^{\rm eff},\mu_0^{\rm eff}\}$ with $\varepsilon_0^{\rm eff}\mu_0^{\rm eff}=1/c_s^2$.
+  \item Weak: rotor exchange scale $\to G_F^{\rm eff}$; mixing angle $\theta_W$ free at this stage.
+  \item Strong: sheet tension $\to \sigma_{\rm string}$; overlap constants $\to$ hadronic widths.
+  \item Window running: qualitative $\beta$--functions (U(1) screening; SU(2)/SU(3) antiscreening).
+\end{itemize}
+\noindent\emph{Framework link:} All effective couplings are window–dependent but arranged so that local invariants (e.g. $c_s$, mass ratios, quantized charges) are stable; dependence on $\rho_N$ enters via $\tau^2\propto\rho_N$.
+
+\section{Anomalies and Consistency (Checklist)}
+\begin{itemize}[leftmargin=*]
+  \item Verify anomaly cancellation for implied charge assignments: U(1)$^3$, SU(2)$^2$U(1), SU(3)$^2$U(1).
+  \item Check custodial symmetry/\,$\rho\approx 1$ in the EW skeleton.
+  \item Ensure confinement/coherence assumptions align with observed hadron spectrum scales.
+\end{itemize}
+\noindent\emph{Framework link:} Charge assignments emerge from rotor content per coarse–grain; anomaly cancellation constrains how rotors embed in the infinite–clique coarse–grain.
+
+\section{Phenomenology Targets}
+\begin{itemize}[leftmargin=*]
+  \item EM: Coulomb law precision, AB phase; bounds on drift of $\varepsilon_0^{\rm eff},\mu_0^{\rm eff}$.
+  \item Weak: $\tau_\mu$ (sets $G_F^{\rm eff}$), basic CC/NC rates, parity asymmetry.
+  \item Strong: string tension vs lattice; exemplar widths ($\rho\to\pi\pi$, etc.).
+  \item Oscillations: vacuum vs matter baselines; environment dependence via $\rho_N$.
+\end{itemize}
+\noindent\emph{Framework link:} Prioritize tests that can reveal departures from textbook expectations induced by the graph/free--energy foundations (e.g., small constitutive drifts, finite--size rotor effects). Analogue platforms (photonic/BEC media) can realize kink sheets and rotor couplings with tunable $(\kappa,\beta_{\rm pot})$.
+
+\paragraph{Open items.} (i) Derive the conserved current from the free energy and highlight any nonstandard corrections relative to textbook Noether constructions. (ii) Show integer charge from homotopy of the phase manifold with amplitude clamping.
+
+\section{Open Problems}
+\begin{itemize}[leftmargin=*]
+  \item Rigorous derivation of Maxwell equations from kink--sheet calculus with full constants, emphasizing any departures from the standard constitutive picture.
+  \item Non--Abelian self--interactions from rotor mixing at finite amplitude fluctuations.
+  \item Running of effective couplings under window changes; unification with gravitational sector parameters.
+  \item Anomalies, confinement in SU(3), and relation to hadronic phenomenology.
+\end{itemize}
+
+\section{Path to Rigorous Formalization: Spacetime Algebra}
+While this paper derives gauge symmetries from "soft degenerate subspaces" and "isotropic gradients," a more rigorous mathematical formalization is possible using **Spacetime Algebra (STA)**. This section outlines the roadmap for upgrading the framework's internal rotors into native geometric objects of the vacuum algebra ($Cl_{1,3}$).
+
+\subsection{Spinors as Vacuum Geometry}
+In standard QFT, spinors are introduced as objects transforming under the double cover of the Lorentz group. In STA, "spinors" are identified as **even multivectors** (rotors) acting on the spacetime algebra itself.
+\begin{itemize}
+    \item \textbf{The Identification:} A conserved vector current $J = \rho v$ can always be decomposed as $J = \psi \gamma_0 \tilde{\psi}$, where $\psi$ is an even multivector rotor field.
+    \item \textbf{The Result:} This $\psi$ satisfies a Dirac-Hestenes equation $\nabla \psi I \sigma_3 = m \psi \gamma_0$ naturally, where the "mass" $m$ arises from coupling to the amplitude sector and the "spin" $I\sigma_3$ arises from the bivector connection.
+\end{itemize}
+This suggests that the "internal phase rotors" of our framework are not ad-hoc additions but the natural variables for describing conserved currents in a Lorentzian geometry.
+
+\subsection{The "Rule of Three" from Algebra}
+The STA formulation provides a rigorous geometric basis for the "Three Generation" hypothesis. The algebra of 3D space ($Cl_3$) naturally supports exactly three grades of directed objects:
+\begin{enumerate}
+    \item \textbf{Grade 1 (Vector):} Directional (Line-like). Matches Generation 1 (Electron).
+    \item \textbf{Grade 2 (Bivector):} Planar (Surface-like). Matches Generation 2 (Muon).
+    \item \textbf{Grade 3 (Trivector):} Volumetric (Volume-like). Matches Generation 3 (Tau).
+\end{enumerate}
+There is no "Grade 4" directed object in 3D space. Thus, the restriction to three generations is a theorem of the underlying algebra, not just a spectral accident.
+
+\subsection{Future Work}
+The immediate next step is to explicitly derive the effective STA action from the coarse-grained phase kernel, proving that the emergent rotor dynamics exactly match the Dirac-Hestenes equation in the continuum limit.
+
+\section{Critiques and Limitations}
+
+While this draft presents a novel approach to emergent gauge forces, several critiques and limitations should be acknowledged:
+
+- \textbf{Sketch-to-derivation gaps:} Several links are now explicit (Maxwell from sheets; non-Abelian connection from inter-grain alignment; see SI), but the remaining ``micro-to-macro'' work is still quantitative: deriving the constitutive constants $\varepsilon_0^{\rm eff},\mu_0^{\rm eff}$ (including order-one factors) from $(\kappa,w_*,\beta_{\rm pot})$, and deriving effective couplings/self-interactions $g_{\rm eff}$ from link energetics beyond leading symmetry arguments.
+
+- \textbf{Lack of Quantitative Predictions:} The framework identifies scaling relations but lacks specific numerical predictions or comparisons to data (e.g., for string tension or Fermi constant). Simulations are needed to calibrate parameters and gauge plausibility (e.g., does $\sigma_{\rm string}\sim w_*\,\sqrt{\kappa\,\beta_{\rm pot}}$ land near QCD scales?).
+
+- \textbf{Assumptions on Degeneracy:} The rotor ladder previously assumed spectral degeneracy within windows; the new geometric derivation (Sec 4) is stronger, relying on 3D isotropy, but the mechanism for restricting to lower groups (Line/Surface) needs rigorous topological grounding.
+
+- \textbf{Integration with Gravity:} While the ICG manuscript provides the core universality lemma (matter--kernel coupling), the detailed mapping from gauge-sector stress to the noise proxy $\tau^2$ and to post-Newtonian corrections is underexplored here, especially for strongly bound systems (e.g., how confinement energy contributes to $\rho_m$ in the relevant window).
+
+- \textbf{Chirality and anomalies:} Intrinsic chirality is intentionally scoped (Sec.~1), and the left-handed structure of SU(2) couplings is not derived from the graph yet. Separately, anomaly freedom is treated as a consistency constraint (Sec.~8; SI discussion), but a full chiral effective-field mapping and explicit anomaly analysis remain open.
+
+These limitations highlight areas for refinement, positioning this as an exploratory framework.
+
+\section{Unification Teaser: Gauge Sourcing of Gravity}
+
+The gravitational interaction in this framework depends only on the coarse-grained noise statistic $\tau^2 \propto \rho_N$, which measures the local fluctuation power sourced by all forms of energy density. Gauge-like interactions (U(1) sheets, SU(2)/SU(3) rotors) generate this ``noise'' through their stress-energy contributions. Crucially, in a thermalized network, the Fluctuation-Dissipation theorem implies that the local noise power is directly proportional to the local energy density, regardless of whether that energy is stored in phase gradients (electromagnetism), amplitude compression (mass), or geometric twist.
+
+Because $\tau^2$ is an additive, positive-definite measure that integrates this power over the window, any internal asymmetries of the source are "washed away" in the coarse-graining. The net contribution to $\tau^2$ becomes proportional simply to the total energy density. This naturally enforces the Equivalence Principle: a proton (active geometric resistor) and an electron (passive phase defect) source gravity solely in proportion to their total energy, preserving the universality of free fall without requiring fine-tuned couplings.
+\noindent\emph{Framework link:} This universality is formalized in the Infinite--Clique Graph Supplementary Information as the \emph{Matter--Kernel Coupling Lemma} (ICG SI, Sec.~S10), which shows $\delta K\propto\rho_m$ to leading order on near-regular patches independent of microscopic composition.
+
+\appendix
+
+\section{Kink Sheet Solutions and Tension}\label{app:sheet}
+We derive the surface tension and thickness of a planar kink sheet (phase domain wall) in the massless sector. The coarse--grained free--energy density for the amplitude $w$ and phase $\phi$ is
+\begin{equation}
+  \mathcal F[w,\phi] \,=\, \underbrace{\alpha_{\rm grad}\,|\nabla w|^2}_{\text{amplitude stiffness}}\; +\; \underbrace{\tfrac{\kappa}{2}\,w^2\,|\nabla\phi|^2}_{\text{phase stiffness}}\; +\; \underbrace{V(w)}_{\text{Mexican hat}},\qquad V(w) = -\beta_{\rm pot}\,w^2 + \gamma\,w^4 + \text{const},
+\end{equation}
+with a vacuum at $w_*=\sqrt{\beta_{\rm pot}/(2\gamma)}$. Consider a planar sheet normal to $z$, with boundary conditions $\phi(-\infty)=0$, $\phi(+\infty)=2\pi$, and $w(\pm\infty)=w_*$. The sheet energy per unit area (tension) is $\sigma = \int_{-\infty}^{+\infty} \mathcal F\,dz$ minimized over profiles.
+
+\subsection*{Variational ansatz and scaling}
+Exact Euler--Lagrange solutions can be constructed numerically. For analytic scaling, choose smooth profiles that concentrate the phase change in a thickness $\lambda$ while allowing a small amplitude dip to lower the phase--gradient cost:
+\begin{align}
+  &\phi(z) = \pi\,\big(1+\tanh(z/\lambda)\big)\quad \Rightarrow \quad \phi'(z) = \frac{\pi}{\lambda}\,\text{sech}^2(z/\lambda),\\
+  &w(z) = w_*\,\sqrt{1 - a\,\text{sech}^2(z/\lambda)}\quad (0\le a<1)\,.
+\end{align}
+To leading order in the small dip parameter $a$, the sheet tension decomposes into three contributions:
+\begin{equation}
+  \sigma(\lambda,a) \;\approx\; \underbrace{\alpha_{\rm grad}\int (w')^2 dz}_{\sigma_{\rm amp}}\; +\; \underbrace{\tfrac{\kappa}{2}\int w^2\,(\phi')^2 dz}_{\sigma_{\rm phase}}\; +\; \underbrace{\int \big(V(w)-V(w_*)\big) dz}_{\sigma_{\rm pot}}\,.
+\end{equation}
+Evaluating with the ansatz (standard integrals of $\text{sech}^2$ and $\text{sech}^4$) yields
+\begin{align}
+  &\sigma_{\rm phase} \sim \frac{\kappa w_*^2}{2}\,\frac{\pi^2}{\lambda}\,\Big(1 - c_1 a\Big),\qquad
+  \sigma_{\rm amp} \sim c_2\,\alpha_{\rm grad}\,\frac{w_*^2 a^2}{\lambda},\qquad
+  \sigma_{\rm pot} \sim c_3\,\beta_{\rm pot}\,w_*^2\,a\,\lambda\,.
+\end{align}
+Here $c_{1,2,3}$ are positive numbers of order unity set by the chosen profile. Minimizing first with respect to the dip $a$ gives $a_* \propto (\kappa/\beta_{\rm pot})\,\pi^2/\lambda^2$ (small for thick walls), and then minimizing with respect to $\lambda$ yields the characteristic thickness and tension scalings
+\begin{equation}
+  \lambda_* \;\sim\; \frac{1}{w_*}\,\sqrt{\frac{\kappa}{\beta_{\rm pot}}}\,,\qquad
+  \sigma_* \;\sim\; c_{\rm sheet}\,w_*\,\sqrt{\kappa\,\beta_{\rm pot}}\,.
+\end{equation}
+An explicit Euler--Lagrange solution fixes the numerical prefactor; within this framework the constant is $c_{\rm sheet}\approx 4$ (quoted in the main text). The key point is that $\sigma$ and $\lambda$ are fully determined by the same parameters that set the massless dispersion and amplitude curvature.
+
+\subsection*{Remarks}
+\begin{itemize}[leftmargin=*]
+  \item The thickness $\lambda_*$ is the phase--sector coherence length; it controls the sheet's internal structure and the scale at which coarse--grained electromagnetism emerges.
+  \item Corrections from profile choice modify only $\mathcal O(1)$ constants. The $w_*$, $\kappa$, $\beta_{\rm pot}$ scalings are robust.
+  \item In inhomogeneous backgrounds (slowly varying $\rho_N$), $\kappa$, $\beta_{\rm pot}$, and $w_*$ co--vary conformally; $\sigma$ and $\lambda$ remain constant in local units.
+\end{itemize}
+
+\section{From Sheets to Maxwell}\label{app:maxwell}
+We outline how a microscopic bundle of kink sheets induces the macroscopic fields $(\mathbf E,\mathbf B)$ and the Maxwell system.
+
+\subsection*{Microscopic sheet measure and coarse--graining}
+Let a discrete set of kink sheets $\{\Sigma_k\}$ carry integer windings $n_k$ and local unit normals $\bm{\hat n}_k$. At scales $\ell \gg$ (mean inter--sheet spacing) define the coarse--grained electric field by
+\begin{equation}
+  \mathbf E(\mathbf x,t) \;=\; E_0\, \Big\langle \sum_k n_k\, \bm{\hat n}_k\,\delta_\perp(\Sigma_k) \Big\rangle_{\ell}\,.
+\end{equation}
+Equivalently, introduce a sheet areal density $\rho_s(\mathbf x,t)$ and averaged normal $\bm{\nu}(\mathbf x,t)$ so $\mathbf E = E_0\,\rho_s\,\bm{\nu}$. The coarse--grained magnetic field is obtained from the sheet motion (see below) and the Lorentz structure.
+
+\subsection*{Gauss law from sheet conservation}
+Sheets may start/end only on amplitude cores. Let $N_{\mathcal S}$ be the net count of sheets crossing a closed surface $\mathcal S$ (outward normal). Conservation of the integer linking number implies
+\begin{equation}
+  \oint_{\mathcal S} \mathbf E\cdot d\mathbf S \;=\; \frac{Q_{\rm topo}}{\varepsilon_0^{\rm eff}},\qquad Q_{\rm topo} := E_0\,N_{\mathcal S}\,.
+\end{equation}
+Since $N_{\mathcal S}$ equals the enclosed source count, writing $\rho$ for the coarse--grained source density gives the differential form
+\begin{equation}
+  \nabla\cdot\mathbf E \;=\; \rho/\varepsilon_0^{\rm eff}\,.
+\end{equation}
+
+\subsection*{Faraday law from moving sheets}
+Consider a loop $\mathcal C$ bounding a surface $\mathcal S$. The rate of change of the net number of sheets piercing $\mathcal S$ equals the negative of the circulation of the electric field around $\mathcal C$. This yields
+\begin{equation}
+  \nabla\times\mathbf E \;=\; -\,\partial_t \mathbf B\,.
+\end{equation}
+Here $\mathbf B$ measures the coarse--grained sheet ``flow'' (normal transport) orthogonal to $\mathbf E$; its precise normalization is fixed by Lorentz covariance below.
+
+\subsection*{Amp\`ere--Maxwell and constitutive relation}
+Lorentz covariance of the phase action $S_\phi$ requires that $(\mathbf E,\mathbf B)$ assemble into an antisymmetric tensor $F_{\mu\nu}$ with propagation speed $c_s$, implying the Amp\`ere--Maxwell law
+\begin{equation}
+  \nabla\times\mathbf B \;=\; \mu_0^{\rm eff}\,\mathbf J \,+\, \frac{1}{c_s^2}\,\partial_t \mathbf E\,.
+\end{equation}
+Together with Gauss and Faraday, this fixes the constitutive relation $\varepsilon_0^{\rm eff}\mu_0^{\rm eff}=1/c_s^2$. A microscopic expression for $\varepsilon_0^{\rm eff}$ and $\mu_0^{\rm eff}$ follows by matching energy densities (next subsection). Up to $\mathcal O(1)$ constants determined by the coarse--graining, one finds
+\begin{equation}
+  \varepsilon_0^{\rm eff} \;\sim\; \frac{\kappa w_*^2}{c_s^2}\,\Xi_E\,,\qquad \mu_0^{\rm eff} \;\sim\; \frac{1}{\kappa w_*^2}\,\Xi_B\,,\qquad \Xi_E\,\Xi_B\,\approx 1\,.
+\end{equation}
+Refining $\Xi_{E,B}$ is a quantitative task for future work.
+
+\subsection*{Energy--momentum and Poynting vector}
+The phase sector stress--energy is
+\begin{equation}
+  T^{\mu\nu}_\phi \;=\; \kappa w_*^2\Big(\partial^\mu\phi\,\partial^\nu\phi - \tfrac12 g^{\mu\nu}\,\partial_\alpha\phi\,\partial^\alpha\phi\Big)\,.
+\end{equation}
+In local inertial coordinates, define the coarse--grained fields by linear functionals of $\partial_t\phi$ and $\nabla\phi$ (consistent with the definitions above). Matching the quadratic form $T^{00}_\phi$ to the electromagnetic energy density yields
+\begin{equation}
+  u \;=\; T^{00}_\phi \;=\; \tfrac12\,\varepsilon_0^{\rm eff}\,|\mathbf E|^2 + \tfrac{1}{2\mu_0^{\rm eff}}\,|\mathbf B|^2\,.
+\end{equation}
+Similarly, the momentum density $\mathbf g = T^{0i}\,\hat{\mathbf e}_i$ becomes the Poynting vector divided by $c_s^2$, giving
+\begin{equation}
+  \mathbf S \;=\; \frac{1}{\mu_0^{\rm eff}}\,\mathbf E\times\mathbf B\,.
+\end{equation}
+This fixes the remaining normalization freedom and is consistent with $\varepsilon_0^{\rm eff}\mu_0^{\rm eff}=1/c_s^2$.
+
+\subsection*{Remarks}
+\begin{itemize}[leftmargin=*]
+  \item The sheet picture provides a geometric origin for Gauss and Faraday laws; Amp\`ere--Maxwell follows from Lorentz covariance of $S_\phi$.
+  \item Constitutive constants inherit their scaling from $(\kappa,w_*,\beta_{\rm pot})$ and the analysis window; local conformal invariance enforces $\varepsilon_0^{\rm eff}\mu_0^{\rm eff}=1/c_s^2$.
+  \item Radiation appears as time--varying sheet configurations; the energy flux is carried by the Poynting vector derived from $T^{\mu\nu}_\phi$.
+\end{itemize}
+
+\section{Rotor Geometry and Connections}\label{app:rotor}
+We formalize how the SU(n) symmetry, emerging from degenerate soft modes within a grain, generates the familiar structure of non--Abelian gauge theory.
+
+\subsection*{Internal rotor manifold and group element}
+As established in Section~4.1, when the $n$ lowest-lying eigenmodes of a grain's phase kernel are degenerate within the observational window, they form an $n$-dimensional soft subspace. The internal state of the grain is described by a fixed-norm vector $\Psi_K \in \mathbb{C}^n$ in this subspace, whose orientation represents the rotor's degree of freedom. This orientation is an element $U(x)$ of the group $G$, where $G=\mathrm{SU}(2)$ for $n=2$ or $G=\mathrm{SU}(3)$ for $n=3$. Amplitude clamping fixes the rotor's norm ($||\Psi_K||=w_*$), so the low--energy dynamics are confined to this compact group manifold.
+
+\subsection*{Connection 1--form and field strength}
+The Maurer--Cartan form on $G$ induces a Lie--algebra valued connection on spacetime. In this framework the natural discrete object is a set of inter--grain link unitaries $U_{ij}\in G$ obtained by minimizing an alignment energy between neighbouring rotor states, $E_{ij}\propto \|\Psi_i-U_{ij}\Psi_j\|^2$ (a unitary Procrustes problem). This produces lattice gauge variables with the standard transformation $U_{ij}\to V_i U_{ij} V_j^{-1}$ under local basis rotations $V_i\in G$, and in the smooth limit $U_{i,i+\mu}\approx e^{-i a A_\mu}$ defines a continuum connection. (A concise derivation and the equivalent eigenbundle/Berry viewpoint are given in the Supplementary Information, Sec.~S2.) We identify the gauge potential (in a local trivialization) via:
+\begin{equation}
+  A_\mu(x) \;=\; -\,i\,U^{-1}(x)\,\partial_\mu U(x)\;\in\;\mathfrak g\,.
+\end{equation}
+The associated curvature (field strength) is the Cartan 2--form
+\begin{equation}
+  F_{\mu\nu} \;=\; \partial_\mu A_\nu - \partial_\nu A_\mu + [A_\mu, A_\nu] \;\in\;\mathfrak g\,.
+\end{equation}
+Under a local change of section $U\to VU$ (with $V: \mathbb R^{1,3}\to G$),
+\begin{equation}
+  A_\mu \;\to\; V A_\mu V^{-1} - i\,(\partial_\mu V) V^{-1},\qquad F_{\mu\nu} \;\to\; V F_{\mu\nu} V^{-1},
+\end{equation}
+which are the standard non--Abelian gauge transformations.
+
+\subsection*{Coarse--grain derivation from rotor gradients}
+Beginning from the multi--rotor gradient energy
+\begin{equation}
+  \mathcal F_{\rm grad} = \tfrac12\,\kappa w_*^2\,\sum_a (\nabla\phi^a)^2 + \text{mixing terms},
+\end{equation}
+one projects the slow variations of the orientation $U(x)$ into the algebra basis $T^A$ via $U^{-1}\partial_\mu U = i A_\mu^A T^A$, thereby identifying the emergent gauge potential $A_\mu^A$. Mixing terms fix the structure constants (commutators $[T^A,T^B]=if^{ABC}T^C$) and stabilize the radius (amplitude clamping), producing the non--Abelian curvature $F_{\mu\nu}^A$ at leading order.
+
+\subsection*{Yang--Mills sector and effective couplings}
+The coarse--grained action acquires a Yang--Mills term
+\begin{equation}
+  S_{\rm YM} \;=\; -\,\frac{1}{2\,g_{\rm eff}^2}\,\int \mathrm d^4x\,\mathrm{Tr}\big(F_{\mu\nu}F^{\mu\nu}\big),
+\end{equation}
+with an effective coupling $g_{\rm eff}$ determined by the rotor stiffness and the analysis window. In the present framework $g_{\rm eff}$ (and higher operators) inherit their running from the sliding--window renormalization; local conformal invariance constrains only dimensionless ratios.
+
+\subsection*{Departures and higher--order terms (scope)}
+Finite window bandwidth and the underlying graph induce mild nonlocality and higher--derivative operators (e.g., $\mathrm{Tr}\,D^2 F\cdot D^2 F$, small form factors), suppressed by the coarse--graining scale. Quantifying these corrections and relating $g_{\rm eff}$ to $(\kappa,\beta_{\rm pot},\gamma,\eta_0)$ are reserved for future work.
+
+\section{Rotor--Bath Coupling and Oscillation Mapping}\label{app:rotor-bath}\label{app:osc}
+\textit{Summary.} We present a micro--model for rotor–bath coupling (derive $V_{\rm eff}(\rho_N)$, dephasing and a Kubo form for $g_{\rm rot}$), then map to flavour evolution: in–medium mixing/phase (MSW–like), adiabaticity, resonance, and damping from fluctuations; detection projects onto flavour after coherent evolution.
+We derive a minimal micro--model for how internal phase rotors couple to the noise bath, yielding (i) a medium potential $V_{\rm eff}(\rho_N)$ that enters oscillation Hamiltonians and (ii) dephasing rates from bath fluctuations.
+
+\subsection*{Primitives and parameter dependence}
+The low--energy rotor sector inherits its stiffness from the phase action with amplitude clamped at $w_*$:
+\begin{equation}
+  \mathcal F_{\rm grad} = \tfrac12\,\kappa\,w_*^2\,\sum_a (\nabla\phi^a)^2\,.
+\end{equation}
+In the framework, the local vacuum parameters co--vary with the noise proxy $\tau$ (or $\rho_N$): $\kappa=\kappa(\rho_N)$, $w_*=w_*(\rho_N)$, while the universal cone speed $c_s^2=\kappa w_*^2$ is constant in local units. Define the logarithmic sensitivities
+\begin{equation}
+  \alpha_\kappa := \frac{\partial\ln \kappa}{\partial\ln \rho_N}\,,\qquad
+  \alpha_w := \frac{\partial\ln w_*}{\partial\ln \rho_N}\,,\qquad
+  \alpha_c := \alpha_\kappa + 2\alpha_w = \frac{\partial\ln(\kappa w_*^2)}{\partial\ln \rho_N}\,.
+\end{equation}
+Local cone invariance implies $\alpha_c\approx 0$; small residuals encode finite--window effects.
+
+\subsection*{Medium potential from rotor dispersions}
+Consider two internal orientations (flavours) labelled 1,2 with a vacuum splitting $\Delta\omega_0$ set by weak rotor anisotropies/mixings. A local change in $\rho_N$ shifts the quadratic form that defines $\Delta\omega$ through $\kappa w_*^2$. To leading order (holding the baseline wavenumber set by the window),
+\begin{equation}
+  \Delta\omega(\rho_N) \;\simeq\; \Delta\omega_0 \,+\, G_{\rm rot}\,\delta\rho_N\,,\qquad 
+  G_{\rm rot} := \frac{\partial \Delta\omega}{\partial \rho_N} \;\approx\; \Delta\omega_0\,\frac{\alpha_c}{\rho_N}\,.
+\end{equation}
+Projecting onto flavour states gives a diagonal medium potential (difference of eigenvalues)
+\begin{equation}
+  V_{\rm eff}(\rho_N) \;=\; \frac{1}{2}\,G_{\rm rot}\,\rho_N \;\approx\; \frac{\alpha_c}{2}\,\Delta\omega_0\,.
+\end{equation}
+Thus, in conformal (local) units the potential is controlled by the small cone--sensitivity $\alpha_c$; exact cone invariance ($\alpha_c=0$) removes leading medium shifts, leaving only higher--order window corrections or explicit flavour--dependent couplings (see below).
+
+\paragraph*{Flavour--dependent couplings (beyond $\alpha_c$).}
+If the two flavour orientations sample the bath differently (e.g., different overlap with kink--sheet geometry inside the coarse--grain), introduce flavour polarizabilities $\chi_f$ so that
+\begin{equation}
+  V_{\rm eff} \;=\; \tfrac12\,(\chi_1-\chi_2)\,\rho_N\,\equiv\, g_{\rm rot}\,\rho_N\,.
+\end{equation}
+Here $g_{\rm rot}$ plays the role of the coupling used in the oscillation appendix; microscopically, $\chi_f$ are derivatives of the rotor energy with respect to $\rho_N$, computable from how $\kappa,\,w_*,\,$and mixing terms renormalise with the window.
+
+\subsection*{Stochastic bath and dephasing}
+Write $\rho_N(t)=\bar\rho_N+\delta\rho_N(t)$ with $\langle\delta\rho_N\rangle=0$ and power spectrum $S_{\rho}(\omega)$. The Hamiltonian noise in the flavour basis is $\delta H(t)= g_{\rm rot}\,\delta\rho_N(t)\,\sigma_3/2$. In the Born--Markov limit, the pure dephasing rate is
+\begin{equation}
+  \Gamma_\varphi \;\simeq\; \frac{g_{\rm rot}^2}{2}\,S_{\rho}(0)\,.
+\end{equation}
+Equivalently, writing the frequency noise as $\delta\omega(t)=g_{\rm rot}\,\delta\rho_N(t)$, the coherence time obeys $1/T_2\simeq \tfrac12 S_{\delta\omega}(0) = \tfrac12 g_{\rm rot}^2 S_{\rho}(0)$ in the Born--Markov, weak--noise limit (up to order--unity line--shape factors in the chosen units).
+
+\subsection*{Kubo response for $g_{\rm rot}$}
+Treat the bath as a Gaussian field that modulates the rotor quadratic form: $\mathcal F_{\rm grad}\to \mathcal F_{\rm grad}+\delta\mathcal F$ with
+\begin{equation}
+  \delta\mathcal F \;=\; \tfrac12\,\delta(\kappa w_*^2)\,\sum_a (\nabla\phi^a)^2\,,\qquad \delta(\kappa w_*^2)= (\alpha_c\,\kappa w_*^2)\,\frac{\delta\rho_N}{\rho_N}\,.
+\end{equation}
+Projecting onto the two--level subspace with form factor $\mathcal M := \langle 1|(\nabla\phi)^2|1\rangle-\langle 2|(\nabla\phi)^2|2\rangle$ gives
+\begin{equation}
+  g_{\rm rot} \;=\; \frac{\alpha_c}{2\,\bar\rho_N}\,(\kappa w_*^2)\,\mathcal M\,.
+\end{equation}
+Since $\kappa w_*^2=c_s^2$ in local units, this reduces to $g_{\rm rot}\approx (\alpha_c c_s^2\,\mathcal M)/(2\bar\rho_N)$. The unknown is the dimensionless matrix element $\mathcal M$, fixed by the internal rotor geometry and window.
+
+\subsection*{MSW--like formulas in this model}
+With a diagonal $V_{\rm eff}=g_{\rm rot}\,\rho_N\,\sigma_3/2$, the instantaneous mixing angle obeys
+\begin{equation}
+  \tan 2\theta_m \;=\; \frac{\Delta\omega_0\sin 2\theta}{\Delta\omega_0\cos 2\theta - g_{\rm rot}\,\rho_N}\,.
+\end{equation}
+Adiabatic evolution requires $\left|\partial_x\theta_m\right|\ll \Delta\omega_m/c_s$, with $\Delta\omega_m$ the medium splitting. The resonance condition is $g_{\rm rot}\,\rho_N=\Delta\omega_0\cos2\theta$.
+
+\subsection*{Window scaling and conformal invariance}
+Under a change of analysis window, $\rho_N$, $\kappa$ and $w_*$ renormalise but $c_s$ and dimensionless observables remain invariant. The combinations $g_{\rm rot}\,L$ and $\Delta\omega\,L$ that enter phases are computed in the same local units, so leading window drifts cancel. Residual dependence enters only through $\alpha_c$ and $\mathcal M$.
+
+\subsection*{Practical estimates}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Medium shift:} $V_{\rm eff} \approx (\chi_1-\chi_2)\,\rho_N/2$ with $\chi_f=\partial E_f/\partial\rho_N$ extracted from small changes of $\kappa, w_*$ in simulations or analogues.
+  \item \textbf{Dephasing:} $\Gamma_\varphi \approx g_{\rm rot}^2 S_{\rho}(0)/2$. The low--frequency bath power $S_{\rho}(0)$ follows from the integrated noise within the window (Unruh + ambient).
+  \item \textbf{Resonance location:} $\rho_N^{\rm res} = \Delta\omega_0\cos2\theta / g_{\rm rot}$; gradients $\nabla\rho_N$ set the adiabaticity.
+\end{itemize}
+
+\paragraph*{Open items.} (i) Compute $\alpha_\kappa,\alpha_w$ from the coarse--grained free energy by explicit differentiation under volume normalisation; (ii) evaluate $\mathcal M$ for concrete rotor textures; (iii) measure $S_{\rho}(\omega)$ in simulations to calibrate $\Gamma_\varphi$.
+
+\subsection*{Effective two--state Hamiltonian (SU(2) skeleton)}
+For two flavours, choose an internal basis where the free (vacuum) Hamiltonian is diagonal: $H_0 = \tfrac12\,\Delta\omega\,\sigma_3$ with splitting $\Delta\omega$ set by rotor dressing. The flavour basis is related to the eigenbasis by a mixing angle $\theta$ (unitary $U(\theta)$). In the flavour basis,
+\begin{equation}
+  i\,\partial_t \Psi_{\rm flav}(t) \;=\; \Big[\, U(\theta)\,H_0\,U^{-1}(\theta) \;+\; V_{\rm eff}(\rho_N)\,\sigma_3\,\Big] \Psi_{\rm flav}(t)\,.
+\end{equation}
+The matter/noise potential $V_{\rm eff}$ shifts the diagonal terms (MSW--like). Evolution over a baseline $L$ is given by the path--ordered exponential of this Hamiltonian.
+
+\subsection*{Mapping $V_{\rm eff}$ to the noise field}
+In this framework, $V_{\rm eff}$ is a function of the local noise proxy and window: $V_{\rm eff}= V_{\rm eff}(\rho_N; \Lambda_{\rm IR/UV})$. To leading order, treat $V_{\rm eff}\propto \rho_N$ (or $\propto \tau^2$), with proportionality fixed by rotor--medium coupling. Slow spatial variation $\nabla\rho_N$ adiabatically modulates $\theta_m(x)$ and $\Delta\omega_m(x)$ (MSW--like).
+
+\subsection*{Conformal normalization}
+Use local units (window–adapted); compute $\Delta\omega\,L$ and $V_{\rm eff}\,L$ in the same units so dimensionless probabilities remain invariant.
+
+\subsection*{Three flavours (SU(3) sketch)}
+Promote the two--state structure to SU(3) using a unitary PMNS--like matrix $U_{\rm PMNS}$ that diagonalizes the vacuum rotor Hamiltonian. The evolution is
+\begin{equation}
+  i\,\partial_t \Psi_{\rm flav} \;=\; \Big[\, U_{\rm PMNS}\,H_0\,U_{\rm PMNS}^{-1} \;+\; V_{\rm eff}(\rho_N)\,\mathrm{diag}(v_e,v_\mu,v_\tau)\,\Big] \Psi_{\rm flav}\,,
+\end{equation}
+with flavour--dependent $v_\alpha$ set by the rotor--medium couplings. Off--diagonal medium terms (if present) capture nontrivial SU(3) structure in the bath; we neglect them at leading order.
+
+\subsection*{Density matrix and decoherence}
+Environmental fluctuations in $\rho_N$ (finite correlation time of the bath) induce dephasing. A Lindblad--type equation for the flavour density matrix $\rho$ captures this:
+\begin{equation}
+  \partial_t \rho \;=\; -\,i\,[H_{\rm eff},\rho] \;+\; \sum_k \Big( L_k\,\rho\,L_k^\dagger - \tfrac12\{L_k^\dagger L_k,\rho\}\Big)\,.
+\end{equation}
+The Lindblad operators $L_k$ summarize small--angle stochastic modulations of $V_{\rm eff}(t)$ sourced by the noise bath. Their strength scales with the variance of $\rho_N$ in the analysis window.
+
+\subsection*{Remarks}
+\begin{itemize}[leftmargin=*]
+  \item The mapping reduces to the standard oscillation formalism when $V_{\rm eff}$ is expressed in terms of familiar matter densities; here it is written directly in terms of $\rho_N$ (or $\tau$) and the window.
+  \item Conformal normalization ensures that phase accumulation and probabilities are computed with co--scaled units, keeping dimensionless observables invariant.
+  \item Explicit forms of $V_{\rm eff}(\rho_N)$ and $L_k$ require a micro--model of rotor--bath coupling and are left to future work.
+\end{itemize}
+
+\subsection*{Notes}
+\begin{itemize}[leftmargin=*]
+  \item Consistent with standard vacuum/MSW/gravitational phase accumulation; here $V_{\rm eff}=g_{\rm rot}\,\rho_N$ with $g_{\rm rot}$ from the rotor–bath micro–model in this appendix.
+  \item Conformal normalization: compute $\Delta\omega\,L$ and $V_{\rm eff}\,L$ in the same local units so dimensionless probabilities are invariant.
+  \item Decoherence from bath fluctuations: $\Gamma_\varphi\simeq \tfrac12 g_{\rm rot}^2 S_{\rho}(0)$. Calibration of $g_{\rm rot}$ and $S_{\rho}(\omega)$ is left to future work.
+\end{itemize}
+
+\section{Electroweak Mixing and Masses}\label{app:ewmix}
+\subsection*{Field content and connections}
+Let $W^a_\mu$ denote the SU(2) rotor connection and $B_\mu$ the U(1) (kink–sheet) connection. For a rotor doublet $\Phi$ with effective U(1) charge $y$ the covariant derivative is
+\begin{equation}
+  D_\mu \Phi = \big(\partial_\mu - i g \, W^a_\mu T^a - i g' \, y \, B_\mu\big)\,\Phi.
+\end{equation}
+The gauge–field kinetics follow from the Yang–Mills terms $-(4 g^2)^{-1}\,\mathrm{Tr}\,F^2[W]$ and $-(4 g'^2)^{-1}\,F^2[B]$ with effective couplings $g, g'$.
+
+\subsection*{Alignment (VEV) and mass matrix}
+Assume a rotor–alignment (Higgs–like) potential $V(\Phi)=\tfrac{\lambda}{4} (\Phi^\dagger\Phi - v^2_\mathrm{eff}/2)^2$ whose minimum picks
+\begin{equation}
+  \langle \Phi \rangle = \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ v_\mathrm{eff} \end{pmatrix}.
+\end{equation}
+The quadratic term from $|D_\mu\langle\Phi\rangle|^2$ produces gauge–boson masses. Writing the charged/neutral combinations
+\begin{equation}
+  W^{\pm}_\mu := \frac{1}{\sqrt{2}}(W^1_\mu \mp i W^2_\mu),\qquad \mathcal W_\mu := \begin{pmatrix} W^3_\mu \\ B_\mu \end{pmatrix},
+\end{equation}
+we obtain
+\begin{equation}
+  M_W = \tfrac12 g \, v_\mathrm{eff},\qquad \mathcal M^2_{\rm neutral} = \frac{v_\mathrm{eff}^2}{4} \begin{pmatrix} g^2 & - g g' \\ - g g' & g'^2 \end{pmatrix}.
+\end{equation}
+
+\subsection*{Mixing angle, mass eigenstates, and relations}
+Diagonalizing the neutral mass matrix with angle
+\begin{equation}
+  \tan\theta_W = g'/g,\qquad \sin\theta_W = \frac{g'}{\sqrt{g^2+g'^2}},\qquad \cos\theta_W = \frac{g}{\sqrt{g^2+g'^2}},
+\end{equation}
+produces the massless photon $A_\mu$ and the massive $Z_\mu$:
+\begin{equation}
+  \begin{pmatrix} A_\mu \\ Z_\mu \end{pmatrix} = \begin{pmatrix} \sin\theta_W & \cos\theta_W \\ \cos\theta_W & -\sin\theta_W \end{pmatrix} \begin{pmatrix} W^3_\mu \\ B_\mu \end{pmatrix},\qquad M_Z = \tfrac12 v_\mathrm{eff}\,\sqrt{g^2+g'^2}.
+\end{equation}
+The tree–level custodial relation is
+\begin{equation}
+  \rho \equiv \frac{M_W^2}{M_Z^2 \cos^2\theta_W} = 1.
+\end{equation}
+
+\subsection*{Low–energy limit and $G_F^{\rm eff}$}
+Integrating out the $W$ at momenta $q^2 \ll M_W^2$ yields the four–current interaction with
+\begin{equation}
+  \frac{G_F^{\rm eff}}{\sqrt{2}} = \frac{g^2}{8 M_W^2} = \frac{1}{2 v_\mathrm{eff}^2}.
+\end{equation}
+This fixes $v_\mathrm{eff}$ once $G_F^{\rm eff}$ is measured.
+
+\subsection*{Framework mapping (effective parameters)}
+Within the soliton–noise framework:
+\begin{itemize}[leftmargin=*]
+  \item $g, g'$ descend from the SU(2) rotor stiffness and the U(1) sheet sector, respectively (Appendices~\ref{app:rotor} and \ref{app:maxwell}). They are effective, window–dependent couplings; local conformal invariance constrains only dimensionless ratios.
+  \item $v_\mathrm{eff}$ is the rotor–alignment scale set by the minimum of $V(\Phi)$, itself inherited from the coarse–grained free energy. In local units, $v_\mathrm{eff}$ is constant; its absolute value runs mildly with the analysis window.
+  \item The relations $M_W=\tfrac12 g v_\mathrm{eff}$, $M_Z=\tfrac12 v_\mathrm{eff}\sqrt{g^2+g'^2}$, $\rho=1$, and $G_F^{\rm eff}/\sqrt{2}=1/(2v_\mathrm{eff}^2)$ hold as identities of the effective theory and therefore provide calibration conditions on $(g,g',v_\mathrm{eff})$ extracted from data.
+\end{itemize}
+
+\subsection*{Notes and open items}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Notes:} (i) Radiative corrections shift $\rho$ and masses in the usual way; (ii) mild window running appears only through higher–order operators.
+  \item \textbf{Open:} derive $(g,g',v_\mathrm{eff})$ from the rotor/sheet micro–energetics; quantify window dependence and small departures from custodial symmetry.
+\end{itemize}
+
+\section{Wilson Loop and Area Law}\label{app:wilson}
+\subsection*{Definition and static potential}
+For a gauge connection $A_\mu = A_\mu^A T^A$ (non–Abelian in SU(3) or Abelian for U(1)), the Wilson loop over a closed contour $\mathcal C$ is
+\begin{equation}
+  W[\mathcal C] \;=\; \frac{1}{d_R}\,\mathrm{Tr}_R\,\mathcal P\exp\Big(i\oint_{\mathcal C} A_\mu\,dx^\mu\Big),
+\end{equation}
+with $R$ the representation (dimension $d_R$) and $\mathcal P$ denoting path ordering. For a rectangular loop of spatial size $r$ and Euclidean time extent $T$, the static potential between a test source and sink in $R$ is
+\begin{equation}
+  V_R(r) \;=\; -\lim_{T\to\infty}\,\frac{1}{T}\,\ln\,\langle W_R(r\times T)\rangle.
+\end{equation}
+An \emph{area law}
+\begin{equation}
+  \big\langle W_R(r\times T)\big\rangle\;\sim\; \exp\big(-\sigma_R\,r\,T\big)\qquad (T\gg r)
+\end{equation}
+therefore implies a linear potential $V_R(r)=\sigma_R\,r$ (confinement), up to subleading perimeter and fluctuation terms.
+
+\subsection*{Flux tubes from kink–sheet energetics}
+In the soliton–noise framework, non–Abelian self–interaction bundles phase sheets into narrow flux tubes in the SU(3) sector (Section~\ref{app:rotor}). The minimal worldsheet connecting the static sources has action
+\begin{equation}
+  S_{\rm str}[\Sigma] \;=\; \sigma_{\rm string}\,\mathcal A[\Sigma] \; + \; S_{\rm fluc}[\Sigma],
+\end{equation}
+with $\mathcal A[\Sigma]$ the area of the worldsheet spanned by the loop and $S_{\rm fluc}$ the (small) quadratic fluctuations. The sheet tension that underpins the tube obeys (Appendix~\ref{app:sheet})
+\begin{equation}
+  \sigma_{\rm sheet} \;\sim\; c_{\rm sheet}\,w_*\,\sqrt{\kappa\,\beta_{\rm pot}},\qquad c_{\rm sheet}\approx 4.
+\end{equation}
+Dimensionally and geometrically, the tube tension inherits this scale with a representation factor $\mathcal C_R$ and a geometric factor $c_{\rm geom}$:
+\begin{equation}
+  \sigma_R \;\simeq\; c_{\rm geom}\,\mathcal C_R\,\sigma_{\rm sheet} \;=\; c_{\rm geom}\,\mathcal C_R\,c_{\rm sheet}\,w_*\,\sqrt{\kappa\,\beta_{\rm pot}}.
+\end{equation}
+Here $\mathcal C_R$ encodes the colour–source dependence (e.g. Casimir scaling $\propto C_R$ in the intermediate regime), while $c_{\rm geom}$ collects tube shape corrections (weakly dependent on $r$ beyond the core).
+
+\subsection*{Area law and minimal surface}
+In the saddle–point approximation the Wilson loop expectation is dominated by the minimal worldsheet $\Sigma_\mathrm{min}$ bounded by $\mathcal C$:
+\begin{equation}
+  \langle W_R(r\times T)\rangle \;\propto\; \exp\Big(-\sigma_R\,\mathcal A[\Sigma_\mathrm{min}]\Big)\,\times\,\mathcal Z_{\rm fluc},\qquad \mathcal A[\Sigma_\mathrm{min}] = r\,T.
+\end{equation}
+Worldsheet fluctuations yield the standard Lüscher correction to the static potential in $D=4$,
+\begin{equation}
+  V_R(r) \;=\; \sigma_R\,r \; - \; \frac{\pi}{12\,r} \; + \; \mathcal O\!\Big(\frac{1}{r^3}\Big),
+\end{equation}
+consistent with an effective bosonic string in the infrared.
+
+\subsection*{Short–distance matching and full static potential}
+At small $r$, non–Abelian exchange gives a Coulombic term. A convenient interpolation is
+\begin{equation}
+  V_R(r) \;=\; V_0 \; - \; \frac{\alpha_R}{r} \; + \; \sigma_R\,r \; - \; \frac{\pi}{12\,r} \; + \; \dots,
+\end{equation}
+with $\alpha_R \propto g_{\rm eff}^2 C_R/(4\pi)$ and $C_R$ the quadratic Casimir. The constants $(V_0,\alpha_R,\sigma_R)$ are functions of $(\kappa,\beta_{\rm pot},w_*)$ and weakly of the analysis window; $\sigma_R$ follows from the sheet scale above, while $\alpha_R$ calibrates to the short–distance rotor coupling $g_{\rm eff}$.
+
+\subsection*{Framework links and predictions}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Origin of $\sigma_R$.} $\sigma_R$ is set by the same parameters that fix the massless dispersion and the sheet core (Appendix~\ref{app:sheet}); thus the confining scale correlates with $w_*\sqrt{\kappa\beta_{\rm pot}}$.
+  \item \textbf{Representation dependence.} Intermediate–distance Casimir scaling emerges from tube energetics (colour–domain tiling) until string breaking; deviations at large $r$ signal pair creation (finite amplitude fluctuations) in the coarse–grain.
+  \item \textbf{Noise dependence.} Slow variation of $\rho_N$ modulates $(\kappa,\beta_{\rm pot},w_*)$ conformally; $\sigma_R$ is constant in local units. Residual running across windows is an explicit, testable small effect.
+  \item \textbf{Lüscher term.} The $-\pi/(12 r)$ correction provides an infrared benchmark to extract $\sigma_R$ independently of short–distance physics in analogue platforms.
+\end{itemize}
+
+\section{Noether Currents and Charge Quantization}\label{app:noether}
+\subsection*{U(1) symmetry and Noether current}
+With amplitude clamped at $w_*$, the phase sector action
+\begin{equation}
+  S_\phi = \frac{\kappa w_*^2}{2}\int d^4x\,\sqrt{|g|}\, g^{\mu\nu}\,\partial_\mu\phi\,\partial_\nu\phi
+\end{equation}
+possesses a global U(1) symmetry $\phi\to\phi+\alpha$. The associated Noether current is
+\begin{equation}
+  j^\mu \;=\; \frac{\partial\mathcal L}{\partial(\partial_\mu\phi)}\,\delta\phi \;=\; \kappa w_*^2\, g^{\mu\nu}\,\partial_\nu\phi,
+\end{equation}
+where the continuity equation follows from the Euler–Lagrange equation $\partial_\mu(\kappa w_*^2\,\partial^\mu\phi)=0$ (exact for constant $\kappa w_*^2$ and to leading order for slow inhomogeneity; in local units $\kappa w_*^2=c_s^2$ is constant).
+
+\subsection*{Coupling to the U(1) connection and charge identification}
+Promote the global symmetry to a local one by introducing the U(1) connection $A_\mu$ and the covariant derivative
+\begin{equation}
+  D_\mu\phi \;=\; \partial_\mu\phi - \frac{q_\mathrm{eff}}{\hbar_\mathrm{eff}}\,A_\mu.
+\end{equation}
+The minimally coupled phase Lagrangian $\mathcal L = \tfrac12\kappa w_*^2 g^{\mu\nu} D_\mu\phi\,D_\nu\phi$ is gauge invariant under $\phi\to\phi+\lambda(x)$, $A_\mu\to A_\mu + (\hbar_\mathrm{eff}/q_\mathrm{eff})\,\partial_\mu\lambda$. Varying with respect to $A_\mu$ identifies the conserved physical current
+\begin{equation}
+  J^\mu \;=\; q_\mathrm{eff}\,j^\mu \;=\; q_\mathrm{eff}\,\kappa w_*^2\,\partial^\mu\phi,
+\end{equation}
+which sources the U(1) field through $\nabla_\nu F^{\mu\nu} = \mu_0^{\rm eff}\,J^\mu$ (Appendix~\ref{app:maxwell}). The effective charge unit $q_\mathrm{eff}$ and $\hbar_\mathrm{eff}$ calibrate to the AB phase and minimal-coupling strength.
+
+\subsection*{Quantized charge from phase winding}
+In regions where $|\Psi|=w_*$ never vanishes (amplitude clamped), the phase field $\phi$ is single–valued on loops. For any closed contour $\mathcal C$ in space,
+\begin{equation}
+  n \;:=\; \frac{1}{2\pi}\oint_{\mathcal C} \nabla\phi\cdot d\mathbf\ell \;\in\; \mathbb Z,
+\end{equation}
+by single–valuedness of $e^{i\phi}$. This integer is the topological winding number. Using the current,
+\begin{equation}
+  Q_{\mathcal S} \;=\; \int_{\mathcal S} J^0\,d^3x \;=\; q_\mathrm{eff}\,\kappa w_*^2 \int_{\mathcal S} \partial^0\phi\,d^3x,\qquad N_{\mathcal S} \;=\; \frac{1}{2\pi}\oint_{\partial\mathcal S} \nabla\phi\cdot d\mathbf\ell= n,
+\end{equation}
+so that sheet endpoints (where $\phi$ jumps by $2\pi$ across a kink sheet) contribute integer quanta of flux/charge. Equivalently, the AB phase acquired by a loop enclosing $n$ sheets is
+\begin{equation}
+  \Delta\varphi_{\rm AB} \;=\; \frac{q_\mathrm{eff}}{\hbar_\mathrm{eff}}\,\Phi_B \;=\; 2\pi n,\qquad \Rightarrow\quad \Phi_B \;=\; n\,\frac{2\pi\,\hbar_\mathrm{eff}}{q_\mathrm{eff}}.
+\end{equation}
+Thus flux and charge are quantized in integer units whenever amplitude zeros are excluded; kink sheets enforce the $2\pi$ discontinuity consistent with Appendix~\ref{app:sheet}.
+
+\subsection*{Remarks (framework links)}
+\begin{itemize}[leftmargin=*]
+  \item $j^\mu$ arises from the same quadratic phase action that fixes $c_s^2=\kappa w_*^2$; in local units both $j^\mu$ and the continuity equation are exact.
+  \item The integer $n$ is protected by the absence of amplitude zeros; allowing $|\Psi|\to 0$ permits unwinding and charge nonconservation via sheet reconnection.
+  \item $q_\mathrm{eff}$ and $\hbar_\mathrm{eff}$ are fixed by AB interferometry and minimal–coupling strength; their mild window running cancels in the AB ratio.
+\end{itemize}
+
+\section*{Notes for Future Integration: Causal Fermion Systems (CFS) \texorpdfstring{$\to$}{->} ICG}
+\small
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Global causal-action style constraint (lightweight).} Add a single global variational constraint (with Lagrange multiplier) on top of the existing free energy to sharpen existence/compactness and produce cleaner Euler–Lagrange equations without changing leading physics.
+  \item \textbf{Spectral causality diagnostics.} Define closed-chain–like operator products from the phase kernel on coarse grains; use their spectra as a basis–independent causality/light-cone check complementary to the phase-cone derivation.
+  \item \textbf{Regularization scale.} Tie the coarse-grain window $\varepsilon$ to a single microscopic regularization length $\ell_{\rm reg}$ for operator constructs; improves parameter bookkeeping and continuum limit control.
+  \item \textbf{Spinorization/Dirac layer.} Factor the complex envelope into spinor components and seek a Dirac-type continuum limit of the phase kernel; map soliton cores to localized projectors.
+  \item \textbf{Gauge emergence via projector deformations.} Study small unitary deformations of a projector measure over coarse grains; test whether they act as effective gauge potentials (minimal coupling) in the envelope limit.
+  \item \textbf{Noether-type currents from global constraints.} With the added global constraint(s), derive associated conserved currents; use as simulation diagnostics (conservation, positivity).
+  \item \textbf{Prioritization.} For this gauge/particles arm, begin with (i) spinorization/Dirac tests and (ii) projector–deformation gauge emergence; keep global constraint and spectral diagnostics as optional rigor upgrades.
+\end{itemize}
+\normalsize
+
+\end{document}
+
+

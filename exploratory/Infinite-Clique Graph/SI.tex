@@ -139,7 +139,7 @@ The phase field inherits a shift symmetry $\phi\to\phi+\text{const}$ from global
 \subsection*{Robustness and mixing}
 Amplitude–phase mixing terms (e.g., $\delta w\, (\partial\phi)^2$) are suppressed near the homogeneous vacuum and in the narrowband/SVEA regime. They renormalise coefficients but do not close the phase gap or remove the amplitude gap. Breaking the $U(1)$ explicitly would introduce a small $\phi$ mass; in the present framework this is forbidden at leading order by symmetry and vacuum relaxation.
 
-\paragraph{Outcome.} The low-energy spectrum on near-regular vacuum patches consists of (i) a massive amplitude mode with Yukawa screening length $\ell=\sqrt{\alpha_{\rm grad}/m_\xi^2}$ and (ii) a massless phase mode with wave speed $c_s=\sqrt{\kappa}\,w_*$. This is the gapped/massless split assumed and used by the Gravity paper.
+\paragraph{Outcome.} The low-energy spectrum on near-regular vacuum patches consists of (i) a massive amplitude mode with Yukawa screening length $\ell=\sqrt{\alpha_{\rm grad}/m_\xi^2}$ and (ii) a massless phase mode with wave speed $c_s=\sqrt{\kappa}\,w_*$.
 
 \section{Vacuum Marginalisation (full derivation)}\label{si:vac-marg}
 We derive the coarse functional $F_{\rm vac}[J]$ by integrating out the fast phase field on a fixed connectivity background. Let $L(J)$ be the graph Laplacian of $J$ on a connected graph. Fix the zero mode by the gauge $\sum_k \phi_k=0$ (equivalently, use the pseudo-determinant $\det{}'\!L$). Consider
@@ -238,6 +238,16 @@ Simulations should:
 \item Monitor energy density for stability
 \item Implement appropriate cutoffs for very long-range interactions
 \end{itemize}
+
+\subsection*{Scale-space RG fixed point for the bath spectrum}
+\textbf{Theorem (RG fixed point, stability).} Consider coarse-graining that (i) preserves the Lorentzian principal symbol of the phase operator, (ii) implements local-unit (conformal) rescaling of tetrads, and (iii) integrates out modes outside a comoving window $[k_{\min},k_{\max}]$ while rescaling $k\to k/b$ (with $b>1$) to restore the window. Let $\sigma(u):=k\,S(k)$ with $u=\ln k$ the logarithmic wavenumber. Then:
+\begin{itemize}
+  \item The uniform spectrum in $u$\,--\,space, $\sigma(u)=\text{const}$ (equivalently $S(k)\propto 1/k$), is a fixed point of the coarse-graining map.
+  \item Small tilts $\sigma(u)\propto e^{\epsilon u}$ (i.e., $S(k)\propto k^{-1+\epsilon}$ with $|\epsilon|\ll1$) flow back to the fixed point for a broad class of window\,--\,rescaling schemes, i.e., the fixed point is stable (attractive) to first order in $\epsilon$.
+\end{itemize}
+\textbf{Sketch of proof.} Under a single RG step: (1) integrate out a thin outer band and rescale $k\to k/b$ to restore the original window; (2) preserve the phase principal symbol $-\nabla\!\cdot(c_s^2\nabla)$ and apply the local-unit rescaling (tetrads scaled so locally measured $c_s$ remains invariant). In the log variable $u=\ln k$, this amounts to a shift $u\to u-\ln b$ plus normalization that maintains the total band power per $du$ (stationarity in local units). The induced map on $\sigma(u)$ is a shift followed by reweighting that preserves $\int_{u_{\min}}^{u_{\max}}\sigma(u)\,du$. Hence $\sigma(u)=\text{const}$ is a fixed point. For a small tilt $\sigma(u)=\sigma_0 e^{\epsilon u}$, Taylor expanding shows that after the shift $u\to u-\ln b$ and normalization, the effective tilt rescales as $\epsilon' = \epsilon\,(1-\alpha\ln b)$ with $\alpha>0$ set by the normalization procedure and window geometry; thus $|\epsilon'|<|\epsilon|$ for modest $\ln b>0$, proving linear stability. This is the RG counterpart of the maximum-entropy result in the Dark Sector SI: equal content per logarithmic band is both the entropy maximizer and the RG fixed point under admissible coarse-graining compatible with the principal symbol and local units.
+\medskip
+\textbf{Remarks.} (R1) The specific value of $\alpha$ depends on the edge treatment (how the integrated-out power is redistributed under rescaling) but remains positive for any scheme that preserves stationary band power in local units. (R2) Finite windows ensure integrability and introduce only $\mathcal O(1/\mathcal N)$ corrections controlled by the log\,--\,bandwidth $\mathcal N=\ln(k_{\max}/k_{\min})$. (R3) Anisotropies or mild dispersion alter higher\,--\,order flow but not the existence nor the attractiveness of the $1/k$ fixed point at leading order in the Coulombic window.
 
 \section{Dimensional Fixed\,Point (Lambert\,W derivation)}\label{si:dim-fp}
 
@@ -507,6 +517,23 @@ In the static, weak-perturbation regime on near-regular patches,
 with proportionality mediated by $\mathcal C$ above. Higher derivatives of $\rho_m$ enter at subleading order and are suppressed by the coarse scale.
 
 \paragraph{Remarks.} (i) The sign $\chi_c>0$ is fixed by the increase of local phase stiffness around energy concentrations (cores), consistent with the pruning mechanism. (ii) Nonlocal tails of $\delta J$ renormalise the proportionality but do not change locality at leading order in the Coulombic window. (iii) Time dependence introduces retardation kernels beyond the present static scope.
+
+\subsection*{Proposition (Discrete\,\textrightarrow\,Continuum Matter\,--\,Kernel Coupling)}
+\textbf{Hypotheses.} (H1) Near\,--\,regular weighted graph with slowly varying symmetric weights and dense sampling on the region of interest; (H2) volume\,--\,normalised couplings for pair energies; (H3) static, small, localized excess energy density $\rho_m(x)$ (soliton core neighbourhood) that perturbs links only within a bounded neighbourhood; (H4) amplitude sector gapped (screening length $\ell$ finite), massless phase sector governs long\,--\,range; (H5) the standard discrete\,\textrightarrow\,continuum mapping holds for the Laplacian quadratic form.
+
+\textbf{Statement.} Under (H1)\,--\,(H5), the variation of the continuum phase kernel induced by $\rho_m(x)$ is local to leading order and of the divergence form
+\begin{equation}
+  \delta K(x) \;=\; -\nabla\!\cdot\!\big(\chi_c\,\rho_m(x)\,\nabla\big)\,,\qquad \chi_c>0\,.
+\end{equation}
+Equivalently, writing the phase operator as $K=-\nabla\!\cdot(c_s^2\nabla)$ one has a local stiffness shift $\delta c_s^2(x)=\chi_c\,\rho_m(x)$ to leading order. The constant $\chi_c$ depends on microparameters (e.g. $\kappa, w_*, \alpha_{\rm grad}, \beta_{\rm pot}$) and the observation window, and is finite for near\,--\,regular families.
+
+\textbf{Proof (sketch).} Start from the discrete phase quadratic form $\tfrac{\kappa}{2}\,\phi^T L(J)\,\phi$ with $L(J)$ the weighted graph Laplacian. A localized excess energy density $\rho_m$ modifies the optimal link configuration through the stationarity of the coarse functional $\Gamma[J]$ (Vacuum marginalisation, Sec.~\ref{si:vac-marg}), inducing a small, static variation $\delta J$ supported near the core. Linearising, the kernel variation is $\delta L = \sum_{ij} (\partial L/\partial J_{ij})\,\delta J_{ij}$ with $\partial L/\partial J_{ij}=E_{ii}+E_{jj}-E_{ij}-E_{ji}$. Volume normalisation and near\,--\,regularity imply (i) $\delta J$ remains local and integrable, (ii) the induced discrete quadratic form variation can be written as a weighted sum of edge\,--\,local gradients. Passing to the continuum via quadratic\,--\,form convergence (Sec.~\ref{si:disc-cont-conv}) maps $\phi^T\delta L\,\phi$ to $\int (\nabla\phi)^T\,\delta\mathbf C(x)\,\nabla\phi\,d^Dx$ with a positive\,--\,semidefinite coefficient field $\delta\mathbf C$. Isotropy to leading order (H1) reduces $\delta\mathbf C$ to a scalar multiple of the identity, $\delta\mathbf C=\delta c_s^2(x)\,\mathbb I$, yielding
+\begin{equation}
+  \phi^T\delta L\,\phi \;\longrightarrow\; \int \delta c_s^2(x)\,|\nabla\phi|^2\, d^Dx \;=\; -\int \phi\,\nabla\!\cdot\!\big(\delta c_s^2(x)\,\nabla\phi\big)\, d^Dx\,.
+\end{equation}
+Identifying $\delta K= -\nabla\!\cdot(\delta c_s^2\nabla)$ and using locality of $\delta J$ under a static, bounded perturbation, one obtains $\delta c_s^2(x)=\chi_c\,\rho_m(x)$ with $\chi_c>0$. Positivity follows because increased localized energy (core) prunes/suppresses long links and effectively increases phase stiffness locally (physically, gradients cost more), which increases the quadratic form coefficient. The proportionality (rather than convolution) is a consequence of the gapped amplitude sector (H4) and the near\,--\,regular, short\,--\,range structure of $\delta J$, which eliminates long nonlocal tails at leading order. This establishes the stated divergence form.
+
+\textbf{Remarks.} (R1) Anisotropy at leading order replaces $\chi_c\,\rho_m\,\delta^{ij}$ by a positive\,--\,definite tensor $\chi^{ij}(x)\,\rho_m(x)$; the long\,--\,range conclusions used in the Poisson mapping remain unchanged in the isotropic far field. (R2) If $\delta J$ acquires algebraic long tails, $\delta K$ picks up weakly nonlocal corrections; within the Coulombic window those renormalise $\chi_c$ but preserve the far\,--\,field $1/r$ envelope. (R3) Time dependence introduces retardation kernels and additional kinematic weights beyond the static scope treated here.
 
 \section*{References Prep}
 \noindent Reference pointers are summarized in the main paper. Additional SI-specific citations appear inline where relevant.

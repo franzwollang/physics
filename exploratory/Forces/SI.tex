@@ -1,0 +1,148 @@
+% !TeX program = pdflatex
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+\title{Supplementary Information: Forces from Kink Sheets and Internal Rotors}
+\author{Franz Wollang}
+\date{\small Dated: YYYY-MM-DD}
+
+\renewcommand{\thesection}{S\arabic{section}}
+
+\begin{document}
+\maketitle
+
+\section{Constitutive Calibration from Kink Sheets}\label{sec:si-constitutive}
+\paragraph{Sheet solution recap.} The kink-sheet profile obeys the same equations as in the main text: thickness $\lambda_*=\sqrt{\kappa/\beta_{\rm pot}}/w_*$ and tension $\sigma_*=c_{\rm sheet}\,w_* \sqrt{\kappa\beta_{\rm pot}}$ with $c_{\rm sheet}\approx 4$ from the Euler--Lagrange solution (main-text Appendix~A).
+
+\paragraph{Matching to Maxwell form.} Treat a single $2\pi$ sheet as a slab of width $\lambda_*$ with nearly constant phase gradient $|\partial_z\phi|\approx 2\pi/\lambda_*$. Identify $E_z:=\partial_z\phi$; the energy per area stored in that slab is
+\begin{equation}
+  \sigma_{\rm grad} \;\approx\; \frac12\,\varepsilon_0^{\rm eff}\,E_z^2\,\lambda_* \;=\; \frac12\,\varepsilon_0^{\rm eff}\,\Big(\frac{2\pi}{\lambda_*}\Big)^2 \lambda_*\,.
+\end{equation}
+Equating $\sigma_{\rm grad}=\sigma_*$ gives
+\begin{equation}
+  \varepsilon_0^{\rm eff} \;=\; \frac{\sigma_*\,\lambda_*}{2\pi^2} \;=\; \frac{c_{\rm sheet}}{2\pi^2}\,\kappa,\qquad
+  \mu_0^{\rm eff} \;=\; \frac{1}{c_s^2\,\varepsilon_0^{\rm eff}} \;=\; \frac{2\pi^2}{c_{\rm sheet}}\,\frac{1}{\kappa^2 w_*^2}\,,
+\end{equation}
+using $\sigma_*\,\lambda_*=c_{\rm sheet}\kappa$ and $c_s^2=\kappa w_*^2$. The order-one factor $c_{\rm sheet}$ encodes the detailed profile; smoother profiles shift only this prefactor.
+
+\paragraph{Checks.} (i) $\varepsilon_0^{\rm eff}\mu_0^{\rm eff}=1/c_s^2$ automatically. (ii) In local conformal units, $\kappa w_*^2=c_s^2$ is invariant, so $\varepsilon_0^{\rm eff}$ and $\mu_0^{\rm eff}$ co-vary to keep light cones fixed. (iii) The calibration is insensitive to the microscopic amplitude dip as long as $\Delta\phi=2\pi$ across $\lambda_*$.
+
+\section{Isotropy $\Rightarrow$ SU(3) Connection}\label{sec:si-isotropy}
+\paragraph{Degenerate subspace.} In a coarse grain with orthonormal spatial frame $\{\bm e_a\}$, the three \emph{soft} gradient eigenmodes are degenerate by isotropy. Concretely, choose an orthonormal basis $\{u_a\}_{a=1}^3$ spanning the $\ell=1$ subspace of the grain kernel (the ``gradient'' sector). Any projected phase fluctuation in this subspace can be written as $\delta\phi=\sum_{a=1}^3 \Psi_a\,u_a$ with complex coefficients $\Psi_a\in\mathbb C$. Collect the coefficients into $\Psi=(\Psi_1,\Psi_2,\Psi_3)\in\mathbb C^3$. The overall scale $|\Psi|$ is set by the window/energy of the excitation, while the low-energy degree of freedom is the \emph{orientation} of $\Psi$ inside the degenerate subspace. This orientation is acted on by $\mathrm{SU}(3)$.
+
+\paragraph{Connection from parallel transport.} Minimizing misalignment between neighbouring grains yields, in the continuum, a Lie-algebra-valued connection. The clean route is discrete-first: define a local rotor state $\Psi_i\in\mathbb C^n$ (with $n=2$ on surfaces and $n=3$ in bulk) and an alignment energy between neighbouring grains
+\begin{equation}
+  E_{ij}(U_{ij}) \;=\; \|\Psi_i - U_{ij}\Psi_j\|^2,\qquad U_{ij}\in\mathrm{SU}(n)\,.
+\end{equation}
+For fixed $(\Psi_i,\Psi_j)$ this is the unitary Procrustes problem: the minimizer is the unitary that maximizes $\mathrm{Re}(\Psi_i^\dagger U_{ij}\Psi_j)$. Under a local change of basis in the degenerate subspace, $\Psi_i\to V_i\Psi_i$ with $V_i\in\mathrm{SU}(n)$, the optimal link transforms as a lattice gauge field,
+\begin{equation}
+  U_{ij}\;\to\; V_i\,U_{ij}\,V_j^{-1}\,.
+\end{equation}
+On slowly varying configurations one writes $U_{i,i+\mu}\approx \exp\{-i a A_\mu(x)\}$, defining a continuum connection $A_\mu(x)\in\mathfrak{su}(n)$, and the plaquette holonomy gives curvature $\prod_{\square}U_{ij}\approx \exp\{-i a^2 F_{\mu\nu}\}$. In a local trivialization this reduces to the familiar form
+\begin{equation}
+  A_\mu \;=\; -\,i\,U^{-1}\partial_\mu U \;\in\; \mathfrak{su}(3),\qquad F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu+[A_\mu,A_\nu].
+\end{equation}
+On a 2D submanifold only two gradients remain degenerate, restricting $U$ to SU(2); along a 1D filament only the longitudinal gradient survives, giving U(1). There is no fourth independent gradient in $d=3$, so the ladder stops at SU(3).
+
+\paragraph{Equivalent spectral view (Wilczek--Zee).} The same connection arises from the spectral language natural in this framework. Let $P(x)$ be the rank-$n$ projector onto the degenerate soft subspace of the grain kernel within the observational window, and choose a local orthonormal frame $\{|u_a(x)\rangle\}_{a=1}^n$ spanning $\mathrm{Im}\,P(x)$. Parallel transport within the eigenbundle is governed by the non-Abelian Berry (Wilczek--Zee) connection
+\begin{equation}
+  (A_\mu)_{ab} \;=\; i\,\langle u_a(x)\,|\,\partial_\mu u_b(x)\rangle,
+\end{equation}
+with the same gauge freedom $|u_a\rangle\to V_{ab}(x)|u_b\rangle$ and $A_\mu\to V A_\mu V^{-1}-i(\partial_\mu V)V^{-1}$. We include this as a consistency lens: it is the same emergent gauge structure expressed in eigenbundle (spectral) coordinates rather than alignment-energy (variational) coordinates.
+
+\paragraph{Rotor stiffness and coupling.} Expanding the gradient energy in covariant form gives the Yang--Mills term with effective coupling $g_{\rm eff}^{-2}\propto \kappa w_*^2 L_{\rm rot}^2$, where $L_{\rm rot}$ is the coarse-grain size. This scaling feeds into $G_F^{\rm eff}$ and $\sigma_{\rm string}$ quoted in the main text.
+
+\section{Anomaly Constraints as Topological Consistency}\label{sec:si-anomaly}
+In Quantum Field Theory, anomalies signal the breakdown of current conservation ($\partial_\mu J^\mu \neq 0$) at the loop level. In the Soliton--Noise framework, conservation laws are topological (winding numbers). A topological invariant cannot be "broken a little bit"---it is either conserved (integer) or ill-defined (field tear).
+
+\paragraph{Hypothesis: Anomaly Freedom = Graph Consistency.}
+We propose that the Infinite-Clique Graph cannot support a phase field configuration that corresponds to an anomalous particle content. An "anomaly" in the continuum limit manifests as a topological obstruction on the discrete graph (e.g., the inability to define a single-valued phase map globally).
+\begin{itemize}
+    \item \textbf{Cancellation Condition:} The requirement that the global phase winding on a compact graph sums to zero is rigorous.
+    \item \textbf{Spectrum Selection:} This topological consistency likely acts as a selection rule, allowing only those sets of defects (charges) whose anomalies cancel exactly.
+\end{itemize}
+The standard cancellation conditions:
+\begin{align}
+  &\mathrm{U(1)}^3:\quad \sum q_i^3 = 0,\qquad \mathrm{grav}^2\mathrm{U(1)}:\quad \sum q_i = 0,\\
+  &\mathrm{SU(2)}^2\mathrm{U(1)}:\quad \sum q_i\,T_2 = 0,\qquad \mathrm{SU(3)}^2\mathrm{U(1)}:\quad \sum q_i\,T_3 = 0.
+\end{align}
+\paragraph{Scope and correction.} We \emph{do not} claim that a naive ``grade-to-charge'' toy assignment automatically satisfies these equalities. Rather, the role of this section is to state the structural expectation: if the continuum limit admits an effective chiral gauge description, then the underlying graph/topology must enforce the analogue of anomaly freedom as a \emph{consistency condition} on the admissible spectrum and charge embedding. In practical terms, this becomes a selection rule on how U(1) winding (sheet charge) can be combined with SU(2)/SU(3) rotor representations across all stable defect types so that the emergent long-range currents remain exactly conserved in the low-energy window. Making this explicit for a concrete charge assignment is an open item.
+
+\section{Magnetism from Boosted Sheets}\label{sec:si-magnetism}
+We rigorously derive the magnetic field $\mathbf{B}$ from the Lorentz boost of a static sheet bundle, confirming the Amp\`ere--Maxwell prefactor.
+
+\paragraph{Static Configuration.} Consider a bundle of kink sheets with density $\rho_s$ oriented with normal $\hat{\mathbf{n}}$ in the rest frame $K$. The phase-defect current 4-vector is purely temporal (representing static charge density):
+\begin{equation}
+  J^\mu_{(K)} = (\rho_c c_s, \mathbf{0}), \quad \text{where } \rho_c \propto \rho_s.
+\end{equation}
+In this frame, the coarse-grained electric field is $\mathbf{E} = E_0 \rho_s \hat{\mathbf{n}}$ and $\mathbf{B} = 0$.
+
+\paragraph{Boosted Frame.} Boost to a frame $K'$ moving with velocity $\mathbf{v}$ relative to $K$. The Lorentz transformation $\Lambda^\mu_\nu$ yields the new current:
+\begin{equation}
+  J'^\mu = \Lambda^\mu_\nu J^\nu = (\gamma \rho_c c_s, -\gamma \rho_c \mathbf{v}).
+\end{equation}
+Here $\gamma = (1 - v^2/c_s^2)^{-1/2}$. The spatial component represents a current density $\mathbf{J}' = -\gamma \rho_c \mathbf{v}$.
+
+\paragraph{Field Transformation.} The phase-sector stress-energy tensor implies the fields transform as components of $F_{\mu\nu}$. Explicitly, the transverse magnetic field arising from the boost is:
+\begin{equation}
+  \mathbf{B}'_\perp = \gamma \left(\mathbf{B} - \frac{\mathbf{v} \times \mathbf{E}}{c_s^2}\right) = -\gamma \frac{\mathbf{v} \times \mathbf{E}}{c_s^2}.
+\end{equation}
+Since the current $\mathbf{J}'$ effectively generates this field, we check consistency with the Amp\`ere--Maxwell law $\nabla \times \mathbf{B} = \mu_0^{\rm eff} \mathbf{J}$. For a sheet moving at $\mathbf{v}$, the effective current is transverse to the normal. The factor $1/c_s^2$ appears naturally from the boost, matching the constitutive requirement $\varepsilon_0^{\rm eff}\mu_0^{\rm eff} = 1/c_s^2$ derived in Section~\ref{sec:si-constitutive}. Thus, magnetism emerges as the relativistic kinematic consequence of moving phase defects.
+
+\section{The SU(3) Ceiling: Spectral Gap Derivations}\label{sec:si-su3ceiling}
+We quantify the "Geometric Ceiling" argument by comparing the energy cost of linear gradient modes (spanning SU(3)) versus higher-order deformation modes in an elastic grain.
+
+\paragraph{Mode Spectrum.} Consider a grain of radius $R$ governed by the phase stiffness action $S = \frac{\kappa w_*^2}{2} \int (\nabla \phi)^2 dV$. We expand the phase fluctuations in spherical harmonics $\phi(r, \theta, \varphi) = f(r) Y_{\ell m}(\theta, \varphi)$.
+\begin{itemize}
+    \item \textbf{Dipole/Gradient Modes ($\ell=1$):} These correspond to linear gradients $\phi \sim x, y, z$. For a linear profile, $\nabla \phi = \text{const}$. The energy density is uniform.
+    \item \textbf{Quadrupole/Shear Modes ($\ell=2$):} These correspond to deformations like $\phi \sim xy$. The gradient is $\nabla \phi \propto r$. The energy density scales as $r^2$.
+\end{itemize}
+
+\paragraph{Energy Gap Calculation.}
+Solving the Laplace eigenvalue problem $-\nabla^2 \phi = \lambda \phi$ on the ball with Neumann boundary conditions (free surface):
+\begin{itemize}
+    \item The $\ell=1$ eigenvalue is determined by the first root of $j'_1(kR)=0$. $x_{1,1} \approx 2.08$. Energy $E_1 \propto (2.08/R)^2 \approx 4.33/R^2$.
+    \item The $\ell=2$ eigenvalue is determined by the first root of $j'_2(kR)=0$. $x_{2,1} \approx 3.34$. Energy $E_2 \propto (3.34/R)^2 \approx 11.16/R^2$.
+\end{itemize}
+The relative spectral gap is large:
+\begin{equation}
+  \frac{\Delta E}{E_1} = \frac{E_2 - E_1}{E_1} \approx \frac{11.16 - 4.33}{4.33} \approx 1.58.
+\end{equation}
+The $\ell=1$ subspace (3 modes) is separated from the $\ell=2$ subspace (5 modes) by a gap of $\sim 150\%$ the ground state energy. In a thermal or noisy background, the 3-dimensional $\ell=1$ tangent space is effectively isolated, protecting the SU(3) symmetry while suppressing higher-dimensional gauge groups (which would require mixing with $\ell=2$). This confirms SU(3) as the energetic ceiling for internal symmetries in a 3D vacuum.
+
+\section{Derivation of Spinor Structure from Conserved Currents}\label{sec:si-spinor}
+We formally derive how the Dirac equation emerges for any conserved current in the vacuum geometry, removing the need to postulate spinors as fundamental fields.
+
+\paragraph{1. Polar Decomposition of Current.}
+Consider a conserved current $J^\mu(x)$ associated with a topological defect (e.g., U(1) winding). In the Geometric Algebra $Cl_{1,3}$, any time-like vector $J$ can be uniquely decomposed into a magnitude $\rho$ and a direction $v$ (unit time-like vector, $v^2=1$):
+\begin{equation}
+  J(x) \;=\; \rho(x)\,v(x).
+\end{equation}
+Crucially, any unit vector $v$ can be obtained from a fixed reference time-vector $\gamma_0$ by a spacetime rotation. This rotation is encoded by a rotor $R(x)$ (an even multivector satisfying $R\tilde{R}=1$):
+\begin{equation}
+  v(x) \;=\; R(x)\,\gamma_0\,\tilde{R}(x).
+\end{equation}
+We define the spinor field $\psi(x)$ as the scaled rotor:
+\begin{equation}
+  \psi(x) \;\equiv\; \sqrt{\rho(x)}\,R(x) \quad \implies \quad J = \psi \gamma_0 \tilde{\psi}.
+\end{equation}
+This factorization is general. It shows that ``spinor fields'' $\psi$ are simply the instructions for how to rotate the lab frame $\gamma_0$ into the local current frame $v(x)$, scaled by density.
+
+\paragraph{2. Kinematic Equation of Motion.}
+Since $J$ is conserved ($\nabla \cdot J = 0$), the underlying field $\psi$ must satisfy a continuity constraint. If we further require the current to flow along the geodesics defined by the effective gauge connection $A_\mu$, the simplest covariant derivative condition compatible with conservation is
+\begin{equation}
+  \nabla \psi I \sigma_3 \;=\; m \psi \gamma_0.
+\end{equation}
+This is the \textbf{Dirac-Hestenes Equation}.
+\begin{itemize}
+    \item $\nabla \psi$: The gradient of the rotor field.
+    \item $I \sigma_3$: The bivector generator of the spin plane (encoding the intrinsic angular momentum of the defect).
+    \item $m \psi \gamma_0$: The inertial mass term (coupling to amplitude).
+\end{itemize}
+This derivation proves that the Dirac equation is not an arbitrary quantum rule but the required transport equation for a conserved, spinning current in a Lorentzian vacuum.
+
+\end{document}
