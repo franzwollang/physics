@@ -1,0 +1,123 @@
+% !TeX program = pdflatex
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+% Footer marking the draft status
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[L]{\small Draft — version posted to Zenodo on 2025-09-12}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Shortcuts
+\newcommand{\cs}{c_s}
+\newcommand{\Heff}{H_{\mathrm{eff}}}
+\newcommand{\Nband}{\mathcal N}
+\newcommand{\dd}{\mathrm d}
+\newcommand{\rcl}{R_{\mathrm{cl}}}
+\newcommand{\vflat}{v_{\mathrm{flat}}}
+\newcommand{\kmin}{k_{\min}}
+\newcommand{\kmax}{k_{\max}}
+\newcommand{\grad}{\nabla}
+
+\title{Cosmic Acceleration from Scale-Invariant Window Drift: A Kinetic Origin for Dark Energy (\textit{Draft})}
+\author{Franz Wollang\\ \small Independent Researcher}
+\date{\small Dated: 2025-09-12}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+\setlength{\fboxsep}{8pt}%
+\fbox{\parbox{0.92\textwidth}{\centering\bfseries DRAFT — NOT FOR CITATION\\[4pt]
+This is a preliminary working version posted for discussion and feedback. Content may change significantly before formal submission.}}
+\end{center}
+\vspace{1em}
+
+\begin{abstract}
+We propose that Dark Energy is not a substance but a kinematic artifact of measuring a stationary, scale-invariant vacuum with contracting local rulers. Building on a framework where matter consists of solitons in a noise field, we show that the vacuum noise acts as a thermodynamic bath, causing all bound structures to slowly, secularly contract (anneal) over cosmic time. This drift in the local equilibrium scale $L_*(t)$ shifts the "Observational Window" of the vacuum fluctuations. We demonstrate that the windowed energy density of a scale-invariant ($1/k$) spectrum, subject to this drift, behaves as a fluid with an effective equation of state $w \approx -1$. The deviation from $-1$ is suppressed by the large logarithmic bandwidth of the universe, naturally explaining the coincidence problem without fine-tuning.
+\end{abstract}
+
+\section{Introduction: The Problem of Scale}
+Standard cosmology assumes that local rulers (atoms, galaxies) are fixed in size while the universe expands. We explore the dual perspective: what if the universe is stationary, but all local rulers are shrinking?
+
+In the Soliton--Noise framework, matter is not static. It interacts with a fluctuating vacuum background. This interaction is thermodynamic: the background noise constantly "anneals" bound states, allowing them to settle into deeper, more compact minima of the free energy. This implies a universal, monotonic decrease in the characteristic scale $L_*(t)$ of all matter.
+
+This paper shows that this "Secular Contraction" manifests observationally as an apparent cosmic acceleration.
+
+\section{The Mechanism: Window Drift}
+
+\subsection{The Observational Window}
+Any measurement of the vacuum energy density is band-limited. We cannot probe scales larger than the causal horizon (IR cutoff) or smaller than our own resolution limit (UV cutoff).
+\begin{equation}
+  \rho_{\text{vac}}(t) \;=\; \int_{k_{\min}(t)}^{k_{\max}(t)} S(k)\,\dd k
+\end{equation}
+where $S(k)$ is the fluctuation spectrum of the vacuum. For a scale-invariant process, $S(k) \propto 1/k$.
+
+\subsection{Drift Dynamics}
+As local rulers shrink (and the horizon expands), the window edges drift in wavenumber space:
+\begin{itemize}
+    \item \textbf{UV Edge ($k_{\max}$):} Tied to the inverse size of local rulers $1/L_*(t)$. As $L_*$ shrinks toward the Planck scale, $k_{\max}$ increases (UV-shift).
+    \item \textbf{IR Edge ($k_{\min}$):} Tied to the inverse size of the Cosmic Horizon $1/d_H(t)$. As the horizon grows, $k_{\min}$ decreases (IR-shift).
+\end{itemize}
+The net window width $\Nband = \ln(k_{\max}/k_{\min})$ grows over time.
+
+\section{The Effective Equation of State}
+Differentiating the windowed integral with respect to time yields the rate of change of the effective vacuum density. We match this to the continuity equation $\dot{\rho} + 3H(\rho + p) = 0$ to find the effective pressure $p$ and equation of state $w = p/\rho$.
+
+\begin{equation}
+  w + 1 \;\approx\; \frac{\dot F/F - \dot \Heff/\Heff}{3\,\Heff\,\Nband}
+\end{equation}
+where $F(t) \propto 1/L_*(t)$ is the scaling factor.
+
+Crucially, the denominator contains the logarithmic bandwidth $\Nband \sim \ln(10^{60}) \approx 140$. This large number suppresses the drift term, naturally pinning $w$ very close to $-1$.
+
+\section{Inhomogeneous Corrections: The Origin of Gravitational Redshift}
+The window drift described above captures the \emph{homogeneous} evolution of the background. However, the secular contraction of rulers $L_*(x,t)$ is driven by local thermodynamics, meaning it depends on the local noise intensity $\tau(x)$ and thus the local gravitational potential $\Phi(x)$.
+
+\subsection{Microphysics of the Equivalence Principle}
+In the unified framework, the local ruler scale scales as $L_* \propto \tau^{-1}$. Since $\tau^2 \propto \Phi$, we have $L_* \propto \Phi^{-1/2}$. This implies that the internal structure of matter adapts to the local potential depth.
+Crucially, this adaptation is not an artifact to be subtracted, but the \textbf{microphysical origin of gravitational redshift}.
+\begin{enumerate}
+    \item \textbf{Mass Defect:} An atom falling into a high-$\tau$ potential well minimizes its free energy. This reduction in internal energy corresponds to a reduction in effective rest mass, $m(r) \approx m_\infty (1 - |\Phi|/c^2)$.
+    \item \textbf{Emission Frequency:} Since emission frequencies scale with mass ($E = h\nu \propto mc^2$), an atom deep in a well emits photons with lower absolute energy/frequency compared to a reference atom in a void.
+    \item \textbf{Observation (The Constant-$c$ Constraint):} One might intuitively expect a "smaller" atom to oscillate faster (like a shorter pendulum). However, because the speed of light $c_s$ is locally constant, the shrinking of the spatial ruler $L_*$ forces a recalibration of the time scale.
+    \begin{itemize}
+        \item \emph{The Metric View:} With a smaller ruler $L_*$, a fixed coordinate interval measures as "more rulers" long. Since light travels at 1 ruler per tick, crossing this interval takes "more ticks." Thus, local processes appear slower relative to the coordinate background.
+        \item \emph{Local Invariance:} Crucially, a local observer sees none of this. Their ruler shrinks, their clock slows, and their atom shrinks, all in perfect proportion. To them, the atom has the standard size and frequency. The "smaller size" and "slower time" are only apparent to a distant observer comparing against a different vacuum background.
+    \end{itemize}
+    \item \textbf{No Cancellation:}
+    \begin{itemize}
+        \item \emph{Local Observer:} A scientist in the well has a "slow" clock and measures "red" light. The effects cancel locally, preserving standard physics.
+        \item \emph{Distant Observer:} A scientist at infinity has a "fast" clock. Comparing the well's "red" photon to their "blue" reference, they perceive a redshift.
+    \end{itemize}
+\end{enumerate}
+Thus, what standard General Relativity describes as time dilation ($g_{00}$) is described here as a thermodynamic shift in the emitter's internal state due to the local vacuum density.
+
+\subsection{Unified Environmental Response}
+This perspective unifies two phenomena often treated separately:
+\begin{itemize}
+    \item \textbf{Refraction (Lensing):} Driven by the \emph{gradient} of the vacuum density, $\nabla \tau$. This is the "force" that bends light trajectories.
+    \item \textbf{Redshift (Downshifting):} Driven by the \emph{absolute value} of the vacuum density, $\tau$. This is the "potential" that determines the ruler scale and clock rate.
+\end{itemize}
+The "inhomogeneous correction" to the Dark Energy drift is therefore nothing other than the standard gravitational redshift signal. The smallness of this effect ($\delta \Phi/c^2 \sim 10^{-5}$) confirms that the universe is highly homogeneous on large scales, and that local environmental variations do not disrupt the global inference of cosmic acceleration, provided standard redshift corrections are applied.
+
+\section{Conclusion}
+Dark Energy is the "wind" felt by a shrinking observer. It requires no new fields, only the acknowledgment that our rulers are dynamic objects coupled to the vacuum state.
+
+\appendix
+\section{Gauge Equivalence}
+(See SI for proof that this conformal frame is observationally indistinguishable from standard FLRW metric expansion).
+
+\end{document}

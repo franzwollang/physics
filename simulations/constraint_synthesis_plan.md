@@ -97,19 +97,22 @@ $$
 
 ### 3.2 Lattice Simulation
 
-**Output:** Loop-to-junction mass ratio $R_{\rm length}(\lambda, \text{quench})$.
+**Output:** DM-to-Baryon ratio `ratio_dm_baryon` (Isolated vs Clustered Length).
 
 **Constraint Function:**
 $$
-f_2(\lambda, q) = R_{\rm length} \quad \Rightarrow \quad R_{\rm length} \in [0.75, 0.90]
+f_2(\lambda, q) = \text{ratio\_dm\_baryon} \quad \Rightarrow \quad \text{ratio} \approx 5.3
 $$
-where $q$ parameterizes the quench schedule (a nuisance parameter).
+where $q$ parameterizes the quench schedule (nuisance parameter).
 
-**What it constrains:** The dimensionless ratio $\lambda = \gamma / \alpha_{\rm grad}$.
+**What it constrains:** The dimensionless ratio $\lambda = \gamma / \alpha_{\rm grad}$. This controls the core width relative to defect density (interaction probability).
 
-**Target:** $R_{\rm length} \approx 0.84$ corresponds to $\Omega_{\rm DM} / \Omega_b \approx 5.3$.
+**Target:** $\Omega_{\rm DM} / \Omega_b \approx 5.3$. This maps to:
+$$
+\text{ratio\_dm\_baryon} \in [4.0, 7.0]
+$$
 
-**Nuisance handling:** Run multiple quench schedules. Report the **envelope** of $\lambda$ values that achieve $R_{\rm length} \in [0.75, 0.90]$ for *any* reasonable quench.
+**Nuisance handling:** Run multiple quench schedules. Report the **envelope** of $\lambda$ values that achieve the target ratio.
 
 ### 3.3 Knot Simulation
 

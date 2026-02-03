@@ -35,7 +35,7 @@ The aim is a clear bridge from the framework's primitives to standard gauge phen
 \subsection*{Notation and cross-paper consistency}
 We use $c_s$ for the universal signal speed (phase waves); any bare $c$ should be read as $c_s$. The noise field is $\rho_N$ in cosmology; here we use a local proxy $\tau(x)$ with calibration $\tau^2\propto \rho_N$ and, in the Newtonian window, $\tau^2\propto \Phi$. Amplitude--sector coefficients $(\alpha_{\rm grad},\beta_{\rm pot})$ are distinct from dimensional--bias $(\alpha_{\rm dim},\beta_{\rm dim})$.
 
-\paragraph*{Scope (chirality).} We make only minimal assumptions about intrinsic chirality: at most, tiny, dimensionless \emph{pseudoscalar} condensates $\theta(x)$ (``$\theta$-like'' parameters) may appear in the effective theory through CP-odd topological densities (schematically $\theta\,\mathrm{Tr}(F_{\mu\nu}\tilde F^{\mu\nu})$ in the rotor sector). Being pseudoscalar, $\theta$ does not introduce a preferred direction and is compatible with Lorentz symmetry at leading order; a nearly constant $\theta$ in a given cosmological patch can be understood as the outcome of an early-domain selection process. In this language, chirality acts as an effective \emph{helicity preference} for topological sectors rather than a preferred-frame ``wind.'' We do not specify its dynamics here; detailed mechanisms and phenomenology are deferred to future work.
+\paragraph*{Scope (chirality).} We make only minimal assumptions about intrinsic chirality: we assume a \textbf{Window-Local} chiral bias (a tiny, dimensionless pseudoscalar tilt $\theta$) arises from spontaneous symmetry breaking in the vacuum background (as detailed in the Chiral Bias paper). This background enables the distinction between topological grades (quarks vs. leptons) but its detailed dynamics are decoupled from the gauge derivations presented here.
 
 \section{U(1) Carriers: Phase Defects and Flux Lines}
 The massless (phase) sector, where the amplitude is clamped near its vacuum value ($w\approx w_*$), supports stable topological defects that mediate interactions. While the fundamental symmetry is U(1)---the symmetry of a phase defined on a 1D line---in 3D space these defects manifest as \emph{flux lines} (vortex filaments) where the phase winds by $2\pi$. The \emph{kink sheets} discussed below can be understood as the coherent wavefronts or branch cuts associated with bundles of these fundamental lines.
@@ -162,8 +162,8 @@ Let $B_\mu$ denote the U(1) connection (kink--sheet sector) and $W^a_\mu$ the SU
 \noindent\emph{Framework link:} This symmetry breaking is the same type that stabilizes $w\neq 0$; weak--boson masses co--vary with $\rho_N$ but ratios (e.g., $M_W/M_Z$) remain invariant in local units.
 
 \subsection{Parity Violation}
-An intrinsic handedness in the SU(2) rotor dynamics yields left--chiral couplings to matter solitons, reproducing parity violation in weak processes (e.g., polarized electron--nucleus scattering).
-\noindent\emph{Scope.} Only the intrinsic SU(2) parity structure is considered here; any additional tiny parity--odd tilts ($\theta$--like) are deferred to future work.
+An intrinsic handedness in the SU(2) rotor dynamics (induced by the window-local chiral bias) yields left--chiral couplings to matter solitons, reproducing parity violation in weak processes (e.g., polarized electron--nucleus scattering).
+\noindent\emph{Scope.} We assume the bias selects a preferred handedness for the effective theory; explicit derivation of the $V-A$ structure from the graph requires the full spinorization machinery (see Future Work).
 
 
 \section{Strong Sector: SU(3) Confinement and Hadronic Anchors}
@@ -284,12 +284,38 @@ While this draft presents a novel approach to emergent gauge forces, several cri
 
 These limitations highlight areas for refinement, positioning this as an exploratory framework.
 
-\section{Unification Teaser: Gauge Sourcing of Gravity}
+\section{Grand Geometric Synthesis: The Four Behaviors of Free Energy}
 
-The gravitational interaction in this framework depends only on the coarse-grained noise statistic $\tau^2 \propto \rho_N$, which measures the local fluctuation power sourced by all forms of energy density. Gauge-like interactions (U(1) sheets, SU(2)/SU(3) rotors) generate this ``noise'' through their stress-energy contributions. Crucially, in a thermalized network, the Fluctuation-Dissipation theorem implies that the local noise power is directly proportional to the local energy density, regardless of whether that energy is stored in phase gradients (electromagnetism), amplitude compression (mass), or geometric twist.
+The standard model treats the four fundamental forces as distinct interactions mediated by separate exchange bosons ($g_{\mu\nu}, \gamma, g, W/Z$). In this framework, these interactions are unified not by a high-energy gauge group, but by the single principle of **Free Energy Minimization** ($F = U - TS$) acting on the different geometric modes of the phase/amplitude field.
 
-Because $\tau^2$ is an additive, positive-definite measure that integrates this power over the window, any internal asymmetries of the source are "washed away" in the coarse-graining. The net contribution to $\tau^2$ becomes proportional simply to the total energy density. This naturally enforces the Equivalence Principle: a proton (active geometric resistor) and an electron (passive phase defect) source gravity solely in proportion to their total energy, preserving the universality of free fall without requiring fine-tuned couplings.
-\noindent\emph{Framework link:} This universality is formalized in the Infinite--Clique Graph Supplementary Information as the \emph{Matter--Kernel Coupling Lemma} (ICG SI, Sec.~S10), which shows $\delta K\propto\rho_m$ to leading order on near-regular patches independent of microscopic composition.
+Each "force" corresponds to the system relaxing a specific type of stress or maximizing a specific entropy term.
+
+\begin{center}
+\begin{tabular}{|p{0.18\linewidth}|p{0.22\linewidth}|p{0.25\linewidth}|p{0.25\linewidth}|}
+\hline
+\textbf{Interaction} & \textbf{Driver (Free Energy)} & \textbf{Geometric Mechanism} & \textbf{Character} \\
+\hline
+\hline
+\textbf{Gravity} & \textbf{Thermodynamic} & \textbf{Noise Gradient Descent} & \textbf{Statistical.} Solitons migrate toward "stiffer" vacuum (matter) to minimize fluctuation costs. (Entropy maximization). \\
+\hline
+\textbf{Electromagnetism} & \textbf{Elastic} & \textbf{Phase Winding Relaxation} & \textbf{Long-Range Tension.} The vacuum tries to "unwind" phase twists. $E$-field is the stress of twisted phase; $B$-field is the flow of twist. \\
+\hline
+\textbf{Strong Force} & \textbf{Cohesive} & \textbf{Boundary Continuity} & \textbf{Mode Pinning.} Adjacent solitons share a continuous phase field to suppress expensive soft-mode fluctuations at the interface. \\
+\hline
+\textbf{Weak Force} & \textbf{Transitional} & \textbf{Topological Snapping} & \textbf{Failure Mode.} Not a continuous force, but a \textbf{tunneling event} where a metastable geometry (Neutron) snaps into a lower-energy topology (Proton). \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{The "Apparent" Nature of the Forces}
+\begin{itemize}
+    \item \textbf{Gravity (The "Pull" of Silence):} Gravity is not a fundamental field; it is the statistical tendency of defects to cluster where the vacuum is stiffest (lowest noise susceptibility). It is "entropic gravity" realized via phase noise.
+    \item \textbf{Electromagnetism (The "Pull" of Flatness):} Electromagnetism is the elastic response of the $U(1)$ phase field. Charges are topological obstructions to flatness; the field is the strain trying to remove them.
+    \item \textbf{Strong Force (The "Pull" of Continuity):} The Strong force is the energy savings of continuity. Nucleons bind not because they exchange gluons, but because sharing a boundary condition is energetically cheaper than maintaining two abrupt interfaces.
+    \item \textbf{Weak Force (The "Event" of Collapse):} The Weak interaction is the least "force-like." It is the observation of structural failure. A neutron does not feel a "weak pull"; it sits in a metastable energetic valley until a thermal fluctuation kicks it over the barrier, causing its internal topology to snap. The $W$ boson is the geometry of this transition state---a transient, high-energy knot in the phase field.
+\end{itemize}
+
+This synthesis suggests that the complexity of the Standard Model arises not from a complex fundamental Lagrangian, but from the complex geometric responses of a simple scalar field to topology, noise, and boundaries.
 
 \appendix
 

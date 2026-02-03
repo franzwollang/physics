@@ -1,0 +1,138 @@
+% !TeX program = pdflatex
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+% Minimal macros to match the main paper
+\newcommand{\cs}{c_s}
+\newcommand{\Heff}{H_{\mathrm{eff}}}
+\newcommand{\rcl}{R_{\mathrm{cl}}}
+
+\title{Supplementary Information: Scalar Dark Matter (Draft)}
+\author{Franz Wollang}
+\date{\small Dated: 2025-09-12}
+
+\begin{document}
+\maketitle
+
+\section{Notation and symbol map}\label{si:notation}
+We summarize only symbols that are used in the present dark-matter paper.
+\begin{itemize}[leftmargin=*]
+  \item $\cs$: universal signal speed (phase sector).
+  \item $\tau(x)$: local noise proxy; $\tau^2\propto \Phi$ (gravitational potential).
+  \item $\rcl,\ell$: composite source scale and screening length; Coulombic window $\rcl\ll r\ll\ell$.
+  \item $\sigma,\sigma_r,\beta(r)$: one-dimensional velocity dispersion, radial dispersion, and Binney anisotropy.
+\end{itemize}
+
+\section{Phase Friction Mechanism}\label{si:phase-friction}
+We derive the kinematic distinction between baryon (Winding) and DM (Scalar Breather) solitons.
+
+\subsection*{The Friction Functional}
+The interaction energy between a soliton's phase field $\phi(x)$ and the vacuum noise $\tau(x)$ is given by the gradient coupling:
+\begin{equation}
+  E_{\text{int}} = \int \nabla \phi \cdot \nabla \tau \, d^3x.
+\end{equation}
+For a moving soliton with velocity $\mathbf{v}$, the phase field is Doppler-shifted. The noise field $\tau(x)$ fluctuates stochastically with a correlation time $\tau_c$. The resulting drag force is the time-averaged backreaction:
+\begin{equation}
+  \mathbf{F}_{\text{drag}} = -\langle \nabla E_{\text{int}} \rangle_t.
+\end{equation}
+
+\subsection*{Case 1: Baryons (Windings)}
+A baryon possesses a net topological winding number $n \neq 0$ (or open sheets terminating at infinity), implying a non-vanishing phase circulation $\oint \nabla \phi \cdot dl \neq 0$. Locally, $\nabla \phi$ has a sustained directionality.
+The coupling $\nabla \phi \cdot \nabla \tau$ contributes a net term. As the soliton moves through the fluctuating $\tau$ field, it performs work on the vacuum modes. Using the Fluctuation-Dissipation Theorem, the dissipation rate is proportional to the spectral density of the noise at the soliton's characteristic frequency $\omega \sim v/\sigma$:
+\begin{equation}
+  \mathbf{F}_{\text{drag}} \approx -\eta \, \mathbf{v}, \quad \eta \propto \int |\nabla \phi|^2 S_\tau(\omega) d\omega.
+\end{equation}
+Since the open winding ensures a non-canceling contribution to $|\nabla \phi|^2$, $\eta > 0$. Baryons experience strong phase friction ($F \propto v$).
+
+\subsection*{Case 2: Dark Matter (Scalar Solitons)}
+A DM scalar soliton has trivial topology at infinity ($n=0$). It is a breather mode of the amplitude field with no net phase winding. While it has internal structure, the phase gradient $\nabla \phi$ vanishes or averages to zero over the soliton's envelope.
+The leading-order coupling term vanishes due to symmetry:
+\begin{equation}
+  \int \nabla \phi_{\text{scalar}} \cdot \nabla \tau \, d^3x \approx 0.
+\end{equation}
+Consequently, the velocity-dependent phase friction is suppressed. DM solitons experience only the universal acceleration-dependent radiative drag ($P \propto a^2$, see Gravity paper) which vanishes on geodesics. They are effectively frictionless on orbital timescales.
+
+\section{Primordial Yield Statistics}\label{si:yield}
+We estimate the abundance ratio $\Omega_{\text{DM}}/\Omega_{\text{B}}$ from the statistics of the primordial graph quench.
+
+\subsection*{Kibble-Zurek on a Disordered Graph}
+The formation of topological defects ($l=1$) is governed by the Kibble-Zurek mechanism. On a disordered graph, the critical slowing down depends on the local spectral dimension $d_s$ and connectivity (stiffness $\kappa$).
+\begin{itemize}
+    \item \textbf{Filaments (High $\kappa$):} Fast quench. The correlation length $\xi$ is small. Defects are trapped with probability $P_{\text{defect}} \sim \xi^{-d}$.
+    \item \textbf{Voids (Low $\kappa$):} Adiabatic quench. The correlation length diverges, $\xi \to \infty$. The field relaxes to the ground state ($l=0$) over the entire domain.
+\end{itemize}
+
+\subsection*{Volume Fraction Estimate}
+Let $P(\kappa)$ be the probability distribution of local stiffness in the primordial graph. The fraction of volume collapsing into baryons is:
+\begin{equation}
+  f_B = \int_{\kappa_c}^{\infty} P(\kappa) \, d\kappa.
+\end{equation}
+The fraction remaining as scalar dark matter is:
+\begin{equation}
+  f_{DM} = \int_{0}^{\kappa_c} P(\kappa) \, d\kappa.
+\end{equation}
+For a scale-free graph, $P(\kappa) \sim \kappa^{-\gamma}$. We hypothesize that the critical stiffness $\kappa_c$ for defect formation lies such that the mass-weighted ratio is:
+\begin{equation}
+  \frac{\Omega_{DM}}{\Omega_B} \approx \frac{f_{DM} \langle M_{l=0} \rangle}{f_B \langle M_{l=1} \rangle} \approx 5.
+\end{equation}
+Verifying this specific ratio is the target of the planned lattice simulations (see \texttt{simulation\_plan\_primordial\_yield.md}).
+
+\section{Galactic diagnostics and modeling recipes}\label{si:dm-diagnostics}
+We provide practical recipes for analyzing rotation curves in this framework.
+
+\subsection*{Anisotropy and dispersion gradients}
+Use the general relation
+\begin{equation}
+  \alpha(r) \equiv -\frac{\mathrm d\ln\rho}{\mathrm d\ln r} = \frac{v_c^2}{\sigma_r^2} + \frac{\mathrm d\ln\sigma_r^2}{\mathrm d\ln r} + 2\,\beta(r)
+\end{equation}
+to propagate uncertainties from $\beta(r)$ and $\sigma_r(r)$ into mass profiles. When fitting Jeans models, include a linear-in-$\ln r$ term for $\sigma_r^2$ locally and a weakly informative prior on $\beta(r)$.
+
+\subsection*{External-field/tidal truncation}
+Model truncation by imposing a taper radius $r_t$ (from tides or external-field effects) beyond which the isothermal envelope transitions smoothly to a steeper decline; use penalized splines or an error-function taper. Predict a recovery toward the $1/r$ tail beyond $r_t$ where the Coulombic window reopens.
+
+\subsection{Kinetic derivation of $\sigma\approx\mathrm{const}$ in local units}\label{si:kinetic-sigma}
+We sketch a Fokker\,–\,Planck derivation showing that a stationary phase bath yields an approximately radius\,–\,independent dispersion.
+
+\paragraph{Setup.} Consider collisionless tracers in a slowly varying potential $\Phi(r)$. Let $f(r,\mathbf v,t)$ obey a Fokker\,–\,Planck equation with drift from $\Phi$ and isotropic velocity\,–\,space diffusion $\mathcal D$:
+\begin{equation}
+  \partial_t f + v_r\,\partial_r f - (\partial_r\Phi)\,\partial_{v_r} f \;=\; \partial_{v_i}\big[ A_i f + \tfrac12 \partial_{v_j}(B_{ij} f)\big],\qquad B_{ij}=2\mathcal D\,\delta_{ij}.
+\end{equation}
+Stationarity and weak anisotropy imply $A_i\approx 0$ and $B_{ij}\approx 2\mathcal D\,\delta_{ij}$. A scale-invariant noise spectrum produces a diffusion coefficient $\mathcal D$ that is radially slowly varying.
+
+\paragraph{Moment equation.} The stationary second\,–\,moment equation implies
+\begin{equation}
+  \rho\,\sigma_r^2\,\frac{\mathrm d\ln\rho}{\mathrm dr} \;=\; -\,\rho\,\frac{\mathrm d\Phi}{\mathrm dr} \; +\; 2\rho\,\mathcal D,\qquad \sigma_r^2:=\langle v_r^2\rangle.
+\end{equation}
+Comparing with the isotropic Jeans relation shows that small $\mathcal D$ acts to stabilize $\sigma_r$ against radial drift, yielding $\sigma_r(r)\approx \mathrm{const}$ and recovering the isothermal envelope.
+
+\section{Screening-length bands and core/truncation mapping}\label{si:ell-bands}
+We map microparameters $(\alpha_{\rm grad},\beta_{\rm pot})$ to observable halo scales via $\ell=\sqrt{\alpha_{\rm grad}/(2\beta_{\rm pot})}$.
+
+\paragraph{Core mapping.} When $r\lesssim \ell$, Helmholtz corrections produce a pseudo\,–\,isothermal core with $r_c\sim \mathcal O(\ell)$. Hence observed core radii constrain $\ell$. Reported dwarf cores $r_c\sim\,$kpc imply $\ell\sim\,$kpc.
+
+\paragraph{Environment/truncation.} In strong host potentials or tides, the isothermal envelope truncates at $r_t$; observationally, mass discrepancy drops inside $r_t$ and recovers outside.
+
+\section{Lensing and PPN cross-checks}\label{si:lensing-ppn}
+In the weak-field regime we use
+\begin{equation}
+  ds^2 = -\Big(1+\tfrac{2\Phi}{c_s^2}\Big) c_s^2 dt^2 + \Big(1-\tfrac{2\Phi}{c_s^2}\Big) d\mathbf x^2,
+\end{equation}
+which has PPN parameters $\gamma=\beta=1$ at leading order. Therefore light deflection matches GR expressions with $c\to c_s$. For an isothermal sphere with $\rho=\sigma^2/(2\pi G r^2)$, the projected surface density is $\Sigma(R)=\sigma^2/(2G R)$ and the reduced deflection angle is constant.
+
+\section{Simulation plan and calibration}\label{si:sim-plan}
+We outline a minimal simulation program.
+\begin{enumerate}
+    \item \textbf{Screening Calibration:} Calibrate $\ell$ by sampling $(\alpha_{\rm grad},\beta_{\rm pot})$ on graphs and measuring core radii $r_c$.
+    \item \textbf{Kinetic Verification:} Verify the kinetic dispersion result by driving tracers in the stationary phase bath and confirming the flatness of $\sigma_r(r)$.
+    \item \textbf{Primordial Yield:} (See \texttt{simulation\_plan\_primordial\_yield.md}) Test the hypothesis that scalar basins outnumber vector knots by 5:1.
+\end{enumerate}
+
+\end{document}

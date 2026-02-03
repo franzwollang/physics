@@ -11,9 +11,9 @@
 \contentsline {section}{\numberline {S4}Emergence of a U(1) Gauge\,like Structure from Phase Defects}{7}{section.4}%
 \contentsline {paragraph}{Phase winding and defects.}{7}{section*.18}%
 \contentsline {paragraph}{Energetic barrier from the amplitude gap.}{7}{section*.19}%
-\contentsline {paragraph}{Phase jump across a sheet.}{7}{section*.21}%
+\contentsline {paragraph}{Phase jump across a sheet.}{8}{section*.21}%
 \contentsline {section}{\numberline {S5}Geometric Interpretations (Maps)}{8}{section.5}%
-\contentsline {section}{\numberline {S6}Thermodynamic vs Entropic Gravity (Comparison)}{8}{section.6}%
+\contentsline {section}{\numberline {S6}Thermodynamic vs Entropic Gravity (Comparison)}{9}{section.6}%
 \contentsline {section}{\numberline {S7}Jeans Isothermal Equilibrium from Noise Thermodynamics}{9}{section.7}%
 \contentsline {paragraph}{Assumptions (compact).}{9}{section*.24}%
 \contentsline {subsection}{\numberline {S7.1}Separation of Noise into Equilibration and Force Components}{9}{subsection.7.1}%
@@ -29,7 +29,7 @@
 \contentsline {paragraph}{Timescale hierarchy.}{11}{section*.31}%
 \contentsline {subsection}{\numberline {S7.5}Self-Consistent Closure: The $\tau $--$\Phi $--$\rho $ Triangle}{11}{subsection.7.5}%
 \contentsline {subsection}{\numberline {S7.6}Predictions and Observational Consequences}{12}{subsection.7.6}%
-\contentsline {paragraph}{Flat rotation curves without dark matter particles.}{12}{section*.32}%
+\contentsline {paragraph}{Flat rotation curves (halo interpretation).}{12}{section*.32}%
 \contentsline {paragraph}{Core--halo structure.}{12}{section*.33}%
 \contentsline {paragraph}{Velocity dispersion--circular velocity relation.}{12}{section*.34}%
 \contentsline {paragraph}{Deviations from isothermality.}{12}{section*.35}%

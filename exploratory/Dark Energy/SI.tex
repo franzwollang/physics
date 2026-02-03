@@ -1,0 +1,170 @@
+% !TeX program = pdflatex
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+% Minimal macros
+\newcommand{\cs}{c_s}
+\newcommand{\Heff}{H_{\mathrm{eff}}}
+\newcommand{\Nband}{\mathcal N}
+\newcommand{\kmin}{k_{\min}}
+\newcommand{\kmax}{k_{\max}}
+
+\title{Supplementary Information: Dark Energy (Draft)}
+\author{Franz Wollang}
+\date{\small Dated: 2025-09-12}
+
+\begin{document}
+\maketitle
+
+\section{Notation and symbol map}\label{si:notation}
+\begin{itemize}[leftmargin=*]
+  \item $\cs$: universal signal speed.
+  \item $F(t)$, $a_{\rm eff}$: conformal scale factor for local units; $a_{\rm eff}=1/F$.
+  \item $\Heff$: effective Hubble parameter for local units, $\Heff=-\partial_t\ln F$.
+  \item $\kmin,\kmax$: IR/UV edges of the sliding window; $\Nband=\ln(\kmax/\kmin)$.
+\end{itemize}
+
+\section{Sliding-window formalism and dark energy}\label{si:sliding}
+We formalize the effective density of a windowed, scale-invariant vacuum.
+
+\paragraph{Setup.} Let the measured vacuum energy be a windowed integral
+\begin{equation}
+  \rho_{N,\mathrm{eff}}(t) = \int_{\kmin(t)}^{\kmax(t)} S(k)\,\mathrm dk.
+\end{equation}
+Define the logarithmic bandwidth $\Nband=\ln(\kmax/\kmin)$ and parameterize edge evolution by $\kmax\propto F^{\alpha}$, $\kmin\propto\Heff^{\beta}$.
+
+\paragraph{Leibniz rule.} Differentiating yields
+\begin{equation}
+  \frac{\mathrm d\rho_{N,\mathrm{eff}}}{\mathrm dt} = S(\kmax)\,\frac{\mathrm d\kmax}{\mathrm dt} - S(\kmin)\,\frac{\mathrm d\kmin}{\mathrm dt}.
+\end{equation}
+For $S(k)=A\,k^{-p}$ with $p\approx1$, one has $\rho_{N,\mathrm{eff}}\approx A\ln(\kmax/\kmin)$ and $\partial\rho_{N,\mathrm{eff}}/\partial\ln k\approx A$ at the edges, giving
+\begin{equation}
+  \frac{\mathrm d\rho_{N,\mathrm{eff}}/\mathrm dt}{\rho_{N,\mathrm{eff}}} \;\approx\; \frac{1}{\Nband}\Big(\alpha\,\frac{\mathrm d F/\mathrm dt}{F} - \beta\,\frac{\mathrm d\Heff/\mathrm dt}{\Heff}\Big).
+\end{equation}
+
+\paragraph{Effective equation of state.} Matching to a smooth component with density $\rho_X$ and $w_X$ gives $\mathrm d\rho_X/\mathrm dt/\rho_X = -3(1+w_X)\Heff$, hence
+\begin{equation}
+  w_X + 1 \;\approx\; \frac{\alpha\,\mathrm d F/\mathrm dt/F - \beta\,\mathrm d\Heff/\mathrm dt/\Heff}{3\,\Heff\,\Nband}.
+\end{equation}
+The paper uses $\alpha=\beta=1$ as a natural choice.
+
+\subsection{Edge derivation and sensitivity}\label{si:edge-derivation}
+\paragraph{UV edge from local resolution.} In local units, the smallest resolvable physical feature is set by the stabilized soliton scale $L_*(t)$. A resolved wavenumber obeys $k\,L_* \gtrsim \mathcal O(1)$, hence the UV cutoff tracks $k_{\max}(t) \sim \kappa_{\rm UV}/L_*(t)$. With $F(t):=1/a_{\rm eff}(t)$ and $L_*\propto 1/F$, one obtains
+\begin{equation}
+  k_{\max}(t) \;\propto\; F(t)^{\alpha},\qquad \alpha=1\;\text{(natural)}.
+\end{equation}
+\paragraph{IR edge from causal/response reach.} The largest coherently probed comoving scale in a Hubble time is set by the response cone: $\lambda_{\rm IR}\sim c_s/ H_{\rm eff}$ up to an $\mathcal O(1)$ factor, yielding an IR cutoff
+\begin{equation}
+  k_{\min}(t) \;\sim\; \kappa_{\rm IR}\,\frac{H_{\rm eff}(t)}{c_s} \;\propto\; H_{\rm eff}(t)^{\beta},\qquad \beta=1\;\text{(natural)}.
+\end{equation}
+\paragraph{Signs and monotonicity.} Under the homogeneous secular shrinkage of matter (increasing $F$) and a decelerating expansion (decreasing $H_{\rm eff}$ at late times), one finds $\mathrm d k_{\max}/\mathrm dt>0$ and $\mathrm d k_{\min}/\mathrm dt<0$. Both edges remain positive; what governs $w+1$ is the bandwidth $\Nband=\ln(k_{\max}/k_{\min})$.
+
+\subsection{Principle of Optimal Bandwidth (Constructive Derivation)}
+We formalize the edge evolution by minimizing an information\,–\,complexity functional
+\begin{equation}
+  \mathcal J(\kmin,\kmax) \;=\; -\,\mathrm{SNR}_{\rm band}(\kmin,\kmax) \; +\; \lambda\,\mathcal C(\kmin,\kmax),\qquad \lambda>0,
+\end{equation}
+where $\mathrm{SNR}_{\rm band}$ increases with the log\,–\,bandwidth when $S(k)$ is stationary and $\mathcal C$ penalizes bandwidth/edge motion. With $S(k)=A/k$ and a local-unit variance $\sigma^2$ that decreases with bandwidth, one has the schematic scaling
+\begin{equation}
+  \mathrm{SNR}_{\rm band} \;\propto\; \int_{\kmin}^{\kmax} \frac{dk}{k} \;=\; \ln\!\left(\frac{\kmax}{\kmin}\right),\qquad
+  \mathcal C \;=\; \alpha_c\,\ln\kmax \; -\; \beta_c\,\ln\kmin,
+\end{equation}
+with positive coefficients $\alpha_c,\beta_c$ that encode the asymmetric costs of pushing the UV edge (resolution/complexity) and the IR edge (memory/causal reach). The gradient conditions
+\begin{equation}
+  \frac{\partial\mathcal J}{\partial\ln\kmax} \;=\; -1 + \lambda\,\alpha_c\;<\;0,\qquad
+  \frac{\partial\mathcal J}{\partial\ln\kmin} \;=\; +1 - \lambda\,\beta_c\;>\;0,
+\end{equation}
+for suitable $\lambda\in(0,\min\{1/\alpha_c,\,1/\beta_c\})$ imply $\mathrm d\kmax/\mathrm dt>0$ and $\mathrm d\kmin/\mathrm dt<0$ along descent. Thus, under broad conditions consistent with $S(k)\propto 1/k$, optimal bandwidth selection drives edges in the observed directions.
+
+\section{Energy--momentum accounting and conservation}\label{si:tmn}
+We split the effective stress--energy as
+\begin{equation}
+  T^{\mu\nu}_{\text{tot}} \;=\; T^{\mu\nu}_{\text{matter}} \; + \; T^{\mu\nu}_{\text{bg}},\qquad T^{\mu\nu}_{\text{bg}}\;\text{encodes the homogeneous, windowed background}.
+\end{equation}
+By construction (Bianchi identity), Einstein's equations enforce covariant conservation $\nabla_\mu T^{\mu\nu}_{\text{tot}} = 0$.
+In our construction, the windowed background is $\rho_{\mathrm eff}(t) = \int_{k_{\min}(t)}^{k_{\max}(t)} S(k)\,\mathrm dk$, whose time derivative follows the Leibniz rule. Matching to an effective fluid with equation of state $w$ by $\dot\rho_{\mathrm eff}/\rho_{\mathrm eff} = -3H_{\mathrm eff}(1+w)$ identifies $w$ and corresponds to choosing $Q=0$ in local units (no explicit energy exchange with clustered matter at leading order).
+
+\subsection{Conservation: internal $\,to\,$kinetic balance}\label{si:conservation}
+Here we make explicit that scale\,–\,reduction converts internal (free) energy into center\,–\,of\,–\,mass kinetic energy within the same matter stress\,–\,energy tensor.
+
+\paragraph{Adiabatic reduction.} In the adiabatic regime, the soliton's internal size $\sigma$ relaxes rapidly to $\sigma^*(x)$ set by the local background. The relaxed internal energy is
+\begin{equation}
+  E_{\rm eq}(x) \;=\; -\,\frac{A_{\eta}^{\,2}}{4A_{\gamma}}\, f\!\big(\tau(x)\big)^2,
+\end{equation}
+and the conservative force on the center of mass is $\mathbf F= -\nabla E_{\rm eq}(x)$. Writing the matter stress\,–\,energy as $T^{\mu\nu}_{\rm matter} = T^{\mu\nu}_{\rm bulk} + T^{\mu\nu}_{\rm int}$, one finds the standard mechanical energy balance along the worldline (lab frame for simplicity)
+\begin{equation}
+  \frac{dK}{dt} \;=\; \mathbf F\!\cdot\!\mathbf v \;=\; -\,\frac{dE_{\rm eq}}{dt},
+\end{equation}
+so the increase of kinetic energy $K$ equals the decrease of internal free energy $E_{\rm eq}$. In covariant form, $u^{\mu}\nabla_{\mu}( \mathcal K + E_{\rm eq}) = 0$. Thus the internal $\,to\,$bulk energy transfer is an internal bookkeeping within $T^{\mu\nu}_{\rm matter}$; there is no violation of conservation.
+
+\section{Early-universe suppression via growth of inhomogeneity}\label{si:early-suppression}
+The homogeneous drift arises from locally inhomogeneous downshifting averaged over many patches. Let $\Delta_\tau^2$ denote the variance proxy of the noise field. For scales well inside the horizon and in the linear regime, $\Delta_\tau^2(a_{\rm eff}) \propto D(a_{\rm eff})^2$. Assuming the homogeneous drift rate is proportional to this variance,
+\begin{equation}
+  H_{\rm eff}(a) \;\propto\; \begin{cases}
+    \text{const}\;\times D(a)^2 \;\sim\; a^2, & \text{matter era},\\[0.25em]
+    \text{const}\;\times D(a)^2 \;\approx\; \text{constant (tiny)}, & \text{radiation era}.
+  \end{cases}
+\end{equation}
+Thus, during the radiation-dominated epoch, growth is suppressed and the variance stays nearly constant at a tiny level, making the homogeneous drift negligible.
+
+\section{Small spectral tilt and practical bounds}\label{si:tilt-bound}
+Consider $S(k)=A\,k^{-1+\epsilon}$ with $|\epsilon|\ll 1$. The windowed background becomes $\rho_{\mathrm eff} = A\,\Nband_{\epsilon}$ with $\Nband_{\epsilon}:=(k_{\max}^{\epsilon}-k_{\min}^{\epsilon})/\epsilon$. Expanding for small $\epsilon$ gives
+\begin{equation}
+  w+1 \;\approx\; \frac{\alpha - \beta(1+q)}{3\,\Nband}\,\Big[\,1\; -\; \frac{\epsilon}{2}\,\big(\overline{\ln k}\big)_{\rm band} \; +\; \mathcal O(\epsilon^2)\Big].
+\end{equation}
+Thus, small tilts correct $w+1$ only at order $\mathcal O(\epsilon/\Nband)$ after accounting for the dominant $1/\Nband$ suppression.
+
+\section{Two-scale Buchert backreaction: estimate}\label{si:backreaction}
+We sketch a Buchert-style estimate of the kinematical backreaction term
+\begin{equation}
+  Q_\mathcal{D} \;=\; \frac{2}{3}\Big(\langle \theta^2 \rangle_\mathcal{D} - \langle \theta \rangle_\mathcal{D}^{\,2}\Big) \; - \; 2\,\langle \sigma^2 \rangle_\mathcal{D}.
+\end{equation}
+In a two-scale (wall/void) model with void fraction $f_v$ and wall fraction $f_w=1-f_v$, with local Hubble rates $H_v$ and $H_w$, one finds the variance contribution
+\begin{equation}
+  \frac{Q_\mathcal{D}}{H^2} \;\lesssim\; 6\, f_v\,(1-f_v)\,\Delta_H^{\,2} \,.
+\end{equation}
+For representative late-time values $f_v\sim 0.6$--0.8 and $\Delta_H\sim 0.03$, one finds $|Q_\mathcal{D}|/H^2 \lesssim 1.3\times 10^{-3}$. Thus, for realistic void fractions, backreaction is insufficient to mimic a dark-energy component.
+
+\section{Bounds on varying constants}\label{si:varying-constants}
+We parameterize a representative drift of a dimensionful coupling through its dependence on the windowed background. For the fine-structure constant, $\alpha(t) = \alpha_0 [1 + \zeta f(\rho_{N,\mathrm eff})]$. Using the Leibniz rule,
+\begin{equation}
+  \left|\frac{\mathrm d\ln\alpha}{\mathrm dt}\right| \;\sim\; \zeta\, \frac{1}{\Nband}\,\Big|\,\frac{\mathrm d\ln k_{\max}}{\mathrm dt} - \frac{\mathrm d\ln k_{\min}}{\mathrm dt}\,\Big| \;\sim\; \zeta\,\mathcal O(10^{-3})\,H_0.
+\end{equation}
+Atomic clock bounds give $|\dot\alpha/\alpha| \lesssim 10^{-17}\,\mathrm{yr}^{-1}$, implying $\zeta \lesssim 10^{-2}$.
+
+\section{Gauge equivalence: co-scaling units vs FLRW}\label{si:gauge-equivalence}
+We prove that expressing cosmological predictions in local co-scaling units via a conformal map leaves redshift and distance observables invariant.
+
+\subsection*{Setup}
+Let $(\mathcal M,g_{\mu\nu})$ be an FLRW spacetime with scale factor $a(t)$. Define the co-scaling (local-unit) metric $\hat g_{\mu\nu}(x) = F(t)^2 g_{\mu\nu}(x)$. Define orthonormal tetrads $e^{a}_{\ \mu}$ for $g_{\mu\nu}$ and $\hat e^{a}_{\ \mu}=F\, e^{a}_{\ \mu}$ for $\hat g_{\mu\nu}$.
+
+\subsection*{Null geodesics and redshift}
+Conformal rescalings preserve null geodesics up to reparametrization. With co-scaling tetrads, $\hat\omega = F\omega$. Hence the observable redshift
+\begin{equation}
+  1+z \;=\; \frac{\omega_{\rm em}}{\omega_{\rm obs}} \;=\; \frac{\hat\omega_{\rm em}/F_{\rm em}}{\hat\omega_{\rm obs}/F_{\rm obs}} \;=\; \frac{\hat\omega_{\rm em}}{\hat\omega_{\rm obs}}\, \frac{F_{\rm obs}}{F_{\rm em}}
+\end{equation}
+coincides with the standard FLRW expression.
+
+\subsection*{Distances}
+Angular diameter distance $D_A$ and luminosity distance $D_L$ transform as $\hat D_A=F\,D_A$ and $\hat D_L=F\,D_L$. Since $1+z$ is invariant, Etherington’s relation holds in both gauges: $\hat D_L = (1+z)^2 \hat D_A$.
+
+\section{Derivation of the Scale-Invariant Spectrum}\label{si:spectrum-proof}
+
+\paragraph{Theorem (Band-entropy maximizer).} Among stationary, positive spectra $S(k)$ on a finite window $[k_{\min},k_{\max}]$ with fixed integrated band power and scale-invariance of information (uniform content per logarithmic interval), the entropy maximizer has the form $S(k) = A/k$.
+\paragraph{Proof Sketch.} Let $u=\ln k$. Maximize Shannon entropy $\mathcal H = -\int \sigma(u)\ln(\sigma(u)/\sigma_0) du$ subject to fixed power. Variational calculus yields $\sigma(u)=\text{const}$, implying $k S(k) = \text{const}$.
+
+\paragraph{Multiplicative cascade construction.} Partition the window into $N$ bands. Iterate a multiplicative rebalancing map that enforces stationarity of total power and equalization of log-band content:
+\begin{equation}
+  w_i^{(n+1)} \;=\; w_i^{(n)}\, \exp\!\Big(-\eta\,\big[\ln w_i^{(n)} - \overline{\ln w}^{(n)}\big]\Big).
+\end{equation}
+This converges to $w_i \to P_0/N$, yielding $S(k) \propto 1/k$ in the continuum limit.
+
+\end{document}

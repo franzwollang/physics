@@ -1,0 +1,109 @@
+% !TeX program = pdflatex
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xr-hyper}
+\usepackage{fancyhdr}
+
+% External references (optional, for future SI)
+\externaldocument{SI}
+
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+% Footer marking the draft status
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[L]{\small Draft — version posted to Zenodo on 2025-09-12}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% ---------- Macros
+\newcommand{\cs}{c_s}
+\newcommand{\Heff}{H_{\mathrm{eff}}}
+\newcommand{\Nband}{\mathcal N}
+\newcommand{\dd}{\mathrm d}
+\newcommand{\rcl}{R_{\mathrm{cl}}}
+\newcommand{\vflat}{v_{\mathrm{flat}}}
+\newcommand{\kmin}{k_{\min}}
+\newcommand{\kmax}{k_{\max}}
+
+% Shortcuts
+\newcommand{\grad}{\nabla}
+
+\title{Scalar Dark Matter from Topological Segregation: Microphysics of the Frictionless Sector (\textit{Draft})}
+\author{Franz Wollang\\ \small Independent Researcher}
+\date{\small Dated: 2025-09-12}
+
+\begin{document}
+\maketitle
+
+% Prominent draft disclaimer box
+\begin{center}
+\setlength{\fboxsep}{8pt}%
+\fbox{\parbox{0.92\textwidth}{\centering\bfseries DRAFT — NOT FOR CITATION\\[4pt]
+This is a preliminary working version posted for discussion and feedback. Content may change significantly before formal submission.}}
+\end{center}
+\vspace{1em}
+
+\begin{abstract}
+We present a microphysical model for Dark Matter based on the unified soliton--noise framework. We show that the primordial quench of the complex order parameter naturally generates two distinct classes of stable solitons: topological defects (Phase Windings) which form Baryons, and scalar breathers (Scalar Solitons) which form Dark Matter. The key distinction is kinematic: Baryons possess open phase windings ($l=1$) that couple to the universal vacuum noise, experiencing "Phase Friction" ($F \propto v$) that allows them to radiate energy and collapse into disks. Scalar solitons, being $l=0$ breathers with no net winding, are friction-free (subject only to negligible acceleration-dependent radiative drag) and remain in diffuse, pressure-supported halos. This topological segregation explains the cosmic abundance ratio ($\Omega_{\text{DM}} \approx 5 \Omega_{\text{B}}$) via graph-topology statistics and recovers standard galactic phenomenology (flat rotation curves, isothermal halos) without modifying gravity.
+\end{abstract}
+
+\section{Introduction}
+The nature of Dark Matter remains one of the most significant open questions in physics. While the Cold Dark Matter (CDM) paradigm successfully describes large-scale structure, the particle identity of DM remains elusive.
+
+This paper proposes that Dark Matter is not a new fundamental field, but a distinct topological sector of the same field that constitutes ordinary matter. Building on the Infinite-Clique Graph (ICG) framework, where matter arises as solitons of a complex order parameter $\Psi$, we identify a fundamental bifurcation in the formation process:
+\begin{enumerate}
+    \item \textbf{Topological Defects (Baryons):} Formed in high-connectivity regions. These are "Geometric Grade" composites (Line/Surface/Volume) carrying net topological charge (phase winding $l \neq 0$). They couple strongly to the phase noise and dissipate energy.
+    \item \textbf{Scalar Solitons (Dark Matter):} Formed in low-connectivity voids. These are stable scalar breathers ($l=0$) with no phase winding. While they possess internal amplitude structure, they carry no topological charge. They decouple from the phase noise friction, cannot dissipate orbital energy, and form Dark Matter.
+\end{enumerate}
+
+\section{The Scalar Soliton Model}
+
+\subsection{Formation: The Primordial Yield}
+In the primordial quench, the field $\Psi$ relaxes on a disordered graph substrate. The local topology of the graph determines the outcome:
+\begin{itemize}
+    \item \textbf{High-Stiffness Ridges (Filaments):} Rapid quenching traps topological defects that must connect to neighbors, forming networks of open windings (Baryons).
+    \item \textbf{Low-Stiffness Basins (Voids):} Slow, adiabatic relaxation allows the phase to unwind, leaving behind stable amplitude lumps (Scalar Solitons). These are stable but electromagnetically neutral.
+\end{itemize}
+We hypothesize that the statistics of scale-free graphs naturally favor the volume of these breather-forming basins by a factor of $\approx 5$ over the defect-forming ridges, providing a topological origin for the cosmic $\Omega_{\text{DM}}/\Omega_{\text{B}}$ ratio.
+
+\subsection{Kinematics: The Phase Friction Mechanism}
+The defining feature of this model is the \textbf{dissipation gap}.
+\begin{itemize}
+    \item \textbf{Baryons (Windings):} The open phase circulation $\oint \nabla \phi \cdot dl \neq 0$ couples to the stochastic vacuum phase noise $\tau(x)$. This coupling induces a strong drag force ("Phase Friction") proportional to velocity, $F_{\text{drag}} \propto -\eta v$. This allows baryons to shed angular momentum and collapse into dense structures (galaxies, stars).
+    \item \textbf{Dark Matter (Scalar Solitons):} With no net winding ($\oint \nabla \phi \cdot dl = 0$), the long-range gradient coupling vanishes. While scalar solitons still experience the universal acceleration-dependent radiative drag ($P \propto a^2$) common to all massive objects, this effect is negligible for orbital motion. They lack the strong $v$-dependent phase friction. Thus, they are effectively a "superfluid" of collisionless lumps that cannot cool or collapse into disks, remaining in extended, virialized halos.
+\end{itemize}
+
+\subsection{Galactic Phenomenology}
+The macroscopic behavior of this soliton gas recovers standard CDM successes:
+\begin{itemize}
+    \item \textbf{Flat Rotation Curves:} A self-gravitating, collisionless gas naturally relaxes to an isothermal sphere density profile, $\rho(r) \propto r^{-2}$, which generates a flat rotation curve.
+    \item \textbf{Cores vs. Cusps:} Unlike point-particle CDM simulations that predict singular cusps, scalar solitons have a finite size (screening length $\ell$). This naturally regularizes the central density, producing "cores" in dwarf galaxies.
+    \item \textbf{No Dark Disks:} The lack of dissipation strictly forbids the formation of thin Dark Matter disks, a prediction consistent with observations and distinct from some Self-Interacting Dark Matter (SIDM) models.
+\end{itemize}
+
+\section{Observational Predictions}
+\begin{enumerate}
+    \item \textbf{Environment-Dependent Composition:} Since DM forms in voids and Baryons in filaments, we predict "Pure Dark Matter" halos in cosmic voids—diffuse scalar clouds that failed to nucleate baryons. These would be detectable only via weak lensing.
+    \item \textbf{Environment-Dependent Truncation:} Halos are subject to tidal stripping. We predict that the "isothermal" flat rotation curve should fail (truncate) at specific radii correlated with the host environment's tidal field.
+\end{enumerate}
+
+\section{Conclusion}
+Dark Matter is the "silent majority" of the soliton sector—the scalar breathers that lack the open winding required to speak to the vacuum noise. This framework unifies the dark and visible sectors as different topological outcomes of the same primordial quench, explaining their segregation via the mechanics of phase friction.
+
+\appendix
+\section{Dynamical Foundations (Summary)}\label{app:dynamical}
+(See SI for full symbol map). Matter is $\Psi=w e^{i\phi}$. Gravity is the thermodynamic force driven by scale-space entropy maximization.
+
+\section{Isothermal Halos (Jeans Derivation)}\label{app:jeans}
+Standard Jeans analysis for a collisionless fluid yields $\rho \propto r^{-2}$ and $v_c = \text{const}$. (See SI for details on anisotropy corrections).
+
+\end{document}
