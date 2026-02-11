@@ -1,0 +1,522 @@
+% !TeX program = pdflatex
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+% Notation Standardization
+\newcommand{\vac}{\mathrm{vac}}
+\newcommand{\fil}{\mathrm{fil}}
+\newcommand{\vd}{\mathrm{void}}
+\newcommand{\morph}{\mathrm{morph}}
+\newcommand{\eff}{\mathrm{eff}}
+\newcommand{\sol}{\mathrm{sol}}
+\newcommand{\bary}{\mathrm{b}}
+\newcommand{\dm}{\mathrm{dm}}
+\newcommand{\tot}{\mathrm{tot}}
+\newcommand{\loc}{\mathrm{loc}}
+\newcommand{\bg}{\mathrm{bg}}
+\newcommand{\scr}{\mathrm{scr}}
+\newcommand{\cs}{c_s}
+\newcommand{\Heff}{H_{\mathrm{eff}}}
+\newcommand{\Nband}{\mathcal N}
+\newcommand{\dd}{\mathrm d}
+\newcommand{\kmin}{k_{\min}}
+\newcommand{\kmax}{k_{\max}}
+
+\title{Dark Morphology:\\[4pt]
+Unifying Dark Energy and Cosmic Structure\\[2pt]
+via Vacuum Thermodynamics (\textit{Draft})}
+\author{Franz Wollang}
+\date{\small Dated: YYYY-MM-DD}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We propose a unified treatment of the ``Dark Sector'' based on a single kinematic mechanism: \textbf{Soliton Scale Downshifting}. Within the Infinite-Clique Graph (ICG) framework, matter consists of solitons coupled to a fluctuating vacuum noise field $\tau$. We show that solitons minimize their free energy by shrinking (downshifting) in response to this noise, with an energy gain that scales super-linearly ($\varepsilon_s \propto -\tau^\gamma$, $\gamma > 1$).
+
+\textbf{Temporally}, the global average of this shrinkage manifests as an apparent cosmic acceleration ($w \approx -1$) due to the drift of the observational window over a scale-invariant vacuum spectrum.
+\textbf{Spatially}, the local variance of this shrinkage drives a cooperative feedback loop, generating a ``Morphological Force'' that sharpens the Cosmic Web into 1D filaments and sweeps voids clean.
+
+We derive a modified Poisson system that recovers Newtonian gravity as a passive baseline while adding an active, short-range (Yukawa) vacuum correction. This framework explains the mass budget (via $l=0$ scalar solitons), the expansion history, and the non-linear structure of the universe as three manifestations of a single thermodynamic drive: the adaptation of matter to the vacuum.
+\end{abstract}
+
+%% ====================================================================
+\section{Introduction: The ``Two Darks'' Problem}\label{sec:intro}
+%% ====================================================================
+
+The standard $\Lambda$CDM concordance model is a triumph of parameter fitting, but a puzzle of physics. It requires two distinct, unrelated ``dark'' ingredients:
+\begin{enumerate}
+    \item \textbf{Dark Energy ($\Lambda$):} A smooth fluid with negative pressure to drive late-time acceleration.
+    \item \textbf{Dark Matter (CDM):} A cold, collisionless particle to seed structure and flatten rotation curves.
+\end{enumerate}
+In standard General Relativity, the vacuum is a passive stage; these components are simply added to the stress--energy tensor by hand.
+
+We propose that these are not separate fluids, but two shadows of a single underlying process: the thermodynamic adaptation of matter to an active vacuum. Building on the Infinite-Clique Graph (ICG) framework, where spacetime emerges from a pre-geometric network, we show that matter (solitons) and vacuum (noise) are coupled. The fundamental drive of the system is \textbf{Scale Downshifting}: matter lowers its energy by shrinking in response to vacuum noise.
+
+This paper unifies the ``Dark Sector'' into three domains of this single mechanism:
+\begin{enumerate}
+    \item \textbf{The Particle (Inertia):} The $l=0$ scalar soliton provides the necessary mass budget (\S\ref{sec:two-components}).
+    \item \textbf{The Expansion (Time):} The global secular contraction of solitons creates an apparent ``Dark Energy'' signal with $w \approx -1$ (\S\ref{sec:dark-energy}).
+    \item \textbf{The Structure (Space):} The local enhancement of downshifting in dense regions generates a ``Morphological Force'' that sculpts the Cosmic Web (\S\ref{sec:two-components}--\ref{sec:filamentation}).
+\end{enumerate}
+
+%% ====================================================================
+\section{The Free-Energy Functional and Its Two Sectors}\label{sec:free-energy}
+%% ====================================================================
+
+\subsection{Master Functional}
+The dynamics are governed by a master free-energy functional coupling the vacuum noise field $\tau(x)$ to soliton populations:
+\begin{equation}\label{eq:master}
+  F[\tau,\rho_s]
+  \;=\;
+  \underbrace{
+    \int\!\Big[\frac{\kappa}{2}(\nabla\tau)^2 + \frac{\mu^2}{2}\,\tau^2\Big]\,d^3x
+  }_{F_\vac[\tau]}
+  \;+\;
+  \underbrace{
+    \sum_s \varepsilon_s(\tau_\loc)
+  }_{F_\mathrm{matter}}
+  \;+\;
+  F_\mathrm{link}[J].
+\end{equation}
+Here $\kappa$ is the vacuum stiffness (gradient penalty), $\mu^2$ the mass term (restoring force toward the equilibrium noise level), and $\varepsilon_s$ the single-soliton energy that depends on the local noise $\tau_\loc$. The sum runs over all soliton species $s$: dark matter ($l{=}0$ scalar solitons) and baryons ($l{\ge}1$ topological windings). $F_\mathrm{link}[J]$ encodes the graph link dynamics and does not contribute to the continuum equations.
+
+\subsection{Single-Soliton Energetics}\label{sec:soliton-energetics}
+A soliton of species $s$ with internal scale $\sigma$ in a local noise background $\tau$ has an energy:
+\begin{equation}\label{eq:Esol}
+  E_s(\sigma,\tau)
+  \;=\;
+  A_s\,\sigma^{-p_s}
+  \;-\;
+  B_s\,\tau\,\sigma^{-q_s},
+  \qquad
+  p_s > q_s > 0,
+\end{equation}
+where the first term is the internal gradient pressure (repulsion) and the second is the vacuum-mediated cohesion. Minimizing over $\sigma$ at fixed $\tau$ yields the equilibrium scale and energy:
+\begin{equation}\label{eq:Eeq}
+  \sigma_s^*(\tau) \;\propto\; \tau^{-1/(p_s - q_s)},
+  \qquad
+  \varepsilon_s(\tau) \;\equiv\; E_s(\sigma_s^*,\tau)
+  \;=\;
+  -\alpha_s\,\tau^{\,\gamma_s},
+\end{equation}
+with exponent $\gamma_s = p_s/(p_s - q_s) > 1$ and $\alpha_s > 0$ absorbing all prefactors. This is the compact form:
+\begin{equation}\label{eq:eps-compact}
+  \varepsilon_s(\tau) = -\alpha_s\,\tau^{\gamma_s}, \qquad \gamma_s > 1.
+\end{equation}
+
+\paragraph{Origin of Super-Linearity: Scale Downshifting.}
+The exponent $\gamma_s > 1$ is not arbitrary but follows from the adaptive contraction of the soliton. When $\tau$ increases, the soliton does not merely sit in a deeper well; it also \emph{shrinks} ($\sigma^* \propto \tau^{-1/(p_s-q_s)}$), concentrating its amplitude and falling deeper still. This ``double benefit''---direct coupling \emph{plus} geometric adaptation---produces the super-linear scaling. As we shall show, this super-linearity is the engine of cooperative feedback in structure formation (\S\ref{sec:filamentation}) and the reason Dark Energy mimics $w \approx -1$ (\S\ref{sec:dark-energy}).
+
+\paragraph{Key difference between the sectors.}
+Both $l{=}0$ (DM) and $l{\ge}1$ (baryon) solitons obey Eq.~\eqref{eq:eps-compact}, but they respond differently to the resulting force:
+\begin{itemize}[nosep]
+  \item \textbf{DM ($l{=}0$):} No phase winding $\Rightarrow$ no phase friction $\Rightarrow$ collisionless. Cannot radiate orbital energy. Forms diffuse, pressure-supported halos.
+  \item \textbf{Baryons ($l{\ge}1$):} Open phase circulation couples to the vacuum noise $\Rightarrow$ strong drag ($F \propto v$) $\Rightarrow$ dissipative. Can cool, lose angular momentum, and collapse into disks and stars.
+\end{itemize}
+The Morphological Force, derived below, acts on \emph{all} mass (DM and baryons) universally. Any apparent ``preferential concentration'' of baryons in filament cores is a consequence of their ability to dissipate energy and sink deeper, not a difference in the force itself.
+
+%% ====================================================================
+\section{The Temporal Domain: Dark Energy}\label{sec:dark-energy}
+%% ====================================================================
+
+Standard cosmology assumes that local rulers (atoms, galaxies) are fixed in size while the universe expands. We explore the dual perspective: the universe is stationary, but all rulers are shrinking due to the secular downshifting derived above.
+
+\subsection{Window Drift}\label{sec:window-drift}
+Any measurement of the vacuum energy density is band-limited. We cannot probe scales larger than the causal horizon (IR cutoff) or smaller than our own resolution limit (UV cutoff). The measured vacuum energy is a windowed integral:
+\begin{equation}\label{eq:windowed-rho}
+  \rho_{\vac}(t) \;=\; \int_{\kmin(t)}^{\kmax(t)} S(k)\,\dd k,
+\end{equation}
+where $S(k)$ is the fluctuation spectrum of the vacuum. For a scale-invariant process (derived from maximum entropy on the observation window), $S(k) \propto 1/k$.
+
+As local rulers shrink ($L_*(t) \to 0$) and the horizon expands, the window edges drift:
+\begin{itemize}
+    \item \textbf{UV Edge ($\kmax$):} Tied to $1/L_*(t)$. As $L_*$ shrinks, $\kmax$ increases (UV-shift).
+    \item \textbf{IR Edge ($\kmin$):} Tied to $\Heff(t)/\cs$. As the horizon grows, $\kmin$ decreases (IR-shift).
+\end{itemize}
+The net window bandwidth $\Nband = \ln(\kmax/\kmin)$ grows over time.
+
+\subsection{The Effective Equation of State}
+Differentiating the windowed density \eqref{eq:windowed-rho} with respect to time and matching to the Friedmann continuity equation $\dot{\rho} + 3H(\rho + p) = 0$ yields an effective equation of state $w = p/\rho$:
+\begin{equation}\label{eq:eos}
+  w + 1 \;\approx\; \frac{\dot{F}/F - \dot{\Heff}/\Heff}{3\,\Heff\,\Nband},
+\end{equation}
+where $F(t) \propto 1/L_*(t)$ is the scaling factor. The denominator contains the logarithmic bandwidth $\Nband \sim \ln(10^{60}) \approx 140$. This large number suppresses the drift terms, naturally pinning $w$ very close to $-1$:
+\begin{equation}
+  \boxed{w \approx -1.}
+\end{equation}
+Thus, \textbf{Dark Energy is a kinematic artifact}: it is the ``wind'' felt by a shrinking observer measuring a scale-invariant vacuum. The deviation from $-1$ is suppressed by the logarithmic bandwidth, naturally explaining the coincidence problem without fine-tuning.
+
+\subsection{Inhomogeneous Corrections: Gravitational Redshift}\label{sec:grav-redshift}
+The secular contraction of rulers $L_*(x,t)$ is driven by local thermodynamics, meaning it depends on the local noise intensity $\tau(x)$ and thus the local gravitational potential $\Phi(x)$.
+
+In the unified framework, the local ruler scale scales as $L_* \propto \tau^{-1}$. Since $\tau^2 \propto \Phi$ (Gravity SI, Poisson equivalence), we have $L_* \propto \Phi^{-1/2}$. This adaptation of internal structure to the local potential is not an artifact to be subtracted, but the \textbf{microphysical origin of gravitational redshift}:
+\begin{enumerate}
+    \item \textbf{Mass Defect:} An atom falling into a high-$\tau$ potential well minimizes its free energy. This reduction in internal energy corresponds to a reduction in effective rest mass, $m(r) \approx m_\infty (1 - |\Phi|/c^2)$.
+    \item \textbf{Emission Frequency:} Since emission frequencies scale with mass ($E = h\nu \propto mc^2$), an atom deep in a well emits photons with lower absolute energy/frequency compared to a reference atom in a void.
+    \item \textbf{Local Invariance:} A local observer sees none of this. Their ruler shrinks, their clock slows, and their atom shrinks, all in perfect proportion. To them, the atom has the standard size and frequency. The ``smaller size'' and ``slower time'' are only apparent to a distant observer comparing against a different vacuum background.
+\end{enumerate}
+This perspective unifies two phenomena:
+\begin{itemize}
+    \item \textbf{Refraction (Lensing):} Driven by the \emph{gradient} of the vacuum density, $\nabla \tau$.
+    \item \textbf{Redshift (Downshifting):} Driven by the \emph{absolute value} of the vacuum density, $\tau$.
+\end{itemize}
+The inhomogeneous correction to the Dark Energy drift is therefore nothing other than the standard gravitational redshift signal. The smallness of this effect ($\delta\Phi/c^2 \sim 10^{-5}$) confirms that local environmental variations do not disrupt the global inference of cosmic acceleration.
+
+%% ====================================================================
+\section{The Spatial Domain: The Two Components}\label{sec:two-components}
+%% ====================================================================
+
+While the global average of downshifting produces Dark Energy, the \emph{local variance} $\delta\tau(x)$ produces the Cosmic Web. We now describe the two components that jointly explain all ``dark'' gravitational phenomena.
+
+\subsection{Component I: The Dark Matter Particle ($l{=}0$ Scalar Soliton)}
+
+\paragraph{What it explains.}
+Standard gravitational phenomenology at galactic and cluster scales requires a massive, collisionless component. The $l{=}0$ scalar soliton provides this:
+\begin{itemize}[nosep]
+  \item \textbf{CMB acoustic peaks:} Massive, pressureless component with correct $\Omega_\dm$.
+  \item \textbf{Flat rotation curves:} A self-gravitating, collisionless soliton gas relaxes to an isothermal sphere with
+  \begin{equation}\label{eq:isothermal}
+    \rho(r) \approx \frac{\sigma^2}{2\pi G r^2}, \qquad v_\mathrm{flat}^2 = 2\sigma^2,
+  \end{equation}
+  where $\sigma$ is the velocity dispersion set by the homogeneous noise background $\tau_0$.
+  \item \textbf{Bullet Cluster:} DM halos separate from baryonic gas because $l{=}0$ solitons are collisionless while baryons experience drag.
+  \item \textbf{Abundance ratio:} Primordial graph statistics favor $l{=}0$ formation by a factor of $\sim 5$, giving $\Omega_\dm \approx 5\,\Omega_\bary$.
+\end{itemize}
+
+\subsection{Component II: The Morphological Force (Vacuum Response)}\label{sec:morph}
+
+While the DM particle handles the mass budget, the \emph{active vacuum response} to density contrasts provides a short-range correction to gravity that sculpts large-scale structure.
+
+The Euler--Lagrange equation for $\tau$ from Eq.~\eqref{eq:master} is:
+\begin{equation}\label{eq:tau-EL}
+  -\kappa\,\nabla^2\tau \;+\; \mu^2\,\tau
+  \;=\;
+  -\frac{\partial F_\mathrm{matter}}{\partial\tau}
+  \;=\;
+  \alpha_\eff\,\rho_\eff(x),
+\end{equation}
+where $\alpha_\eff$ absorbs the coupling constants and $\rho_\eff$ is the effective density that sources $\tau$. This is a \textbf{screened Poisson equation}: the vacuum noise responds to matter, but the response is screened on length scales exceeding
+\begin{equation}\label{eq:screened-poisson}
+  \lambda_\scr \;=\; \sqrt{\kappa}/\mu,
+\end{equation}
+the vacuum correlation length. For $r \ll \lambda_\scr$, the response is Coulombic ($1/r$); for $r \gg \lambda_\scr$, it is Yukawa-suppressed ($e^{-r/\lambda_\scr}/r$).
+
+\paragraph{What it explains.}
+This short-range enhancement of gravity acts on top of the Newtonian baseline:
+\begin{itemize}[nosep]
+  \item Sharper void walls than $\Lambda$CDM predicts.
+  \item Emptier voids (the Morphological Force ``sweeps'' matter from voids to filaments).
+  \item Universal filament cross-section width $\sim \lambda_\scr$.
+  \item Environment-dependent effective $G$.
+\end{itemize}
+
+%% ====================================================================
+\section{The Modified Poisson System}\label{sec:modified-poisson}
+%% ====================================================================
+
+\subsection{Passive vs.\ Active Vacuum Response}\label{sec:passive-active}
+
+The noise field $\tau(x)$ responds to matter at two conceptually distinct levels:
+
+\paragraph{1. Passive Response (Newtonian Gravity).}
+In the long-wavelength, weak-field limit, the noise field tracks the gravitational potential instantaneously:
+\begin{equation}\label{eq:passive-link}
+  \tau^2(x) \;=\; \tau_0^2 \;-\; \alpha\,\Phi(x),
+  \qquad
+  \nabla^2\Phi = 4\pi G\,\rho_\tot.
+\end{equation}
+This is the Poisson equivalence derived in the Gravity SI: the noise field \emph{is} the gravitational potential, viewed thermodynamically. The force $\mathbf{F} = -\nabla\varepsilon_s(\tau) \propto +\nabla(\tau^2) \propto -\nabla\Phi$ recovers Newtonian gravity exactly. This channel is \textbf{unscreened} (infinite-range, $1/r^2$).
+
+\paragraph{2. Active Response (Morphological Force).}
+On top of the passive tracking, the vacuum can actively \emph{relax its own structure} in response to density contrasts. This generates an excess noise perturbation $\delta\tau_\mathrm{active}$ satisfying the screened Poisson equation \eqref{eq:tau-EL}:
+\begin{equation}\label{eq:active-tau}
+  (-\kappa\nabla^2 + \mu^2)\,\delta\tau_\mathrm{active} \;=\; \alpha_\eff\,\rho_\eff(x).
+\end{equation}
+This is the vacuum's structural relaxation: the graph locally repacks its links to lower its free energy in the presence of matter. The response is \textbf{screened} (Yukawa, range $\lambda_\scr$).
+
+The total noise field is therefore:
+\begin{equation}
+  \tau(x) \;=\; \underbrace{\tau_\bg(x)}_{\text{passive (Newtonian)}} \;+\; \underbrace{\delta\tau_\mathrm{active}(x)}_{\text{active (Morphological)}}.
+\end{equation}
+
+The total acceleration on a test soliton of mass $m_s$ is:
+\begin{equation}\label{eq:total-accel}
+  \boxed{
+    \mathbf{a}_\tot
+    \;=\;
+    \underbrace{-\nabla\Phi}_{\text{Newtonian (passive $\tau$)}}
+    \;+\;
+    \underbrace{\frac{\alpha_s\gamma_s\tau_\loc^{\gamma_s-1}}{m_s}\,\nabla(\delta\tau_\mathrm{active})}_{\text{Morphological (active $\tau$)}}
+  }
+\end{equation}
+
+\subsection{Vacuum Susceptibility and Effective Newton's Constant}\label{sec:geff}
+
+In Fourier space, the Green function of Eq.~\eqref{eq:active-tau} defines the vacuum susceptibility:
+\begin{equation}\label{eq:chi-def}
+  \chi(k) \;=\; \frac{\alpha_\eff}{\kappa\,k^2 + \mu^2}.
+\end{equation}
+The morphological correction can be absorbed into an environment-dependent effective gravitational constant:
+\begin{equation}\label{eq:Geff}
+  G_\eff(k,\tau_\loc)
+  \;=\;
+  G\,\Big[1 + \Xi(k,\tau_\loc)\Big],
+\end{equation}
+where $\Xi$ is the dimensionless morphological enhancement:
+\begin{equation}\label{eq:Xi-real}
+  \Xi(k,\tau_\loc)
+  \;=\;
+  \frac{\Xi_0}{1 + k^2\lambda_\scr^2}
+  \;\times\;
+  g(\tau_\loc),
+\end{equation}
+with $\Xi_0 \propto \alpha^2/\mu^2$ setting the maximal correction strength and $g(\tau_\loc) = (\tau_\loc/\tau_0)^{\gamma_s - 1}$ encoding environment dependence.
+
+\subsection{Regime Analysis}\label{sec:regimes}
+
+\paragraph{Regime A: Solar System ($r \ll \lambda_\scr$, high $\tau_\loc$).}
+All modes contribute; $\Xi \to \Xi_0 \cdot g(\tau_\loc)$. The correction is absorbed into the locally measured $G$. Solar system tests constrain deviations at the $\sim 10^{-5}$ level, requiring $\Xi_0 \cdot g(\tau_\odot)$ to be small or absorbed into calibration.
+
+\paragraph{Regime B: Galactic Halo ($r \sim$ kpc, moderate $\tau_\loc$).}
+The DM particle dominates via the isothermal profile \eqref{eq:isothermal}. The morphological correction is subdominant but provides a small environment-dependent modification to the halo edge:
+\begin{equation}\label{eq:halo-edge-corr}
+  \frac{\delta v_c}{v_c}\bigg|_\mathrm{morph}
+  \;\sim\;
+  \frac{\Xi(k_\mathrm{halo},\tau_\mathrm{halo})}{2}
+  \;\ll\; 1.
+\end{equation}
+
+\paragraph{Regime C: Void--Filament Boundary ($r \sim 10$--$100\;\mathrm{Mpc}$, low $\tau_\loc$).}
+This is the morphological force's natural habitat. The steep $\tau$ gradient across the void wall drives matter from voids into filaments. The enhancement factor peaks:
+\begin{equation}\label{eq:Xi-void}
+  \Xi_\vd
+  \;\approx\;
+  \frac{\Xi_0}{1 + (r_\vd/\lambda_\scr)^2}
+  \;\times\;
+  g(\tau_\vd).
+\end{equation}
+If $\tau_\vd$ is sufficiently low (deep void), $g(\tau_\vd)$ may amplify $\Xi_\vd$ beyond the galactic regime.
+
+\paragraph{Regime D: Along the Filament ($r \gg \lambda_\scr$, high $\tau_\loc$, 1D geometry).}
+The Yukawa suppression cuts off the transverse morphological correction, but the longitudinal potential (along the filament spine) recovers an effectively 1D law:
+\begin{equation}\label{eq:1D-grav}
+  |\mathbf{a}_\fil|
+  \;\sim\;
+  2\,G\,\lambda_\fil\,
+  \Big[1 + \Xi_0\,g(\tau_\fil)\Big],
+\end{equation}
+where $\lambda_\fil$ is the line mass density. Filament dynamics are thus governed by a 1D gravitational law with a morphological correction.
+
+%% ====================================================================
+\section{Filamentation as Cooperative Feedback}\label{sec:filamentation}
+%% ====================================================================
+
+\subsection{The Thermodynamic Bargain: Noise as a Resource}\label{sec:bargain}
+
+From Eq.~\eqref{eq:eps-compact}, the single-soliton energy $\varepsilon_s(\tau) = -\alpha_s\,\tau^{\gamma_s}$ is a concave, decreasing function of $\tau$ (since $\gamma_s > 1$). This means:
+\begin{quote}
+\emph{A soliton in a region of high noise is more deeply bound than the same soliton in a region of low noise.}
+\end{quote}
+The super-linear scaling ($\gamma > 1$) ensures that the \emph{marginal benefit} of increasing $\tau$ grows with $\tau$ itself. This creates a cooperative instability:
+\begin{enumerate}
+    \item Matter clumps via standard gravity (passive $\tau$).
+    \item The clump sources higher local noise via the active response \eqref{eq:active-tau}.
+    \item Higher $\tau$ triggers \emph{further} downshifting, deepening the potential well super-linearly.
+    \item More matter falls in. The cycle repeats.
+\end{enumerate}
+This is the vacuum analogue of a ferromagnetic phase transition: once the coupling exceeds a critical threshold, the homogeneous state is unstable to separation into high-$\tau$ (matter-rich) and low-$\tau$ (void) phases.
+
+\subsection{The Flux Tube Mechanism: Why 1D?}\label{sec:flux-tube}
+
+The vacuum's gradient energy $\int (\kappa/2)(\nabla\tau)^2\,d^3x$ penalizes sharp interfaces between the high-$\tau$ and low-$\tau$ phases. The question is: given a fixed amount of high-$\tau$ ``matter phase,'' what geometry minimizes the total gradient cost?
+
+Consider a region of enhanced noise connecting two galaxy clusters. The vacuum must transport the excess $\tau$ from one node to another. The gradient energy is minimized when this transport is confined to a \textbf{narrow channel} (flux tube) rather than spread over a broad 3D region:
+\begin{itemize}[nosep]
+  \item A 3D blob of radius $R$ has gradient energy $\propto R^2$.
+  \item A 1D filament of length $L$ and cross-section $\sim \lambda_\scr^2$ has gradient energy $\propto L$, independent of $R$.
+\end{itemize}
+The vacuum screening length $\lambda_\scr$ sets the natural transverse scale: the filament cross-section is $\sim \lambda_\scr^2$ because the Yukawa response cannot support gradients wider than $\lambda_\scr$.
+
+This is precisely the same mechanism as QCD flux tubes in the Forces draft: the vacuum confines the excess field into 1D structures to minimize gradient energy, with the transverse scale set by the confinement length.
+
+\subsection{The Instability Criterion}\label{sec:instability}
+
+To formalize the cooperative feedback, write the effective potential for a small density perturbation $\delta\rho$ in the presence of both gravity and the morphological force:
+\begin{equation}\label{eq:Veff}
+  V_\eff(k) \;=\; c_\mathrm{th}^2\,k^2 \;-\; 4\pi G\,\rho_0\,\big[1 + \Xi(k,\tau_\loc)\big],
+\end{equation}
+where $c_\mathrm{th}$ is the thermal velocity. Instability ($V_\eff < 0$) occurs for wavenumbers below a \textbf{modified Jeans scale}:
+\begin{equation}
+  k_J^2 \;=\; \frac{4\pi G\,\rho_0}{c_\mathrm{th}^2}\,\big[1 + \Xi(k_J,\tau_\loc)\big].
+\end{equation}
+Compared to standard Jeans analysis, the morphological enhancement factor $\Xi > 0$ \emph{lowers} the instability threshold, allowing collapse at smaller scales (higher $k$). In deep voids ($\tau_\loc$ small), the correction is maximized, and the vacuum-driven instability can trigger structure formation that standard gravity alone would not.
+
+\paragraph{Physical interpretation.}
+Standard gravity provides the seed; the morphological force provides the amplifier. The DM particle ($l{=}0$ soliton) provides the mass that seeds the initial perturbation; the active vacuum response provides the super-linear feedback that sharpens it into a filament.
+
+%% ====================================================================
+\section{Joint Observational Fitting}\label{sec:observations}
+%% ====================================================================
+
+The two-component model (DM particle + morphological force) is constrained by three independent sectors of data, each probing a different mix of the components.
+
+\subsection{Fitting Strategy: Three Constraint Sectors}
+
+\paragraph{Sector 1: The CMB (Determines the DM abundance).}
+The CMB acoustic peaks constrain $\Omega_\dm h^2$. The morphological force operates at scales $\sim \lambda_\scr$ (tens of Mpc), far larger than the acoustic horizon at recombination, so it does not contaminate the CMB fit. This sector pins down the $l{=}0$ soliton abundance.
+
+\paragraph{Sector 2: Galactic Dynamics (Determines the Halo Profile).}
+Galaxy rotation curves, velocity dispersions, and strong lensing constrain the radial profile of the DM halo. The isothermal profile \eqref{eq:isothermal} is the leading-order prediction. Deviations from isothermality at the halo edge probe the morphological correction:
+\begin{equation}\label{eq:halo-edge}
+  v_c^2(r) \;=\; 2\sigma^2 \;+\; \delta v_c^2(r)\big|_\morph,
+  \qquad
+  \delta v_c^2 \sim G\,M_\mathrm{enc}\,\Xi(r^{-1},\tau_\mathrm{halo})/r.
+\end{equation}
+
+\paragraph{Sector 3: Large-Scale Structure (Determines the Vacuum Parameters).}
+The void density profile, filament cross-section, and peculiar velocity field constrain $(\lambda_\scr, \Xi_0)$.
+\begin{itemize}[nosep]
+  \item \textbf{Void profile:} The radial density profile of voids should follow the Yukawa Green function:
+  \begin{equation}\label{eq:void-profile}
+    \delta\tau(r) \;\propto\; \frac{e^{-r/\lambda_\scr}}{r},
+    \qquad
+    \delta\rho(r) \propto -\nabla^2(\delta\tau).
+  \end{equation}
+  \item \textbf{Filament width:} Transverse profiles should have a characteristic half-width $\sim \lambda_\scr$:
+  \begin{equation}\label{eq:fil-profile}
+    \rho_\fil(r_\perp) \;\propto\; K_0(r_\perp/\lambda_\scr),
+  \end{equation}
+  where $K_0$ is the modified Bessel function.
+  \item \textbf{Peculiar velocities:} The morphological force contributes an additional component to peculiar velocities near void walls:
+  \begin{equation}\label{eq:vpec}
+    v_\mathrm{pec}
+    \;\sim\;
+    \frac{\Xi_0\,G\,\bar{\rho}\,\lambda_\scr^2}{H_0\,\lambda_\scr}
+    \;\sim\;
+    \Xi_0 \times v_\mathrm{pec,Newton}.
+  \end{equation}
+\end{itemize}
+
+\subsection{Parameter Count and Degeneracy}\label{sec:param-count}
+
+The two-component model does not introduce arbitrary new degrees of freedom. The phenomenological parameters appearing in the modified Poisson system are \textbf{derived combinations} of the fundamental constants $\{\kappa,\mu,\alpha\}$ already present in the master free-energy functional \eqref{eq:master}:
+\begin{itemize}
+  \item $\lambda_\scr = \sqrt{\kappa}/\mu$: the correlation length of the vacuum noise field.
+  \item $\Xi_0 \propto \alpha^2/\mu^2$: the ratio of matter--vacuum coupling to vacuum stiffness.
+\end{itemize}
+Rather than adding ``tuning knobs,'' the morphological observables (void profiles, filament widths) provide a \textbf{direct measurement} of these fundamental microscopic ratios, which are otherwise degenerate in the weak-field limit. The system is therefore \textbf{overconstrained}: measuring $\lambda_\scr$ from void walls predicts the filament cross-section width, and measuring $\Xi_0$ from peculiar velocities predicts the void depth.
+
+%% ====================================================================
+\section{Discriminating Predictions}\label{sec:predictions}
+%% ====================================================================
+
+The unified model makes distinct, falsifiable predictions in three sectors:
+
+\begin{enumerate}[label=\textbf{P\arabic*.}]
+  \item \textbf{Void Emptiness:} Voids should be emptier (lower residual density) than $\Lambda$CDM $N$-body simulations predict. The morphological force actively sweeps matter from void interiors. Stacked void profiles from galaxy surveys (e.g., DESI, Euclid) can test this.
+
+  \item \textbf{Filament Universality:} All cosmic filaments should share a \emph{characteristic transverse width} $\sim \lambda_\scr$, independent of their line mass. This is because the width is set by the vacuum screening length, not by gravitational dynamics. This prediction is absent in $\Lambda$CDM, where filament widths depend on the initial perturbation spectrum.
+
+  \item \textbf{Scale-Dependent Bias:} The morphological force acts on all mass universally, but baryons dissipate and sink deeper into the high-$\tau$ filament cores. This predicts a $k$-dependent bias between DM and baryon distributions that varies with environment (stronger near void walls, weaker in cluster cores).
+
+  \item \textbf{Void-Wall Peculiar Velocity Excess:} The morphological force contributes an additional ``kick'' to galaxies near void walls, beyond what Newtonian gravity from visible + DM predicts. This excess should correlate with the void-wall steepness and be measurable via redshift-space distortions.
+
+  \item \textbf{Dark Energy $w(z)$ Track:} The equation of state should track the evolution of the observational window bandwidth, with specific, calculable deviations from $-1$ at early times when the bandwidth $\Nband(z)$ was smaller. The deviation should scale as $\delta w \sim 1/\Nband(z)$.
+
+  \item \textbf{No MOND-like Galactic Phenomenology:} The morphological acceleration scale $a_\morph \sim G\,\bar{\rho}\,\lambda_\scr$ evaluates to $\sim 1.7 \times 10^{-13}\;\mathrm{m/s^2}$ at cosmic mean density---about $10^3$ times weaker than the MOND scale $a_0 \approx 1.2 \times 10^{-10}\;\mathrm{m/s^2}$. The morphological force is \emph{not} a replacement for Dark Matter at galactic scales.
+\end{enumerate}
+
+%% ====================================================================
+\section{Discussion}\label{sec:discussion}
+%% ====================================================================
+
+\subsection{Relationship to MOND}\label{sec:mond}
+
+The morphological force produces an emergent acceleration scale:
+\begin{equation}\label{eq:a0}
+  a_\morph \;\sim\; G\,\bar{\rho}\,\lambda_\scr.
+\end{equation}
+Using $\bar{\rho} \approx 2.8 \times 10^{-27}\;\mathrm{kg/m^3}$ and $\lambda_\scr \approx 10\;\mathrm{Mpc} \approx 3 \times 10^{23}\;\mathrm{m}$:
+\[
+  a_\morph \;\sim\; 6.67 \times 10^{-11} \times 2.8 \times 10^{-27} \times 3 \times 10^{23}
+  \;\approx\; 5.6 \times 10^{-14}\;\mathrm{m/s^2}.
+\]
+This is $\sim 10^3$ times weaker than $a_0 \approx 1.2 \times 10^{-10}\;\mathrm{m/s^2}$. The morphological force operates at the cosmic web scale, not the galactic scale. MOND-like phenomenology in galaxies is explained here by the DM particle ($l{=}0$ soliton), not by the morphological correction.
+
+\subsection{Relationship to $f(R)$ and Chameleon Theories}\label{sec:fR}
+
+The modified Poisson system \eqref{eq:total-accel} structurally resembles $f(R)$ gravity and chameleon/symmetron models: all feature an environment-dependent scalar field that modifies gravity at large scales. The key differences are:
+\begin{itemize}[nosep]
+  \item \textbf{Origin:} In $f(R)$/chameleon models, the scalar field is introduced as a modification of the gravitational action. Here, $\tau$ is the vacuum noise field---the same field that gives rise to Newtonian gravity in the first place.
+  \item \textbf{Screening mechanism:} Chameleon screening arises from the potential's dependence on ambient density. Here, screening arises from the vacuum stiffness ($\mu^2$ term), which is a fundamental property of the ICG.
+  \item \textbf{Dark Matter:} Modified gravity models typically aim to \emph{replace} DM. This framework retains a DM particle and adds the morphological correction on top.
+\end{itemize}
+
+\subsection{Unification of Dark Sector Phenomena}\label{sec:unification}
+
+This framework offers a parsimonious unification of the ``Dark Sector.'' We identify the Dark Matter \emph{particle} as the $l=0$ soliton, and both Dark Energy and the Morphological Force as kinematic consequences of \textbf{Scale Downshifting}---the soliton's fundamental drive to minimize free energy by shrinking in response to noise.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Phenomenon} & \textbf{Observational Domain} & \textbf{Physical Origin} & \textbf{Status in Framework} \\ \midrule
+\textbf{Dark Matter} & Inertial Mass Budget & $l=0$ Scalar Solitons & Component I (Particle) \\
+\textbf{Dark Energy} & Temporal Evolution & Global Average of Downshifting & Kinematic Artifact ($w \approx -1$) \\
+\textbf{Morphological Force} & Spatial Structure & Spatial Variance of Downshifting & Component II (Vacuum Response) \\ \bottomrule
+\end{tabular}
+\caption{Unification of Dark Sector phenomena. Both DE and the Morphological Force arise from the same microscopic mechanism (soliton downshifting) viewed in different domains (time vs.\ space).}
+\label{tab:unification}
+\end{table}
+
+The unified picture is:
+\begin{itemize}[nosep]
+  \item \textbf{Dark Matter} is the \emph{population} of solitons that undergo downshifting.
+  \item \textbf{Dark Energy} is the \emph{global time-average} of downshifting, observed as expansion.
+  \item \textbf{The Morphological Force} is the \emph{local spatial variance} of downshifting, observed as structure.
+\end{itemize}
+
+\subsection{References Prep}\label{sec:refs-prep}
+This subsection is a working list of external results that are plausibly diagnostic for the model, to be expanded into a full Related Work / Constraints section.
+
+\begin{itemize}[nosep]
+  \item \textbf{Local Group mass distribution and the nearby velocity field.}
+  Wempe et al.\ infer the mass distribution in and around the Local Group using constrained cosmological simulations (via the BORG field-level inference framework) and the local Hubble diagram / radial velocity field of nearby galaxies.\footnote{\href{https://www.nature.com/articles/s41550-025-02770-w}{E.\ Wempe, S.\ D.\ M.\ White, A.\ Helmi, G.\ Lavaux, J.\ Jasche, ``The mass distribution in and around the Local Group,'' \textit{Nature Astronomy} (2026). DOI: \href{https://doi.org/10.1038/s41550-025-02770-w}{10.1038/s41550-025-02770-w}.}}
+  \emph{Relevance here:} although the morphological force is primarily targeted at void--filament scales, any active-vacuum correction with screening length $\lambda_\scr \sim$ few--tens of Mpc can, in principle, leak into the $\sim$Mpc-scale flow around the Local Group. This dataset is therefore a natural constraint target for (i) the amount of ``extra'' acceleration permitted on $\mathcal O(1\text{--}5\,\mathrm{Mpc})$ scales, and (ii) how much mass must reside outside the virial radii of the Milky Way and M31 to reproduce the observed velocity field.
+\end{itemize}
+
+\subsection{What This Model Does Not Explain (Yet)}\label{sec:open}
+
+\begin{itemize}[nosep]
+  \item \textbf{Numerical coefficients:} The values of $(\kappa, \mu, \alpha)$ and hence $(\lambda_\scr, \Xi_0)$ are not derived from first principles. They must be measured.
+  \item \textbf{Non-linear regime:} The cooperative feedback is analyzed here only in the linear instability regime. Full non-linear evolution (filament mergers, void-in-void, halo profiles in the morphological regime) requires numerical simulation.
+  \item \textbf{Early universe:} The transition from radiation domination to the matter era, and the onset of the morphological instability, require a time-dependent treatment of the master functional.
+  \item \textbf{Baryon acoustic oscillations:} The morphological force's effect on the BAO scale has not been quantified.
+  \item \textbf{Gauge equivalence:} A full proof that the ``shrinking rulers'' frame is observationally equivalent to the ``expanding universe'' frame for all observables is deferred to the Dark Energy SI (gauge equivalence section).
+\end{itemize}
+
+%% ====================================================================
+\section{Conclusion}\label{sec:conclusion}
+%% ====================================================================
+
+We have presented a unified framework where the ``Dark Sector'' is resolved into three manifestations of a single physical process: \textbf{Scale Downshifting}.
+\begin{itemize}
+    \item \textbf{Dark Matter} is the population of $l=0$ solitons that undergo this downshifting.
+    \item \textbf{Dark Energy} is the apparent acceleration caused by the global time-evolution of this downshifting (window drift over a scale-invariant spectrum, yielding $w \approx -1$).
+    \item \textbf{The Morphological Force} is the structural sharpening caused by the local spatial variance of this downshifting (cooperative feedback with Yukawa screening, yielding filaments and swept voids).
+\end{itemize}
+
+The framework introduces no free parameters beyond those already present in the master free-energy functional: the vacuum stiffness $\kappa$, mass $\mu$, and coupling $\alpha$. All macroscopic observables---void profiles, filament widths, peculiar velocity anomalies, the expansion rate---are derived consequences that overconstrain these three microscopic constants. By replacing ad hoc cosmological fluids with vacuum thermodynamics, this model offers a parsimonious path to a complete, falsifiable theory of cosmic evolution.
+
+\end{document}

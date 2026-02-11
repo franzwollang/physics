@@ -24,7 +24,7 @@ Concretely, we isolate simple, high‑leverage phenomena and turn them into para
 What this is not: a full axiomatization or reconstruction. We focus on mechanisms already present in the phase channel that (i) admit compact derivations (envelope/SVEA, Fokker–Planck, Kramers), and (ii) lead to accessible experiments with few new parameters. Throughout we provide:
 
 - Minimal translations and validity conditions (narrowband, weak inhomogeneity, paraxial/slow envelopes, local units).
-- Micro‑to‑macro links for σ_ε via (C, M_p, S\*ξ(0)) with conformal‑covariance caveats (dimensionless thresholds).
+- Micro‑to‑macro links for σ_ε via (C, M_p, \(S_{\xi}(0)\)) with conformal‑covariance caveats (dimensionless thresholds).
 - Protocols and controls designed to distinguish framework‑specific predictions from standard expectations.
 
 Scope note. This work focuses on U(1) phase dynamics and accessible quantum behavior. Non‑Abelian internal frames, covariant transport, and induced Yang–Mills curvature (SU(2), SU(3)) are deferred to follow‑up QFT papers.
@@ -32,13 +32,13 @@ Scope note. This work focuses on U(1) phase dynamics and accessible quantum beha
 ## 2. Minimal model (phase rotor with weak stochasticity)
 
 - Field at the detection screen (scalar, single polarization/window):
-  I(x) = |Σ\_{j=1}^k A_j(x) e^{i(φ_j(x) + ε_j)}|^2, with independent, zero‑mean phase perturbations ε_j from soliton radiative noise.
+  I(x) = |Σ_{j=1}^k A_j(x) e^{i(φ_j(x) + ε_j)}|^2, with independent, zero‑mean phase perturbations ε_j from soliton radiative noise.
 - Assumptions (leading order):
   - Equalized slits: |A_j(x)| = A(x)/√k (constant total flux across k).
   - ε\*j are small, stationary, mutually uncorrelated at the combining plane (correlations discussed in §6) with Var[ε_j] = σ_ε^2 (frequency‑band limited).
   - Detection integrates over a short time bin Δt within which ε statistics are approximately stationary.
 
-Expand to O(ε^2). Let S*k(x) := Σ*{j=1}^k e^{iφ*j(x)} and C_k(x) := Σ*{j≠m} e^{i(φ_j(x) − φ_m(x))}.
+Expand to O(ε^2). Let S*k(x) := Σ*{j=1}^k e^{iφ_j(x)} and C_k(x) := Σ*{j≠m} e^{i(φ_j(x) − φ_m(x))}.
 
 - Mean intensity (to O(ε^2)):
   E[I] ≈ |A|^2 (|S*k|^2/k) · (1 − σ*ε^2/2) + |A|^2 · O(σ_ε^2/k).
@@ -100,15 +100,15 @@ We summarise the quantum eraser in this framework, emphasising that all coupling
   \[ V*{\rm tot}(\theta*A,\theta_S;\theta*{\rm set}) = -K\cos(\theta*A-\theta_S)\; -\; B\cos\big(2(\theta_A-\theta*{\rm set})\big)\; +\; \lambda*A\,\cos^4(\theta_A-\theta*{\rm set}). \]
   The bistability threshold for a two‑outcome pointer is \(B*{\rm crit}=K/4\); for \(B>B*{\rm crit}\) the apparatus has two stable minima (projective+latching), for \(B\ll K\) it behaves as a weak/continuous meter.
 
-2. Alice path optics (slits, free space)
+1. Alice path optics (slits, free space)
 
 - Refraction/propagation is local; unless a pointer couples and latches, the shared link remains delocalised.
 
-3. Bob pre‑eraser optics (delays, basis setting)
+1. Bob pre‑eraser optics (delays, basis setting)
 
 - Local unitaries set the effective axis \(\theta\_{\rm set}\) for any subsequent pointer latching; no record yet.
 
-4. Bob’s which‑way vs eraser module (local coupling, two regimes)
+1. Bob’s which‑way vs eraser module (local coupling, two regimes)
 
 - Which‑way (distinguishable): Pointer states orthogonalise (double‑well formed, latched), so the overlap
   \[ \gamma\_{mn} := \langle A_n|A_m\rangle \approx 0 \]
@@ -119,15 +119,15 @@ We summarise the quantum eraser in this framework, emphasising that all coupling
   Microscopically, pointer overlaps obey
   \[ |\langle A_n|A_m\rangle| \;\approx\; \exp\!\Big(-\tfrac{\mathcal A*{mn}}{\hbar*{\rm eff}}\Big),\qquad \mathcal A*{mn} \sim \pi\, \tfrac{\Delta p*A^{(mn)}}{\hbar*{\rm eff}} ,\qquad \Delta p_A \approx \tfrac{2C}{M_p}. \]
 
-5. Alice detection (local latching)
+1. Alice detection (local latching)
 
 - The screen’s detector cell couples via the same phase sector and latches a pointer minimum (projective in the large‑barrier regime). This is a local, time‑like interaction; no influence propagates to Bob outside the light cone.
 
-6. Bob detection (local latching in the chosen basis)
+1. Bob detection (local latching in the chosen basis)
 
 - Bob’s detector latches in the basis set by his module; which‑way vs eraser determines \(\gamma\_{mn}\) and therefore the visibility in coincidence classes.
 
-7. Coincidence sorting and no‑signalling
+1. Coincidence sorting and no‑signalling
 
 - The single‑wing marginal is independent of the distant choice:
   \[ P*A(x)\;=\; \mathrm{Tr}\big[(M_x\otimes \mathbb I)\,\rho*{SA}\big], \]
@@ -156,7 +156,7 @@ Consider a localized phase‑rotor soliton with characteristic width (attractor)
 \[ (\partial_t^2 - c_s^2 \nabla^2)\,\phi*{\rm out} = J*\sigma(t)\,\chi*\sigma(\mathbf r), \]
 where χ*σ is the normalized spatial source (support ~ σ) and J*σ(t)=J*0\,[\cos(ω_0 t)+\xi(t)] combines the coherent mode and a zero‑mean stochastic drive ξ with spectrum S*ξ(ω) supported near ω_0 and bandwidth Δω\ll ω_0.
 
-In the far field and over bins Δt\gg τ*c, the emitted spectrum is filtered by the soliton’s spatial form factor F*σ(\mathbf k)=\int χ*σ(\mathbf r)e^{-i\mathbf k·\mathbf r}d^3r, selecting dominant wavenumber \( k*_ \sim 1/σ \). Time‑averaging suppresses the stochastic sidebands, yielding a narrow line at (ω*0,k*_) with
+In the far field and over bins \( \Delta t \gg \tau_c \), the emitted spectrum is filtered by the soliton’s spatial form factor \(F_{\sigma}(\mathbf k)=\int \chi_{\sigma}(\mathbf r)e^{-i\mathbf k\cdot\mathbf r}\,d^3r\), selecting dominant wavenumber \( k_{\ast} \sim 1/\sigma \). Time‑averaging suppresses the stochastic sidebands, yielding a narrow line at (ω*0,k*_) with
 \[ \langle |\Phi(\mathbf k,\omega)|^2 \rangle \propto |F*σ(\mathbf k)|^2\,\delta(\omega-ω_0) + O(Δ\omega). \]
 Thus the observed wavelength scales with the soliton width, \( \lambda*\_ \sim 2\pi/k\_\_ \propto σ \). This holds for electron‑like (sub‑luminal) and photon‑like (luminal) cases; the latter requires the retarded construction in §2.3.
 
@@ -237,7 +237,7 @@ Unequal intensities (two paths): if path powers are $p_1, p_2$ (with $p_1+p_2=1$
 ## 4.3 Reflectance‑dependent guidance and variance prefactor (falsifiable)
 
 - Guidance with back‑reflection. The screen’s optical response enters the guidance potential through an admittance map that includes reflectance $R(\omega,k_\parallel)$ and its phase $r$ (TE/TM):
-  \[ U*{\rm guide}(\mathbf x_s,t) \;=\; -\gamma_G\,\big( G*\ell _ [\,\mathcal A(\mathbf x;\omega,k_\parallel,R)\; \overline I*k^{\rm (ret)}(\mathbf x,t)\,] \big)(\mathbf x*s), \]
+  \[ U*{\rm guide}(\mathbf x_s,t) \;=\; -\gamma_G\,\big( G_{\ell} [\,\mathcal A(\mathbf x;\omega,k_\parallel,R)\; \overline I*k^{\rm (ret)}(\mathbf x,t)\,] \big)(\mathbf x*s), \]
   where $\overline I_k^{\rm (ret)}$ includes the near‑field, back‑reflected component. Thus $R$ modifies the spatial gradients of $\Phi := (G*\ell * [\mathcal A\,\overline I_k^{\rm (ret)}])$ that drive drift.
 
 - Prediction for the variance law. The $1/k$ scaling survives, but the geometric factor depends on reflectance and polarization:
@@ -327,10 +327,10 @@ With this relation, the predicted 1/k excess‑variance scaling (§4) can be wri
 
 The soliton-noise framework models entanglement not as an abstract correlation but as a physical, metastable **phase-link** between two solitons (droplets). As detailed in the foundations paper, this link emerges from the same phase-channel dynamics that govern measurement, resulting in a double-well potential in the joint phase space of the two particles. This physical link has two key, testable properties:
 
-1.  **Metastability and Hysteresis:** The link is a bistable system with a finite energy barrier, `ΔE_b`, separating the entangled (correlated) state from the uncorrelated ground state. Its lifetime, `τ_link`, follows a Kramers-like escape law, `τ_link ∝ exp[ΔE_b / (k_B T_eff)]`, making it exquisitely sensitive to the effective temperature `T_eff` of its environment near the stability threshold. This implies hysteretic behavior (latching and unlatching) when the relevant dimensionless threshold (e.g., `ΔE_b/(k_B T_eff)`) is driven across unity; under exact conformal co‑variation this threshold remains fixed and no change is observed.
-2.  **Symmetric Environmental Dependence:** The phase-link is a single, non-local object. Its stability and lifetime depend on the _combined_ noise environment of both solitons. The effective temperature, `T_eff,link`, is a function of the baths at both locations, `T_eff,link ≈ f(T_A, T_B)`.
+1. **Metastability and Hysteresis:** The link is a bistable system with a finite energy barrier, `ΔE_b`, separating the entangled (correlated) state from the uncorrelated ground state. Its lifetime, `τ_link`, follows a Kramers-like escape law, `τ_link ∝ exp[ΔE_b / (k_B T_eff)]`, making it exquisitely sensitive to the effective temperature `T_eff` of its environment near the stability threshold. This implies hysteretic behavior (latching and unlatching) when the relevant dimensionless threshold (e.g., `ΔE_b/(k_B T_eff)`) is driven across unity; under exact conformal co‑variation this threshold remains fixed and no change is observed.
+2. **Symmetric Environmental Dependence:** The phase-link is a single, non-local object. Its stability and lifetime depend on the *combined* noise environment of both solitons. The effective temperature, `T_eff,link`, is a function of the baths at both locations, `T_eff,link ≈ f(T_A, T_B)`.
 
-The objective of a minimal experiment is therefore to test these two core predictions: **(1)** look for a sharp, hysteretic drop-off in entanglement lifetime as environmental noise is increased, and **(2)** verify that the lifetime depends symmetrically on the noise injected at _both_ locations.
+The objective of a minimal experiment is therefore to test these two core predictions: **(1)** look for a sharp, hysteretic drop-off in entanglement lifetime as environmental noise is increased, and **(2)** verify that the lifetime depends symmetrically on the noise injected at *both* locations.
 
 ### 10.2 Experimental Test Using Gravity/Acceleration as a "Noise Knob"
 
@@ -348,10 +348,10 @@ Directly engineering and injecting calibrated noise is difficult. However, the f
 
 - **Measurements and Predictions:**
 
-  1.  **Symmetric Dependence Test:**
+  1. **Symmetric Dependence Test:**
       - Measure the entanglement lifetime `τ_link` (via heralded coincidence decay) for different configurations: (A fixed, B at high altitude), (B fixed, A at high altitude), and (both at high altitude).
-      - **Prediction:** The change in `τ_link` should depend on the _sum_ of the potentials `(Φ_A + Φ_B)`. A change at site A should have the same effect as an identical change at site B. This contrasts with models where decoherence is a purely local process.
-  2.  **Hysteresis Test:**
+      - **Prediction:** The change in `τ_link` should depend on the *sum* of the potentials `(Φ_A + Φ_B)`. A change at site A should have the same effect as an identical change at site B. This contrasts with models where decoherence is a purely local process.
+  2. **Hysteresis Test:**
       - Starting with a stable link (low altitude/acceleration), slowly ramp up the potential difference `ΔΦ` (or acceleration `a`) until the entanglement visibility drops sharply (unlatching). Then, slowly ramp it back down.
       - **Prediction:** The visibility will not recover along the same path. It will re-latch at a lower value of `ΔΦ` (or `a`), exhibiting a clear hysteresis loop characteristic of a bistable system. Standard Markovian decoherence models predict a single, reversible curve.
 
@@ -361,13 +361,45 @@ Conformal‑covariance caveat (observability). In local units, many quantities c
 
 This experimental design provides a direct, parameter-light test of the framework's core claims about the physical nature of the entanglement link.
 
-### 10.3 CHSH with hysteretic phase‑link
+### 10.3 CHSH and the Quantum Potential: From Tanh to Cosine
 
-We model the shared degree of freedom as a bistable phase‑current orientation with barrier $\Delta E_b$ and coupling $K$. Near threshold, the link latches and unlatches with Kramers rates $\Gamma\propto e^{-\Delta E_b/(k_B T_{\mathrm{eff}})}$. Measurement at A/B is a rotation of the apparatus setting axis $(\theta_A, \theta_B)$; outcomes are the two pointer minima. For ideal two‑outcome visibility $V$, assuming sinusoidal correlations $E(\theta_A,\theta_B)=V\cos(\theta_A-\theta_B)$, the CHSH value satisfies
+We model the shared degree of freedom as a bistable phase‑current orientation with barrier $\Delta E_b$ and coupling $K$. Measurement at A/B is a rotation of the apparatus setting axes $(\alpha, \beta)$; outcomes $A,B\in\{\pm1\}$ correspond to the two pointer minima.
 
-$S = 2\sqrt{2}\, V$.
+#### The "Classical Phase" Deviation ($\tanh\Delta$)
 
-In this framework $V$ is set by pointer overlaps and latching; hence $S(V)$ inherits the predicted hysteresis and symmetric environment dependence.
+To see why the standard stochastic model fails to reproduce the exact quantum correlation, consider the "classical limit" where the phase link is treated as a simple Langevin rotor in a joint potential, ignoring amplitude backreaction. The effective potential combines the link coupling with the deep latching potentials of the apparatuses:
+\[
+  V_{\text{tot}} \;\approx\; -K \cos(\theta_A - \theta_B) \;-\; h \cos(2(\theta_A - \alpha)) \;-\; h \cos(2(\theta_B - \beta)).
+\]
+In the deep-well limit ($h \to \infty$), the pointers are pinned to $\theta_A \in \{\alpha, \alpha+\pi\}$ and $\theta_B \in \{\beta, \beta+\pi\}$. The effective energy of a configuration $(A,B)$ becomes $E_{AB} \approx -K A B \cos(\alpha - \beta)$.
+
+If the system samples this landscape according to simple emergent thermodynamics (Boltzmann weights $P \propto e^{-E/T_{\text{eff}}}$), the joint probability is $P(A,B) \propto \exp(J A B \cos\Delta)$ with $J=K/T_{\text{eff}}$. This yields a correlation function:
+\[ E(\Delta) \;=\; \sum_{A,B} P(A,B) A B \;=\; \tanh(J \cos\Delta). \]
+While this satisfies no-signalling and reproduces the qualitative symmetries (zeros at $\pi/2$, extrema at $0,\pi$), it is "squarer" than the quantum cosine. For large $J$ it approaches a step function (the classical correlation limit); for small $J$ it is linear in $\cos\Delta$.
+
+#### The Quantum Potential Fix ($Q$)
+
+The exact cosine dependence $E(\Delta)=-\cos\Delta$ required by QM is recovered by including the **amplitude-phase backreaction** (Quantum Potential) term, which is inherent to the framework's envelope dynamics but neglected in the simplified Langevin model. As shown in the envelope limit (§2.4), the phase $\phi$ and amplitude $R$ are coupled via the continuity and modified Hamilton-Jacobi equations:
+\[ \partial_t S + (\nabla S)^2 + V + Q = 0, \qquad Q = -\frac{\nabla^2 R}{R}. \]
+The "Quantum Potential" $Q$ forces the phase dynamics to track the curvature of the probability density. In the measurement context, rotating the apparatus changes the boundary conditions for the mode, altering the amplitude profile $R$. The resulting force $-\nabla Q$ modifies the phase equilibrium away from the simple thermal-rotor prediction.
+
+Clarification (scope of the claim). The existence of $Q$ is *not* a special Bell assumption: it is the generic amplitude–phase coupling that appears whenever the effective envelope dynamics are Schrödinger-like and one writes $\psi=R e^{iS}$. What is nontrivial—and therefore the real technical target—is that the **apparatus setting must actually reshape the effective phase boundary-value problem** (so that $R$ changes in the right setting-dependent way). In this framework that physical \"setting → operator\" pathway is supplied by matter–kernel coupling: the apparatus' matter configuration perturbs the local phase kernel/boundary conditions, which in turn shapes $R$ and therefore activates the $Q$ backreaction consistently.
+
+Thus, recovering the exact cosine $E(\Delta)=-\cos\Delta$ is framed as an engineered consistency target for the full envelope + apparatus coupling, not an automatic consequence of merely writing down $Q$.
+
+#### Cross-constraint (unification check): why “mirrors are strong” but “gravity is weak”
+
+This same matter–kernel coupling that underlies weak-field gravity also underlies apparatus boundary conditions. Writing the kernel perturbation in linear response,
+\[
+  \delta K(\omega,k)\;\sim\;\chi(\omega,k)\,\rho_m(\omega,k),
+\]
+gravity probes the static IR limit $\chi(0,0)$, while slits/mirrors/detectors probe finite-band response $\chi(\Omega_0,k\sim 1/\lambda)$ and (crucially) dissipative/locking channels (the $\operatorname{Im}\chi$ part).
+
+This yields a qualitative cross-constraint: if strong apparatus behavior were produced purely by a huge *static* kernel jump $\delta c_s^2\propto \chi(0,0)\rho_m$, then ordinary dense materials that act as strong boundaries would also create enormous static index shifts—i.e. they would be gravitationally bizarre. They are not. The framework is therefore pushed toward a unified resolution where $\chi(0,0)$ is small (weak gravity), but $\chi(\omega,k)$ can be large in narrow bands and in dissipative channels (strong apparatus coupling), consistent with causal dispersion constraints (Kramers–Kronig-type logic).
+
+#### Hysteresis and Symmetric Dependence
+
+In this framework, the visibility $V$ (and thus the CHSH value $S=2\sqrt{2}V$) is physically set by pointer overlaps and latching stability. Consequently, $S$ inherits the predicted hysteresis and symmetric environment dependence described in §10.2, providing a signature of the physical link mechanism.
 
 ### 10.4 Consolidated falsifiable predictions (no repetition)
 
@@ -450,6 +482,23 @@ Notes/open derivations (to be added):
 - Control set for technical confounds (timing jitter, phase reference drift, polarization‑dependent loss) that could mimic tiny \(\delta\omega\) or \(\delta\ln \tau\).
 
 Scope/observability caveat. In exact conformal covariance, dimensionless thresholds (e.g., \(\Delta E*b/(k_B T*{\rm eff})\)) are invariant; observable effects arise from small, non‑covariant residuals, asymmetries, or retarded nonequilibrium of the link. Operate near threshold to exploit Kramers exponential sensitivity.
+
+### 10.7 Emergent Configuration Space: The Moduli of Multi-Soliton Fields
+
+Standard quantum mechanics describes $N$ particles in a $3N$-dimensional configuration space. In this framework, the fundamental object is always the real field in 3D (or on the graph). The "configuration space" emerges as the **moduli space** of multi-soliton solutions.
+
+- **Field vs. Wavefunction (The "Lump" Picture):** A single particle is a localized amplitude concentration ("lump") of the field, $\Psi \sim f(x-x_1)$. A multi-particle state is a multi-lump configuration, $\Psi \sim \sum_i f(x-x_i)$. The "wavefunction" $\Psi_{\text{QM}}(\mathbf{x}_1, \dots, \mathbf{x}_N)$ is not a physical wave in a high-dimensional space; it is the probability distribution over the *parameters* (moduli) of the field—specifically, the center positions $\{\mathbf{x}_i\}$—evolved by the stochastic field dynamics.
+- **Entanglement in Real Space:** Entanglement corresponds to correlations in the noise driving these moduli. If the phase-link coupling (a physical force in 3D) correlates the stochastic kicks $\varepsilon_1(t)$ and $\varepsilon_2(t)$ experienced by two solitons, their trajectories $(\mathbf{x}_1(t), \mathbf{x}_2(t))$ explore the moduli space in a correlated way. This reproduces the statistics of an entangled configuration-space wavefunction without requiring a literal $3N$-dimensional space. The "potential" $V(x_1, x_2)$ in configuration space is simulated by the non-local phase forces coupling the lumps.
+
+### 10.8 Multi-Particle Entanglement as Network Modes
+
+Generalizing to $N > 2$ particles (e.g., GHZ or W states), entanglement is modeled not as a tensor product structure, but as collective metastable modes of a **phase-link network**.
+
+- **Rotor Network Picture:** The phase-link bundle connecting $N$ droplets forms a fully connected rotor network (resembling a spin glass).
+- **Network Modes:**
+  - **GHZ States ($|000\rangle + |111\rangle$):** Corresponds to a "ferromagnetic" symmetry-broken sector. The network possesses two deep global basins (all-aligned vs. all-flipped). The system maintains coherence between these topological sectors. Measurement of one particle pins its phase, transmitting a stress wave through the rigid phase network that instantly restricts the available basins for the remaining particles (non-local constraint).
+  - **W States ($|100\rangle + |010\rangle + |001\rangle$):** Corresponds to a single excitation ("spin wave") shared across the network, delocalized over all nodes. This mode is robust to the loss of a single node, matching the known robustness of W-state entanglement.
+- **Scaling:** This approach scales physically with $N$. It does not require an exponentially large space, but rather a network of $N$ nodes capable of supporting exponentially many metastable latching patterns (basins), which is a generic property of frustrated networks.
 
 ## 11. Next steps
 

@@ -22,7 +22,7 @@ The theory rests on a few core postulates, detailed in companion papers:
 1.  **Matter as Solitons:** Fundamental particles are stable, localized wave packets (solitons).
 2.  **The Noise Field:** Solitons source and interact with a background noise field, `ρ_N`. This field acts as a refractive medium with index `χ(ρ_N) ≈ 1 + α ρ_N`, causing an apparent gravitational force `a_grav ∝ -∇ρ_N`.
 3.  **Scale Invariance:** The physics is conformally invariant. A soliton's characteristic length `L_c` and internal clock rate adapt to the local noise density, `L_c ∝ 1/χ`. A local observer's measurements, using rulers and clocks made of the same substance, always yield the same physical constants (e.g., `c_s`).
-4.  **Thermodynamic Drag:** An accelerating soliton experiences an intrinsic, universal drag from its interaction with the vacuum noise field (an Unruh-like effect). Covariantly, the dissipated power scales as `P_rad ∝ m v · γ_v^4 · a_s^2` (baseline gradient coupling), implying ultra‑relativistic suppression `a_s(v) ∝ γ_v^{-1}` under sustained forcing.
+4.  **Thermodynamic Drag:** An accelerating soliton experiences an intrinsic, universal drag from its interaction with the vacuum noise field (an Unruh-like effect). Covariantly, the dissipated power scales as `P_rad ∝ γ_v^4 · a_s^2` (baseline gradient coupling). Balancing mechanical work input against this dissipation yields ultra‑relativistic suppression `a_s(v) ∝ γ_v^{-1}` under sustained forcing.
 
 ## 3. The Lifecycle of a Black Hole Shell
 
@@ -31,13 +31,17 @@ The theory rests on a few core postulates, detailed in companion papers:
 The formation of the shell is a runaway phase transition:
 
 1.  **Infall and Acceleration:** An amplitude soliton (matter) is drawn into the black hole's intense gravitational noise gradient, `-∇ρ_N`, and accelerates towards `c_s`.
-2.  **Drag and Scale Collapse:** The acceleration invokes the intrinsic thermodynamic drag. In sliding-window language (§18, _Soliton First Principles_), the enormous proper acceleration Doppler-shifts sub-threshold modes into the window, raising the Unruh temperature and forcing the constituent droplet to shrink its effective minimum cell. The massive energy dissipation is drawn from the soliton's internal energy, driving an extreme **scale downshifting** (`L_c → L_min`, plausibly the Planck length).
+2.  **Drag and Scale Collapse:** The acceleration invokes the intrinsic thermodynamic drag. In sliding-window language (§18, _Soliton First Principles_), the enormous proper acceleration Doppler-shifts sub-threshold modes into the window, raising the Unruh temperature and forcing the constituent droplet to shrink its effective minimum cell. The massive energy dissipation is drawn from the soliton's internal energy, driving an extreme **scale downshifting** (`L_c → L_min` in the external frame, i.e. the window-adapted Planck scale).
 3.  **Decoupling:** As the soliton's scale collapses, its cross-section for interacting with the _large-scale_ gravitational gradient vanishes. It becomes "blind" to the force that created it.
 4.  **Transition to Shell Constituent:** The soliton is now a new entity: a maximally scale-downshifted particle moving at `v ≈ c_s`. In the sliding-window formalism, its proper acceleration has red-shifted the window’s UV edge so far that all external point-source modes are averaged out. The infall force is no longer a _gradient_ from the droplet’s viewpoint; the constituent sees only its own local shell field plus the intense black-body cavity radiation that now balances any residual inward momentum. From an external perspective the effective radial velocity asymptotically vanishes at the horizon while internal time continues, matching the shell and black-body picture without additional assumptions.
 
 A key consistency check with the sliding-window formalism (§18, _Soliton First Principles_) is that the proper acceleration never actually drops to zero during infall; rather it red-shifts the window’s UV edge until all external point-source modes have been promoted and averaged. At that moment the infall force is no longer a _gradient_ from the droplet’s viewpoint; the constituent sees only its own local shell field plus the intense black-body cavity radiation that now balances any residual inward momentum. From an external perspective the effective radial velocity asymptotically vanishes at the horizon while internal time continues, matching the shell and black-body picture without additional assumptions.
 
-**Mean-field nuance (Yukawa kernels vs. point source):** Every Planck-scale constituent still emits only a short-range Yukawa halo \(e^{-r/R*i}/r\). Because each screening length \(R_i\) is \(\ll R*{\text{shell}}\), the exponentials are \(\approx1\) for any exterior point with \(r\gg R\_{\text{shell}}\). Summing over the \(N\) halos therefore reproduces a perfect \(1/r\) Newtonian tail with total mass \(M=\sum E*i/c^{2}\). Inside the shell the far-side halos are exponentially suppressed, so the local gradient vanishes. Thus a strictly local link interaction yields a point-source gravity field for distant observers \_and* no additional pull on already-collapsed constituents, reconciling the sliding-window decoupling with the macroscopic mass profile.
+**Mean-field nuance (Yukawa kernels vs. point source):** Every Planck-scale constituent still emits only a short-range Yukawa halo \(e^{-r/R_i}/r\). Because each screening length \(R_i\) is \(\ll R_{\text{shell}}\), the exponentials are \(\approx1\) for any exterior point with \(r\gg R_{\text{shell}}\). Summing over the \(N\) halos therefore reproduces a perfect \(1/r\) Newtonian tail with total mass \(M=\sum_i E_i/c^{2}\). Inside the shell the far-side halos are exponentially suppressed, so the local gradient vanishes. Thus a strictly local link interaction yields a point-source gravity field for distant observers and no additional pull on already-collapsed constituents, reconciling the sliding-window decoupling with the macroscopic mass profile.
+
+**Clarification (\"same mass\" does not mean \"same noise profile\"):** The statement “the fine-grained noise averages to a point source” is about **integrated source strength** (the monopole that fixes the \(1/r\) tail), not about the detailed **spectrum** or **correlation structure** of the emitted field. A black-hole shell is a maximally downshifted, window-floor system: most of its microscopic fluctuations sit at or below the external UV edge and are therefore unresolved by external observers, appearing as a universal, short-correlated “Planck-grain” texture that largely renormalises into effective couplings plus a monopole. Ordinary dense matter (e.g. a neutron star) is *not* maximally downshifted: it retains internal structure and fluctuations at wavelengths well within our window, so its noise field can carry resolvable multipoles, longer correlation lengths, and material-specific channels (magnetosphere, composition). Two objects could in principle have similar **bolometric power** while still having very different **spectral content** and **near-field texture**; the black hole’s distinctive claim here is the universality and window-limited nature of its emitted micro-noise, not merely the total power.
+
+**Observability (when the profile matters vs. when \(\tau^2\) washes it out):** If an effect couples only through the scalar intensity \(\tau^2(x)\) (a window-integrated variance), then two sources with very different spectra can still be indistinguishable at leading order: the spectrum is “forgotten” by the integral and reappears only as renormalised constants plus a monopole. Differences become measurable only for probes that are sensitive to **more than** \(\tau^2\): e.g. correlation functions (finite correlation length/time), non-Gaussian moments (nonlinear response), multipole/anisotropy structure, or frequency-selective/window-overlap probes (including accelerated/near-shell observers for which Doppler/Unruh promotion changes which part of the source spectrum lies inside the operative window).
 
 #### Clarification: Geometric horizon vs. thermodynamic onset
 
@@ -51,8 +55,8 @@ The shell is a self-contained, dynamic system in a remarkable equilibrium where 
 
 **1. The "Breathing" Equilibrium:** The shell is not static but a seething layer, dynamically trapped between two opposing pressures. The two key thermodynamic processes are:
 
-- **Energy Loss (Thermal Radiation):** The shell constituents are in a state of violent, chaotic motion due to their immense density. The **collisions** between them constitute a genuine thermal bath, which radiates energy away both inward (creating the blackbody core) and outward (as Hawking-like radiation). This is the primary `Power_out` channel.
-- **Energy Gain (Unruh Absorption):** The acceleration experienced by a constituent during these collisions allows it to absorb energy from the vacuum's quantum fluctuations. This **Unruh absorption** is the `Power_in` channel, a re-heating mechanism that replenishes the energy lost to thermal emission and maintains the equilibrium temperature.
+- **Energy Loss (Thermal Radiation):** The shell constituents form a near‑2D, strongly coupled **network**. Even when the network is dilute in geometric spacing (`d ≫ L_min` for macroscopic \(M\)), its collective vibration modes and repeated forced deflections act as a thermal bath when coarse‑grained. This bath radiates energy away both inward (creating the blackbody core) and outward (as Hawking-like radiation). The outward component can escape because the *radiating photosphere* is a finite‑thickness layer that sits (on average) just outside the geometric trapping/total‑reflection surface; as the shell “breathes” its optical depth and effective refractive profile fluctuate, modulating the escape fraction without requiring any violation of null trapping inside the horizon. To leading order this changes only an effective **greybody/emissivity prefactor** (a time‑averaged escape probability), not the mass‑scaling exponents derived below. This is the primary `Power_out` channel.
+- **Energy Gain (Unruh Absorption):** The non‑geodesic proper acceleration experienced by a constituent during these repeated deflections/interactions allows it to absorb energy from the vacuum's quantum fluctuations. This **Unruh absorption** is the `Power_in` channel, a re-heating mechanism that replenishes the energy lost to thermal emission and maintains the equilibrium temperature.
 - **Confinement:** The shell is prevented from dispersing by the prohibitive energy cost of its constituents "re-inflating" in the lower-density noise field outside. It is prevented from collapsing by the immense outward radiation pressure from the hot blackbody core it creates.
 
 The particles of the shell are thus physically locked in a "breathing" layer, with their temperature set by the stable equilibrium between these energy loss and gain channels.
@@ -73,7 +77,7 @@ The particles of the shell are thus physically locked in a "breathing" layer, wi
 
 We can summarise the shell thermodynamics with a covariant, frame‑consistent closure at the level of power per proper area:
 
-- Inward heating (after UV exhaustion) is supplied by Unruh‑like acceleration of constituents driven by shell collisions. Averaging over collision histories with sustained proper forcing gives a drag/heating law consistent with the covariant result `P_in ≃ C_heat · m v · γ_v^4 · a_s^2`, coarse‑grained to an areal rate `\mathcal P_in(R)`.
+- Inward heating (after UV exhaustion) is supplied by Unruh‑like acceleration of constituents driven by shell collisions. Averaging over collision histories with sustained proper forcing gives a drag/heating law consistent with the covariant result `P_in ≃ C_heat · γ_v^4 · a_s^2` (balancing the mechanical work rate), coarse‑grained to an areal rate `\mathcal P_in(R)`.
 - Outward cooling is Stefan–Boltzmann leakage from the photosphere, `\mathcal P_out(R) = σ_SB T(R)^4`.
 
 At steady “breathing” equilibrium in local units,
@@ -82,7 +86,7 @@ At steady “breathing” equilibrium in local units,
 \mathcal P_in(R) = \mathcal P_out(R) = P_0  (constant per proper area)
 ```
 
-The microscopic kinematics of the dense, near‑2D shell implies (Sec. 3.3) a characteristic acceleration that scales with the square root of the surface density, `a_char ∝ √ρ_surface`, and hence `T ∝ a_char ∝ √ρ_surface`. With `ρ_surface ∝ 1/M_BH` this yields the temperature law used below,
+The microscopic kinematics of the near‑2D shell network implies (Sec. 3.3) a characteristic acceleration that scales with the square root of the surface density, `a_char ∝ √ρ_surface`, and hence `T ∝ a_char ∝ √ρ_surface`. With `ρ_surface ∝ 1/M_BH` this yields the temperature law used below,
 
 ```
 T(R) ∝ 1/√M_BH,   and   P_total = A_shell · σ_SB T^4 ≃ const.
@@ -96,10 +100,26 @@ Clarification (species and multipoles): “Areal heating” is an average over t
 
 The black hole evaporates via thermal radiation from its _outer_ surface. The temperature of this radiation is determined by the physics of the shell, where the equilibrium between collisional radiation and Unruh absorption sets the temperature.
 
-- **Deriving Temperature from Shell Density:** The physics of the shell is best modeled as a dense, 2D quantum fluid. In such a fluid, momentum is carried by collective excitations (phonons) whose speed scales with the square root of the density (`c_s ∝ √ρ_surface`). The characteristic acceleration of a shell particle is proportional to this speed (`a_p,shell ∝ c_s`), leading to a suppressed acceleration at high densities: `a_p,shell ∝ √ρ_surface`.
-  - The number of particles scales linearly with mass: `N_shell ∝ M_BH`.
-  - The shell's area scales quadratically: `A_shell ∝ r_shell² ∝ M_BH²`.
-  - Therefore, the surface density scales inversely: `ρ_surface = N_shell / A_shell ∝ 1/M_BH`.
+- **Shell Geometry:** The shell contains `N ∝ M` constituents distributed over an area `A ∝ R_S² ∝ M²`. The mean separation scales as `d ~ √(A/N) ∝ √M`. For any macroscopic black hole, `d ≫ L_min`: the shell is a **dilute network**, not a dense fluid.
+
+- **Deriving the Characteristic Acceleration (two complementary views):**
+
+  The critical scaling `a_char ∝ 1/√M` can be derived from _either_ the internal (constituent) or external (distant observer) perspective. Their agreement is a consistency check on the framework's observer-relative descriptions.
+
+  - **View 1 — External (Lattice Frequency):** From outside, the shell is a 2D lattice of `N` point masses with spacing `d ∝ √M`. The characteristic dynamical frequency of the lattice is set by nearest-neighbour signal crossing: `ω ~ c_s/d`, giving `a_char ~ c_s²/d ∝ 1/√M`. This is a straightforward geometric/kinematic statement about the network's macroscopic dynamics as seen from infinity.
+
+  - **View 2 — Internal (Dilute Gas + Relativistic Compression):** From a constituent's own (downshifted) frame, the separation `d` maps to a _much larger_ proper distance `d_int = d / ε` (where `ε ≪ 1` is the scale ratio between the constituent's rulers and the external rulers). Signals take a proportionally long proper time `τ_int ~ d_int / c_s` to cross the gap. However, because `c` is invariant across frames, the external observer maps this long internal proper time back to a short coordinate time: `τ_ext = ε · τ_int = d / c_s`. The two views therefore assign the _same_ coordinate crossing time `τ_ext ~ d / c_s` and hence the _same_ acceleration `a_char ~ c_s / τ_ext ∝ 1/√M`. The relativistic compression that makes the internal "miles" appear as external "meters" is _exactly_ compensated by the time dilation that makes the internal "hours" appear as external "seconds." The ratio `d/c` is frame-invariant.
+
+  - **Why they must agree:** Both views compute the same invariant: the proper acceleration 4-vector magnitude of a shell constituent. The external view constructs it from the lattice geometry; the internal view constructs it from the local dynamics plus the scale map. Agreement is guaranteed by the framework's requirement that `c_s` is constant across observation windows (Postulate 3).
+
+- **Source Consistency:** Even though a maximally downshifted constituent decouples from the external window's dynamics (appearing as a structureless point), its noise source strength (mass) is conserved. The fine-grained noise it emits in its own frame averages exactly to the point-source noise seen by the external observer, preserving the `1/r` gravitational tail.
+
+- **Summary of scalings:**
+  - `N_shell ∝ M_BH`
+  - `A_shell ∝ R_S² ∝ M_BH²`
+  - `ρ_surface = N_shell / A_shell ∝ 1/M_BH`
+  - `d ∝ √M_BH`
+  - `a_char ∝ 1/√M_BH ∝ √ρ_surface`
 - **The Temperature Law:** The shell's temperature is set by the Unruh effect, `T_U ∝ a_p,shell`. Combining these relations, we get `T_U ∝ √ρ_surface ∝ √(1/M_BH)`. This gives a temperature law of:
   `T_BH ∝ 1/√M_BH`.
 
@@ -143,31 +163,51 @@ This suggests a black hole fizzles out with a steady hum rather than ending in a
 
 In a binary system, the shell of one black hole is distorted and heated anisotropically by its companion's noise field. This results in anisotropic thermal radiation from the shell's outer surface, creating a continuous, non-gravitational **recoil force**. If the binary separation `d` is less than the ambient phase-coherence length `L_phase`, coherent phase-sheets can also form, adding a powerful EM-like component to the interaction. These effects, including velocity-dependent retardation that can introduce drag and resonances, could produce unique signatures in gravitational wave signals.
 
-### 4.3 Duality of Stiffness and the Shell as a Quantum Fluid
+### 4.3 Duality of Stiffness and the Shell as a Constrained 2D Network
 
 A profound aspect of the particle-black hole duality lies in comparing their respective mechanisms for resisting collapse—their "stiffness."
 
 - **Microscopic Stiffness:** A single soliton is stabilized by a fundamental `γ|Ψ|⁴` potential term. The pressure resisting collapse is therefore proportional to the field amplitude squared, `P ∝ |Ψ|⁴`.
 - **Macroscopic Stiffness:** A black hole shell is stabilized by the thermodynamic pressure of its blackbody core. This pressure scales as `P_rad ∝ T_U⁴`.
 
-At first glance, these appear different. However, the duality becomes deeper when we consider the shell as a 2D quantum fluid. As derived in Sec 3.3, the constrained geometry forces the acceleration to scale as `a ∝ √ρ_surface`. Since `T_U ∝ a`, this means `T_U ∝ √(ρ_surface)`. The resulting radiation pressure is `P_rad ∝ T_U⁴ ∝ (√ρ_surface)⁴ = ρ_surface²`.
+At first glance, these appear different. However, the duality becomes deeper when we treat the shell as a **constrained 2D network** whose macroscopic dynamics are set by its geometry (Sec. 3.3). The same geometry forces the characteristic acceleration to scale as `a ∝ √ρ_surface`. Since `T_U ∝ a`, this means `T_U ∝ √(ρ_surface)`. The resulting radiation pressure is `P_rad ∝ T_U⁴ ∝ (√ρ_surface)⁴ = ρ_surface²`.
 
-If we identify the squared soliton amplitude `|Ψ|²` with the shell's surface density `ρ_surface`, we find that the macroscopic repulsive pressure scales as `P_rad ∝ |Ψ|⁴`. The duality can be made exact if the shell is treated not as a simple gas, but as a quantum fluid whose 2D geometry constrains its internal dynamics. This provides a specific, falsifiable model of the shell's equation of state.
+If we identify the squared soliton amplitude `|Ψ|²` with the shell's surface density `ρ_surface`, we find that the macroscopic repulsive pressure scales as `P_rad ∝ |Ψ|⁴`. The duality can be made exact if the shell is treated not as a simple gas, but as an effectively 2D medium whose constrained geometry sets its acceleration scale and hence its radiative pressure law. This provides a specific, falsifiable model of the shell's equation of state.
 
-### 4.4 Window Rescaling and the Exhaustion of the UV Tail
+### 4.4 Window Rescaling and the Soliton Floor
 
-A recurring question is whether the argument for **constant-power evaporation** remains valid for an observer who adopts a much finer scale window—e.g. a Planck-cell constituent that chooses a new reference length $L'_{\min}=L_{\min}/10^{20}$. The answer is yes: even though the formal window re-opens additional decades of wavelengths, the **spectral energy density** of those modes has already been absorbed into the renormalised couplings $(\hbar,\,G,\,\gamma,\dots)$.
+A recurring question is whether the argument for **constant-power evaporation** remains valid for an observer who adopts a much finer scale window—e.g. a Planck-cell constituent that chooses a new reference length $L'_{\min}=L_{\min}/10^{20}$. The answer is yes, but the reason is **not** that the vacuum modes are "used up" (the spectrum is scale-free; individual modes are always available and can always be excited). The reason is that **the soliton has already descended to the bottom of its free-energy landscape and has no remaining scale-headroom to release further energy**.
 
-#### 4.4.1 What the constituent re-labels
+#### 4.4.1 The free-energy floor (the correct picture)
+
+The mechanism that powers a soliton's response to increased noise is **scale downshifting**: higher $\tau_{\rm eff}$ → smaller equilibrium size → energy released along the curve $\varepsilon_s(\tau) = -\alpha_s\tau^\gamma$. Each step of shrinkage from $L_c$ toward $L_{\min}$ extracts free energy from this descent.
+
+- **Ordinary particle-soliton** ($L_c \gg L_{\min}$): sits partway up the hill. Plenty of "downhill" (scale range) remains. If hit with more noise/acceleration (Unruh heating), it can shrink further, releasing energy to fuel $P_{\rm in}$. The soliton's internal potential is the "reserve."
+- **Shell constituent** ($L_c \approx L_{\min}$): has already rolled to the **bottom**. It has shrunk as far as the observation window allows. Further increases in $\tau_{\rm eff}$ cannot drive further shrinkage—there is no more scale to descend through. The soliton is at its minimum size and has exhausted its internal downshifting potential, not the vacuum's spectral content.
+
+Crucially, this floor is **relational/environmental**, not absolute. $L_{\min}$ is the UV edge of the _external observer's_ window—the observer who is computing the black hole's mass, temperature, and evaporation rate. The graph itself has no absolute minimum scale. From the constituent's own frame it has not "bottomed out" at all (see §4.4.2). The floor is imposed by _who is doing the energy accounting_, and the evaporation prediction is a statement in that observer's units.
+
+**Why the floor can't be pushed deeper:** The black hole's gravitational noise profile $\tau(x)$ is itself computed within the external window. That window has a maximum expressible noise intensity, $\tau_{\max}$, corresponding to its own Planck floor. The black hole—as a macroscopic entity defined in that window—simply cannot impose a downshifting potential deeper than its own window can represent. The potential well "flattens" at $L_{\min}$ not because the graph runs out of structure, but because the macroscopic entity's field has reached the ceiling of what its own window can encode. A more massive black hole has a larger shell, lower $\rho_{\rm surface}$, and therefore a _shallower_ effective well per constituent—which is precisely why $T \propto 1/\sqrt{M}$ falls with mass.
+
+The vacuum modes are fine. The spectrum is fine. **It is the soliton that has bottomed out (relative to the bookkeeping observer's window), not the vacuum.**
+
+#### 4.4.2 What the constituent sees in its own frame
 
 - **Old window (external frame):** IR/UV band runs $b_{\rm IR}L_{\min}$ … $b_{\rm UV}L_{\min}$.
 - **New window (internal frame):** same band expressed in finer metres runs $b_{\rm IR}L'_{\min}$ … $b_{\rm UV}L'_{\min}$, formally re-opening 20 decades of spectrum.
 
-But the integral of the noise power spectrum over those extra decades was performed during the collapse; its contribution now lives inside renormalised constants. The _residual_ energy density available for Unruh promotion is exponentially small.
+From its own perspective, the constituent sees a perfectly normal window with a full spectrum. It does not feel "starved." It has its own $\hbar_{\rm eff}$, its own UV edge, and its own normal Unruh physics—and it _is_ undergoing Unruh heating and radiating; that is exactly the breathing equilibrium. But all of this self-consistent internal dynamics maps, via the sliding-window formalism, to the _same_ fixed power $P_0$ that the external observer computes. The "extra decades" the constituent formally resolves are the modes whose integrated contribution defines the constituent's own renormalised couplings ($\hbar_{\rm eff}$, $G$, $\gamma$, …). They are not an untapped energy source; they are the constants of the constituent's own physics.
 
-#### 4.4.2 Covariant power balance
+#### 4.4.3 Covariant power balance
 
-Let $P_{0}$ be the inward power supplied by Unruh heating _after_ UV exhaustion and let $P_{0}$ also be the Stefan–Boltzmann outward power (constant by §4.1). Both are defined per unit proper shell area and per unit proper time, so Lorentz factors cancel: every observer—external or co-moving—measures the **same numerical $P_{0}$**.\n\nConsequently\n\n* Ordinary particle-solitons (window decades above $L_{\min}$) still have plenty of UV bandwidth → $P_{\rm in}$ tracks $P_{\rm out}$ → rest mass stable.\n* A Planck-cell shell has virtually no UV reserve → $P_{\rm in}$ saturates at $P_{0}$ → any stochastic excess of $P_{\rm out}$ drains mass at a constant rate $\dot M=-P_{0}/c^{2}$ → linear lifetime.\n\nThe argument is therefore frame-independent. The sliding-window formalism guarantees that the constant-power evaporation law derived in §4.1 is robust even when analysed from the ultra-fine viewpoint of a shell constituent."}
+Let $P_{0}$ be the inward power supplied by Unruh heating and let $P_{0}$ also be the Stefan–Boltzmann outward power (constant by §4.1). Both are defined per unit proper shell area and per unit proper time, so Lorentz factors cancel: every observer—external or co-moving—measures the **same numerical $P_{0}$**.
+
+Consequently:
+
+- Ordinary particle-solitons ($L_c \gg L_{\min}$) still have scale-descent headroom $\Rightarrow$ $P_{\rm in}$ can track any increase in $P_{\rm out}$ by releasing downshifting energy $\Rightarrow$ rest mass stable.
+- A shell constituent ($L_c \approx L_{\min}$) has no remaining scale-descent headroom $\Rightarrow$ $P_{\rm in}$ saturates at $P_{0}$ $\Rightarrow$ any stochastic excess of $P_{\rm out}$ drains mass at a constant rate $\dot M=-P_{0}/c^{2}$ $\Rightarrow$ linear lifetime.
+
+The argument is therefore frame-independent. The sliding-window formalism guarantees that the constant-power evaporation law derived in §4.1 is robust even when analysed from the ultra-fine viewpoint of a shell constituent.
 
 ### 4.5 Hierarchical Condensation and Internal Large-Scale Structure
 
@@ -175,13 +215,84 @@ We now formalise how stochastic fluctuations inside the cavity generate a two-ph
 
 #### 4.5.1 Black-hole-branch seeds: radial drift and stall
 
-- **Accretion rate** (geometric cross-section + gravitational focusing)
-  $$\dot M \;\simeq\;\pi R_{\rm mini}^{2}\,\rho_{\gamma}\,c\,\left(1+\frac{v_{\rm esc}^{2}}{c^{2}}\right),\qquad v_{\rm esc}^{2}=\frac{2GM}{R_{\rm mini}}.$$\n\* **Jeans limit** in a photon gas of temperature $T$:\n $$M_{\rm J}(T)=\frac{\pi^{5/2}}{6}\,\frac{c^{3}}{\sqrt{G^{3}\rho_{\gamma}}}\;\propto\;T^{-3/2}. $$\n Photon temperature depends on local noise as $T\propto\rho_{\gamma}^{1/4}\propto M^{1/4}$.
-- **Stall criterion** $M=M_{\rm J}(T(M))$ gives $M_{\rm stall}\propto M^{1/4}\,^{-3/2}$ \(\Rightarrow M*{\rm stall}\approx\text{few}\times N*_\mu\). Thus growth halts after $\mathcal O(10)$ quanta—far below any sizeable fraction of the parent shell mass.\n_ **Radial migration** The drift acceleration from anisotropic photon flux scales $a_{\rm rad}\propto A/M\propto N$. The seed therefore spirals toward the inner wall on a timescale\n $$\tau_{\rm drift}\sim\frac{R_{\rm shell}}{a_{\rm rad}}\propto\frac{R_{\rm shell}}{N}. $$\n  Once parked against the wall it merges with neighbouring seeds, forming a thin sub-shell that simply thickens the parent’s breathing layer.\n\n#### 4.5.2  Particle-branch droplets: Brownian network and filament formation\n\nFor $N=1$ droplets the net drift acceleration\n$$a*{\rm rad}\propto\frac{A}{M}\approx\frac{L*{\min}^{2}}{\mu}$$\nis \(\mathcal{O}(N^{-1})\) smaller than for seeds, hence dominated by Brownian kicks with rms speed $v_{\rm rms}\approx\sqrt{T/\mu}$.  Their mean free path\n$$\lambda*{\rm B}\sim\frac{1}{n*{\rm seed}\pi R*{\rm mini}^{2}}$$\nexceeds the typical seed–seed spacing, so $N=1$ droplets perform a random walk through an ever-evolving network of gravitating seeds.  Capture occurs preferentially along the caustics of this walk, generating filamentary streams.  The resulting density field obeys the diffusion–drift equation
-$$\partial_t n = D\nabla^{2}n - \nabla\!\cdot\!(n\mathbf v*{\rm drift}),$$\nwith $D$ set by Brownian motion and $\mathbf v_{\rm drift}$ by the potential of nearby seeds.  Numerical integration (Appendix B, forthcoming) shows the emergence of sponge-like filaments analogous to the cosmic web.\n\n#### 4.5.3  Impact on early-epoch anisotropies\n\nMini-shell seeds induce **milli-Kelvin–scale** temperature dipoles (in external units) in the photon bath on angular scales $\theta\sim R_{\rm mini}/R_{\rm shell}$.  The spectrum of such anisotropies is given by\n$$\frac{\Delta T}{T}(\ell)\approx\left(\frac{M*{\rm seed}}{M*{\rm shell}}\right)^{1/2}\!\!(\ell*{\rm seed})^{2}\,e^{-\ell/\ell*{\rm seed}},\qquad\ell*{\rm seed}\sim\frac{R*{\rm shell}}{R*{\rm mini}}.$$
-  Because $M*{\rm seed}/M*{\rm shell}\ll1$ the anisotropies remain well below the black-body cavity’s intrinsic shot noise and do not spoil the breathing equilibrium.\n\n*Local vs.~external units:* internal observers measure every energy against a shrunken local unit (their $k_{\text B}T$ rescales by $\chi^{-1}$), so the same dipole appears $(\Delta T/T)_{\text loc}=\chi^{-1}(\Delta T/T)_{\text ext}$. The relative contrast therefore stays ${\cal O}(10^{-3})$ for *all* frames; only the baseline temperature differs.\n\n#### 4.5.4 Effective geometry of the interior\n\nThe refractive-index profile $\chi(r)=1+\alpha\rho*{\gamma}(r)$ decreases toward the centre as radiation energy drains into seeds. Ray trajectories therefore diverge, giving an **effective negative curvature**. Geodesic analysis (Appendix C) shows that—even after photon pressure subsides—timelike paths require infinite proper time to reach the parent wall. To internal observers the shell thus forms an optical horizon: internal structure can never catch the wall once the sub-shell layer has formed.\n\nNumerically, choosing $\chi(r)=1+\epsilon(1-r/R_{\text{shell}})$ with a modest $\epsilon\sim10^{-2}$ gives $K\approx-2\epsilon/R_{\text{shell}}^{2}$, confirming a weak but everywhere negative curvature that makes the interior effectively hyperbolic."
+- **Accretion rate** (geometric cross-section + gravitational focusing):
 
-### 4.4 The Planck-Pivot Scaling Laws
+$$
+\dot M \;\simeq\;\pi R_{\rm mini}^{2}\,\rho_{\gamma}\,c\,\left(1+\frac{v_{\rm esc}^{2}}{c^{2}}\right),\qquad
+v_{\rm esc}^{2}=\frac{2GM}{R_{\rm mini}}.
+$$
+
+- **Jeans limit** in a photon gas of temperature $T$:
+
+$$
+M_{\rm J}(T)=\frac{\pi^{5/2}}{6}\,\frac{c^{3}}{\sqrt{G^{3}\rho_{\gamma}}}\;\propto\;T^{-3/2}.
+$$
+
+Photon temperature depends on local noise as $T\propto\rho_{\gamma}^{1/4}\propto M^{1/4}$.
+
+- **Stall criterion:** $M=M_{\rm J}(T(M))$ gives $M_{\rm stall}\propto M^{1/4}\,^{-3/2}$ \(\Rightarrow M*{\rm stall}\approx\text{few}\times N*_\mu\). Thus growth halts after $\mathcal O(10)$ quanta—far below any sizeable fraction of the parent shell mass.
+
+- **Radial migration:** The drift acceleration from anisotropic photon flux scales $a_{\rm rad}\propto A/M\propto N$. The seed therefore spirals toward the inner wall on a timescale
+
+$$
+\tau_{\rm drift}\sim\frac{R_{\rm shell}}{a_{\rm rad}}\propto\frac{R_{\rm shell}}{N}.
+$$
+
+Once parked against the wall it merges with neighbouring seeds, forming a thin sub-shell that simply thickens the parent’s breathing layer.
+
+#### 4.5.2 Particle-branch droplets: Brownian network and filament formation
+
+For $N=1$ droplets the net drift acceleration
+
+$$
+a_{\rm rad}\propto\frac{A}{M}\approx\frac{L_{\min}^{2}}{\mu}
+$$
+
+is $\mathcal{O}(N^{-1})$ smaller than for seeds, hence dominated by Brownian kicks with rms speed $v_{\rm rms}\approx\sqrt{T/\mu}$. Their mean free path
+
+$$
+\lambda_{\rm B}\sim\frac{1}{n_{\rm seed}\pi R_{\rm mini}^{2}}
+$$
+
+exceeds the typical seed–seed spacing, so $N=1$ droplets perform a random walk through an ever-evolving network of gravitating seeds.
+
+**Classification by Topology ($l=0$ vs $l\ge 1$):**
+Crucially, these droplets come in two populations (see _Dark Morphology_ paper for details):
+1.  **Scalar Solitons ($l=0$):** Simple density fluctuations with no phase winding. These form the dominant population (Dark Matter) and remain collisionless.
+2.  **Topological Defects ($l\ge 1$):** Rare fluctuations that trap a phase winding (Baryons). These experience phase-friction and become dissipative.
+Combinatorial statistics in the cavity favor the simpler $l=0$ state by a factor of $\sim 5$, naturally seeding the observed cosmic abundance ratio $\Omega_{\rm DM}/\Omega_{\rm bary}\approx 5$.
+
+**The Morphological Amplifier:**
+Initial capture occurs along gravitational caustics, but this is rapidly accelerated by the **cooperative feedback** mechanism described in the _Dark Morphology_ draft. Droplets clustered in a caustic source a higher local noise background $\tau$. This triggers a super-linear downshifting response in their neighbours ($\varepsilon \propto -\tau^\gamma, \gamma>1$), deepening the potential well and drawing in more matter. This "morphological force" acts as a powerful amplifier, transforming weak Brownian caustics into sharp, high-contrast filamentary flux tubes.
+
+The resulting density field obeys a modified diffusion–drift equation:
+
+$$
+\partial_t n = D\nabla^{2}n - \nabla\!\cdot\!(n\mathbf v_{\rm drift}) + \underbrace{\alpha_{\rm morph} n^2}_{\text{feedback}},
+$$
+
+with $D$ set by Brownian motion and $\mathbf v_{\rm drift}$ by the potential of nearby seeds. Numerical integration (Appendix B, forthcoming) shows the emergence of sponge-like filaments analogous to the cosmic web.
+
+#### 4.5.3 Impact on early-epoch anisotropies
+
+Mini-shell seeds induce **milli-Kelvin–scale** temperature dipoles (in external units) in the photon bath on angular scales $\theta\sim R_{\rm mini}/R_{\rm shell}$. The spectrum of such anisotropies is given by
+
+$$
+\frac{\Delta T}{T}(\ell)\approx\left(\frac{M*{\rm seed}}{M*{\rm shell}}\right)^{1/2}\!\!(\ell*{\rm seed})^{2}\,e^{-\ell/\ell*{\rm seed}},\qquad
+\ell*{\rm seed}\sim\frac{R*{\rm shell}}{R*{\rm mini}}.
+$$
+
+Because $M*{\rm seed}/M*{\rm shell}\ll1$ the anisotropies remain well below the black-body cavity’s intrinsic shot noise and do not spoil the breathing equilibrium.
+
+*Local vs.~external units:* internal observers measure every energy against a shrunken local unit (their $k_{\text B}T$ rescales by $\chi^{-1}$), so the same dipole appears $(\Delta T/T)_{\text loc}=\chi^{-1}(\Delta T/T)_{\text ext}$. The relative contrast therefore stays ${\cal O}(10^{-3})$ for *all* frames; only the baseline temperature differs.
+
+#### 4.5.4 Effective geometry of the interior
+
+The refractive-index profile $\chi(r)=1+\alpha\rho*{\gamma}(r)$ decreases toward the centre as radiation energy drains into seeds. Ray trajectories therefore diverge, giving an **effective negative curvature**. Geodesic analysis (Appendix C) shows that—even after photon pressure subsides—timelike paths require infinite proper time to reach the parent wall. To internal observers the shell thus forms an optical horizon: internal structure can never catch the wall once the sub-shell layer has formed.
+
+Numerically, choosing $\chi(r)=1+\epsilon(1-r/R_{\text{shell}})$ with a modest $\epsilon\sim10^{-2}$ gives $K\approx-2\epsilon/R_{\text{shell}}^{2}$, confirming a weak but everywhere negative curvature that makes the interior effectively hyperbolic.
+
+### 4.6 The Planck-Pivot Scaling Laws
 
 This subsection clarifies the role of the symbols _m_ (particle mass) and _M_ (black-hole mass) and shows why the equality _m = M_ marks a true phase transition in how mass occupies space.
 
@@ -355,7 +466,7 @@ subsequent work.
 
 ## 7. Conclusion
 
-This model provides a self-consistent, singularity-free picture of black holes as dynamic, radiating shells that harbor nascent universes in their cores. It derives the `T ∝ 1/M` law from the emergent thermodynamics of the shell plasma itself and makes a suite of falsifiable predictions regarding evaporation rates and binary dynamics. By unifying the physics of local and cosmic horizons through the principle of scale invariance, it offers a new path for understanding the fundamental structure and lifecycle of the cosmos.
+This model provides a self-consistent, singularity-free picture of black holes as dynamic, radiating shells that harbor nascent universes in their cores. It derives the `T ∝ 1/√M` law from the emergent thermodynamics of the shell plasma itself and makes a suite of falsifiable predictions regarding evaporation rates and binary dynamics. By unifying the physics of local and cosmic horizons through the principle of scale invariance, it offers a new path for understanding the fundamental structure and lifecycle of the cosmos.
 
 ## Addendum — Statistical Derivation of the Planck Pivot
 
@@ -441,30 +552,36 @@ This addendum records the logical consequences and clarifications that emerged a
 - Hyperbolic dilation near the wall makes the **internal proper time unbounded**; an internal observer can execute countably many zoom-in steps before \(t=\tau\_{\rm ext}\).
 - Each level has its own finite cascade and constant-power evaporation, so the geometric series of sub-energies still sums to \(M\_{\rm init}c^{2}\).
 
-### 8.4 Seed Gradient, Filament Fate, and Wall Overtake
+### 8.4 Impedance Matching: Why Constant Power is Necessary for Nesting
+
+Standard Hawking radiation ($P \propto M^{-2}$) forbids a nested hierarchy. A small inner shell would radiate power $P_{\rm inner} \gg P_{\rm outer}$, instantly vaporizing the enclosing parent shell from the inside ("infrared explosion").
+
+**Constant power ($P \propto M^0$) is the unique scaling law that allows impedance matching:** the energy flux is scale-invariant ($P_{\rm inner} = P_{\rm outer} = P_0$). The inner shell feeds the outer shell at exactly the rate the outer shell dissipates energy, allowing indefinite stable nesting without violation of conservation or structural stability. This turns the constant-power prediction from a curiosity into a structural necessity for any fractal cosmology.
+
+### 8.5 Seed Gradient, Filament Fate, and Wall Overtake
 
 - Seeds (\(N> N\_\*\)) form preferentially near the wall where the local Jeans mass is lowest.
 - Radiation-pressure drift moves seeds inward; Brownian droplets (\(N=1\)) diffuse in a sponge-like filament network.
 - As the shell contracts, rising noise variance and negative optical curvature compress and eventually absorb the filaments; external time for this capture is finite, internal time diverges logarithmically.
 
-### 8.5 Arrow of Time = Down-slope in Scale-Space
+### 8.6 Arrow of Time = Down-slope in Scale-Space
 
 - The thermodynamic scale force derived in _Scale-Space Thermodynamic Force.md_ provides the universal monotone \(σ(t)\). Because \(σ\) can only decrease until it reaches \(L\_{\min}\), each bubble has a finite internal history even inside an eternal, statistically stationary ensemble.
 
 These points reconcile an **eternal fractal ontology** with the finite computation, finite energy, and constant-power evaporation derived earlier in the paper.
 
-### 8.6 Cosmic Horizon ≙ Type-II Gravitational Droplet
+### 8.7 Cosmic Horizon ≙ Type-II Gravitational Droplet
 
 An apparent **cosmic horizon** (in an FRW patch) can be re-interpreted as the
 _inner_ surface of a larger-scale black-hole–like shell—a **Type-II (outward-oriented) droplet**—once we zoom out to the next window in the infinite hierarchy.
 
 - **Colder external medium exists.** In the super-observer’s units the space outside our horizon is filled with deeper-UV modes whose noise floor is higher (shorter \(L\_{\min}\)). From _our_ interior vantage that region is “stretched’’ to infinite volume and red-shifted to near-zero temperature, giving the impression of an empty cold outside.
 - **Photon fate.** Radial photons emitted by us drift outward, exponentially red-shift, and asymptotically freeze at a comoving radius. The super-observer sees them arrive at the shell in finite time and add their energy to the outward flux \(P*{0}=\sigma T^{4}*{\rm dS}\). Thus the shell does evaporate at constant power just like the inward-oriented case.
-- **Alternating 3-D volumes ↔ 2-D shells.** Each zoom step swaps the role of cavity (3-D) and wall (2-D). The running Hausdorff dimension therefore oscillates between 3 and 2; averaging over infinitely many levels tends to \(\langle D \rangle = e\) if the step ratio is chosen as \(\exp(1)\), enforcing scale-freedom (the object equals its own logarithmic derivative).
+- **Alternating 3-D volumes ↔ 2-D shells.** Each zoom step swaps the role of cavity (3-D) and wall (2-D). The running Hausdorff dimension therefore oscillates between 3 and 2. While the exact duty cycle is determined by the specific thermodynamics of the shell, a heuristic argument (see below) suggests the hierarchy may average to the natural base of logarithms, $\langle D \rangle \approx e$, ensuring maximal information density.
 
 With this identification every level inherits the same energetics—constant-power evaporation, finite accessible information, and an intrinsic arrow of scale—while the entire hierarchy remains unbounded in both directions.
 
-### 8.7 Why the Hierarchy Alternates 2-D Shells and 3-D Bulks
+### 8.8 Why the Hierarchy Alternates 2-D Shells and 3-D Bulks
 
 The graph‐theoretic micro-physics permits, in principle, exotic non-integer Hausdorff dimensions. Yet every _physical_ observer must adopt a **finite UV window** (coarse-graining) so that energy, momentum and entropy are well defined. That single requirement forces each resolved subgraph toward _integer_ geometries and produces the observed alternation.
 
@@ -478,18 +595,21 @@ The graph‐theoretic micro-physics permits, in principle, exotic non-integer Ha
     • Bulks maximise entropy but pay volumetric energy.  
     The global minimum of the free energy is attained **not** by a compromise fractional D, but by _alternating_ the two integer optima at successive scale steps.
 
-3.  **Scale-space bookkeeping**  
-    Choose weights \(p\) (bulk) and \(1-p\) (shell) such that the **average dimension**
+3.  **Heuristic Spacing: The 'e' Conjecture**  
+    While the alternation is physically robust, the precise ratio of "time" spent in the bulk vs. the shell is an open question. A tentative "numerological" hypothesis is that the hierarchy should be maximally scale-invariant, implying a mean dimension equal to the natural base $e \approx 2.718$.
+    
+    If we choose weights \(p\) (bulk) and \(1-p\) (shell) such that the **average dimension**
     \[D*{\rm eff}=p\,3+(1-p)\,2\]
-    equals the scale–free target \(e\). Solving gives \(p=e-2\simeq0.718\) — *about three-quarters*. Written in integer ratios that is the familiar **3 : 1** split in \(\log\)-scale depth: roughly three units of bulk evolution for every unit spent crossing a shell.  
+    equals this scale–free target \(e\), we find \(p=e-2\simeq0.718\). This corresponds to a **3 : 1** split in \(\log\)-scale depth: roughly three units of bulk evolution for every unit spent crossing a shell.
+    
     With finite (not infinitesimal) zoom steps the arithmetic average is
     \[D*{\text eff}=\frac{3\times3 + 1\times2}{3+1}=2.75,\]
-    already very close to \(e\). Finer alternation simply tightens the convergence, while **every local patch remains exactly 2-D or 3-D**.
+    which is remarkably close to \(e\). This suggests that the observed hierarchy is "tuned" for optimal information scaling, though this remains a motivated conjecture rather than a derived necessity. Even if the ratio differs, the qualitative structure (alternating shells and bulks) remains unchanged.
 
 4.  **No free lunch from “zooming back’’**  
     Shrinking the window liberates the binding energy of newly resolved UV modes. To _un-shrink_ would require re-assembling that energy coherently—a process with exponentially small probability, furnishing the arrow of scale.
 
-### 8.8 Shell-Thickness Scaling and Observational Outlook
+### 8.9 Shell-Thickness Scaling and Observational Outlook
 
 **Thickness from micro-thermodynamics.** Re-balancing Stefan–Boltzmann flux (out) with Unruh absorption (in) gives
 \[T(R)=\bigl(P*{0}/4\pi\sigma*{\rm SB}R^{2}\bigr)^{1/4}\propto R^{-1/2},\]
@@ -530,7 +650,7 @@ A single shell encloses \(\sim q\) times more radial length and \(\sim q^{2}\) m
 
 Until such regimes are reached, shell-thickness physics remains a theoretical prediction—but it supplies clear targets for future gravitational-wave and horizon-scale imaging experiments.
 
-### 8.9 Piece-wise arrows of time in an eternal hierarchy
+### 8.10 Piece-wise arrows of time in an eternal hierarchy
 
 The infinite cavity–shell hierarchy, combined with the thermodynamic scale-force, yields a natural, local arrow of time at every level without requiring a global beginning or end.
 

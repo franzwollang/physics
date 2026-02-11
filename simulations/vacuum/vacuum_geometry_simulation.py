@@ -162,7 +162,7 @@ def _isomap_embedding(j: NDArray[np.float64], n_neighbors: int = 10) -> dict[str
     }
 
 
-def run_simulation(params: SimulationParams) -> tuple[dict, NDArray[np.float64]]:
+def _simulate(params: SimulationParams) -> tuple[dict, NDArray[np.float64], NDArray[np.float64], NDArray[np.float64]]:
     rng = np.random.default_rng(params.seed)
     j = _parse_initial_graph(params.initial_graph, params.n, rng)
     target_total = float(np.sum(j))
@@ -233,7 +233,18 @@ def run_simulation(params: SimulationParams) -> tuple[dict, NDArray[np.float64]]
         },
         "outputs": outputs,
     }
+    return metadata, coordinates, j, evals
+
+
+def run_simulation(params: SimulationParams) -> tuple[dict, NDArray[np.float64]]:
+    metadata, coordinates, _, _ = _simulate(params)
     return metadata, coordinates
+
+
+def run_simulation_with_graph(
+    params: SimulationParams,
+) -> tuple[dict, NDArray[np.float64], NDArray[np.float64], NDArray[np.float64]]:
+    return _simulate(params)
 
 
 def main() -> None:

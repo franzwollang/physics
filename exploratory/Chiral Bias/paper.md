@@ -18,20 +18,42 @@ We argue that chirality in the soliton–noise framework is a window‑local eff
 - Convergence: axion-like relaxation and scale dilution make contributions decay with scale; the infinite sum converges. Random sign selection across domains drives the measure-weighted mean to zero.
 - Isotropy: a nonzero global chirality would pick a cosmic handedness; net zero preserves isotropy while allowing strong uniform signs inside horizon patches.
 
-## 2. Local Mechanism: Window Sliding → SSB → Seeding → Annealing
+## 2. Local Mechanism: Statistical Genesis and Topological Lock-in
 
-- Sliding-window quench: during condensation/resolution changes, the analysis window shifts; the effective bath `T_eff(τ)` decreases.
-- Rotor order parameter and SSB: define a pseudoscalar order parameter `m` (handedness of a rotor bundle). Landau free energy `F[m] ≈ +α(T_eff) m^2 + β m^4` (β>0). As `T_eff` drops, `α` crosses 0 → double well → spontaneous symmetry breaking at `m=±m_*`.
-- Tiny tilt: an inherited, dimensionless pseudoscalar (local θ) or axial background `μ_5` adds `−h m` (`h ∝ θ` or `μ_5`), selecting the sign within a patch.
-- Defect seeding (Kibble–Zurek): finite relaxation time sets a freeze-out length; ± domains and defects are seeded without new physics.
-- Domain walls and coarsening: gradient terms give `|∇m|^2` penalty → finite wall tension; Allen–Cahn coarsening `L(t) ∝ t^{1/2}` drives rapid annealing to a uniform sign in a horizon region.
-- Vortical clumping and persistence: misaligned `∇τ` and phase stress act like baroclinic torque; sheet roll-up and helical (Beltrami-like) rotor states yield long-lived chiral carriers.
+The emergence of a local chiral bias arises inevitably from the statistics of a finite observational window acting on a globally neutral background.
+
+### 2.1 The Order Parameter: Topological Helicity
+We identify the chiral order parameter $m(x)$ with the coarse-grained topological density of the internal rotor sector (e.g., the SU(2) winding density):
+$$ m(x) \;\sim\; \langle \mathrm{Tr}(F_{\mu\nu}\tilde{F}^{\mu\nu}) \rangle_{\text{window}} $$
+This field is a Lorentz-invariant pseudoscalar. Globally, the vacuum is parity-symmetric ($\langle m \rangle_{\text{universe}} = 0$).
+
+### 2.2 The "Tilt" from Sample Variance
+In the early high-noise epoch, $m(x)$ fluctuates with mean zero. However, for any finite causal horizon with volume $V$, the spatial average possesses a non-zero statistical variance (Central Limit Theorem):
+$$ \Theta_{\text{local}} = \frac{1}{V} \int_V m(x)\,d^3x \;\sim\; \pm \frac{1}{\sqrt{N_{\text{domains}}}} $$
+This fluctuation $\Theta_{\text{local}}$ acts as a scalar chemical potential. While the averaging occurs in the cosmic rest frame, the resulting condensate is a spacetime scalar, preserving Lorentz invariance while spontaneously breaking Parity.
+
+### 2.3 Spontaneous Symmetry Breaking and Domain Collapse
+As the noise temperature drops, the potential for $m$ develops degenerate minima. The statistical tilt $\Theta_{\text{local}}$ breaks this degeneracy, lowering the energy of one sign relative to the other.
+*   **Without Tilt:** The universe forms a persistent 50/50 patchwork of domains.
+*   **With Tilt:** The energy difference creates a pressure on domain walls, driving the rapid expansion of the favored vacuum. This "False Vacuum" collapse anneals the entire horizon to a single chiral sign ($+m_*$ or $-m_*$) exponentially faster than random coarsening.
 
 ## 3. Local Effective Theory (Window Level)
 
-- Pseudoscalar terms: tiny, dimensionless θ’s at window level: `(θ_EM/4)F·F̃`, `(θ_W/4)Tr(W·W̃)`, `(θ_s/4)Tr(G·G̃)`, (optional) `(θ_G/4)R·R̃`.
-- Axial background: `J_5^μ B_{5μ}` (with `B_{50}≡μ_5`) may be present transiently; it damps with the bath (`T_eff(τ)`).
-- Relaxation: strong sector requires an axion-like rotor `a/f` to relax `θ_s` (EDM bounds); EM/weak θ can remain tiny. θ’s are dimensionless local invariants under conformal rescaling.
+### 3.1 Why SU(2) is the Chiral Receiver
+While the vacuum bias $\Theta_{\text{local}}$ is a universal pseudoscalar, it does not affect all forces equally. We observe maximal parity violation only in the Weak (SU(2)) sector. The framework explains this via topological susceptibility:
+
+*   **U(1) (Vector-Like):** The topological density $\mathbf{E}\cdot\mathbf{B}$ is a total derivative. Unless monopoles are active, the vacuum angle $\theta_{\text{EM}}$ has no effect on the equations of motion. U(1) remains parity-symmetric.
+*   **SU(3) (Rigid/Screened):** The Strong sector forms "volume-lock" baryons (tripods) that mechanically resist chiral twisting. Furthermore, relaxation mechanisms (effective axions) in the high-stiffness amplitude sector efficiently screen any $\theta_{\text{QCD}}$, restoring Parity to the strong force (solving the Strong CP problem).
+*   **SU(2) (The Goldilocks Zone):** The Weak sector governs surface orientations (rotors). It is topologically distinct enough to support chiral textures (unlike U(1)) but "soft" enough not to mechanically screen the bias (unlike SU(3)). The vacuum tilt $\Theta_{\text{local}}$ thus latches exclusively onto the SU(2) sector, energetically filtering out "Right-Handed" textures and leaving the observed "Left-Handed" weak force.
+
+### 3.2 Effective Lagrangian Terms
+At the window level, the bias manifests as tiny, dimensionless θ parameters:
+- Weak Sector (Active): `(θ_W/4)Tr(W·W̃)` — The dominant source of PV.
+- EM Sector (Inactive): `(θ_EM/4)F·F̃` — Physical effects suppressed/vanish.
+- Strong Sector (Screened): `(θ_s/4)Tr(G·G̃)` — Relaxed to zero dynamically.
+
+### 3.3 Axial Background
+An effective axial background `J_5^μ B_{5μ}` (with `B_{50}≡μ_5`) may be present transiently during domain alignment; it damps with the bath (`T_eff(τ)`). Relaxation requires an axion-like rotor `a/f` to relax `θ_s` (EDM bounds); EM/weak θ can remain tiny. θ’s are dimensionless local invariants under conformal rescaling.
 
 ## 4. Putting It Together: Local Bias with Global Neutrality
 

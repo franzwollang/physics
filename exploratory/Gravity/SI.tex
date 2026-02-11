@@ -71,10 +71,41 @@ In unimodular/low\,curvature regimes the background rate obeys $H_{\rm eff}^2 \p
 \end{itemize}
 
 \subsection*{Acceleration\,induced window shifts (pointer)}
-Proper acceleration shifts the comoving window's effective UV edge. It is convenient to summarise this as a small Unruh\,like contribution with $T_U(a)=\hbar a/(2\pi c_s k_B)$ (Unruh, 1976; see also Birrell\,\&\,Davies) entering the effective noise scale used for drag. Detailed consequences for non\,geodesic motion (the drag law and equivalence considerations) are developed in Section~\ref{si:drag}; they are not needed for the window justification itself.
+Proper acceleration shifts the comoving window's effective UV edge: a non\,inertial (Rindler) trajectory samples the vacuum fluctuations of the massless phase sector with a different mode decomposition than an inertial trajectory. Since the phase sector in this framework is governed (in the continuum window) by a hyperbolic operator with dispersion $\omega^2=c_s^2 k^2$, the standard kinematic argument applies: the restriction of the vacuum correlator to a uniformly accelerated worldline has a thermal (KMS) form. It is convenient to summarize the resulting additional excitation of internal degrees of freedom as an Unruh\,like contribution
+\begin{equation}
+  T_U(a)=\frac{\hbar_{\rm eff}\, a}{2\pi c_s k_B}\,,
+\end{equation}
+(Unruh, 1976; see also Birrell\,\&\,Davies) entering the effective noise scale used for drag. In the present framework, one may equivalently interpret this as: forced acceleration makes previously ``too fast'' (UV) fluctuations operationally resolvable to the soliton's internal mode, i.e. it shifts the effective comoving UV edge of the window. Detailed consequences for non\,geodesic motion (the drag law, the thermodynamic interpretation, and equivalence considerations) are developed in Section~\ref{si:drag}; they are not needed for the window justification itself.
 
 \section{Drag Scaling and Justification}\label{si:drag}
-We quantify an acceleration-dependent drag that acts only for non-geodesic (forced) motion and vanishes on geodesics; the Lorentzian light cone already makes $c_s$ an unattainable speed limit for massive excitations. Let $\mathbf a_0$ denote the apparent acceleration in the lab frame (e.g., from a background gradient), and $\hat v$ the unit velocity direction. The proper acceleration experienced in the comoving frame is
+We quantify an acceleration-dependent drag that acts only for non-geodesic (forced) motion and vanishes on geodesics; the Lorentzian light cone already makes $c_s$ an unattainable speed limit for massive excitations.
+
+\paragraph{Intuition: ``UV access'' $\Rightarrow$ a backward thermodynamic pressure (Tolman gradient).}
+The Unruh/KMS statement above can be re-expressed in the language used throughout this paper: the internal equilibrium of a massive soliton is controlled by the \emph{effective bath intensity} it samples. Forced acceleration makes the effective bath ``hotter'' (more noisy) by shifting the operational window, and crucially, it does so \emph{anisotropically} across a finite-size object.
+
+For a uniformly accelerated frame (Rindler chart) there is a natural length scale
+\begin{equation}
+  \lambda_{\rm Rindler} \;\sim\; \frac{c_s^2}{a},
+\end{equation}
+the distance to the horizon behind the accelerated observer. The local temperature in a static gravitational field (and likewise in Rindler) obeys the Tolman--Ehrenfest relation $T\sqrt{-g_{00}}=\text{const}$. In Rindler form, taking $\xi$ as the coordinate along the acceleration axis with $\xi=0$ at the soliton center and $+\xi$ in the acceleration direction, one has (to leading order for $|\xi|\ll \lambda_{\rm Rindler}$)
+\begin{equation}
+  T(\xi) \;=\; \frac{T_U}{1 + a\xi/c_s^2} \;\simeq\; T_U\left(1 - \frac{a\xi}{c_s^2}\right),\qquad
+  \frac{\partial T}{\partial \xi}\Big|_{\xi=0} \;=\; -\,\frac{a}{c_s^2}\,T_U\,,
+\end{equation}
+so the ``trailing'' side ($\xi<0$, toward the horizon) is slightly hotter than the ``leading'' side ($\xi>0$). A finite-size soliton of extent $\sigma$ therefore sees a fractional bath gradient
+\begin{equation}
+  \frac{\Delta T}{T} \;\sim\; \frac{a\,\sigma}{c_s^2}\,.
+\end{equation}
+Since the soliton's relaxed free energy is a decreasing function of bath intensity (main text, Section~3.2), this spatial gradient in the effective noise proxy $\tau_{\rm eff}(\xi)$ generates a thermodynamic force of the same form as gravity,
+\begin{equation}
+  \mathbf F_{\rm drag} \;\propto\; +\,\nabla \tau_{\rm eff}\,,
+\end{equation}
+which points toward \emph{higher} bath intensity --- i.e. toward $\xi<0$, opposite the acceleration direction. This is the drag: forced acceleration creates (in the comoving description) an effective noise gradient across the soliton, and the soliton responds by being ``pulled'' backward into the hotter side.
+
+\paragraph{Energy bookkeeping (sign).} The drag does negative work on the soliton. Under sustained forcing, external work is continually converted into phase-sector excitations and internal dissipation: kinetic energy is \emph{bled off} into the bath. This is consistent with the Kubo/FDT calculation below, which computes the dissipated power. On geodesic motion the proper acceleration vanishes ($a=0$), so there is no Unruh/Tolman contribution and this dissipative channel shuts off.
+
+\medskip
+\noindent Let $\mathbf a_0$ denote the apparent acceleration in the lab frame (e.g., from a background gradient), and $\hat v$ the unit velocity direction. The proper acceleration experienced in the comoving frame is
 \begin{equation}
   a_{\rm eff} = \gamma_v^{3}\, (\mathbf a_0\!\cdot\!\hat v),\qquad \gamma_v=\frac{1}{\sqrt{1-v^2/c_s^2}}.
 \end{equation}
@@ -121,7 +152,7 @@ We summarise complementary routes that support Eq.~\eqref{eq:cov-prad} with the 
 \end{equation}
 where $C_{\rm drag}$ is an overall coefficient to be calibrated empirically (carrying the required units in local\,unit conventions), and we delineate their regime of validity.
 
-\paragraph{(i) Linear response (Kubo) with Unruh bath.} Let a dominant internal coordinate $q$ couple to a bath operator $B$ sourced by proper acceleration ($T_U=\hbar a/(2\pi c_s k_B)$; Unruh 1976; Birrell\,\&\,Davies): $H_{\rm int}=-q\,B$. The dissipated power in the comoving frame is
+\paragraph{(i) Linear response (Kubo) with Unruh bath.} Let a dominant internal coordinate $q$ couple to a bath operator $B$ sourced by proper acceleration ($T_U=\hbar_{\rm eff} a/(2\pi c_s k_B)$; Unruh 1976; Birrell\,\&\,Davies): $H_{\rm int}=-q\,B$. The dissipated power in the comoving frame is
 \begin{equation}
   P \;\simeq\; \int_0^{\infty}\! d\omega\; \omega\; \mathrm{Im}\,\chi_{qq}(\omega)\; S_{BB}(\omega;T_U),
 \end{equation}

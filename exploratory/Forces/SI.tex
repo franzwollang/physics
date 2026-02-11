@@ -142,7 +142,42 @@ This is the \textbf{Dirac-Hestenes Equation}.
     \item $\nabla \psi$: The gradient of the rotor field.
     \item $I \sigma_3$: The bivector generator of the spin plane (encoding the intrinsic angular momentum of the defect).
     \item $m \psi \gamma_0$: The inertial mass term (coupling to amplitude).
+   \end{itemize}
+   This derivation proves that the Dirac equation is not an arbitrary quantum rule but the required transport equation for a conserved, spinning current in a Lorentzian vacuum.
+
+\section{Origin of Parity Violation: Chiral Vacuum Filtering}\label{sec:si-parity}
+The standard $V-A$ structure of the weak force ($P_L = \frac{1}{2}(1 - \gamma^5)$) is derived here as a consequence of the \textbf{Window-Local Chiral Bias} acting on the topological winding of the SU(2) rotor current.
+
+\paragraph{1. Chiral Vacuum Potential as Helicity Modulus.}
+As detailed in the \textit{Particles} paper, the vacuum within our observational window breaks chiral symmetry via a pseudoscalar condensate $\theta(x) \neq 0$. This adds a topological bias term to the effective action for the internal rotor connection $W_\mu$ (curvature $F_{\mu\nu}$):
+\begin{equation}
+  \mathcal{L}_{\text{bias}} \propto \theta(x) \, \mathrm{Tr}(F_{\mu\nu} \tilde{F}^{\mu\nu}),
+\end{equation}
+where $\tilde{F}^{\mu\nu} = \frac{1}{2}\epsilon^{\mu\nu\rho\sigma}F_{\rho\sigma}$. Physically, this acts as a \textbf{helicity modulus}: it energetically favours field configurations with a specific sign of topological winding number (``with the grain'') and penalizes the opposite sign (``against the grain'').
+
+\paragraph{2. Decomposition of the Rotor Current.}
+In the geometric spinor language of Section~\ref{sec:si-spinor}, a generic gauge interaction involves a transition or rotation of the local frame. We decompose the bare current $J^\mu_{\text{bare}} = \bar{\psi} \gamma^\mu \psi$ into chiral components based on the handedness of the induced rotor curvature. Using the standard projectors $P_{L,R} = \frac{1}{2}(1 \mp \gamma^5)$ (which in STA correspond to geometric chirality projections via the pseudoscalar $I = \gamma_0\gamma_1\gamma_2\gamma_3$):
+\begin{equation}
+  J^\mu_{\text{bare}} = \bar{\psi}_L \gamma^\mu \psi_L + \bar{\psi}_R \gamma^\mu \psi_R.
+\end{equation}
+Crucially, the Left ($L$) and Right ($R$) transition currents generate internal gauge field configurations $F_L$ and $F_R$ with \emph{opposite} topological invariants:
+\begin{equation}
+  \mathrm{sgn}(\mathrm{Tr}(F_L \tilde{F}_L)) \;=\; -\,\mathrm{sgn}(\mathrm{Tr}(F_R \tilde{F}_R)).
+\end{equation}
+
+\paragraph{3. The Energetic Veto.}
+Assuming without loss of generality that the vacuum bias $\theta > 0$ favours the $L$-winding:
+\begin{itemize}
+    \item \textbf{Left-handed Vertex:} The winding matches the vacuum bias. The effective energy is lowered ($E_L \approx E_{\text{kin}} - |\mathcal{L}_{\text{bias}}|$), stabilizing the mode.
+    \item \textbf{Right-handed Vertex:} The winding opposes the vacuum bias. The effective energy is raised ($E_R \approx E_{\text{kin}} + |\mathcal{L}_{\text{bias}}|$).
 \end{itemize}
-This derivation proves that the Dirac equation is not an arbitrary quantum rule but the required transport equation for a conserved, spinning current in a Lorentzian vacuum.
+Given that the symmetry-breaking scale is large (comparable to the rotor mass scale), the Right-handed current $J^\mu_R$ acquires a large effective mass gap or is pushed to the UV cutoff. In the low-energy effective theory, the propagator for the $R$-mode vanishes, leaving only the $L$-mode active.
+
+\paragraph{4. Emergence of the V-A Projector.}
+The effective interaction Lagrangian is thus filtered by the vacuum geometry:
+\begin{equation}
+  \mathcal{L}_{\text{int}} \;\approx\; g \, J^\mu_L \, W_\mu \;=\; g \, \bar{\psi} \gamma^\mu P_L \psi \, W_\mu \;=\; \frac{g}{2} \, \bar{\psi} \gamma^\mu (1 - \gamma^5) \psi \, W_\mu.
+\end{equation}
+The observed maximal parity violation is therefore not a fundamental asymmetry of the laws of physics, but a \textbf{geometric selection effect} (or ``chiral filtering'') imposed by the local vacuum condensate on the available topological channels.
 
 \end{document}

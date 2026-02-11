@@ -93,6 +93,47 @@ Your implementation is accepted ONLY if all items below are true:
   - Stage 2 passes Section 3.2 acceptance test.
   - Stage 3 is evaluated against Stage 2 CI exactly per Section 4.1.5.
 
+### 0.A.7 Execution, iteration, performance, logging, and time limits (mandatory)
+This plan is not “write code eventually.” The scripts MUST be run and iterated on until the deliverables in `0.A.4` are produced.
+
+**Mandatory execution rule (no discretion):**
+- For each stage, the implementing subagent must:
+  - run the stage script,
+  - verify it produced the required outputs,
+  - if it failed, fix the code and rerun,
+  - repeat until the stage succeeds or hits a hard failure condition (timeout/insufficient compute).
+
+**Reasonable performance rule (mandatory):**
+- Implementations must be reasonably performant. Concretely:
+  - Stage 2 must use FFT-based synthesis (no real-space covariance construction).
+  - Inner loops must be vectorized where possible; avoid Python loops over pixels.
+  - Use `numpy`/`scipy` operations for heavy math and prefer batch computations.
+  - Parallelism is allowed and encouraged (multiprocessing/joblib), but downscaling is forbidden.
+
+**Logging rule (mandatory):**
+- All scripts must use Python’s `logging` module.
+- Each script must emit a progress update at least every **30 seconds**, including:
+  - elapsed wall time,
+  - current outer-loop indices (e.g., `(R_idx, sigma_idx, trial_idx)` / `(n_s_idx, s_sigma_idx, realization_idx)` / sweep indices),
+  - a crude ETA (even if approximate).
+- Each script must write logs to a file `logs/<stage>_<timestamp>.log` in addition to stdout.
+
+**Hard wall-clock limit and runaway prevention (mandatory):**
+- No single process invocation of any stage script is allowed to run longer than **30 minutes** of wall time.
+- Every stage script must accept `--max-wall-seconds` (default `1800`) and enforce it with a watchdog check.
+- To allow completion without downscaling, every stage script must implement **checkpoint/resume**:
+  - accept `--checkpoint-dir` and `--resume`,
+  - periodically write a checkpoint at least every 60 seconds,
+  - on resume, continue exactly from the last checkpoint.
+- If `--max-wall-seconds` is reached before completion, the script must:
+  - write a final checkpoint,
+  - exit with a non-zero exit code,
+  - and write a one-line summary: `RUN_TIMEOUT_CHECKPOINT_WRITTEN`.
+
+**Deliverables under time limits (mandatory):**
+- The final deliverables in `0.A.4` must be achieved via one or more 30-minute runs using checkpoint/resume.
+- It is forbidden to reduce grids/trials/realizations to fit within 30 minutes. Use resume instead.
+
 ### 0.1 Canonical Parameters
 
 | Symbol | Name | Description |
@@ -211,9 +252,9 @@ The transition from a Scalar Breather ($l=0$) to a Vector Rotor ($l=1$) is a **t
 - **The Driver:** The "Phase Wind" (gradient noise) provides the kinetic energy density $\mathcal{E}_K \sim \frac{1}{2} \kappa w^2 (\nabla \phi)^2$.
 - **The Collapse Condition:** A transition is only possible if the local kinetic stress exceeds the potential barrier:
 
-  $$ \frac{1}{2} \kappa w^2 (\nabla \phi)^2 > V_{\text{barrier}} $$
+    $$ \frac{1}{2} \kappa w^2 (\nabla \phi)^2 > V_{\text{barrier}} $$
 
-  This implies a critical "Phase Reynolds Number" or noise threshold below which the lump simply stretches but never snaps into a vortex.
+    This implies a critical "Phase Reynolds Number" or noise threshold below which the lump simply stretches but never snaps into a vortex.
 
 ### 2.3 Protocol (idiot-proof, no choices)
 Follow these steps exactly.
@@ -326,6 +367,11 @@ Write a single JSON file exactly matching the schema in Section 6.1, with:
   - `min_absPsi_min_over_time` (shape `(30,30,200)`; minimum \(|\Psi|\) observed during drive)
 
 If any of these arrays are missing or have different shapes, the run is invalid.
+
+**Stage-1 checkpointing (mandatory):**
+- Checkpoint must record the next `(R_idx, sigma_idx, trial_idx)` to run and all accumulated arrays up to that point.
+- Checkpoint frequency: at least every 60 seconds.
+- On resume, it must not repeat completed trials unless explicitly requested by a `--force-recompute` flag (default false).
 
 ### 2.5 Stage-1 Implementation Checklist (must pass)
 
@@ -490,6 +536,11 @@ Write a single JSON file exactly matching the schema in Section 6.2, including:
 
 If any of these arrays are missing or have different shapes, the run is invalid.
 
+**Stage-2 checkpointing (mandatory):**
+- Checkpoint must record the next `(n_s_idx, s_sigma_idx, realization_idx)` to run and all accumulated aggregates up to that point.
+- Checkpoint frequency: at least every 60 seconds.
+- On resume, it must not repeat completed realizations unless explicitly requested by a `--force-recompute` flag (default false).
+
 ---
 
 ## 4. Stage 3: The Graph Origin (Topology)
@@ -568,6 +619,11 @@ Let Stage 2 report \(n_s^\*\) and its 95% CI \([n_{s,\rm lo}, n_{s,\rm hi}]\).
 
 If any of these arrays are missing or have different shapes, the run is invalid.
 
+**Stage-3 checkpointing (mandatory):**
+- Checkpoint must record the next sweep index `(alpha_idx, beta_idx, seed_idx)` and all accumulated arrays up to that point.
+- Checkpoint frequency: at least every 60 seconds.
+- On resume, it must not repeat completed sweep points unless explicitly requested by a `--force-recompute` flag (default false).
+
 ### 4.2 Stage-3 Implementation Checklist (for subagent)
 
 - [ ] run the fixed sweep and keep only runs passing the filters
@@ -595,6 +651,17 @@ If any of these arrays are missing or have different shapes, the run is invalid.
 - `common_io.py`: JSON schema validation + reproducible RNG seeding.
 
 **Change:** These are no longer “recommended.” They are mandatory. If you do not create shared utilities, you must still implement the exact same functionality in each stage and keep it byte-for-byte identical where applicable (e.g. GRF synthesis).
+
+### 5.3 Mandatory CLI interface (all scripts)
+Every stage script must support the following CLI flags:
+- `--seed <int>` (base seed)
+- `--output-dir <path>`
+- `--checkpoint-dir <path>`
+- `--resume` (boolean)
+- `--max-wall-seconds <int>` (default 1800)
+- `--log-dir <path>` (default `logs/`)
+
+If any script is missing any of these flags, the implementation is incomplete.
 
 ### 5.2 Key Metrics
 
