@@ -1,0 +1,776 @@
+\documentclass[11pt]{article}
+
+% --- Packages ---
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{authblk}
+\usepackage{cite}
+\usepackage{bm}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{xr-hyper}
+\externaldocument{SI}
+
+% --- Draft Status Footer ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[L]{\small Draft — version posted to Zenodo on \today}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% --- Macros & Notation ---
+\newcommand{\cs}{c_s}
+\newcommand{\Lp}{L_{\min}}
+\newcommand{\Mp}{M_P}
+\newcommand{\Nstar}{N_\ast}
+\newcommand{\rhos}{\rho_{\rm surf}}
+\newcommand{\Te}{T_{\rm eff}}
+\newcommand{\dd}{\mathrm{d}}
+
+% --- Metadata ---
+\title{Horizon Duality: Black Holes as Asymptotic Shells\\of a Fractal Cosmos (\textit{Draft})}
+\author[ ]{Franz Wollang}
+\affil[ ]{\small Independent Researcher}
+\date{\small Dated: \today}
+
+\begin{document}
+
+\maketitle
+
+% --- Draft Disclaimer ---
+\begin{center}
+\setlength{\fboxsep}{8pt}%
+\fbox{\parbox{0.92\textwidth}{\centering\bfseries DRAFT --- NOT FOR CITATION\\[4pt]
+This is a preliminary working version posted for discussion and feedback.
+Content may change significantly before formal submission.}}
+\end{center}
+\vspace{1em}
+
+% ===================================================================
+\begin{abstract}
+\noindent We present a unified framework for black hole horizons and cosmic horizons
+based on a soliton--noise model of fundamental matter.  In this picture, the
+black hole event horizon is not a mathematical coordinate singularity but a
+physical, dynamic phase transition: an ``asymptotic shell'' where matter
+condenses to the vacuum's minimum scale length.  We derive the thermodynamics
+of this shell, finding a temperature scaling $T\propto M^{-1/2}$ that implies
+a constant-power evaporation law ($P\approx\text{const}$), contrasting with
+the standard Hawking result.  We further demonstrate a rigorous duality between
+the interior of such a shell and an expanding Friedmann--Robertson--Walker
+(FRW) universe.  By matching clocks across the horizon, we show that the
+parent black hole's finite evaporation time maps to a semi-infinite
+cosmological history for the interior, characterized by an effective phantom
+equation of state ($w<-1$) and an asymptotic approach to a Planck-scale heat
+death.  This framework resolves the information paradox through
+scale-dependent bookkeeping and suggests an eternal, fractal cosmology of
+nested universes.
+\end{abstract}
+
+\tableofcontents
+\vspace{1em}\hrule\vspace{1em}
+
+% ===================================================================
+\section{Introduction}
+
+The similarity between the black hole event horizon and the cosmic particle
+horizon has long hinted at a deeper connection.  Both are null trapping
+surfaces that limit causal access; both are associated with thermodynamic
+entropies and temperatures.  However, standard General Relativity (GR) treats
+them as distinct kinematic entities.  Furthermore, the standard black hole
+model suffers from the information loss paradox and the singularity problem,
+while standard cosmology faces challenges regarding the initial state (Big
+Bang) and the nature of dark energy.
+
+This paper proposes that these are not separate problems.  We introduce a
+\emph{Soliton-Noise Framework} in which matter particles are stable
+wave-packets (solitons) interacting with a background noise field.  In this
+view, gravity is an emergent thermodynamic force driving solitons toward
+regions of higher noise variance.
+
+The central hypothesis of this work is \textbf{Horizon Duality}:
+\begin{enumerate}
+  \item \textbf{Black Hole Horizons} are local regions where an intense
+    spatial noise gradient drives matter to undergo a phase transition,
+    collapsing to the minimum scale allowed by the vacuum (the Planck scale)
+    and forming a physical shell.
+  \item \textbf{Cosmic Horizons} are the manifestation of the same phase
+    transition viewed from the inside (or globally), where the universal
+    evolution of the noise field creates an apparent recession of the vacuum
+    structure.
+\end{enumerate}
+We show that this model naturally regularizes the singularity (replacing it
+with a black-body cavity), predicts a falsifiable deviation in Hawking
+radiation (constant power), and provides a microphysical origin for the
+``phantom'' dark energy ($w<-1$) required to reconcile the parent and child
+clocks.
+
+\subsection{Key Definitions \& Notation}
+\begin{center}
+\begin{tabular}{lp{0.72\textwidth}}
+\toprule
+\textbf{Symbol} & \textbf{Meaning} \\
+\midrule
+$\Lambda_{\rm obs}$, $\Lambda_{\rm IR/UV}$ & Observer's reference scale and
+  IR/UV cutoffs for the \emph{scale window}. \\
+$\Lp$ & The window-adapted minimum cell; the effective Planck length. \\
+$\Nstar\approx\alpha$ & Critical occupancy for the quantum-to-gravitational
+  phase transition. \\
+$\cs$ & Phase-wave speed (speed of light). \\
+$\tau(x)$ & Local noise proxy, related to noise density by
+  $\tau^2\propto\rho_N$. \\
+$K_{\rm drag}$ & Radiative drag coefficient setting the speed-limit
+  asymptote. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Consistency note (cross-document symbols).}
+We standardize on $\cs$ for the universal phase-wave/light-cone speed (any bare
+$c$ should be read as $\cs$), and we relate the local proxy $\tau(x)$ to the
+cosmological noise density by $\tau^2\propto\rho_N$ in weak-field regimes.  We
+reserve $(\alpha_{\rm grad},\beta_{\rm pot})$ for amplitude-sector parameters
+and $(\alpha_{\rm dim},\beta_{\rm dim})$ for dimensional-bias parameters to
+avoid symbol overloading.
+
+% ===================================================================
+\section{Foundations: The Soliton--Noise Mechanism}
+
+We summarize the core postulates derived in companion papers to establish the
+physical baseline.
+
+\subsection{Matter as Solitons}
+Fundamental particles are not point-like excitations but stable, localized
+wave packets (solitons) of a complex scalar order parameter
+$\Psi=w\,e^{i\phi}$.  These solitons are sustained by a Mexican-hat
+self-interaction potential $V(w)$ that balances dispersive spreading.
+Crucially, the soliton's stability depends on the local noise level: to
+minimize its free energy, it adjusts its characteristic size $L_c$ and internal
+frequency $\omega_c$ to match the local vacuum texture.
+
+\subsection{The Noise Field and Emergent Gravity}
+Solitons source and interact with a background stochastic field $\rho_N$ (the
+``noise'').  This field acts as a refractive medium with index
+$\chi\approx1+\alpha\rho_N$.
+\begin{itemize}
+  \item \textbf{Scale Adaptation:} A soliton adapts its characteristic size to
+    the local noise intensity: $L_c\propto1/\chi$.
+  \item \textbf{Emergent Gravity:} Gradients in the noise field create
+    gradients in the refractive index.  Solitons drift toward regions of
+    higher $\rho_N$ (higher~$\chi$, smaller~$L_c$) to lower their internal
+    energy.  This thermodynamic drift is identified as the gravitational
+    acceleration $\bm{a}_{\rm grav}\propto-\nabla\rho_N$.
+  \item \textbf{Scale Invariance:} The physics is conformally invariant.  A
+    local observer's rulers and clocks, being made of the same solitonic
+    substance, co-scale with the noise field.  All locally measured constants
+    (e.g.\ $\cs$) remain invariant.
+\end{itemize}
+
+\subsection{Thermodynamic Drag and the Planck Floor}
+An accelerating soliton experiences a Doppler-shifted noise spectrum (an
+Unruh-like effect).  This interaction dissipates kinetic energy into the
+vacuum, imposing a resistance to acceleration:
+\begin{equation}\label{eq:drag}
+  P_{\rm diss}\propto\gamma^4 a^2.
+\end{equation}
+Balancing mechanical work against this dissipation yields ultra-relativistic
+suppression $a(v)\propto\gamma^{-1}$ under sustained forcing.  Under extreme
+acceleration---such as infall into a black hole---the drag dominates.  The
+soliton sheds internal energy by shrinking.  However, it cannot shrink
+indefinitely: it hits the \textbf{Window Floor}~($\Lp$), the effective Planck
+length defined by the observer's coarse-graining scale.  This floor is not an
+absolute limit of the substrate but of any particular observer's descriptive
+capacity.
+
+% ===================================================================
+\section{The Black Hole as an Asymptotic Shell}
+
+In this framework, a black hole is not a vacuum solution with a central
+singularity.  It is a macroscopic object defined by a phase transition at the
+horizon.
+
+\subsection{Formation: The ``Snowplow'' Mechanism}
+\label{sec:formation}
+The formation of the shell is a runaway phase transition driven by the noise
+gradient.
+\begin{enumerate}
+  \item \textbf{Infall and Acceleration:} Matter falls down the noise gradient
+    $-\nabla\rho_N$, accelerating toward~$\cs$.
+  \item \textbf{Drag and Scale Collapse:} The extreme acceleration invokes
+    thermodynamic drag~\eqref{eq:drag}.  The soliton sheds energy by shrinking
+    ($L_c\to\Lp$).
+  \item \textbf{Decoupling:} As the soliton's scale collapses to the Planck
+    floor, its cross-section for interacting with the macroscopic gradient
+    vanishes.  It becomes ``blind'' to the force that created it.
+  \item \textbf{Transition to Constituent:} The soliton is now a maximally
+    downshifted particle moving at $v\approx\cs$.  From the external
+    perspective, the effective radial velocity asymptotically vanishes at the
+    horizon while internal time continues.
+\end{enumerate}
+
+\paragraph{The Snowplow Effect.}
+Since constituents decouple from the macroscopic gradient, they pile up at the
+transition surface.  The horizon acts as a ``snowplow,'' sweeping infalling
+matter into a finite-thickness shell~$\Sigma$ rather than letting it fall to
+$r=0$.
+
+\paragraph{What about matter already inside $R_S$ during collapse?}
+During dynamical collapse there is, of course, a period when ordinary
+solitonic matter occupies radii that later lie inside the null trapping
+surface.  The shell model does not claim that no worldline ever crosses
+$r<R_S$; it claims that, \emph{after trapping forms and coarse-graining is
+applied}, the only long-lived, externally accountable mass-energy resides in a
+finite-thickness interface layer.  Two mechanisms enforce this:
+\begin{itemize}
+  \item \textbf{Phase separation:} A supercritical interior
+    ($\tau_{\rm eff}\gtrsim\tau_{\max}$) is not a hospitable phase for amplitude
+    solitons.  The region inside the evolving surface $\Sigma(t)$ rapidly
+    relaxes to an optically thick, radiation-dominated bath.  Any remaining
+    amplitude-soliton content is either thermalised or swept into the
+    interface---exactly as quasiparticles accumulate at a moving phase
+    boundary in a first-order transition.  A minimal coarse model treats the
+    noise proxy as an order parameter:
+    \begin{equation}\label{eq:snowplow_F}
+      F[\tau]\sim\int d^3x\left[\frac{\kappa_\tau}{2}|\nabla\tau|^2
+      + V(\tau;\rho_m)\right],
+    \end{equation}
+    with relaxational dynamics $\partial_t\tau\propto-\delta F/\delta\tau$.
+    Increasing $\rho_m$ during collapse tilts $V$ so that the interior
+    prefers a higher-$\tau$ state; $\Sigma(t)$ is the associated moving
+    front.
+  \item \textbf{Trapping bottleneck:} Once the refractive/metric trapping
+    condition is reached ($\theta_{\rm out}\to0$), outward transport becomes
+    exponentially inefficient in external time.  This pins the accumulating
+    interface near $R_S$, yielding a stable shell/photosphere.
+\end{itemize}
+
+\paragraph{Geometric horizon vs.\ thermodynamic onset.}
+These are adjacent but distinct:
+\begin{itemize}
+  \item \textbf{Geometric:} The event horizon is the null trapping surface
+    ($\theta_{\rm out}=0$).  It governs photon escape and is purely
+    kinematic.
+  \item \textbf{Thermodynamic:} The Unruh-like heating raises the effective
+    noise across the shell, driving irreversible downshifting over a finite
+    microphysical band.  For massless excitations, only the geometric trapping
+    applies; for massive solitons, both effects operate.
+\end{itemize}
+
+\subsection{Mean-Field Nuance: Screened Links vs.\ the Exterior Monopole}
+\label{sec:mean_field}
+An immediate worry is whether strictly local, screened interactions can
+reproduce a clean exterior $1/r$ gravitational tail for distant observers.
+The answer is yes: each Planck-scale constituent emits only a short-range
+Yukawa halo $\sim e^{-r/R_i}/r$, but because $R_i\ll R_{\rm shell}$, the
+exponential factor is effectively unity in the far field ($r\gg R_{\rm
+shell}$).  Summing over $N$ constituents therefore reproduces a monopolar
+$1/r$ tail with total mass $M=\sum_i E_i/\cs^2$, while inside the shell the
+far-side contributions are exponentially suppressed and gradients cancel.
+
+\paragraph{Same mass does not mean same noise profile.}
+The above statement is about \emph{integrated source strength} (the monopole
+fixing the $1/r$ tail), not about the detailed spectrum/correlation structure
+of the emitted noise.  A maximally downshifted shell is ``window-limited'': most
+microscopic fluctuations lie at or below the external UV edge and therefore
+renormalise into effective couplings plus a monopole.  Ordinary dense matter
+retains resolvable microstructure and can carry multipoles and longer
+correlations.  See SI~Sec.~\ref{si:observability} for a more systematic
+discussion of what observables probe beyond the scalar intensity $\tau^2(x)$.
+
+\subsection{Equilibrium: The ``Breathing'' Shell}
+\label{sec:breathing}
+The shell is a self-contained, dynamic system in a remarkable equilibrium.
+
+\paragraph{The Energy Balance.}
+The two key thermodynamic processes are:
+\begin{itemize}
+  \item \textbf{Outward Cooling ($P_{\rm out}$):} The shell constituents form
+    a near-2D, strongly coupled network.  Even when geometrically dilute
+    ($d\gg\Lp$), its collective vibration modes radiate energy both inward
+    (creating the blackbody core) and outward (as Hawking-like radiation).  The
+    outward component escapes because the radiating photosphere sits (on
+    average) just outside the geometric trapping surface; as the shell
+    ``breathes,'' its optical depth fluctuates, modulating the escape fraction
+    without violating null trapping.
+  \item \textbf{Inward Heating ($P_{\rm in}$):} The non-geodesic proper
+    acceleration of constituents (due to repeated shell collisions) allows them
+    to absorb energy from vacuum fluctuations via the Unruh effect.
+\end{itemize}
+At equilibrium, $P_{\rm in}=P_{\rm out}$.  This balance maintains the shell's
+temperature and stability.
+
+\paragraph{Confinement.}
+The shell is prevented from dispersing by the prohibitive energy cost of
+constituents ``re-inflating'' in the lower-density noise field outside.  It is
+prevented from collapsing by the immense outward radiation pressure from the
+blackbody core it creates.
+
+\paragraph{The Blackbody Core.}
+The core of the black hole is not empty.  The hot inner wall of the shell fills
+the interior with a thermal bath of phase solitons (photons), creating a
+perfect blackbody cavity.  For an external observer, the cavity fills in a
+light-crossing time $\sim R_S/\cs$.  A Planck-scale observer co-moving with a
+constituent, however, measures vastly dilated clocks and shrunken rulers; the
+same photon flight spans billions of local years.
+
+\paragraph{The Temperature Paradox.}
+An external observer calculates the core temperature to be near the Planck
+temperature ($\sim10^{32}$~K), with radiation wavelengths near the Planck
+length.  However, for a constituent-scale observer on the shell:
+\begin{itemize}
+  \item Their rulers are $\sim10^{20}\times$ smaller than ours.
+  \item Planck-length photons appear as extremely long-wavelength radiation.
+  \item The temperature they measure is $\sim10^{20}\times$ \emph{colder}
+    than what we perceive.  ``Hot'' and ``cold'' are relative to the
+    observer's scale.
+\end{itemize}
+
+\paragraph{Fate of Inward-Moving Matter.}
+Any amplitude soliton that receives a thermal kick into the core is immediately
+stopped by the extraordinarily dense radiation field.  Radiative drag (photon
+friction from Doppler shifting and aberration) dissipates its kinetic energy
+back into the bath.  Matter is effectively confined to the shell.
+
+\paragraph{Covariant Power Balance.}
+We can summarise the shell thermodynamics with a covariant, frame-consistent
+closure at the level of power per proper area.  Let $\mathcal{P}_{\rm in}(R)$
+be the areal Unruh heating rate and
+$\mathcal{P}_{\rm out}(R)=\sigma_{\rm SB}T(R)^4$ the Stefan--Boltzmann
+leakage.  At steady equilibrium:
+\begin{equation}\label{eq:power_balance}
+  \mathcal{P}_{\rm in}(R) = \mathcal{P}_{\rm out}(R) = P_0
+  \quad\text{(constant per proper area)}.
+\end{equation}
+Deviations (anisotropy, binaries) enter as small, trackable modulations of
+$\mathcal{P}_{\rm in}$.
+
+\subsection{Shell Thermodynamics and the Temperature Law}
+\label{sec:temp_law}
+The shell's temperature is determined by the characteristic acceleration of its
+constituents.  We derive the key scaling from two complementary viewpoints.
+
+\paragraph{Shell Geometry.}
+The shell contains $N\propto M$ constituents over area $A\propto R_S^2\propto
+M^2$.  The mean separation is $d\sim\sqrt{A/N}\propto\sqrt{M}$.  For any
+macroscopic black hole, $d\gg\Lp$: the shell is a \emph{dilute network}, not a
+dense fluid.
+
+\paragraph{View 1: External (Lattice Frequency).}
+From outside, the shell is a 2D lattice of $N$ point masses with spacing
+$d\propto\sqrt{M}$.  The characteristic dynamical frequency is set by
+nearest-neighbour signal crossing: $\omega\sim\cs/d$, giving
+$a_{\rm char}\sim\cs^2/d\propto1/\sqrt{M}$.
+
+\paragraph{View 2: Internal (Relativistic Compression).}
+From a constituent's own (downshifted) frame, the spacing $d$ maps to a much
+larger proper distance $d_{\rm int}=d/\varepsilon$ (where $\varepsilon\ll1$ is
+the scale ratio between the constituent's rulers and external rulers).  Signals
+take a proportionally long proper time $\tau_{\rm int}\sim d_{\rm int}/\cs$ to
+cross the gap.  However, because $\cs$ is invariant across frames, the external
+observer maps this long internal proper time back to a short coordinate time:
+$\tau_{\rm ext}=\varepsilon\cdot\tau_{\rm int}=d/\cs$.  The relativistic
+compression that makes the internal ``miles'' appear as external ``metres'' is
+\emph{exactly} compensated by the time dilation that makes the internal
+``hours'' appear as external ``seconds.''  The ratio $d/\cs$ is
+frame-invariant, so both views yield $a_{\rm char}\propto1/\sqrt{M}$.
+
+\paragraph{Why they must agree.}
+Both views compute the same invariant: the proper acceleration 4-vector
+magnitude of a shell constituent.  Agreement is guaranteed by the framework's
+requirement that $\cs$ is constant across observation windows.
+
+Since $T_{\rm Unruh}\propto a_{\rm char}$, we obtain the temperature law:
+\begin{equation}\label{eq:temp_law}
+  T_{\rm BH}\propto\frac{1}{\sqrt{M}}.
+\end{equation}
+This differs from the standard Hawking result ($T\propto1/M$) because the
+shell model treats the horizon as a physical lattice with specific
+density-dependent dynamics, rather than a vacuum boundary condition.
+
+\subsection{Stochastic Cascade and Interior Structure}
+\label{sec:cascade}
+The cavity is thermally uniform only on large scales.  On small scales
+$\ell$, photon number fluctuations grow as $\ell^{-3/2}$.  At some scale
+$\ell_\ast$, a rare upward fluctuation satisfies a pinch-off condition
+$\Delta F<0$.  Defining the occupancy
+\begin{equation}
+  N(\ell)=\frac{\rho_\gamma\,\ell^3}{\Mp c^2},
+\end{equation}
+and comparing to the critical occupancy $\Nstar\approx1$:
+\begin{itemize}
+  \item $N(\ell)>\Nstar$: the fluctuation collapses into a
+    \textbf{mini-shell} (black hole branch).
+  \item $N(\ell)<\Nstar$: it relaxes into a \textbf{particle-type droplet}
+    (matter branch).
+\end{itemize}
+
+\paragraph{Classification by Topology.}
+Crucially, particle-branch droplets come in two populations:
+\begin{enumerate}
+  \item \textbf{Scalar solitons ($l=0$):} Simple density fluctuations with no
+    phase winding.  These are collisionless and form the dominant population---identified with \emph{dark matter}.
+  \item \textbf{Topological defects ($l\geq1$):} Rare fluctuations that trap a
+    phase winding.  These experience phase-friction and become
+    dissipative---identified with \emph{baryonic matter}.
+\end{enumerate}
+Combinatorial statistics in the cavity favour the simpler $l=0$ state by a
+factor of~$\sim5$, naturally seeding the observed cosmic abundance ratio
+$\Omega_{\rm DM}/\Omega_b\approx5$.
+
+\paragraph{The Morphological Amplifier.}
+Droplets clustered in a gravitational caustic source a higher local noise
+background $\tau$.  This triggers a super-linear downshifting response in their
+neighbours ($\varepsilon\propto-\tau^\gamma$, $\gamma>1$), deepening the
+potential well and drawing in more matter.  This cooperative feedback transforms
+weak Brownian caustics into sharp, high-contrast filamentary structures---the sponge-like cosmic web observed in our universe.
+
+% ===================================================================
+\section{Advanced Dynamics and Robustness}
+
+\subsection{Prediction: Constant-Power Evaporation}
+The Stefan--Boltzmann law gives the radiated power $P\propto A\cdot T^4$.
+Using $A\propto M^2$ and \eqref{eq:temp_law}:
+\begin{equation}\label{eq:const_power}
+  P\propto M^2\cdot\left(\frac{1}{\sqrt{M}}\right)^{\!4}
+  =M^2\cdot\frac{1}{M^2}=\text{constant}.
+\end{equation}
+\textbf{Prediction:} Black holes radiate at a constant power $P_0$ (of order
+$10^{15}$~W for standard parameters) throughout their lives, until they reach
+the Planck scale.  This implies a linear lifetime $\tau\propto M$---drastically
+shorter for supermassive black holes than the Hawking prediction ($M^3$).  The
+rising temperature ($1/\sqrt{M}$) and shrinking area ($M^2$) have a perfect,
+compensatory relationship that keeps the total energy output constant.
+
+\subsection{Duality of Stiffness}
+\label{sec:stiffness}
+A profound aspect of the particle--black hole duality lies in comparing their
+mechanisms for resisting collapse.
+\begin{itemize}
+  \item \textbf{Microscopic:} A soliton is stabilized by a $|\Psi|^4$
+    potential term.  Pressure $\propto|\Psi|^4$.
+  \item \textbf{Macroscopic:} The shell is stabilized by radiation pressure
+    $P_{\rm rad}\propto T^4$.  Since $T\propto\sqrt{\rhos}$ and we identify
+    $\rhos\sim|\Psi|^2$, we find
+    $P_{\rm rad}\propto(\sqrt{\rhos})^4=\rhos^2\sim|\Psi|^4$.
+\end{itemize}
+The macroscopic equation of state mirrors the microscopic potential.
+
+\subsection{Window Rescaling and the Soliton Floor}
+\label{sec:soliton_floor}
+Does the constant-power argument hold for an observer with a finer microscope?
+Yes.  The ``floor'' at $\Lp$ is not an absolute limit of the vacuum but the
+limit of the \emph{soliton's} ability to downshift.
+
+\paragraph{The Free-Energy Floor.}
+The mechanism powering a soliton's response to increased noise is
+\emph{scale downshifting}: higher $\tau_{\rm eff}$ $\to$ smaller equilibrium
+size $\to$ energy released along $\varepsilon_s(\tau)=-\alpha_s\tau^\gamma$.
+\begin{itemize}
+  \item An ordinary soliton ($L_c\gg\Lp$) sits partway up the hill.  Plenty of
+    downhill headroom remains.
+  \item A shell constituent ($L_c\approx\Lp$) has already rolled to the
+    \emph{bottom}.  Further noise cannot drive further shrinkage.
+\end{itemize}
+Crucially, this floor is \emph{relational}: $\Lp$ is the UV edge of the
+external observer's window.  The substrate has no absolute minimum scale.  From
+the constituent's own frame it has not ``bottomed out''---it sees a perfectly
+normal window with a full spectrum and normal Unruh physics.  But all of this
+self-consistent internal dynamics maps, via the sliding-window formalism, to
+the same fixed power $P_0$ that the external observer computes.
+
+\paragraph{Covariant Power Balance.}
+Let $P_0$ be both the inward Unruh power and the outward Stefan--Boltzmann
+power per unit proper shell area.  Lorentz factors cancel: every observer
+measures the same $P_0$.  The constant-power evaporation law is therefore
+frame-independent.
+
+\subsection{Asymmetric Shells and Binary Recoil}
+\label{sec:binary}
+In a binary system, the shell of one black hole is distorted and heated
+anisotropically by its companion's noise field.  This results in anisotropic
+thermal radiation from the shell's outer surface, creating a continuous,
+non-gravitational \textbf{recoil force}.  If the binary separation $d$ is less
+than the ambient phase-coherence length $L_{\rm phase}$, coherent phase-sheets
+can also form, adding an EM-like component to the interaction.  These effects,
+including velocity-dependent retardation, could produce unique signatures in
+gravitational wave signals.
+
+% ===================================================================
+\section{Duality with Cosmology}
+\label{sec:duality}
+
+\subsection{Strict Orientation-Duality}
+We promote the horizon duality to a strict identification.  A single nucleation
+criterion defines a closed surface $\Sigma$ that may be realised with two
+orientations:
+\begin{itemize}
+  \item \textbf{Type~I (Black Hole):} Trapped side points inward; a
+    finite-thickness, optically thick shell forms and reprocesses flux to a
+    photosphere.  The observer is outside.
+  \item \textbf{Type~II (Cosmology):} Trapped side points outward; to interior
+    observers there is no material shell, but the same thermal bath appears
+    with the Gibbons--Hawking temperature.
+\end{itemize}
+These are opposite orientations of the same nucleation event.  The interior of
+a Type~I object (a black hole) \emph{is} a Type~II universe (a Hubble patch)
+to its inhabitants.
+
+\subsection{Type~I / Type~II dictionary (at a glance)}
+\label{sec:type_dictionary}
+\begin{center}
+\begin{tabular}{p{0.24\textwidth}p{0.34\textwidth}p{0.34\textwidth}}
+\toprule
+\textbf{Item} & \textbf{Type I: Black hole (external view)} & \textbf{Type II: Cosmology (internal view)} \\
+\midrule
+Orientation of trapping & Trapped side points inward & Trapped side points outward \\
+Material shell & Yes (finite-thickness reprocessor) & No privileged material wall for interior observers \\
+Dominant temperature law (external units) & Photosphere set by shell microphysics: $T\propto M^{-1/2}$ & Gibbons--Hawking: $T\propto H$ \\
+Net luminosity (external units) & $P_{\rm out}\approx \text{const}$ (reprocessed) & $P\propto H^2$ (bare geometric leakage) \\
+Horizon radius identification & $R_S=2GM/\cs^2$ & $r_H=\cs/H$ \\
+Duality lock (late era) & $R_S=r_H$ & $r_H=R_S$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent Further dictionary items and robustness notes are collected in the SI (see
+SI~Secs.~\ref{si:observability} and~\ref{si:time_mapping}).
+
+\subsection{Energy Conservation and Hubble Radius}
+The total mass-energy $M$ of the parent must equal the energy in the child's
+Hubble volume.  For a flat FRW interior with density $\rho$ and Friedmann
+equation $H^2=(8\pi G/3)\rho$:
+\begin{equation}\label{eq:E_H}
+  E_H = \tfrac{4}{3}\pi r_H^3\,\rho\,\cs^2
+  = \frac{\cs^5}{2GH}.
+\end{equation}
+Setting $M\cs^2=E_H$:
+\begin{equation}\label{eq:H_M}
+  \boxed{H = \frac{\cs^3}{2GM},\qquad r_H = \frac{\cs}{H}
+  = \frac{2GM}{\cs^2} = R_S.}
+\end{equation}
+The child's Hubble radius equals the parent's Schwarzschild radius---\emph{derived}, not assumed.
+
+\paragraph{Local vs.\ Global Caveat.}
+The identification $M\cs^2=E_H$ applies when the cavity is a single causal
+domain ($\mathcal{N}\to1$; see SI~Appendix~\ref{si:time_mapping}).  During
+earlier eras with many Hubble patches ($\mathcal{N}\gg1$), $H=\cs^3/(2GM)$
+describes energy per patch, not total $M$.
+
+\paragraph{Epistemic Consequence.}
+Because $H(\tau)$ is locally uniform (FRW symmetry), an observer has no local
+measurement revealing their distance to the wall.  The late-time phantom phase
+($w<-1$) causes $r_H$ to \emph{shrink}, making new causal contact with the
+wall harder, not easier.
+
+\subsection{Flux Reconciliation}
+\label{sec:flux}
+A key apparent contradiction is the flux law:
+\begin{itemize}
+  \item \textbf{Type~I (BH):} $P\approx\text{const}$.
+  \item \textbf{Type~II (Cosmo):} $P\propto H^2$ (Gibbons--Hawking).
+\end{itemize}
+These are reconciled by the shell.  The geometric (pre-reprocessing) intake on
+both sides scales $\propto H^2$ via $A\propto H^{-2}$, $T\propto H$.  In the
+Type~I case, the optically thick shell reprocesses this $H^2$ input to a
+photospheric output with $T_{\rm shell}\propto M^{-1/2}$,
+$A_{\rm shell}\propto M^2$, giving $P_{\rm shell}\approx\text{const}$.
+Without a reprocessor (Type~II), the observer sees the bare $H^2$ leakage.
+
+\subsection{Resolving Apparent Contradictions}
+\begin{itemize}
+  \item \textbf{Shell presence/absence:} Type~II lacks a material reprocessor
+    for interior observers because they sit inside the asymptote; the same
+    asymptote carries a real shell in the parent frame.  Both satisfy the same
+    nucleation and balance laws.
+  \item \textbf{Expansion vs.\ downscaling:} Metric expansion is traded for
+    matter downscaling via the sliding window; horizon thermodynamics and
+    trapping are invariant under this gauge.
+  \item \textbf{Isotropy:} Hyperbolic optics makes the asymptote effectively
+    concentric; leading observables (redshift, dimming) are isotropic to first
+    order.  Observed anisotropies (CMB, filaments) arise from interior
+    condensates.
+\end{itemize}
+
+% ===================================================================
+\section{Cosmological Implications}
+\label{sec:cosmo}
+
+\subsection{Observational Anchors}
+We estimate the parent mass using two numbers:
+\begin{enumerate}
+  \item Internal CMB temperature at last scattering:
+    $T_{\rm int}\approx3000$~K.
+  \item Internal look-back time to that epoch:
+    $\tau_{\rm int}\approx13.7$~Gyr.
+\end{enumerate}
+
+\subsection{Parent Mass Estimate}
+The interior--exterior conformal factor $F$ relates internal and external
+clocks and temperatures:
+\begin{equation}
+  T_{\rm int}=\frac{T_{\rm BH}}{F},\qquad
+  \tau_{\rm int}=F\,\tau_{\rm ext}=F\,\kappa M,
+\end{equation}
+where $\kappa\equiv\cs^2/P_0$ is the inverse evaporation rate (units:
+s\,kg$^{-1}$) and $T_{\rm BH}=k/\sqrt{M}$ defines the proportionality
+constant~$k$.  Eliminating $F$:
+\begin{equation}\label{eq:parent_mass}
+  M_{\rm parent}=\left(\frac{\tau_{\rm int}\,T_{\rm int}}{\kappa k}\right)^2.
+\end{equation}
+Using provisional Hawking-normalised constants yields
+$M_{\rm parent}\sim10^{21}$~kg (comet scale), with an external lifetime of a
+few years.  These are not final predictions but demonstrate self-consistency.
+
+% ===================================================================
+\section{Dynamics: Time Mapping and the Heat Death}
+\label{sec:dynamics}
+
+A critical test of the duality is the synchronization of clocks.
+
+\subsection{The Time Mapping Derivation}
+\label{sec:time_map}
+From $H=\cs^3/(2GM)$ and constant-power evaporation
+$M(t_p)=M_0-(P/\cs^2)\,t_p$, we derive the parent-to-child clock ratio
+(detailed in SI~Appendix~\ref{si:time_mapping}):
+\begin{equation}\label{eq:clock_ratio}
+  \frac{dt_p}{d\tau}=-\frac{3\cs^5}{4GP_0}(1+w_{\rm eff}).
+\end{equation}
+For both clocks to run forward ($dt_p/d\tau>0$):
+\begin{equation}\label{eq:phantom}
+  1+w_{\rm eff}<0\implies\boxed{w_{\rm eff}<-1.}
+\end{equation}
+\textbf{Result:} The framework \emph{requires} a phantom equation of state
+during the DE era.  Current observational constraints ($w\approx-1.03\pm0.03$)
+are consistent with---and mildly favour---this prediction.
+
+\subsection{Multi-Era Accounting}
+\label{sec:multi_era}
+During radiation and matter eras, the cavity contains $\mathcal{N}\gg1$
+causally disconnected Hubble patches.  The total BH mass distributes as
+$M\cs^2=\mathcal{N}\cdot E_H$.  As the Hubble sphere grows into the cavity,
+$\mathcal{N}$ shrinks until $\mathcal{N}\to1$ at DE onset, when
+\eqref{eq:H_M} locks in.  The early-universe evolution is effectively
+\emph{decoupled} from the parent's evaporation (see
+SI~Appendix~\ref{si:time_mapping} for details).
+
+\subsection{Predicted Value of $\epsilon=|1+w|$}
+From \eqref{eq:clock_ratio}, $P\sim(\cs^5/G)\cdot f$ where $f$ is a
+dimensionless microphysical factor.  Then $dt_p/d\tau\sim3\epsilon/(4f)$.
+For the child to have a long lifetime ($dt_p/d\tau\ll1$), we need
+$\epsilon\ll f$.  If $f\sim\mathcal{O}(1)$ (natural for Planck-scale
+microphysics):
+\begin{equation}
+  \boxed{|1+w|=\epsilon\ll1.}
+\end{equation}
+
+\subsection{The Endpoint: Asymptotic Heat Death}
+\label{sec:heat_death}
+If $P_0$ and $\epsilon$ remained constant, the child would end in a Big Rip
+($H\to\infty$ in finite time $\tau_{\rm end}=\tau_\ast+2/(3\epsilon H_\ast)$).
+However, the Planck pivot intervenes:
+\begin{enumerate}
+  \item \textbf{Parent Side:} As $M\to\Mp$, evaporation power switches to
+    $P\propto M^4$ (quantum regime), taking infinite time to reach $M=0$.  A
+    Planck-mass remnant forms.
+  \item \textbf{Child Side:} As $H\to H_P\equiv\cs/(2G\Mp)$, the Hubble
+    volume shrinks to a single Planck cell.  Window drift runs out of UV
+    headroom, forcing $\epsilon\to0$.  The simplest smooth parameterisation:
+    \begin{equation}
+      \epsilon(H)\approx\epsilon_0\!\left(1-\frac{H}{H_P}\right).
+    \end{equation}
+\end{enumerate}
+With this $\epsilon(H)$ and $\dot{H}=\frac{3}{2}\epsilon H^2$, linearising
+near $H_P$ ($x\equiv1-H/H_P\ll1$):
+\begin{equation}
+  \dot{x}\approx-\frac{3\epsilon_0 H_P}{2}\,x
+  \quad\Longrightarrow\quad
+  x(\tau)=x_0\,e^{-\frac{3\epsilon_0 H_P}{2}\tau}.
+\end{equation}
+$H$ approaches $H_P$ exponentially, taking \emph{infinite} child cosmic time.
+The Big Rip is replaced by an \textbf{Asymptotic Heat Death}: the child
+universe dilutes toward an empty de Sitter state at $H=H_P$, approached but
+never reached.
+
+% ===================================================================
+\section{The Infinite Hierarchy}
+\label{sec:hierarchy}
+
+The model implies a fractal structure: universes nested within black holes,
+nested within larger universes.
+
+\subsection{Impedance Matching}
+Standard Hawking radiation ($P\propto M^{-2}$) forbids nesting: a small inner
+shell would vaporize its parent (``infrared explosion'').
+\textbf{Constant power ($P\approx\text{const}$)} is the unique scaling law
+that allows impedance matching: $P_{\rm inner}=P_{\rm outer}=P_0$.  The inner
+shell feeds the outer at exactly the rate the outer dissipates, permitting
+indefinite stable nesting.
+
+\subsection{Piecewise Arrows of Time}
+The infinite hierarchy yields a natural, local arrow of time at every level:
+\begin{itemize}
+  \item \textbf{Local definition:} Within each cavity, the coarse-grained free
+    energy has a monotone scale direction: $\dot\sigma<0$ (solitons downshift).
+    Thermodynamic dissipation (constant-power leakage) makes this irreversible.
+  \item \textbf{Finite durations per level:} Constant-power emission drains
+    each cavity's UV reserve in finite local time, defining a local past
+    boundary (entry from parent shell) and future boundary (Planck de Sitter
+    asymptote).
+  \item \textbf{No global beginning or end:} The hierarchy extends unboundedly
+    in both directions.  Concatenating piecewise arrows yields an eternal,
+    globally past-and-future-unbounded structure with locally well-defined time
+    everywhere.
+  \item \textbf{Consistency with entropy:} At each level, coarse-grained
+    entropy increases along the downshift.  UV exhaustion at a shell resets the
+    window and renormalises couplings.  There is no global maximum entropy.
+\end{itemize}
+
+\subsection{No Global Time Paradox}
+The hierarchy is eternal despite finite local lifetimes.  The parent-to-child
+clock ratio from \eqref{eq:clock_ratio} gives
+$r\equiv dt_{\rm parent}/d\tau_{\rm child}\ll1$.
+\begin{itemize}
+  \item \textbf{Looking Down:} A level-$n$ observer hosts an arbitrarily deep
+    cascade inside its own finite lifetime, because the projected durations
+    form a convergent geometric series: $\sum_{k\geq1}r^k<\infty$.
+  \item \textbf{Looking Up:} Projected upward, parent lifetimes scale by
+    $\sim1/r>1$ per level.  The upward chain diverges: there is no ``top''
+    level with a finite end.
+\end{itemize}
+Finite proper time at every level is compatible with an eternal hierarchy
+because ``eternity'' lives in the unbounded tower of scales and the compounding
+inter-level time dilation, not in an infinite duration of any single clock.
+
+% ===================================================================
+\section{Conclusion}
+
+We have presented a self-consistent model where black holes are material shells
+and their interiors are expanding universes.  The framework replaces the
+singularity with a blackbody cavity and standardizes the thermodynamics of
+horizons across scales.
+
+Key falsifiable predictions include:
+\begin{enumerate}
+  \item \textbf{Constant Power Evaporation:} Black holes radiate at
+    $P\approx\text{const}$, not $P\propto1/M^2$.
+  \item \textbf{Phantom Dark Energy:} The equation of state must be slightly
+    phantom ($w\lesssim-1$) with $|1+w|\ll1$.
+  \item \textbf{Binary Signatures:} Anisotropic shell heating produces
+    non-gravitational recoil forces detectable in precision waveform analyses.
+  \item \textbf{Shell Thickness:} A finite photosphere with
+    $\delta R/R\propto M^{-1/2}$, potentially observable in horizon-scale
+    imaging.
+\end{enumerate}
+
+This duality suggests that our Big Bang was the formation of a shell in a
+parent universe, and our eventual heat death corresponds to that shell's
+relaxation to a Planck remnant.  The cosmos is an infinite, self-similar
+cascade of such events, eternal and devoid of singularities.
+
+% ===================================================================
+\end{document}

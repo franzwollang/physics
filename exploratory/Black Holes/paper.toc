@@ -1,0 +1,57 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Key Definitions \& Notation}{3}{subsection.1.1}%
+\contentsline {paragraph}{Consistency note (cross-document symbols).}{3}{section*.2}%
+\contentsline {section}{\numberline {2}Foundations: The Soliton--Noise Mechanism}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Matter as Solitons}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}The Noise Field and Emergent Gravity}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Thermodynamic Drag and the Planck Floor}{4}{subsection.2.3}%
+\contentsline {section}{\numberline {3}The Black Hole as an Asymptotic Shell}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Formation: The ``Snowplow'' Mechanism}{4}{subsection.3.1}%
+\contentsline {paragraph}{The Snowplow Effect.}{4}{section*.3}%
+\contentsline {paragraph}{What about matter already inside $R_S$ during collapse?}{4}{section*.4}%
+\contentsline {paragraph}{Geometric horizon vs.\ thermodynamic onset.}{5}{section*.5}%
+\contentsline {subsection}{\numberline {3.2}Mean-Field Nuance: Screened Links vs.\ the Exterior Monopole}{5}{subsection.3.2}%
+\contentsline {paragraph}{Same mass does not mean same noise profile.}{5}{section*.6}%
+\contentsline {subsection}{\numberline {3.3}Equilibrium: The ``Breathing'' Shell}{5}{subsection.3.3}%
+\contentsline {paragraph}{The Energy Balance.}{5}{section*.7}%
+\contentsline {paragraph}{Confinement.}{6}{section*.8}%
+\contentsline {paragraph}{The Blackbody Core.}{6}{section*.9}%
+\contentsline {paragraph}{The Temperature Paradox.}{6}{section*.10}%
+\contentsline {paragraph}{Fate of Inward-Moving Matter.}{6}{section*.11}%
+\contentsline {paragraph}{Covariant Power Balance.}{6}{section*.12}%
+\contentsline {subsection}{\numberline {3.4}Shell Thermodynamics and the Temperature Law}{6}{subsection.3.4}%
+\contentsline {paragraph}{Shell Geometry.}{6}{section*.13}%
+\contentsline {paragraph}{View 1: External (Lattice Frequency).}{6}{section*.14}%
+\contentsline {paragraph}{View 2: Internal (Relativistic Compression).}{6}{section*.15}%
+\contentsline {paragraph}{Why they must agree.}{7}{section*.16}%
+\contentsline {subsection}{\numberline {3.5}Stochastic Cascade and Interior Structure}{7}{subsection.3.5}%
+\contentsline {paragraph}{Classification by Topology.}{7}{section*.17}%
+\contentsline {paragraph}{The Morphological Amplifier.}{7}{section*.18}%
+\contentsline {section}{\numberline {4}Advanced Dynamics and Robustness}{7}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Prediction: Constant-Power Evaporation}{7}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Duality of Stiffness}{8}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Window Rescaling and the Soliton Floor}{8}{subsection.4.3}%
+\contentsline {paragraph}{The Free-Energy Floor.}{8}{section*.19}%
+\contentsline {paragraph}{Covariant Power Balance.}{8}{section*.20}%
+\contentsline {subsection}{\numberline {4.4}Asymmetric Shells and Binary Recoil}{8}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Duality with Cosmology}{9}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Strict Orientation-Duality}{9}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Type~I / Type~II dictionary (at a glance)}{9}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Energy Conservation and Hubble Radius}{9}{subsection.5.3}%
+\contentsline {paragraph}{Local vs.\ Global Caveat.}{9}{section*.21}%
+\contentsline {paragraph}{Epistemic Consequence.}{9}{section*.22}%
+\contentsline {subsection}{\numberline {5.4}Flux Reconciliation}{10}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Resolving Apparent Contradictions}{10}{subsection.5.5}%
+\contentsline {section}{\numberline {6}Cosmological Implications}{10}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Observational Anchors}{10}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Parent Mass Estimate}{10}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Dynamics: Time Mapping and the Heat Death}{10}{section.7}%
+\contentsline {subsection}{\numberline {7.1}The Time Mapping Derivation}{11}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Multi-Era Accounting}{11}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Predicted Value of $\epsilon =|1+w|$}{11}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}The Endpoint: Asymptotic Heat Death}{11}{subsection.7.4}%
+\contentsline {section}{\numberline {8}The Infinite Hierarchy}{11}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Impedance Matching}{12}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Piecewise Arrows of Time}{12}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}No Global Time Paradox}{12}{subsection.8.3}%
+\contentsline {section}{\numberline {9}Conclusion}{12}{section.9}%

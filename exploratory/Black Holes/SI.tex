@@ -1,0 +1,840 @@
+\documentclass[11pt]{article}
+
+% --- Packages (match main paper) ---
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{authblk}
+\usepackage{cite}
+\usepackage{bm}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{xr-hyper}
+\externaldocument{paper}
+
+% --- Draft Status Footer ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[L]{\small Draft Supplementary Information — \today}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% --- Macros (keep consistent with main) ---
+\newcommand{\cs}{c_s}
+\newcommand{\Lp}{L_{\min}}
+\newcommand{\Mp}{M_P}
+\newcommand{\Nstar}{N_\ast}
+\newcommand{\rhos}{\rho_{\rm surf}}
+\newcommand{\dd}{\mathrm{d}}
+
+\title{Supplementary Information for\\
+\textit{Horizon Duality: Black Holes as Asymptotic Shells of a Fractal Cosmos}}
+\author{Franz Wollang}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent This document collects technical derivations, robustness arguments,
+and extended quantitative sketches supporting the main paper.  It is intended
+to preserve detail while keeping the narrative flow of the main text clean.
+\end{abstract}
+
+\tableofcontents
+\vspace{1em}\hrule\vspace{1em}
+
+\section{Notation and cross-document conventions}
+\label{si:notation}
+We standardize on $\cs$ for the universal phase-wave/light-cone speed (any bare
+$c$ should be read as $\cs$).  In weak-field regimes we relate the local proxy
+to cosmological noise density by $\tau^2\propto\rho_N$.  We reserve
+$(\alpha_{\rm grad},\beta_{\rm pot})$ for amplitude-sector parameters and
+$(\alpha_{\rm dim},\beta_{\rm dim})$ for dimensional-bias parameters to avoid
+symbol overloading.
+
+% ===================================================================
+\section{Mean-field nuance: screened links, monopoles, and observability}
+\label{si:observability}
+
+\subsection{Yukawa kernels vs.\ the exterior point-source tail}
+Every Planck-scale constituent in the shell emits only a short-range Yukawa
+halo,
+\begin{equation}
+  \Phi_i(r)\sim \frac{e^{-r/R_i}}{r},
+\end{equation}
+with screening length $R_i\ll R_{\rm shell}$.  For an exterior observer at
+$r\gg R_{\rm shell}$, each exponential factor is $\approx 1$, so the sum over
+$N$ constituents reproduces an ordinary monopole $1/r$ field with total
+source strength
+\begin{equation}
+  M=\sum_i \frac{E_i}{\cs^2}.
+\end{equation}
+Inside the shell, far-side halos are exponentially suppressed, so the local
+gradient vanishes to leading order.  Thus a strictly local link interaction
+can yield a point-source exterior field for distant observers while producing
+no further pull on already-collapsed constituents.
+
+\subsection{``Same mass'' does not mean ``same noise profile''}
+The statement ``the fine-grained noise averages to a point source'' concerns
+integrated source strength (the monopole fixing the $1/r$ tail), not the
+detailed spectrum or correlation structure of the emitted field.
+
+A black-hole shell is a maximally downshifted, window-floor system: most of its
+microscopic fluctuations sit at or below the external UV edge and are
+unresolved by external observers.  They renormalise into effective couplings
+plus a monopole.  Ordinary dense matter (e.g.\ a neutron star) is not
+maximally downshifted: it retains internal structure and fluctuations at
+wavelengths well within our window, so its noise field can carry resolvable
+multipoles, longer correlation lengths, and material-specific channels.
+
+\subsection{When does the profile matter observationally?}
+If an effect couples only through the scalar intensity $\tau^2(x)$ (a
+window-integrated variance), then two sources with very different spectra can
+be indistinguishable at leading order: the spectrum is ``forgotten'' by the
+integral and reappears only as renormalised constants plus a monopole.
+
+Differences become measurable only for probes sensitive to more than $\tau^2$:
+\begin{itemize}
+  \item correlation functions (finite correlation length/time),
+  \item higher moments (non-Gaussianity; nonlinear response),
+  \item multipole/anisotropy structure,
+  \item frequency-selective or window-overlap probes (including accelerated or
+    near-shell observers where Doppler/Unruh promotion changes which portion of
+    the spectrum falls inside the operative window).
+\end{itemize}
+
+\section{Duality dictionaries, membrane balance, and discriminants}
+\label{si:duality_dictionaries}
+
+This section ports the longer ``dictionary'' and robustness material behind
+the Type~I/Type~II horizon duality.
+
+\subsection{Geometric dictionary and trapping}
+\label{si:geom_dictionary}
+\begin{itemize}
+  \item \textbf{Black hole:} $r_H^{\rm BH}$ is the null trapping radius of the
+    exterior effective metric; interior optics is hyperbolic.  Define an
+    interior curvature scale $H_{\rm in}:=\cs/R_{\rm shell}$.
+  \item \textbf{Cosmology:} $r_H^{\rm FRW}=\cs/H$ is the apparent horizon of the
+    FRW patch.
+  \item \textbf{Areas:} $A_{\rm in}=4\pi R_{\rm shell}^2=4\pi(\cs/H_{\rm in})^2$
+    and $A_{\rm FRW}=4\pi(\cs/H)^2$.
+  \item \textbf{Trapping:} trapping holds where outward null expansion first
+    vanishes, $\theta_{\rm out}=0$.  Emission is set by a photosphere/last
+    scattering layer where optical depth to infinity is $\sim 1$.
+\end{itemize}
+
+\subsection{Thermodynamic dictionary and flux reconciliation}
+\label{si:thermo_dictionary}
+\begin{itemize}
+  \item \textbf{Temperatures:} interior BH side $T_{\rm in}\propto H_{\rm in}$;
+    FRW horizon $T_{\rm GH}=\hbar H/(2\pi k_B)$.
+  \item \textbf{Geometric (pre-reprocessing) fluxes in external units:}
+    \begin{align}
+      P_{\rm in,geom} &\propto A_{\rm in}\,T_{\rm in}^4 \propto (1/H_{\rm in}^2)\,H_{\rm in}^4 = H_{\rm in}^2,\\
+      P_{\rm FRW} &\propto A_{\rm FRW}\,T_{\rm GH}^4 \propto (1/H^2)\,H^4 = H^2.
+    \end{align}
+  \item \textbf{Reprocessing (Type~I only):} an optically thick shell enforces
+    $T_{\rm shell}\propto M^{-1/2}$, $A_{\rm shell}\propto M^2$, giving a
+    photospheric output $P_{\rm shell}\propto A_{\rm shell}T_{\rm shell}^4\approx
+    \text{const}$ in external units.
+\end{itemize}
+
+\subsection{Membrane balance and conservation}
+\label{si:membrane_balance}
+On the nucleation surface $\Sigma$ we impose local balance in window units,
+\begin{equation}
+  P_{\rm in}(\Sigma)=P_{\rm out}(\Sigma),\qquad \nabla_\mu T^{\mu\nu}_{\rm tot}=0,
+\end{equation}
+with $T^{\mu\nu}_{\rm tot}$ including membrane stress and radiative flux.  For
+Type~I, this closes with a diffusive transport law through the shell to the
+photosphere; for Type~II, detailed balance holds locally (GH bath) and the net
+leakage seen in parent/external units is $\propto H^2$.
+
+\subsection{Robustness: resolving apparent contradictions}
+\label{si:duality_robustness}
+\begin{itemize}
+  \item \textbf{Shell vs.\ no shell:} Type~II lacks a material reprocessor for
+    interior observers because they sit inside the asymptote; the same asymptote
+    carries a real shell in the parent frame.  Both satisfy the same nucleation
+    and balance laws.
+  \item \textbf{Flux laws:} ``const'' (Type~I photosphere) vs.\ $H^2$ (Type~II GH
+    leakage) reflect reprocessing vs.\ bare geometric emission; they are two
+    faces of the same intake flux.
+  \item \textbf{Isotropy vs.\ structure:} the parent boundary supplies leading
+    near-FRW isotropy (hyperbolic optics with a concentric asymptote).  Observed
+    anisotropies arise from interior condensates seeded by the Planck-pivot
+    cascade.
+\end{itemize}
+
+\subsection{Predictions and discriminants}
+\label{si:discriminants}
+\begin{itemize}
+  \item Finite shell thickness at the asymptote; hyperbolic interior optics.
+  \item Luminosity laws: $P_{\rm shell}\approx\text{const}$ (Type~I photosphere)
+    vs.\ $P_{\rm FRW}\propto H^2$ (Type~II leakage) in a single external frame.
+  \item \textbf{Spectral/size imprint:} a last-scattering/photosphere radius
+    produces a transfer-function feature (deviation from a perfect Planckian)
+    differing between Type~I/II by the presence/absence of reprocessing.
+\end{itemize}
+
+\subsection{Species and multipoles in the heating closure}
+\label{si:species_multipoles}
+In the main text we use a coarse covariant closure in which Unruh-like heating
+balanced by Stefan--Boltzmann cooling sets the scaling $T\propto 1/\sqrt{M}$ and
+thus $P\approx\text{const}$.  This closure is meant as an \emph{effective}
+description: ``areal heating'' is an average over the shell's composite
+single-field solitonic constituents and their worldline multipoles/topological
+textures; no Standard-Model point-particle assumption is required.
+
+In an EFT language, the lowest symmetry-allowed gradient coupling to the
+massless phase fixes the baseline exponent ($p=4$).  Species that suppress this
+operator contribute higher-$p$ channels with reduced weight.  The mixture
+renormalises only an effective coefficient (schematically $\overline{C}$);
+the scaling exponents, and thus the constant-power result, are unchanged.
+
+% ===================================================================
+\section{Statistical derivation of the Planck pivot}
+\label{si:planck_pivot}
+
+We show that the four-power flip in surface density arises from a single
+coarse-grained free-energy functional.
+
+\subsection{Free energy for an $N$-grain droplet}
+Consider a spherical droplet of radius $R$ containing $N$ identical grains
+(bare mass $\mu$).  A minimal rotationally symmetric free energy is
+\begin{equation}\label{eq:si_droplet_F}
+  F(R;N)=\underbrace{\frac{\alpha N\hbar c}{R}}_{\text{zero-point / kinetic}}
+  +\underbrace{\frac{\eta_0}{2}\frac{N^2}{R^3}}_{\text{link (cohesion) energy}}
+  -\underbrace{\frac{G(N\mu)^2}{R}}_{\text{self-gravity}},
+\end{equation}
+where $\alpha$ is an $\mathcal{O}(1)$ geometry factor.
+
+\subsection{Critical occupancy}
+Setting $\partial F/\partial R=0$ gives a physical extremum only if
+\begin{equation}
+  G\mu^2 N^2=\alpha N\hbar c
+  \quad\Longrightarrow\quad
+  \Nstar=\frac{\alpha\hbar c}{G\mu^2}.
+\end{equation}
+The corresponding mass is $M_\ast=\Nstar\mu\simeq\sqrt{\hbar c/G}$ (up to
+$\sqrt\alpha$), i.e.\ the Planck mass.
+
+\subsection{Two minimisers $\Rightarrow$ two area laws}
+\begin{itemize}
+  \item \textbf{Quantum regime ($N<\Nstar$):} kinetic + link balance gives
+    $R\propto 1/N$, so $A\propto 1/N^2$ and $\rho_{\rm surf}\propto N^3$.
+  \item \textbf{Gravitational regime ($N>\Nstar$):} link + gravity balance gives
+    $R\propto N$, so $A\propto N^2$ and $\rho_{\rm surf}\propto 1/N$.
+\end{itemize}
+The mass-dependence of area flips by four powers at $\Nstar$.  Temperature
+inherits this via $T\propto\sqrt{\rho_{\rm surf}}$:
+particles get hotter with mass ($T\propto m^{3/2}$) while black holes get
+colder ($T\propto 1/\sqrt{M}$).
+
+\subsection{Conformal consistency}
+Because both $\gamma$ (micro) and $G$ (macro) arise from the same normalised
+links, they renormalise with ambient noise in lock-step: $G,\hbar\propto\rho_N$.
+Their ratio, and hence the pivot mass, is invariant in every conformal frame.
+
+\subsection{Cross-window consistency and re-windowing covariance (why the crossover shape is not arbitrary)}
+\label{si:rewindowing}
+The ``window'' language in the main paper is doing more than bookkeeping.  It
+functions as the EFT principle that \emph{overlapping descriptions must agree
+on the same physical story} in their overlap domain.  We make that implicit
+constraint explicit here and explain what extra assumption would be needed to
+promote a qualitative ``smooth crossover'' into a more unique functional form.
+
+\paragraph{Scope note (assumption used for the pivot closure).}
+In the present work we will \emph{assume} the strong form of this principle
+\emph{locally near the Planck pivot}, i.e.\ in the regime where the
+particle-like and shell-like windows most directly overlap and must patch.
+This should be read as a \emph{closure assumption} (to be justified more
+microscopically by an explicit RG treatment of the coarse-grained free energy
+and its beta functions), not as a theorem proven here.
+The motivation is internal: (i) the framework treats windows as coarse-grained
+descriptions of one underlying graph/free-energy dynamics (no privileged
+window), so the overlap region should admit a fixed-form universality-class
+description; and (ii) without such a fixed-form assumption, the crossover
+shape contains an essentially arbitrary interpolation freedom that cannot be
+constrained by the two asymptotics alone.  Away from the pivot, we allow
+finite-window/non-adiabatic corrections that can spoil exact covariance while
+preserving the weaker overlap-consistency constraints.
+
+\paragraph{Cross-window consistency (implicit, already used).}
+Let $\mathcal{W}_1$ and $\mathcal{W}_2$ be two coarse-grained descriptions
+(two observers, or the same observer using two different effective resolutions)
+whose domains of validity overlap.  The framework repeatedly relies on the
+requirement:
+\begin{quote}
+  \emph{In the overlap, $\mathcal{W}_1$ and $\mathcal{W}_2$ must agree on
+  invariants and on the sign/ordering of physical effects (existence of a
+  pivot, direction of monotonic trends, absence of catastrophic runaways),
+  even if they parametrise them with different variables and renormalised
+  couplings.}
+\end{quote}
+This is the hidden logic behind several ``no-go'' arguments in the main text
+(e.g.\ the impossibility of extending one asymptotic scaling law through the
+domain where a neighbouring window would predict the opposite trend).
+
+\paragraph{Exact re-windowing covariance (a natural strengthening).}
+The natural next tightening is to demand not just agreement in overlaps, but
+fixed \emph{form} under change of window:
+\begin{quote}
+  \emph{Under re-windowing (coarse-graining), the effective equations retain
+  the same functional form; only parameters/couplings run.}
+\end{quote}
+This is an RG-style covariance principle.  It is not strictly required for the
+Planck pivot to exist, but it is consistent with the fractal/nested ethos: no
+particular window is ontologically privileged, so the effective laws should
+live in a universality class stable under re-windowing.
+
+\paragraph{What covariance does \emph{not} fix by itself.}
+Even exact covariance does not automatically single out one unique
+interpolating curve for $T(M)$; it fixes a \emph{class} of allowed smooth
+crossovers.  To pick a specific shape one needs an additional structural
+closure---for example an involutive ``UV$\leftrightarrow$IR'' mapping (a
+self-duality-like constraint) or an explicit rule for how independent
+contributions combine in the coarse-grained free energy.
+
+\paragraph{A minimal closure that yields a ``hyperbolic bounce''.}
+One economical way to encode ``saturation + minimisation'' is to model the
+effective hardness/drive as two competing channels (particle-like localisation
+and shell-like extensification) that combine by a harmonic-mean rule.  For
+instance, if a proxy $X(M)$ satisfies
+\begin{equation}
+  X_{\rm part}(M)\propto M^3,
+  \qquad
+  X_{\rm BH}(M)\propto \frac{1}{M},
+\end{equation}
+then the simplest smooth interpolant that reproduces both limits without
+introducing a new scale is
+\begin{equation}\label{eq:si_harmonic_mean_X}
+  \frac{1}{X(M)}=\frac{1}{X_{\rm part}(M)}+\frac{1}{X_{\rm BH}(M)}.
+\end{equation}
+If one takes $X\propto T^2$ (as suggested by the local scaling
+$T\propto\sqrt{\rho_{\rm surf}}$), Eq.~\eqref{eq:si_harmonic_mean_X} yields a
+single smooth maximum near the equality point $X_{\rm part}=X_{\rm BH}$, i.e.\
+near the pivot $M\sim\Mp$.  In this sense the ``bounce'' is not an arbitrary
+curve-fit; it is the minimal analytic closure that (i) respects the two
+asymptotics, (ii) encodes gradual saturation of marginal localisation benefit,
+and (iii) is stable under reparametrisation across overlapping windows.
+
+\paragraph{What a true self-duality would add (optional, stronger).}
+If one further postulates an \emph{involutive} re-windowing map exchanging the
+two sides, e.g.\ a reciprocity $M\mapsto \Mp^2/M$ (or an equivalent statement
+about core vs.\ shell measures), then the pivot becomes a fixed point of a
+symmetry rather than merely a crossover.  Such a requirement can further
+restrict the allowed interpolants, often selecting additive/quadrature forms
+as the simplest functions compatible with the involution.  The present paper
+does not assume this stronger constraint; it is best viewed as a plausible
+next axiom if one wishes to make the crossover \emph{more} unique than the
+generic smooth class already implied by windowing + minimisation.
+
+% ===================================================================
+\section{Parent--child time mapping derivation}
+\label{si:time_mapping}
+
+This appendix derives the quantitative relationship between the parent black
+hole's evaporation and the child universe's cosmological evolution.
+
+\subsection{Notation}
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+$t_p$ & Parent coordinate time (external ``lab'' frame) \\
+$\tau$ & Child cosmic time (interior FRW proper time) \\
+$M(t_p)$ & Parent BH mass; $M(t_p)=M_0-(P/\cs^2)\,t_p$ \\
+$H(\tau)$ & Child Hubble parameter \\
+$P$ & Constant evaporation power \\
+$t_e=M_0\cs^2/P$ & Total parent evaporation time \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Derivation of $r_H=R_S$}
+From the Friedmann equation $H^2=(8\pi G/3)\rho$ and the energy in a Hubble
+volume $E_H=(4\pi/3)r_H^3\rho\cs^2=\cs^5/(2GH)$, setting $M\cs^2=E_H$ yields
+\begin{equation}
+  H=\frac{\cs^3}{2GM},\qquad r_H=\frac{2GM}{\cs^2}=R_S.
+\end{equation}
+
+\subsection{Junction consistency}
+For a quasi-static shell separating Schwarzschild exterior from FRW interior,
+the Israel junction condition reads
+\begin{equation}
+  \beta_+-\beta_-=-\frac{4\pi G\sigma R}{\cs^4},\qquad
+  \beta_\pm=\sqrt{1-\frac{2GM}{\cs^2 R}}\;\text{or}\;
+  \sqrt{1-\frac{H^2R^2}{\cs^2}}.
+\end{equation}
+At $R=R_S=r_H$ we have $\beta_+=\beta_-=0$, giving $\sigma=0$.  A tension-free
+shell is consistent with the trapping surface coinciding on both sides.
+
+\subsection{Multi-era accounting}
+During radiation and matter eras the cavity contains
+\begin{equation}
+  \mathcal{N}=\left(\frac{R_{\rm cavity}}{r_H}\right)^3\gg 1
+\end{equation}
+causally disconnected Hubble patches, so the total mass distributes as
+$M\cs^2=\mathcal{N}\,E_H$.  As the Hubble sphere grows
+($r_H\propto \tau$ in radiation, $\propto\tau^{2/3}$ in matter),
+$\mathcal{N}\to 1$ at DE onset.  In the early phase, the two extreme time
+dilations (exterior ``frozen star'' and interior horizon slowdown) cancel,
+yielding $dt_p/d\tau|_{\rm early}\sim\mathcal{O}(1)$.
+
+\subsection{DE-era time mapping and the phantom sign}
+From $H=\cs^3/(2GM)$ and $t_p=t_e(1-H_0/H)$:
+\begin{equation}
+  \frac{dt_p}{d\tau}
+  =\frac{t_e H_0}{H^2}\dot{H}
+  =-\frac{3}{2}t_e H_0(1+w_{\rm eff})
+  =-\frac{3\cs^5}{4GP}(1+w_{\rm eff}),
+\end{equation}
+using $t_e H_0=\cs^5/(2GP)$.  Forward-running clocks require $w_{\rm eff}<-1$.
+
+\subsection{Self-consistency check}
+With $w_{\rm eff}=-1-\epsilon$ (constant $\epsilon>0$),
+$\dot{H}=(3\epsilon/2)H^2$ gives
+$H(\tau)=H_\ast/[1-(3\epsilon H_\ast/2)(\tau-\tau_\ast)]$ and
+\begin{equation}
+  \Delta t_p=\frac{3\cs^5\epsilon}{4GP}\cdot\frac{2}{3\epsilon H_\ast}
+  =\frac{\cs^5}{2GPH_\ast}=\frac{M_\ast\cs^2}{P}=t_e(M_\ast).\;\checkmark
+\end{equation}
+
+\subsection{Planck-pivot regularisation: heat death}
+Across the Planck pivot the evaporation power flips:
+\begin{center}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Regime} & $M$ range & $T$ & $A$ & $P$ \\
+\midrule
+Gravitational & $M>\Mp$ & $\propto 1/\sqrt{M}$ & $\propto M^2$ & const \\
+Quantum & $M<\Mp$ & $\propto M^{3/2}$ & $\propto 1/M^2$ & $\propto M^4$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+In the quantum regime $dM/dt_p=-\alpha M^4/\cs^2$, so the remaining lifetime
+$\Delta t_p=(\cs^2/3\alpha)(1/M_f^3-1/\Mp^3)\to\infty$ as $M_f\to 0$: a Planck
+remnant forms.
+
+On the child side, UV exhaustion forces $\epsilon\to 0$ as $H\to H_P$.  With
+$\epsilon(H)\approx \epsilon_0(1-H/H_P)$, linearising near $H_P$ yields an
+exponential approach to $H_P$ in infinite child time.  The Big Rip is softened
+into an asymptotic heat death.
+
+\subsection{Local vs.\ global caveat and epistemic consequence (expanded)}
+The Hubble radius $r_H(\tau)=\cs/H(\tau)$ is a local statement: in an
+approximately FRW bulk it is the same for all comoving observers at a given
+$\tau$, but the \emph{Hubble sphere} is always centred on the observer.  In a
+finite cavity with a distinguished boundary (the shell), the phrase ``the Hubble
+sphere fills the interior'' is position-dependent: an observer at location $x$
+has filled the cavity only once
+\begin{equation}
+  r_H(\tau)\gtrsim d_{\rm wall}(x,\tau),
+\end{equation}
+where $d_{\rm wall}$ is that observer's proper distance to the wall.
+
+\paragraph{Epistemic consequence.}
+Because FRW symmetry makes $H(\tau)$ locally the same for all bulk observers,
+there is no local measurement revealing $d_{\rm wall}$ unless the wall enters
+the observer's past light cone (producing anisotropy/inhomogeneity).  In the
+late-time phantom phase ($w<-1$), $r_H$ shrinks, making new causal contact with
+the wall \emph{harder}, not easier: an observer who has not already seen
+wall-influenced signals will generically never see them.
+
+\subsection{Predicted value of $\epsilon=|1+w|$ (expanded)}
+From the clock map one may write
+\begin{equation}
+  \frac{dt_p}{d\tau}=\frac{3\cs^5\epsilon}{4GP},
+\end{equation}
+where $P$ is the evaporation power (in the constant-power regime).  Writing
+$P\sim (\cs^5/G)\,f$ with $f$ a dimensionless microphysical factor (greybody,
+numerical constants), gives
+\begin{equation}
+  \frac{dt_p}{d\tau}\sim \frac{3\epsilon}{4f}.
+\end{equation}
+For strong time dilation ($dt_p/d\tau\ll 1$) we require $\epsilon\ll f$.  If
+$f\sim\mathcal{O}(1)$, then $\epsilon\ll 1$, consistent with current
+observational bounds on $w$.
+
+\subsection{Summary table and open questions}
+\begin{center}
+\begin{tabular}{p{0.64\textwidth}p{0.28\textwidth}}
+\toprule
+\textbf{Result} & \textbf{Status} \\
+\midrule
+$r_H=R_S$ (Hubble radius equals Schwarzschild radius) & Derived \\
+Junction consistency ($\sigma\approx 0$ at leading order) & Consistent \\
+$w_{\rm eff}<-1$ required for forward-running clocks & Derived \\
+Early universe decoupled from evaporation ($\mathcal{N}\gg 1$) & Derived \\
+Big Rip at constant $\epsilon$, softened to heat death by Planck pivot & Derived \\
+$|1+w|=\epsilon\ll 1$ (small phantom departure) & Predicted \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Open questions.}
+\begin{itemize}
+  \item A more detailed derivation of the $\mathcal{O}(1)$ early-era clock map
+    (dynamical junction in the full index/noise description).
+  \item First-principles calculation of $P$ (and thus $\epsilon$) from shell
+    microphysics (greybody factors, species content, etc.).
+  \item The mechanism that turns on window drift (DE) at the correct epoch when
+    the Hubble sphere grows to encompass the cavity.
+\end{itemize}
+
+\section{Hierarchical condensation and interior large-scale structure}
+\label{si:condensation}
+
+This section records the more quantitative sketches behind the claim that
+stochastic fluctuations in the blackbody cavity seed a two-phase hierarchy of
+structures and, ultimately, a sponge-like cosmic web rather than a single
+central core.
+
+\subsection{Black-hole-branch seeds: radial drift and stall}
+\label{si:seeds}
+
+\paragraph{Accretion rate.}
+A minimal estimate (geometric cross-section plus gravitational focusing) gives
+\begin{equation}
+  \dot{M}\;\simeq\;\pi R_{\rm mini}^{2}\,\rho_{\gamma}\,\cs\,
+  \left(1+\frac{v_{\rm esc}^{2}}{\cs^{2}}\right),
+  \qquad
+  v_{\rm esc}^{2}=\frac{2GM}{R_{\rm mini}}.
+\end{equation}
+
+\paragraph{Jeans limit in a photon gas.}
+For a photon gas of temperature $T$,
+\begin{equation}
+  M_{\rm J}(T)=\frac{\pi^{5/2}}{6}\,\frac{\cs^{3}}{\sqrt{G^{3}\rho_{\gamma}}}
+  \;\propto\;T^{-3/2}.
+\end{equation}
+With $T\propto\rho_{\gamma}^{1/4}\propto M^{1/4}$ (local scaling), growth halts
+after $\mathcal{O}(10)$ quanta: a seed cannot grow to a macroscopic fraction of
+the parent shell mass.
+
+\paragraph{Radial migration.}
+The drift acceleration from anisotropic photon flux scales as
+$a_{\rm rad}\propto A/M\propto N$, so a seed spirals toward the inner wall on a
+timescale
+\begin{equation}
+  \tau_{\rm drift}\sim\frac{R_{\rm shell}}{a_{\rm rad}}\propto\frac{R_{\rm shell}}{N}.
+\end{equation}
+Once parked against the wall it merges with neighbours, thickening the parent
+breathing layer into a sub-shell.
+
+\subsection{Particle-branch droplets: Brownian network and filament formation}
+\label{si:droplets}
+
+For $N=1$ droplets the net drift acceleration is parametrically smaller:
+\begin{equation}
+  a_{\rm rad}\propto\frac{A}{M}\approx\frac{\Lp^{2}}{\mu},
+\end{equation}
+so motion is dominated by Brownian kicks with rms speed
+$v_{\rm rms}\approx\sqrt{T/\mu}$.  The mean free path
+\begin{equation}
+  \lambda_{\rm B}\sim\frac{1}{n_{\rm seed}\pi R_{\rm mini}^{2}}
+\end{equation}
+can exceed seed--seed spacing, yielding a random walk through a time-dependent
+seed network.
+
+\paragraph{Topology classification ($l=0$ vs.\ $l\ge 1$).}
+Droplets split into two populations:
+\begin{enumerate}
+  \item \textbf{Scalar solitons ($l=0$):} density fluctuations with no phase
+    winding (collisionless; dark matter).
+  \item \textbf{Topological defects ($l\ge 1$):} droplets trapping a phase
+    winding (dissipative; baryonic matter).
+\end{enumerate}
+Combinatorial statistics favour the simpler $l=0$ population by a factor
+$\sim 5$, naturally producing $\Omega_{\rm DM}/\Omega_b\approx 5$.
+
+\paragraph{Morphological amplifier.}
+Droplets clustered in a caustic source a higher local noise background $\tau$,
+which triggers a super-linear downshifting response in neighbours
+($\varepsilon\propto-\tau^\gamma$, $\gamma>1$), deepening the potential well and
+capturing further matter.  A minimal modified diffusion--drift model is
+\begin{equation}
+  \partial_t n = D\nabla^{2}n - \nabla\!\cdot\!(n\mathbf v_{\rm drift})
+  + \alpha_{\rm morph}\,n^2,
+\end{equation}
+where $D$ is set by Brownian motion and $\\mathbf v_{\rm drift}$ by the seed
+potential.  Numerical integration (future work) yields filamentary,
+sponge-like networks.
+
+\subsection{Impact on early-epoch anisotropies}
+\label{si:anisotropies}
+
+Mini-shell seeds induce milli-Kelvin scale temperature dipoles (in external
+units) in the photon bath on angular scales
+$\theta\sim R_{\rm mini}/R_{\rm shell}$.  A toy spectrum is
+\begin{equation}
+  \frac{\Delta T}{T}(\ell)\approx
+  \left(\frac{M_{\rm seed}}{M_{\rm shell}}\right)^{1/2}
+  \ell_{\rm seed}^{2}\,e^{-\ell/\ell_{\rm seed}},
+  \qquad
+  \ell_{\rm seed}\sim\frac{R_{\rm shell}}{R_{\rm mini}}.
+\end{equation}
+Because $M_{\rm seed}\ll M_{\rm shell}$, such anisotropies remain below the
+cavity's intrinsic shot noise and do not spoil breathing equilibrium.
+
+\paragraph{Local vs.\ external units.}
+Internal observers measure every energy against a shrunken local unit (their
+$k_{\rm B}T$ rescales by $\chi^{-1}$), so the same dipole appears as
+$(\Delta T/T)_{\rm loc}=\chi^{-1}(\Delta T/T)_{\rm ext}$.  Relative contrast
+therefore stays $\mathcal{O}(10^{-3})$ across frames; only the baseline
+temperature differs.
+
+\subsection{Effective geometry of the interior}
+\label{si:interior_geometry}
+
+If radiation energy drains preferentially into seeds, a simple refractive index
+profile $\chi(r)$ can decrease toward the centre.  Ray trajectories diverge,
+giving an effective negative curvature.  A minimal parameterisation,
+\begin{equation}
+  \chi(r)=1+\epsilon\left(1-\frac{r}{R_{\rm shell}}\right),\qquad \epsilon\sim 10^{-2},
+\end{equation}
+gives a curvature scale $K\approx -2\epsilon/R_{\rm shell}^2$, consistent with a
+weak but everywhere negative curvature and an ``optical horizon'' in which
+timelike paths require arbitrarily long proper times to catch the wall.
+
+\subsection{Open questions (kinetics of the stochastic cascade)}
+\label{si:cascade_open_questions}
+A full kinetic description of the stochastic cascade remains open, including
+merger rates of sub-shells and the resulting statistical distribution of
+particle-branch vs.\ shell-branch species in the interior bath.
+
+% ===================================================================
+\section{Discussion addendum: infinite zooms, finite energies}
+\label{si:discussion}
+
+This section collects clarifications that support the eternal-hierarchy picture
+without requiring infinite energy, information, or computation in any single
+window.
+
+\subsection{Infinite zoom cascade with local time at every level}
+The clique graph admits an unbounded hierarchy of nested bubbles.  Each zoom-in
+by a fixed factor opens a fresh UV band, and the scale-window carried by an
+observer shrinks in physical metres as it descends the hierarchy.  Thus the
+newly opened UV band always carries finite energy/entropy in local units, and
+an endless cascade of downshifts is possible without violating global bounds.
+
+Every level has a nonzero scale-force slope $\sigma(t)$, so time exists
+everywhere: ``timelessness'' from outside is merely the superposition of
+incommensurate local clocks.
+
+\subsection{Scale-window principle prevents divergences}
+An observer carries a window $[\Lambda_{\rm IR},\Lambda_{\rm UV}]$ centred on
+its effective Planck cell $\Lp(\Lambda_{\rm obs})$.  Energy, entropy, and
+computational capacity inside the window are $\mathcal{O}(1)$ in local units,
+independent of how many zooms are performed.  To access deeper UV information,
+one must shrink; the energetic cost of shrinking equals the potential energy of
+newly opened modes, preventing ``free lunches.''
+
+\subsection{Infinite nested zooms inside a finite-lifetime shell}
+External lifetime $\tau_{\rm ext}=M_{\rm init}\cs^2/P_0$ is finite, but
+hyperbolic dilation near the wall makes internal proper time unbounded.  An
+internal observer can execute countably many zoom steps before $t=\tau_{\rm
+ext}$.  Each level has its own constant-power cascade, and the geometric series
+of sub-energies sums to $M_{\rm init}\cs^2$.
+
+\subsection{Impedance matching: why constant power is necessary for nesting}
+Standard Hawking radiation ($P\propto M^{-2}$) forbids nesting: an inner shell
+would radiate $P_{\rm inner}\gg P_{\rm outer}$, vaporising the parent from
+inside.  Constant power ($P\propto M^0$) is the unique scaling that allows
+impedance matching: $P_{\rm inner}=P_{\rm outer}=P_0$.
+
+\subsection{Seed gradient, filament fate, and wall overtake}
+\label{si:wall_overtake}
+\begin{itemize}
+  \item Seeds ($N>\Nstar$) form preferentially near the wall where the local
+    Jeans mass is lowest.
+  \item Radiation-pressure drift moves seeds inward; Brownian droplets
+    ($N=1$) diffuse in a sponge-like filament network.
+  \item As the shell contracts, rising noise variance and negative optical
+    curvature compress and eventually absorb the filaments; external time for
+    capture is finite while internal time can diverge logarithmically.
+\end{itemize}
+
+\subsection{Cosmic horizon as a Type-II gravitational droplet}
+An apparent cosmic horizon in an FRW patch can be reinterpreted as the inner
+surface of a larger-scale shell (Type-II, outward-oriented) when zooming out
+one level.  In the super-observer's units, the region outside our horizon
+contains deeper-UV modes (higher noise floor, shorter $\Lp$).  From our interior
+vantage that region is stretched to infinite volume and redshifted to near-zero
+temperature, giving the impression of an empty cold outside.
+
+\subsection{Why the hierarchy alternates 2D shells and 3D bulks}
+A finite UV window forces resolved subgraphs toward integer geometries: with
+only short links the least-action arrangement is a regular lattice.  On a
+closed interface the lattice is effectively 2D (a shell); in a filled region it
+is 3D (a bulk).  Fractional-D tilings require holes (entropy loss) or weighted
+long links (energy cost), so the free energy ``snaps'' to the nearest integer.
+
+\paragraph{The $e$ conjecture (heuristic).}
+If we weight bulk and shell with probabilities $p$ and $1-p$, the average
+dimension is $D_{\rm eff}=3p+2(1-p)=2+p$.  Setting $D_{\rm eff}=e$ gives
+$p=e-2\simeq 0.718$, corresponding to an approximate 3:1 split in log-depth
+(three bulk units per shell unit).  This remains a motivated conjecture rather
+than a derived necessity.
+
+\subsection{Shell-thickness scaling and observational outlook}
+\label{si:shell_thickness}
+Rebalancing Stefan--Boltzmann flux (out) with Unruh absorption (in) gives
+\begin{equation}
+  T(R)=\left(\frac{P_0}{4\pi\sigma_{\rm SB}R^2}\right)^{1/4}\propto R^{-1/2}.
+\end{equation}
+Requiring optical depth corresponding to a mean-free-path count
+$n_\ast\sim 10$--$30$ yields
+\begin{equation}
+  \boxed{\;\frac{\delta R}{R}=K\left(\frac{M}{10\,M_\odot}\right)^{-1/2}},\qquad
+  K\simeq 0.02.
+\end{equation}
+
+\paragraph{Log-step reinterpretation.}
+Let $\Delta\sigma_{\rm shell}$ be the drop in log-scale coordinate across one
+shell.  For $\Delta\sigma_{\rm shell}\ll 1$,
+$\delta R/R\simeq \Delta\sigma_{\rm shell}$ (linearising $R\to Re^{-\Delta\sigma}$).
+Thus
+\begin{equation}
+  \Delta\sigma_{\rm shell}(M)=K\left(\frac{M}{10\,M_\odot}\right)^{-1/2}.
+\end{equation}
+If the bulk:shell bookkeeping remains 3:1, then
+$\Delta\sigma_{\rm bulk}=3\Delta\sigma_{\rm shell}$ and
+$\Delta\sigma_{\rm cycle}=4\Delta\sigma_{\rm shell}$.
+
+\paragraph{Numerical check.}
+\begin{center}
+\begin{tabular}{rccc}
+\toprule
+$M/M_\odot$ & $\delta R/R$ & $\Delta\sigma_{\rm shell}$ & $q\equiv R/\delta R$ \\
+\midrule
+10 & 0.020 & 0.020 & 50 \\
+30 & 0.012 & 0.012 & 83 \\
+$4\times 10^6$ & $3\times 10^{-4}$ & $3\times 10^{-4}$ & $3\times 10^3$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Finite-shell corrections in binaries.}
+For a companion approaching within $\lesssim 3\,\delta R$,
+tidal quadrupoles and overlapping photon baths can add corrections, but at
+LIGO-band separations these effects are far below current sensitivity.  They
+become plausible targets for extreme mass-ratio inspirals grazing supermassive
+shells or for horizon-scale VLBI probing $\delta R$ directly.
+
+\section{Key formulae (quick reference)}
+\label{si:key_formulae}
+\begin{itemize}
+  \item \textbf{Droplet free energy:}
+    $F(R;N)=\frac{\alpha N\hbar c}{R}+\frac{\eta_0}{2}\frac{N^2}{R^3}-\frac{G(N\mu)^2}{R}$.
+  \item \textbf{Critical occupancy:}
+    $\Nstar=\alpha\hbar c/(G\mu^2)\sim \mathcal{O}(1)$ in window units.
+  \item \textbf{Dual temperature laws:}
+    $T_{\rm sol}\propto m^{3/2}$ (particle side) vs.\ $T_{\rm BH}\propto 1/\sqrt{M}$
+    (shell side).
+  \item \textbf{Evaporation power:} $P_{\rm rad}\propto \text{const}$ (gravitational regime),
+    crossing to $P\propto M^4$ below the Planck pivot.
+  \item \textbf{Duality lock (late era):} $H=\cs^3/(2GM)$ and $r_H=\cs/H=R_S$.
+  \item \textbf{Clock map (DE era):}
+    $\frac{dt_p}{d\tau}=-(3\cs^5/(4GP))(1+w_{\rm eff})$ requiring $w_{\rm eff}<-1$.
+\end{itemize}
+
+\section{Related approaches (orientation pointers)}
+\label{si:related_work}
+\begin{itemize}
+  \item Gravastars / dark-energy stars (Mazur \& Mottola): de Sitter core matched to
+    Schwarzschild exterior via a thin relativistic shell.
+  \item String fuzzballs (Mathur): horizon replaced by microstate ``surface''.
+  \item Planck stars (Rovelli \& Vidotto): loop-quantum-gravity bounce core.
+  \item Quantum N-portrait / graviton BEC (Dvali \& Gomez): black hole as critical condensate.
+  \item Regular black holes / modified gravity (Bardeen; Hayward; asymptotic safety; nonlocal models):
+    de Sitter-like cores with transition layers.
+  \item Membrane paradigm / firewalls (Thorne--Price--Macdonald; Almheiri et al.):
+    effective dissipative or energetic surface near the horizon.
+\end{itemize}
+
+\subsection{Piece-wise arrows of time in an eternal hierarchy}
+Each cavity has a locally defined arrow of time: a monotone scale direction
+($\dot{\sigma}<0$) plus dissipation (constant-power leakage) makes the dynamics
+irreversible.  Each level has finite accessible information and energy in its
+window, but the hierarchy is past-and-future unbounded in scale.
+
+% ===================================================================
+\section{Spectral-dimension selection: why $e$ (and hence 3)}
+\label{si:spectral_dimension}
+
+This appendix records a heuristic argument that a neutral information-per-cost
+criterion selects an effective coordination $k\approx e$, with integer
+feasibility biasing to $k=3$ and thus spectral dimension $D_s\approx 3$.
+
+\subsection{Setup and assumptions}
+\begin{itemize}
+  \item \textbf{Linear per-node budget (volume-normalised links):} outbound
+    maintenance/throughput is linear in link weights, with a minimum useful link
+    weight (noise/quantisation floor) making each additional active neighbour
+    consume approximately constant budget.
+  \item \textbf{Local choice and path entropy:} with $k$ active neighbours used
+    roughly uniformly, the local branching entropy rate is $\hat H=\ln k$ (nats
+    per step) while cost scales $\sim k$.
+  \item \textbf{UV window and adiabaticity:} a minimum cell bounds admissible
+    protocol speed via $\tau \gtrsim L/\omega_{1,P}$ for Fisher/thermodynamic
+    distance $L$.
+  \item \textbf{Window invariance (unit-fixing):} keep local units stable during
+    protocols, implying a roughly constant excess-power ceiling and thus
+    constant metric speed along optimal schedules.
+\end{itemize}
+
+\subsection{Local efficiency objective}
+Define a unit-free efficiency (benefit per cost)
+\begin{equation}
+  \eta(k):=\frac{\ln k}{k}.
+\end{equation}
+Continuous optimisation gives
+\begin{equation}
+  \eta'(k)=\frac{1-\ln k}{k^2}=0\quad\Longrightarrow\quad \ln k=1
+  \quad\Longrightarrow\quad k=e.
+\end{equation}
+With integer feasibility, the nearest stable coordination is $k=3$.
+
+An equivalent MDL-style derivation: representing $M$ alternatives with radix
+$k$ costs $\propto k(\ln M/\ln k)=(\ln M)\,[k/\ln k]$, minimised at $\ln k=1$.
+
+\subsection{Time--dissipation gauge}
+Finite-time thermodynamics gives a bound
+\begin{equation}
+  \Sigma \gtrsim \frac{L^2}{\tau},
+\end{equation}
+where $\Sigma$ is total dissipation.  UV and window invariance fix a constant
+metric-speed gauge that saturates this bound on geodesic schedules.  These
+constraints set the feasible time/dissipation scale; the local allocation
+$k\approx e$ follows from the neutral information-per-cost objective above.
+
+\subsection{From branching to spectral dimension}
+On near-regular, locally homogeneous graphs, effective coordination controls
+diffusivity/expansion and thus the spectral dimension via heat-kernel scaling.
+With $k\approx e$ and integer feasibility, $k=3$ is preferred, yielding
+$D_s\approx 3$ in the vacuum fixed point.
+
+\subsection{Caveats and empirical checks}
+If per-link costs are nonlinear or minimum useful weights vary strongly, the
+optimum shifts.  Suggested checks:
+\begin{itemize}
+  \item optimise $(\ln k)/k$ under linear row-sum budgets and noise floors in
+    vacuum-relaxation simulations and measure the resulting mean coordination,
+  \item verify constant-metric-speed schedules numerically saturate
+    $\Sigma=L^2/\tau$ between nearby equilibria,
+  \item measure heat-kernel slopes to confirm $D_s\approx 3$ robustness under
+    heterogeneity.
+\end{itemize}
+
+\end{document}
+

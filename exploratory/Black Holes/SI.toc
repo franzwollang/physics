@@ -1,0 +1,71 @@
+\contentsline {section}{\numberline {1}Notation and cross-document conventions}{2}{section.1}%
+\contentsline {section}{\numberline {2}Mean-field nuance: screened links, monopoles, and observability}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Yukawa kernels vs.\ the exterior point-source tail}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}``Same mass'' does not mean ``same noise profile''}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}When does the profile matter observationally?}{3}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Duality dictionaries, membrane balance, and discriminants}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Geometric dictionary and trapping}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Thermodynamic dictionary and flux reconciliation}{4}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Membrane balance and conservation}{4}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Robustness: resolving apparent contradictions}{4}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Predictions and discriminants}{4}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Species and multipoles in the heating closure}{4}{subsection.3.6}%
+\contentsline {section}{\numberline {4}Statistical derivation of the Planck pivot}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Free energy for an $N$-grain droplet}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Critical occupancy}{5}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Two minimisers $\Rightarrow $ two area laws}{5}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Conformal consistency}{5}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Cross-window consistency and re-windowing covariance (why the crossover shape is not arbitrary)}{5}{subsection.4.5}%
+\contentsline {paragraph}{Scope note (assumption used for the pivot closure).}{6}{section*.2}%
+\contentsline {paragraph}{Cross-window consistency (implicit, already used).}{6}{section*.3}%
+\contentsline {paragraph}{Exact re-windowing covariance (a natural strengthening).}{6}{section*.4}%
+\contentsline {paragraph}{What covariance does \emph {not} fix by itself.}{6}{section*.5}%
+\contentsline {paragraph}{A minimal closure that yields a ``hyperbolic bounce''.}{6}{section*.6}%
+\contentsline {paragraph}{What a true self-duality would add (optional, stronger).}{7}{section*.7}%
+\contentsline {section}{\numberline {5}Parent--child time mapping derivation}{7}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Notation}{7}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Derivation of $r_H=R_S$}{7}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Junction consistency}{7}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Multi-era accounting}{7}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}DE-era time mapping and the phantom sign}{8}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Self-consistency check}{8}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.7}Planck-pivot regularisation: heat death}{8}{subsection.5.7}%
+\contentsline {subsection}{\numberline {5.8}Local vs.\ global caveat and epistemic consequence (expanded)}{8}{subsection.5.8}%
+\contentsline {paragraph}{Epistemic consequence.}{8}{section*.8}%
+\contentsline {subsection}{\numberline {5.9}Predicted value of $\epsilon =|1+w|$ (expanded)}{9}{subsection.5.9}%
+\contentsline {subsection}{\numberline {5.10}Summary table and open questions}{9}{subsection.5.10}%
+\contentsline {paragraph}{Open questions.}{9}{section*.9}%
+\contentsline {section}{\numberline {6}Hierarchical condensation and interior large-scale structure}{9}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Black-hole-branch seeds: radial drift and stall}{9}{subsection.6.1}%
+\contentsline {paragraph}{Accretion rate.}{9}{section*.10}%
+\contentsline {paragraph}{Jeans limit in a photon gas.}{9}{section*.11}%
+\contentsline {paragraph}{Radial migration.}{10}{section*.12}%
+\contentsline {subsection}{\numberline {6.2}Particle-branch droplets: Brownian network and filament formation}{10}{subsection.6.2}%
+\contentsline {paragraph}{Topology classification ($l=0$ vs.\ $l\ge 1$).}{10}{section*.13}%
+\contentsline {paragraph}{Morphological amplifier.}{10}{section*.14}%
+\contentsline {subsection}{\numberline {6.3}Impact on early-epoch anisotropies}{10}{subsection.6.3}%
+\contentsline {paragraph}{Local vs.\ external units.}{11}{section*.15}%
+\contentsline {subsection}{\numberline {6.4}Effective geometry of the interior}{11}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Open questions (kinetics of the stochastic cascade)}{11}{subsection.6.5}%
+\contentsline {section}{\numberline {7}Discussion addendum: infinite zooms, finite energies}{11}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Infinite zoom cascade with local time at every level}{11}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Scale-window principle prevents divergences}{11}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Infinite nested zooms inside a finite-lifetime shell}{11}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Impedance matching: why constant power is necessary for nesting}{12}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Seed gradient, filament fate, and wall overtake}{12}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}Cosmic horizon as a Type-II gravitational droplet}{12}{subsection.7.6}%
+\contentsline {subsection}{\numberline {7.7}Why the hierarchy alternates 2D shells and 3D bulks}{12}{subsection.7.7}%
+\contentsline {paragraph}{The $e$ conjecture (heuristic).}{12}{section*.16}%
+\contentsline {subsection}{\numberline {7.8}Shell-thickness scaling and observational outlook}{12}{subsection.7.8}%
+\contentsline {paragraph}{Log-step reinterpretation.}{12}{section*.17}%
+\contentsline {paragraph}{Numerical check.}{13}{section*.18}%
+\contentsline {paragraph}{Finite-shell corrections in binaries.}{13}{section*.19}%
+\contentsline {section}{\numberline {8}Key formulae (quick reference)}{13}{section.8}%
+\contentsline {section}{\numberline {9}Related approaches (orientation pointers)}{13}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Piece-wise arrows of time in an eternal hierarchy}{13}{subsection.9.1}%
+\contentsline {section}{\numberline {10}Spectral-dimension selection: why $e$ (and hence 3)}{14}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Setup and assumptions}{14}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Local efficiency objective}{14}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Time--dissipation gauge}{14}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}From branching to spectral dimension}{14}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.5}Caveats and empirical checks}{15}{subsection.10.5}%
