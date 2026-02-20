@@ -596,6 +596,73 @@ Without a reprocessor (Type~II), the observer sees the bare $H^2$ leakage.
     condensates.
 \end{itemize}
 
+\subsection{Boundary-condition imprint: an expected dipolar power modulation}\label{sec:cmb-dipole}
+The duality picture above is \emph{not} committed to exact spherical symmetry.
+In fact, a finite cavity with a physical boundary generically provides a
+natural route to a \emph{dipolar} large-scale modulation, even when the mean
+interior evolution is well approximated by FRW.
+
+\paragraph{Key observation: the lowest nontrivial mode of a bounded domain is a dipole.}
+Any scalar background field in the interior that is set, even weakly, by a
+boundary condition at the parent shell (e.g.\ a windowed noise proxy $\tau$, a
+refractive index $\chi$, or an effective ``clock''/scale factor field in the
+sliding-window description) admits an expansion in eigenmodes of the interior
+operator (Laplacian or wave operator, depending on regime).  In a simply
+connected cavity that is close to spherical, the lowest non-constant harmonic
+is the $l=1$ spherical harmonic: a dipole.  Therefore, \emph{any} small
+departure from perfect symmetry at the boundary will preferentially populate an
+$l=1$ component in the interior background, with higher multipoles suppressed
+by additional gradients and by phase-bath smoothing.
+
+\paragraph{Why symmetry is not exact.}
+Exact isotropy would require an exactly spherical, perfectly homogeneous parent
+shell and perfectly isotropic inflow/outflow.  In realistic parent dynamics,
+small asymmetries are unavoidable (spin, anisotropic accretion, companion
+perturbations; cf.\ Sec.~\ref{sec:binary}).  The ``breathing'' equilibrium and
+hyperbolic interior optics tend to isotropize the \emph{mean} evolution, but
+they do not forbid a small residual low-$l$ imprint.
+
+\paragraph{From a boundary dipole to a CMB power dipole.}
+In this framework, the interior radiation/matter bath inherits its statistics
+from the windowed fluctuation environment.  If the relevant background quantity
+that sets fluctuation amplitudes admits a weak dipole,
+\begin{equation}
+  \tau(\hat n) \;=\; \tau_0\,\big[1+\varepsilon_1\,(\hat p\!\cdot\!\hat n)\big],\qquad |\varepsilon_1|\ll 1,
+\end{equation}
+then any observable whose variance depends monotonically on $\tau$ will exhibit
+a corresponding \emph{hemispherical} (dipolar) modulation.  A minimal
+phenomenological representation for CMB temperature anisotropies is
+\begin{equation}
+  \Delta T(\hat n) \;=\; \big[1 + A\,(\hat p\!\cdot\!\hat n)\big]\;\Delta T_{\rm iso}(\hat n),
+  \label{eq:dipole-modulation}
+\end{equation}
+where $\Delta T_{\rm iso}$ is a statistically isotropic field and $A$ is a
+small modulation amplitude.  In the simplest local-variance picture one expects
+$A=O(\varepsilon_1)$ up to an $\mathcal O(1)$ transfer coefficient that depends
+on which windowed quantity controls the relevant primordial mode amplitudes.
+The point is structural: a finite cavity with slightly imperfect boundary data
+naturally supplies an $l=1$ ``super-mode'' that modulates power across the sky.
+
+\paragraph{Scale dependence (why the effect is largest at low multipoles).}
+Because the modulation originates as the lowest cavity mode, it is a
+very-long-wavelength field.  Its primary effect is therefore on the largest
+angular scales: low multipoles probe coherence across a substantial fraction of
+the cavity, while higher-$\ell$ modes average over many modulation wavelengths
+and become insensitive at leading order.  In practice this implies a
+scale-dependent $A(\ell)$ that is largest for low $\ell$ and decays toward zero
+at high $\ell$, consistent with how a boundary-conditioned dipole should appear
+after projection through transfer functions.
+
+\paragraph{Interpretation and limits.}
+This mechanism does \emph{not} claim that a bulk observer can infer a unique
+``direction to the wall'' (cf.\ the epistemic caveat above).  Rather, it says
+that if the parent boundary conditions are not exactly symmetric, then a
+dipolar modulation is the \emph{generic first} large-scale anisotropy to appear
+in the interior statistics.  Whether the resulting $A$ is comparable to the
+observed few-percent hemispherical power anomaly depends on quantitative
+details of shell asymmetry, smoothing, and the mapping from $\tau/\chi$ to the
+primordial fluctuation transfer function; these are left as open calculations.
+
 % ===================================================================
 \section{Cosmological Implications}
 \label{sec:cosmo}
@@ -625,6 +692,98 @@ constant~$k$.  Eliminating $F$:
 Using provisional Hawking-normalised constants yields
 $M_{\rm parent}\sim10^{21}$~kg (comet scale), with an external lifetime of a
 few years.  These are not final predictions but demonstrate self-consistency.
+
+\subsection{The Hubble tension as window drift (operational $H_0$)}
+\label{sec:hubble_tension}
+In this framework the ``scale factor'' is not a fundamental stretching of an
+absolute metric; it is the homogeneous component of the global-average
+downshifting.  As a result, different observational pipelines need not measure
+the same quantity when they implicitly use different unit conventions (different
+``windows'').  The conversion factor $F$ above should therefore be treated as an
+\emph{operational} mapping from interior FRW time $\tau$ to locally realised
+clocks/rulers.
+
+\paragraph{Two inferred $H_0$'s from one history.}
+Let $a(\tau)$ denote the homogeneous downshift mode, and suppose the locally
+realised unit system drifts via $F(\tau)$.  Then the expansion rate inferred by
+a probe calibrated to local microphysics is schematically
+\begin{equation}
+  H_{\rm op}(\tau)\;\equiv\;\frac{d}{d\tau}\ln\!\big[a(\tau)\,F(\tau)\big]
+  \;=\;H(\tau)+\frac{\dot F}{F}.
+  \label{eq:H_operational}
+\end{equation}
+Early-universe inferences (CMB/BAO) effectively fix the physical ruler at
+recombination and propagate it to $\tau_0$ assuming a time-independent mapping,
+returning an $H_0$ close to $H(\tau_0)$.  Late-time distance ladders
+(Cepheids/SNe), by contrast, are calibrated directly in the present-epoch window
+and return $H_0$ closer to $H_{\rm op}(\tau_0)$.  The observed ``Hubble tension''
+is then naturally interpreted as a measurement of the late-time drift term:
+\begin{equation}
+  \Delta H_0 \;\equiv\; H_0^{\rm ladder}-H_0^{\rm CMB}
+  \;\approx\;\left.\frac{\dot F}{F}\right|_{\tau_0}.
+  \label{eq:H0_gap}
+\end{equation}
+\noindent A minimal one-parameter fit model is to tie the drift to the onset of
+the late-time, globally constrained regime:
+\begin{equation}
+  \frac{\dot F}{F}(\tau)\;\approx\;\eta\,H(\tau)\,S(\tau),\qquad
+  S(\tau)\equiv\frac{1}{2}\!\left[1+\tanh\!\left(\frac{\tau-\tau_\ast}{\Delta\tau}\right)\right],
+  \label{eq:F_drift_ansatz}
+\end{equation}
+where $\tau_\ast$ is the DE onset time (when $\mathcal{N}\to1$ and the lock
+becomes operative), $\Delta\tau$ controls how sharp the turn-on is, and the
+single dimensionless amplitude $\eta$ is fixed phenomenologically by the gap as
+$\eta\sim\Delta H_0/H_0$ when $S(\tau_0)\approx1$.
+
+\paragraph{Why the drift turns on late.}
+The multi-era accounting (Sec.~\ref{sec:multi_era}) implies that the interior
+homogeneous mode becomes globally constrained only as $\mathcal{N}\to1$, at
+which point the duality lock \eqref{eq:H_M} and the constant-power parent
+evolution feed directly into the late-time $H(\tau)$ history.  This is also the
+era in which the framework requires an effective phantom phase
+($w_{\rm eff}<-1$; Eq.~\ref{eq:phantom}), i.e.\ a regime where $H(\tau)$ grows and
+the mapping between microphysical units and FRW time becomes maximally
+sensitive to the boundary-conditioned window dynamics.
+
+\paragraph{A clean discriminator: standard sirens.}
+Gravitational-wave ``standard sirens'' measure luminosity distances through the
+waveform amplitude and phase evolution, without relying on stellar calibrators.
+They therefore provide an operational route closer to $H(\tau)$ than to
+microphysics-calibrated $H_{\rm op}(\tau)$.  As the statistics improve, this
+framework predicts siren-inferred $H_0$ should converge toward the CMB-inferred
+value if the tension is dominated by the drift term in \eqref{eq:H0_gap}.
+
+\paragraph{Phenomenological target and falsification.}
+Taking the observed gap as a fitting target,
+$H_0^{\rm ladder}\simeq 73$ and $H_0^{\rm CMB}\simeq 67$ km\,s$^{-1}$\,Mpc$^{-1}$,
+implies a late-time drift of order
+\begin{equation}
+  \left.\frac{\dot F}{F}\right|_{\tau_0}\sim \Delta H_0 \sim 0.1\,H_0,
+\end{equation}
+i.e.\ a few-to-ten percent effect in the operational mapping over a Hubble time.
+This interpretation is falsifiable as next-generation geometric measurements
+reach percent-level precision:
+\begin{itemize}
+  \item \textbf{Standard sirens:} if BNS/BBH siren-inferred $H_0$ converges to
+    the \emph{ladder} value at $\lesssim1$--$2\%$ precision (rather than to the
+    CMB value), the drift interpretation \eqref{eq:H0_gap} is disfavoured.
+    Conversely, convergence toward the CMB value supports a genuinely
+    microphysics-calibration origin of the tension.
+  \item \textbf{Redshift dependence:} because the drift is tied to the late
+    $\mathcal{N}\to1$ and phantom regime, it should be a \emph{late-time}
+    phenomenon.  High-$z$ geometric reconstructions (e.g.\ inverse distance
+    ladder using BAO+SNe) should therefore approach $H(\tau)$ and reduce the
+    discrepancy relative to local calibrators.
+  \item \textbf{Other geometric clocks/rulers:} strong-lens time delays and
+    redshift-drift measurements provide complementary, largely microphysics-free
+    routes to the late-time expansion history.  Agreement of these with the
+    ladder value at percent precision would disfavor a dominant $F$-drift
+    explanation, while agreement with the CMB inference would support it.
+\end{itemize}
+\noindent In short: if multiple independent geometric probes (siren, lensing,
+redshift drift) converge to the ladder value at percent precision, then the
+tension cannot be primarily an $F$-drift effect and must reflect either early
+physics beyond the minimal mapping or residual ladder systematics.
 
 % ===================================================================
 \section{Dynamics: Time Mapping and the Heat Death}
@@ -657,6 +816,20 @@ $\mathcal{N}$ shrinks until $\mathcal{N}\to1$ at DE onset, when
 \eqref{eq:H_M} locks in.  The early-universe evolution is effectively
 \emph{decoupled} from the parent's evaporation (see
 SI~Appendix~\ref{si:time_mapping} for details).
+
+\paragraph{Meaning of $\mathcal{N}\to1$ (and what it is \emph{not}).}
+Here $\mathcal{N}$ is a bookkeeping measure of how many \emph{effectively
+independent} Hubble-sized domains can coexist inside the cavity for the purpose
+of global energy accounting and for whether the boundary condition can be
+treated as a single coherent constraint on the interior's homogeneous mode.
+Thus $\mathcal{N}\to1$ should be read as: the dynamics relevant to the
+homogeneous downshift/clock field is controlled by a single coupled domain.
+It is \emph{not} the claim that every galaxy remains in two-way signal contact.
+In an accelerating (and a fortiori phantom) era, the Hubble radius
+$r_H=\cs/H$ is not a hard causal horizon, and a cosmological event horizon can
+exist even in a globally FRW solution.  Objects crossing $r_H$ therefore do not
+imply $\mathcal{N}>1$; they reflect late-time acceleration, not the presence of
+multiple independent interior domains.
 
 \subsection{Predicted Value of $\epsilon=|1+w|$}
 From \eqref{eq:clock_ratio}, $P\sim(\cs^5/G)\cdot f$ where $f$ is a

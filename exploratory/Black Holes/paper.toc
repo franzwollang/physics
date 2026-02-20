@@ -42,16 +42,28 @@
 \contentsline {paragraph}{Epistemic Consequence.}{9}{section*.22}%
 \contentsline {subsection}{\numberline {5.4}Flux Reconciliation}{10}{subsection.5.4}%
 \contentsline {subsection}{\numberline {5.5}Resolving Apparent Contradictions}{10}{subsection.5.5}%
-\contentsline {section}{\numberline {6}Cosmological Implications}{10}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Observational Anchors}{10}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Parent Mass Estimate}{10}{subsection.6.2}%
-\contentsline {section}{\numberline {7}Dynamics: Time Mapping and the Heat Death}{10}{section.7}%
-\contentsline {subsection}{\numberline {7.1}The Time Mapping Derivation}{11}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Multi-Era Accounting}{11}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Predicted Value of $\epsilon =|1+w|$}{11}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}The Endpoint: Asymptotic Heat Death}{11}{subsection.7.4}%
-\contentsline {section}{\numberline {8}The Infinite Hierarchy}{11}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Impedance Matching}{12}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Piecewise Arrows of Time}{12}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}No Global Time Paradox}{12}{subsection.8.3}%
-\contentsline {section}{\numberline {9}Conclusion}{12}{section.9}%
+\contentsline {subsection}{\numberline {5.6}Boundary-condition imprint: an expected dipolar power modulation}{10}{subsection.5.6}%
+\contentsline {paragraph}{Key observation: the lowest nontrivial mode of a bounded domain is a dipole.}{10}{section*.23}%
+\contentsline {paragraph}{Why symmetry is not exact.}{10}{section*.24}%
+\contentsline {paragraph}{From a boundary dipole to a CMB power dipole.}{10}{section*.25}%
+\contentsline {paragraph}{Scale dependence (why the effect is largest at low multipoles).}{11}{section*.26}%
+\contentsline {paragraph}{Interpretation and limits.}{11}{section*.27}%
+\contentsline {section}{\numberline {6}Cosmological Implications}{11}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Observational Anchors}{11}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Parent Mass Estimate}{11}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}The Hubble tension as window drift (operational $H_0$)}{12}{subsection.6.3}%
+\contentsline {paragraph}{Two inferred $H_0$'s from one history.}{12}{section*.28}%
+\contentsline {paragraph}{Why the drift turns on late.}{12}{section*.29}%
+\contentsline {paragraph}{A clean discriminator: standard sirens.}{12}{section*.30}%
+\contentsline {paragraph}{Phenomenological target and falsification.}{12}{section*.31}%
+\contentsline {section}{\numberline {7}Dynamics: Time Mapping and the Heat Death}{13}{section.7}%
+\contentsline {subsection}{\numberline {7.1}The Time Mapping Derivation}{13}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Multi-Era Accounting}{13}{subsection.7.2}%
+\contentsline {paragraph}{Meaning of $\mathcal {N}\to 1$ (and what it is \emph {not}).}{13}{section*.32}%
+\contentsline {subsection}{\numberline {7.3}Predicted Value of $\epsilon =|1+w|$}{14}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}The Endpoint: Asymptotic Heat Death}{14}{subsection.7.4}%
+\contentsline {section}{\numberline {8}The Infinite Hierarchy}{14}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Impedance Matching}{14}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Piecewise Arrows of Time}{14}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}No Global Time Paradox}{15}{subsection.8.3}%
+\contentsline {section}{\numberline {9}Conclusion}{15}{section.9}%
